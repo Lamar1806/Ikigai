@@ -19,8 +19,10 @@
     "sync-symlink": "nx run eden:ensure-symlink",
     "sync": "yarn sync-deps && yarn sync-symlink",
     "pod-install": "nx run eden:pod-install",
-    "clean": "rm -rf node_modules && rm -rf **/ios/Pods && rm -rf **/ios/build",
-    "install": "yarn install && npx pod-install",
+    "clear-pod": "cd ./ios && pod cache clean --all",
+    "clear-all-pods": "cd ./ios && rm -rf ~/Library/Caches/CocoaPods && rm -rf ~/.cocoapods/repos",
+    "clean": "rm -rf node_modules && rm -rf ./ios/Pods && rm -rf ./ios/build",
+    "update": "yarn install && cd ./ios && pod install",
     "postinstall": "npx react-native link",
     "refresh": "yarn clean && yarn install"
   },
@@ -30,6 +32,10 @@
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "@react-navigation/native": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
+    "@react-navigation/native-stack": "*"
   }
 }
