@@ -1,0 +1,35 @@
+{
+  "name": "eden",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "nx run eden:serve",
+    "android-build": "nx run eden:build-android",
+    "ios-build": "nx run eden:build-ios",
+    "build": "yarn android-build && yarn ios-build",
+    "bundle-ios": "nx run eden:bundle-ios",
+    "bundle-android": "nx run eden:bundle-android",
+    "bundle": "yarn bundle-ios && yarn bundle-android",
+    "android": "nx run eden:run-android",
+    "ios": "nx run eden:run-ios",
+    "start": "nx run eden:start",
+    "lint": "nx run eden:lint",
+    "test": "nx run eden:test",
+    "sync-deps": "nx run eden:sync-deps",
+    "sync-symlink": "nx run eden:ensure-symlink",
+    "sync": "yarn sync-deps && yarn sync-symlink",
+    "pod-install": "nx run eden:pod-install",
+    "clean": "rm -rf node_modules && rm -rf **/ios/Pods && rm -rf **/ios/build",
+    "install": "yarn install && npx pod-install",
+    "postinstall": "npx react-native link",
+    "refresh": "yarn clean && yarn install"
+  },
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "metro-config": "*"
+  }
+}
