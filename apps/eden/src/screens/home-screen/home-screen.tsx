@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 /* eslint-disable-next-line */
 export interface HomeScreenProps {}
 
-export function HomeScreen(props: HomeScreenProps) {
+export function HomeScreen({ navigation }) {
   return (
     <View>
-      <Text>Welcome to HomeScreen!</Text>
+      <Text>Welcome to HomeScreens!</Text>
     </View>
   );
 }
