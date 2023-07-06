@@ -8,7 +8,7 @@ export interface LoginProps {}
 export function Login({ navigation }) {
   return (
     <View>
-      <Text>Welcome to login!</Text>
+      <Text>Welcome To Eden</Text>
       <ImageFullBg />
       <Button title="Go To" onPress={() => navigation.navigate('Counter')} />
     </View>
