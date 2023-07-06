@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { StyleSheet, Text as TextNative, TextStyle } from 'react-native';
 
 /* eslint-disable-next-line */
-export interface TextProps {}
+export interface TextProps {
+  text: string;
+  style?: TextStyle;
+}
 
-export function Text(props: TextProps) {
+export function Text({ text, style }) {
   return (
-    <View>
-      <Text>Welcome to text!</Text>
-    </View>
+    <>
+      <TextNative style={{ ...textStyle, ...style }}>{text}</TextNative>
+    </>
   );
 }
+
+const textStyle = StyleSheet.create({
+  text: {},
+});
 
 export default Text;

@@ -10,7 +10,8 @@ export function Login({ navigation }) {
     <View>
       <Text>Welcome To Eden</Text>
       <ImageFullBg />
-      <Button title="Go To" onPress={() => navigation.navigate('Counter')} />
+      <Button title="Log In" onPress={() => navigation.navigate('Home')} />
+      <Button title="Sign Out" onPress={() => navigation.navigate('Home')} />
     </View>
   );
 }
