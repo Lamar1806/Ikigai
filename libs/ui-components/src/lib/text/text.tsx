@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { StyleSheet, Text as TextNative, TextStyle } from 'react-native';
 
 /* eslint-disable-next-line */
 export interface TextProps {
-  text: string;
   style?: TextStyle;
+  children: ReactElement;
 }
 
-export function Text({ text, style }) {
+export function Text({ text, style, children }) {
   return (
     <>
-      <TextNative style={{ ...textStyle, ...style }}>{text}</TextNative>
+      <TextNative style={{ ...textStyle, ...style }}>{children}</TextNative>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ImageFullBg } from '@ikigai/ui-components';
-import { View, Text, Button } from 'react-native';
+import { ImageFullBg, Text } from '@ikigai/ui-components';
+import { View, Button } from 'react-native';
 
 /* eslint-disable-next-line */
 export interface LoginProps {}
