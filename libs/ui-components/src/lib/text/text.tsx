@@ -1,22 +1,26 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 
-import { StyleSheet, Text as TextNative, TextStyle } from 'react-native';
+import {
+  StyleSheet,
+  Text as TextNative,
+  TextProps as TextNativeProps,
+} from 'react-native';
 
 /* eslint-disable-next-line */
-export interface TextProps {
-  style?: TextStyle;
-  children: ReactElement;
+export interface TextProps extends TextNativeProps {
+  style?: TextNativeProps['style'];
 }
 
-export function Text({ text, style, children }) {
+export const Text: FC<TextProps> = ({ style, children, ...rest }) => {
+  const combinedStyle = StyleSheet.flatten([styles.text, style]);
   return (
-    <>
-      <TextNative style={{ ...textStyle, ...style }}>{children}</TextNative>
-    </>
+    <TextNative style={combinedStyle} {...rest}>
+      {children}
+    </TextNative>
   );
-}
+};
 
-const textStyle = StyleSheet.create({
+const styles = StyleSheet.create({
   text: {},
 });
 

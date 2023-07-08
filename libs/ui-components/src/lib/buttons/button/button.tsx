@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { View, Text } from 'react-native';
+import { Button as ButtonNative } from 'react-native';
+import { ButtonProps as ButtonNativeProps } from 'react-native/Libraries/Components/Button';
 
-/* eslint-disable-next-line */
-export interface ButtonProps {}
-
-export function Button(props: ButtonProps) {
-  return (
-    <View>
-      <Text>Welcome to button!</Text>
-    </View>
-  );
-}
+export const Button: FC<ButtonNativeProps> = ({ title, onPress, ...rest }) => {
+  return <ButtonNative title={title} onPress={onPress} {...rest} />;
+};
 
 export default Button;

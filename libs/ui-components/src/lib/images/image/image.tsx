@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { View, Text } from 'react-native';
+import {
+  Image as ImageNative,
+  ImageProps as ImageNativeProps,
+  StyleSheet,
+} from 'react-native';
 
 /* eslint-disable-next-line */
-export interface ImageProps {}
-
-export function Image(props: ImageProps) {
-  return (
-    <View>
-      <Text>Welcome to image!</Text>
-    </View>
-  );
+interface ImageProps extends ImageNativeProps {
+  style: ImageNativeProps['style'];
 }
+
+export const Image: FC<ImageProps> = ({ style, ...rest }) => {
+  const combinedStyles = StyleSheet.flatten([styles.image, style]);
+  return <ImageNative style={combinedStyles} {...rest} />;
+};
+
+const styles = StyleSheet.create({
+  image: {},
+});
 
 export default Image;

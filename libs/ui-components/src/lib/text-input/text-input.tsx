@@ -1,21 +1,23 @@
 import React, { FC } from 'react';
 
-import { View, TextInput as TextInputNative, StyleSheet } from 'react-native';
+import {
+  TextInput as TextInputNative,
+  StyleSheet,
+  TextStyle,
+  TextInputProps as TextInputNativeProps,
+} from 'react-native';
 
-/* eslint-disable-next-line */
-export interface TextInputProps {
-  value: string;
-  onChangeText: (value: string) => void;
+export interface TextInputProps extends TextInputNativeProps {
+  style: TextStyle;
 }
 
-export const TextInput: FC<TextInputProps> = ({ value, onChangeText }) => {
-  return (
-    <>
-      <TextInputNative value={value} onChangeText={onChangeText} />
-    </>
-  );
+export const TextInput: FC<TextInputProps> = ({ style, ...rest }) => {
+  const combinedStyle = StyleSheet.flatten([styles.textInput, style]);
+  return <TextInputNative {...rest} style={combinedStyle} />;
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textInput: {},
+});
 
 export default TextInput;
