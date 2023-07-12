@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:14.17-browsers
+      - image: cimg/node:20.3.1-browsers
     environment:
       MAIN_BRANCH_NAME: master
     steps:
