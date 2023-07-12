@@ -1,0 +1,6 @@
+{
+  "name": "@ikigai/workspace-extensions",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "generators": "./generators.json"
+}

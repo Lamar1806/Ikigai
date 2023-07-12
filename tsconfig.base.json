@@ -17,7 +17,10 @@
     "paths": {
       "@ikigai/services": ["libs/services/src/index.ts"],
       "@ikigai/ui-components": ["libs/ui-components/src/index.ts"],
-      "@ikigai/utils": ["libs/utils/src/index.ts"]
+      "@ikigai/utils": ["libs/utils/src/index.ts"],
+      "@ikigai/workspace-extensions": [
+        "libs/tooling/workspace-extensions/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

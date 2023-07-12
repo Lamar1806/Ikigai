@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "react-native-component": {
+      "factory": "./src/generators/react-native-component/generator",
+      "schema": "./src/generators/react-native-component/schema.json",
+      "description": "react-native-component generator"
+    }
+  }
+}
