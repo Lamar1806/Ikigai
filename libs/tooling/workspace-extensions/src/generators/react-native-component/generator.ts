@@ -13,7 +13,7 @@ export async function reactNativeComponentGenerator(
 ) {
   type decideProjectRootType = (
     options: ReactNativeComponentGeneratorSchema
-  ) => string;
+  ) => string | 'null';
   const decideProjectRoot: decideProjectRootType = ({
     project: selectedProject,
     name: selectedName,
@@ -36,8 +36,12 @@ export async function reactNativeComponentGenerator(
       return `${sourceRoot}/${selectedName}`;
     }
     if (projectType === 'application') {
-      return `${sourceRoot}/components/${selectedName}`;
+      if (selectedPath) {
+        return `${sourceRoot}/${selectedPath}/${selectedName}`;
+      }
+      return `${sourceRoot}/${selectedName}`;
     }
+    return 'null';
   };
 
   const projectRoot = decideProjectRoot(options);
