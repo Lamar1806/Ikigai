@@ -1,53 +1,31 @@
-import {
-  formatFiles,
-  generateFiles,
-  Tree,
-  readProjectConfiguration,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, Tree } from '@nx/devkit';
 import * as path from 'path';
 import { ReactNativeComponentGeneratorSchema } from './schema';
+import {
+  decideNewComponentPath,
+  camelToPascalCase,
+  addGeneratedFileToIndex,
+} from '../../utils/utils';
 
 export async function reactNativeComponentGenerator(
   tree: Tree,
   options: ReactNativeComponentGeneratorSchema
 ) {
-  type decideProjectRootType = (
-    options: ReactNativeComponentGeneratorSchema
-  ) => string | 'null';
-  const decideProjectRoot: decideProjectRootType = ({
-    project: selectedProject,
-    name: selectedName,
-    path: selectedPath,
-  }) => {
-    const { projectType, sourceRoot } = readProjectConfiguration(
-      tree,
-      selectedProject
-    );
+  const componentPath = decideNewComponentPath({ tree, options });
+  const pascalName = camelToPascalCase(options.name);
 
-    console.log('selectedProject: ', selectedProject);
-    console.log('projectType: ', projectType);
-    console.log('selectedPath: ', selectedPath);
-    console.log('selectedName: ', selectedName);
+  generateFiles(tree, path.join(__dirname, 'files'), componentPath, {
+    ...{ ...options, name: pascalName },
+  });
 
-    if (projectType === 'library') {
-      if (selectedPath) {
-        return `${sourceRoot}/${selectedPath}/${selectedName}`;
-      }
-      return `${sourceRoot}/${selectedName}`;
-    }
-    if (projectType === 'application') {
-      if (selectedPath) {
-        return `${sourceRoot}/${selectedPath}/${selectedName}`;
-      }
-      return `${sourceRoot}/${selectedName}`;
-    }
-    return 'null';
-  };
-
-  const projectRoot = decideProjectRoot(options);
-
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
   await formatFiles(tree);
+
+  addGeneratedFileToIndex({
+    tree,
+    options,
+    pascalName,
+    generatedFilePath: componentPath,
+  });
 }
 
 export default reactNativeComponentGenerator;

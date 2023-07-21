@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import View from './view';
+import { View } from './View';
 
 describe('View', () => {
   it('should render successfully', () => {

@@ -18,7 +18,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui-components/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/ui-components/**/*.ts",
+          "libs/ui-components/**/*.tsx"
+        ]
       }
     },
     "test": {

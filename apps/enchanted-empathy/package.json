@@ -1,0 +1,43 @@
+{
+  "name": "enchanted-empathy",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "nx run enchanted-empathy:serve",
+    "start": "nx run enchanted-empathy:start",
+    "build": "yarn android-build && yarn ios-build",
+    "android-build": "nx run enchanted-empathy:build-android",
+    "ios-build": "nx run enchanted-empathy:build-ios",
+    "bundle": "yarn bundle-ios && yarn bundle-android",
+    "bundle-ios": "nx run enchanted-empathy:bundle-ios",
+    "bundle-android": "nx run enchanted-empathy:bundle-android",
+    "android": "nx run enchanted-empathy:run-android",
+    "ios": "nx run enchanted-empathy:run-ios",
+    "lint": "nx run enchanted-empathy:lint",
+    "test": "nx run enchanted-empathy:test",
+    "sync": "yarn sync-deps && yarn sync-symlink",
+    "sync-deps": "nx run enchanted-empathy:sync-deps",
+    "sync-symlink": "nx run enchanted-empathy:ensure-symlink",
+    "pod-install": "nx run enchanted-empathy:pod-install",
+    "clear-pod": "cd ./ios && pod cache clean --all",
+    "clear-all-pods": "cd ./ios && rm -rf ~/Library/Caches/CocoaPods ~/.cocoapods/repos",
+    "update": "yarn install && cd ./ios && pod install",
+    "postinstall": "npx react-native link",
+    "clean": "yarn cache clean && rm -rf ./node_modules ./ios/Pods ./ios/build && yarn sync && yarn pod-install"
+  },
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "metro-config": "*",
+    "@react-navigation/native": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
+    "@react-navigation/native-stack": "*",
+    "react-redux": "*",
+    "@reduxjs/toolkit": "*",
+    "styled-components": "*"
+  }
+}

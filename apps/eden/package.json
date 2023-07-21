@@ -21,7 +21,7 @@
     "pod-install": "nx run eden:pod-install",
     "clear-pod": "cd ./ios && pod cache clean --all",
     "clear-all-pods": "cd ./ios && rm -rf ~/Library/Caches/CocoaPods && rm -rf ~/.cocoapods/repos",
-    "clean": "rm -rf node_modules && rm -rf ./ios/Pods && rm -rf ./ios/build",
+    "clean": "yarn cache clean && -rf node_modules && rm -rf ./ios/Pods && rm -rf ./ios/build",
     "update": "yarn install && cd ./ios && pod install",
     "postinstall": "npx react-native link",
     "refresh": "yarn clean && yarn install"
@@ -38,6 +38,7 @@
     "react-native-screens": "*",
     "@react-navigation/native-stack": "*",
     "react-redux": "*",
-    "@reduxjs/toolkit": "*"
+    "@reduxjs/toolkit": "*",
+    "styled-components": "*"
   }
 }

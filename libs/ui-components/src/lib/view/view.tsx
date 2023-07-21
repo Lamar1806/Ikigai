@@ -23,5 +23,3 @@ export const View: FC<ViewProps> = ({ style, children, ...rest }) => {
 const styles = StyleSheet.create({
   view: {},
 });
-
-export default View;

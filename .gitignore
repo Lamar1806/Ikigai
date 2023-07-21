@@ -182,3 +182,5 @@ yarn-error.log
 
 
 apps/test-routing-e2e/artifacts
+apps/enchanted-e2e/artifacts
+apps/enchanted-empathy-e2e/artifacts
