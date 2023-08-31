@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ReactNativeComponent",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The project where the component will be located.",
+      "x-prompt": "Which project will this component be locked in?",
+      "x-dropdown": "projects"
+    },
+    "path": {
+      "type": "string",
+      "description": "Relative path where the item will be generated",
+      "x-prompt": "What is the path where you'd like this item generated?"
+    }
+  },
+  "required": ["name", "project"]
+}
