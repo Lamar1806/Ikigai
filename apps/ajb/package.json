@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve ajb",
-    "build": "nx build",
+    "build": "nx build && mv ../../dist/apps/ajb dist",
     "lint": "nx lint",
     "test": "nx test",
     "e2e": "nx e2e"
