@@ -23,5 +23,3 @@ export const Text: FC<TextProps> = ({ style, children, ...rest }) => {
 const styles = StyleSheet.create({
   text: {},
 });
-
-export default Text;

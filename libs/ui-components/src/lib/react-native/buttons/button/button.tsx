@@ -6,5 +6,3 @@ import { ButtonProps as ButtonNativeProps } from 'react-native/Libraries/Compone
 export const Button: FC<ButtonNativeProps> = ({ title, onPress, ...rest }) => {
   return <ButtonNative title={title} onPress={onPress} {...rest} />;
 };
-
-export default Button;
