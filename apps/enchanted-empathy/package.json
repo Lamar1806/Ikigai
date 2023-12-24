@@ -38,6 +38,7 @@
     "@react-navigation/native-stack": "*",
     "react-redux": "*",
     "@reduxjs/toolkit": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "react-native-linear-gradient": "*"
   }
 }
