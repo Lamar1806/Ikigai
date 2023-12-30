@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ikigai/assets": ["libs/assets/assets"],
       "@ikigai/services": ["libs/services/src/index.ts"],
       "@ikigai/ui-components": ["libs/ui-components/src/index.ts"],
       "@ikigai/utils": ["libs/utils/src/index.ts"],

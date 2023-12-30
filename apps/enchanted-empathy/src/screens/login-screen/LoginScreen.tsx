@@ -3,6 +3,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import BackgroundImage from '@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg';
 
 export interface LoginScreenProps {
   navigation: any;
@@ -46,10 +47,7 @@ export const LoginScreen: FC<LoginScreenProps> = () => {
   return (
     <View style={styles.container}>
       {/* Background Picture with Black Overlay */}
-      <Image
-        source={require('./path-to-your-background-image.jpg')}
-        style={styles.backgroundImage}
-      />
+      <Image source={BackgroundImage} style={styles.backgroundImage} />
       <LinearGradient
         colors={['rgba(0,0,0,0.9)', 'rgba(0,0,0,0)']}
         style={styles.overlay}
@@ -62,10 +60,10 @@ export const LoginScreen: FC<LoginScreenProps> = () => {
       <CustomButton text="Sign Up" onPress={handleButtonClick} />
 
       {/* Google Login Icon */}
-      <CustomIcon source={require('./path-to-your-google-icon.png')} />
+      {/* <CustomIcon source={require('./path-to-your-google-icon.png')} /> */}
 
       {/* Apple Login Icon */}
-      <CustomIcon source={require('./path-to-your-apple-icon.png')} />
+      {/* <CustomIcon source={require('./path-to-your-apple-icon.png')} /> */}
     </View>
   );
 };

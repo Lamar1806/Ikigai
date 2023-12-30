@@ -184,3 +184,20 @@ yarn-error.log
 apps/test-routing-e2e/artifacts
 apps/enchanted-e2e/artifacts
 apps/enchanted-empathy-e2e/artifacts
+
+
+# React Native - adjust paths accordingly
+**/ios/Pods/
+**/android/build/
+**/ios/build/
+**/ios/*.xcworkspace/
+**/ios/*.xcodeproj/
+ios/Pods/
+android/build/
+
+
+# Nx-specific paths
+apps/eden-e2e/artifacts
+apps/test-routing-e2e/artifacts
+apps/enchanted-e2e/artifacts
+apps/enchanted-empathy-e2e/artifacts
