@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import BackgroundImage from '@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg';
+import { NavigationProps } from '../types';
 
 interface CustomButtonProps {
   text: string;
@@ -29,10 +30,10 @@ const CustomIcon: FC<CustomIconProps> = ({ source }) => {
 };
 
 export interface SignupOrLoginScreenProps {
-  navigation: any;
+  navigation: ;
 }
 
-export const SignupOrLoginScreen: FC<SignupOrLoginScreenProps> = ({
+export const SignupOrLoginScreen: FC<NavigationProps<'Login' | 'Signup'>> = ({
   navigation,
 }) => {
   const handleSignInClick = () => {
