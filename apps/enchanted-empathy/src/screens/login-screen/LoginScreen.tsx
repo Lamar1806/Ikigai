@@ -1,7 +1,12 @@
-// import React, { FC } from 'react';
-// import { StyleSheet, Text, View, Button } from '@ikigai/ui-components';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import React, { FC, useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import BackgroundImage from '@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg';
 
@@ -9,39 +14,13 @@ export interface LoginScreenProps {
   navigation: any;
 }
 
-interface CustomButtonProps {
-  text: string;
-  onPress: () => void;
-}
+export const LoginScreen: FC<LoginScreenProps> = ({ navigation }) => {
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
 
-const CustomButton: FC<CustomButtonProps> = ({ text, onPress }) => {
-  return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <LinearGradient
-        colors={['transparent', 'transparent']}
-        style={styles.gradient}
-      />
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
-  );
-};
-
-interface CustomIconProps {
-  source: any;
-}
-
-const CustomIcon: FC<CustomIconProps> = ({ source }) => {
-  return <Image source={source} style={styles.icon} />;
-};
-
-export interface LoginScreenProps {
-  navigation: any;
-}
-
-export const LoginScreen: FC<LoginScreenProps> = () => {
-  const handleButtonClick = () => {
-    // Add your navigation logic here
-    console.log('Button Clicked');
+  const handleLogin = () => {
+    // Add your login logic here
+    console.log('Login Clicked');
   };
 
   return (
@@ -53,17 +32,36 @@ export const LoginScreen: FC<LoginScreenProps> = () => {
         style={styles.overlay}
       />
 
-      {/* Sign In Button */}
-      <CustomButton text="Sign In" onPress={handleButtonClick} />
+      {/* Enchanted Empathy Header */}
+      <Text style={styles.header}>Enchanted Empathy</Text>
 
-      {/* Sign Up Button */}
-      <CustomButton text="Sign Up" onPress={handleButtonClick} />
+      {/* Login Input */}
+      <TextInput
+        style={styles.input}
+        placeholder="Login"
+        placeholderTextColor="white"
+        value={login}
+        onChangeText={(text) => setLogin(text)}
+      />
 
-      {/* Google Login Icon */}
-      {/* <CustomIcon source={require('./path-to-your-google-icon.png')} /> */}
+      {/* Password Input */}
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        placeholderTextColor="white"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />
 
-      {/* Apple Login Icon */}
-      {/* <CustomIcon source={require('./path-to-your-apple-icon.png')} /> */}
+      {/* Login Button */}
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <LinearGradient
+          colors={['transparent', 'transparent']}
+          style={styles.gradient}
+        />
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -82,6 +80,22 @@ const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
   },
+  header: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    width: 200,
+    height: 40,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    marginBottom: 15,
+    color: 'white',
+  },
   button: {
     width: 200,
     height: 60,
@@ -99,11 +113,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-  },
-  icon: {
-    width: 30,
-    height: 30,
-    marginVertical: 10,
   },
 });
 
