@@ -9,18 +9,14 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import BackgroundImage from '@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg';
+import { NavigationProps } from '../types';
 
-export interface LoginScreenProps {
-  navigation: any;
-}
-
-export const LoginScreen: FC<LoginScreenProps> = ({ navigation }) => {
+export const LoginScreen: FC<NavigationProps<'Home'>> = ({ navigation }) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Add your login logic here
-    console.log('Login Clicked');
+    return navigation.navigate('Home');
   };
 
   return (
