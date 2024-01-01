@@ -8,7 +8,8 @@ import { Counter } from './screens/counter/counter';
 import store from './state/store.js';
 import { Provider } from 'react-redux';
 import { SignupOrLoginScreen } from './screens/login-or-signup/login-or-signup';
-import { LoginScreen } from './screens/login-screen';
+import { LoginScreen } from './screens/login-screen/LoginScreen';
+import { SignupScreen } from './screens/signup-screen/signup-screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,12 +23,12 @@ const App = () => {
             component={SignupOrLoginScreen}
           />
           <Stack.Screen name="Login" component={LoginScreen} />
-          {/* <Stack.Screen name="Signup" components={Signup} /> */}
-          {/* <Stack.Screen name="Profile" components={Profile} /> */}
-          {/* <Stack.Screen name="Settings" components={Settings} /> */}
-          {/* <Stack.Screen name="Profile" components={Profile} /> */}
-          {/* <Stack.Screen name="ChatList" components={ChatList} /> */}
-          {/* <Stack.Screen name="ChatView" components={ChatView} /> */}
+          <Stack.Screen name="SignupScreen" component={SignupScreen} />
+          {/* <Stack.Screen name="Profile" component={Profile} /> */}
+          {/* <Stack.Screen name="Settings" component={Settings} /> */}
+          {/* <Stack.Screen name="Profile" component={Profile} /> */}
+          {/* <Stack.Screen name="ChatList" component={ChatList} /> */}
+          {/* <Stack.Screen name="ChatView" component={ChatView} /> */}
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Counter" component={Counter} />
         </Stack.Navigator>

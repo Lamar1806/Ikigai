@@ -29,10 +29,6 @@ const CustomIcon: FC<CustomIconProps> = ({ source }) => {
   return <Image source={source} style={styles.icon} />;
 };
 
-export interface SignupOrLoginScreenProps {
-  navigation: ;
-}
-
 export const SignupOrLoginScreen: FC<NavigationProps<'Login' | 'Signup'>> = ({
   navigation,
 }) => {
