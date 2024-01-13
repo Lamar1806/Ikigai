@@ -39,6 +39,8 @@
     "react-redux": "*",
     "@reduxjs/toolkit": "*",
     "styled-components": "*",
-    "react-native-linear-gradient": "*"
+    "react-native-linear-gradient": "*",
+    "react-native-contacts": "*",
+    "react-native-share": "*"
   }
 }

@@ -331,6 +331,8 @@ PODS:
   - React-jsinspector (0.71.10)
   - React-logger (0.71.10):
     - glog
+  - react-native-contacts (7.0.8):
+    - React-Core
   - react-native-safe-area-context (4.6.4):
     - RCT-Folly
     - RCTRequired
@@ -424,6 +426,8 @@ PODS:
   - RNScreens (3.19.0):
     - React-Core
     - React-RCTImage
+  - RNShare (10.0.2):
+    - React-Core
   - RNSVG (13.9.0):
     - React-Core
   - SocketRocket (0.6.1)
@@ -478,6 +482,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-contacts (from `../node_modules/react-native-contacts`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -493,6 +498,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNShare (from `../node_modules/react-native-share`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -557,6 +563,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-contacts:
+    :path: "../node_modules/react-native-contacts"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -587,6 +595,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNShare:
+    :path: "../node_modules/react-native-share"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -627,6 +637,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 4bb480a183a354e4dbfb1012936b1a2bb9357de7
   React-jsinspector: cdc854f8b13abd202afa54bc12578e5afb9cfae1
   React-logger: ef2269b3afa6ba868da90496c3e17a4ec4f4cee0
+  react-native-contacts: cb4f3b823550adbce0802901b9e63bf1526ec0af
   react-native-safe-area-context: 68b07eabfb0d14547d36f6929c0e98d818064f02
   React-perflogger: 217095464d5c4bb70df0742fa86bf2a363693468
   React-RCTActionSheet: 8deae9b85a4cbc6a2243618ea62a374880a2c614
@@ -642,6 +653,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: a9a1cd79996c9a0846e3232ecb25c64e1cc0172e
   ReactCommon: 65718685d4095d06b4b1af8042e12f1df2925c31
   RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
+  RNShare: 859ff710211285676b0bcedd156c12437ea1d564
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: e7ea9e590e27460d28911403b894722354d73479
