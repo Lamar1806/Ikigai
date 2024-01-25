@@ -3,6 +3,8 @@ import counterReducer from './slices/counter'
 
 export default configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    friends: friendsReducer,
+    messages: messagesReducer,
   }
 })
