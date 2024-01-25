@@ -1,25 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
-import { InviteContacts } from '../../components/contacts/contacts';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SocialShare } from '../../components/social-share/social-share';
+import { Modal, PaperProvider, Portal, Button } from 'react-native-paper';
 
 export const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Enchanted Messaging</Text>
+    <PaperProvider>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Enchanted Messaging</Text>
+        </View>
+        <View style={styles.emptySection}>
+          <Text style={styles.emptyText}>Start a magical conversation!</Text>
+          <SocialShare
+            style={styles.inviteButton}
+            textStyle={styles.buttonText}
+            text={'Invite Friends'}
+          />
+        </View>
       </View>
-      <View style={styles.emptySection}>
-        <Text style={styles.emptyText}>Start a magical conversation!</Text>
-        <TouchableOpacity style={styles.inviteButton}>
-          <Text style={styles.buttonText}>Invite Friends</Text>
-        </TouchableOpacity>
-
-        {/* <InviteContacts></InviteContacts> */}
-        <SocialShare></SocialShare>
-      </View>
-      {/* Additional sections or components can be added here */}
-    </View>
+    </PaperProvider>
   );
 };
 

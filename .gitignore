@@ -201,3 +201,7 @@ apps/eden-e2e/artifacts
 apps/test-routing-e2e/artifacts
 apps/enchanted-e2e/artifacts
 apps/enchanted-empathy-e2e/artifacts
+
+# Nx-cache
+.nx/cache/file-map.json
+.nx/cache/project-graph.json

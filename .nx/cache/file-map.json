@@ -93,50 +93,138 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
-    "services": [
+    "assets": [
       {
-        "file": "libs/services/.eslintrc.json",
+        "file": "libs/assets/.eslintrc.json",
         "hash": "13800677001662881425"
       },
       {
-        "file": "libs/services/README.md",
-        "hash": "3787425301963138422"
+        "file": "libs/assets/README.md",
+        "hash": "14400355702647238831"
       },
       {
-        "file": "libs/services/jest.config.ts",
-        "hash": "16020791029813649370"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-100(-xhdpi).png",
+        "hash": "9266017091563597143"
       },
       {
-        "file": "libs/services/package.json",
-        "hash": "546871388272304668"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-150(-xxhdpi).png",
+        "hash": "4365090919107450616"
       },
       {
-        "file": "libs/services/project.json",
-        "hash": "15877819164790188302"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-200(-xxxhdpi).png",
+        "hash": "10949775939702295092"
       },
       {
-        "file": "libs/services/src/index.ts",
-        "hash": "5048797096905419464"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-38(-ldpi).png",
+        "hash": "6838591325800182663"
       },
       {
-        "file": "libs/services/src/lib/services.spec.ts",
-        "hash": "14195356880662025677"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-50(-mdpi).png",
+        "hash": "14220679831142572359"
       },
       {
-        "file": "libs/services/src/lib/services.ts",
-        "hash": "10346528241049533398"
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-75(-hdpi).png",
+        "hash": "7441433958644242533"
       },
       {
-        "file": "libs/services/tsconfig.json",
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-100(@2×).png",
+        "hash": "9266017091563597143"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-150(@3×).png",
+        "hash": "4365090919107450616"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-50(@1×).png",
+        "hash": "14220679831142572359"
+      },
+      {
+        "file": "libs/assets/assets/images/pexels-gabriel-conchinhas-5650817.jpg",
+        "hash": "13154247144754084457"
+      },
+      {
+        "file": "libs/assets/assets/images/pexels-lina-kivaka-1813466.jpg",
+        "hash": "2735945550546023858"
+      },
+      {
+        "file": "libs/assets/jest.config.ts",
+        "hash": "2929894248829946603"
+      },
+      {
+        "file": "libs/assets/package.json",
+        "hash": "2963640563104194084"
+      },
+      {
+        "file": "libs/assets/project.json",
+        "hash": "17246091172404211491"
+      },
+      {
+        "file": "libs/assets/src/index.ts",
+        "hash": "16995474028744690197"
+      },
+      {
+        "file": "libs/assets/src/lib/assets.spec.ts",
+        "hash": "7254474391034658790"
+      },
+      {
+        "file": "libs/assets/src/lib/assets.ts",
+        "hash": "13896967798292363039"
+      },
+      {
+        "file": "libs/assets/tsconfig.json",
         "hash": "5840880287502376438"
       },
       {
-        "file": "libs/services/tsconfig.lib.json",
+        "file": "libs/assets/tsconfig.lib.json",
         "hash": "3632393694954060084"
       },
       {
-        "file": "libs/services/tsconfig.spec.json",
+        "file": "libs/assets/tsconfig.spec.json",
         "hash": "11550347367511341917"
+      }
+    ],
+    "eden-e2e": [
+      {
+        "file": "apps/eden-e2e/.babelrc",
+        "hash": "13020124393823981135"
+      },
+      {
+        "file": "apps/eden-e2e/.detoxrc.json",
+        "hash": "4346442618454954784"
+      },
+      {
+        "file": "apps/eden-e2e/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "apps/eden-e2e/jest.config.json",
+        "hash": "11702916847232307440"
+      },
+      {
+        "file": "apps/eden-e2e/project.json",
+        "hash": "603281115819728556"
+      },
+      {
+        "file": "apps/eden-e2e/src/app.spec.ts",
+        "hash": "8924695130312899901",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/eden-e2e/test-setup.ts",
+        "hash": "891269836898640451",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/eden-e2e/tsconfig.e2e.json",
+        "hash": "11142322477626239235"
+      },
+      {
+        "file": "apps/eden-e2e/tsconfig.json",
+        "hash": "4500232260948002331"
       }
     ],
     "tooling-workspace-extensions": [
@@ -284,6 +372,50 @@
       {
         "file": "libs/tooling/workspace-extensions/tsconfig.spec.json",
         "hash": "9110660443763673899"
+      }
+    ],
+    "enchanted-empathy-e2e": [
+      {
+        "file": "apps/enchanted-empathy-e2e/.babelrc",
+        "hash": "13020124393823981135"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/.detoxrc.json",
+        "hash": "2208335991767182356"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/jest.config.json",
+        "hash": "11702916847232307440"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/project.json",
+        "hash": "15080537750204483168"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/src/app.spec.ts",
+        "hash": "3630406930217544639",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/test-setup.ts",
+        "hash": "891269836898640451",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/tsconfig.e2e.json",
+        "hash": "11142322477626239235"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/tsconfig.json",
+        "hash": "4500232260948002331"
       }
     ],
     "enchanted-empathy": [
@@ -554,11 +686,10 @@
       },
       {
         "file": "apps/enchanted-empathy/src/components/social-share/social-share.tsx",
-        "hash": "14989218759897149956",
+        "hash": "8358479623295467580",
         "deps": [
           "npm:react",
-          "npm:react-native",
-          "npm:react-native-share"
+          "npm:react-native"
         ]
       },
       {
@@ -619,10 +750,11 @@
       },
       {
         "file": "apps/enchanted-empathy/src/screens/home-screen/home-screen.tsx",
-        "hash": "9602391606211056791",
+        "hash": "1571880568664284701",
         "deps": [
           "npm:react",
-          "npm:react-native"
+          "npm:react-native",
+          "npm:react-native-paper"
         ]
       },
       {
@@ -732,237 +864,6 @@
         "hash": "6584001254938469617"
       }
     ],
-    "eden-e2e": [
-      {
-        "file": "apps/eden-e2e/.babelrc",
-        "hash": "13020124393823981135"
-      },
-      {
-        "file": "apps/eden-e2e/.detoxrc.json",
-        "hash": "4346442618454954784"
-      },
-      {
-        "file": "apps/eden-e2e/.eslintrc.json",
-        "hash": "11012487992710232822"
-      },
-      {
-        "file": "apps/eden-e2e/jest.config.json",
-        "hash": "11702916847232307440"
-      },
-      {
-        "file": "apps/eden-e2e/project.json",
-        "hash": "603281115819728556"
-      },
-      {
-        "file": "apps/eden-e2e/src/app.spec.ts",
-        "hash": "8924695130312899901",
-        "deps": [
-          "npm:detox"
-        ]
-      },
-      {
-        "file": "apps/eden-e2e/test-setup.ts",
-        "hash": "891269836898640451",
-        "deps": [
-          "npm:detox"
-        ]
-      },
-      {
-        "file": "apps/eden-e2e/tsconfig.e2e.json",
-        "hash": "11142322477626239235"
-      },
-      {
-        "file": "apps/eden-e2e/tsconfig.json",
-        "hash": "4500232260948002331"
-      }
-    ],
-    "ui-components": [
-      {
-        "file": "libs/ui-components/.eslintrc.json",
-        "hash": "13800677001662881425"
-      },
-      {
-        "file": "libs/ui-components/README.md",
-        "hash": "8465044553896995223"
-      },
-      {
-        "file": "libs/ui-components/jest.config.ts",
-        "hash": "2756029735514207439"
-      },
-      {
-        "file": "libs/ui-components/package.json",
-        "hash": "5865906885926330130"
-      },
-      {
-        "file": "libs/ui-components/project.json",
-        "hash": "16110373323051338774"
-      },
-      {
-        "file": "libs/ui-components/src/index.ts",
-        "hash": "11618140973684937048"
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.spec.tsx",
-        "hash": "17591669263731296165",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.tsx",
-        "hash": "16713475789796260198",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/buttons/index.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/image/image.spec.tsx",
-        "hash": "5488877259162982307",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/image/image.tsx",
-        "hash": "5421956988472135459",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.spec.tsx",
-        "hash": "11970071048094325028",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.styled.ts",
-        "hash": "15910045165182500022",
-        "deps": [
-          "npm:styled-components"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.tsx",
-        "hash": "13396813859339179388",
-        "deps": [
-          "npm:react"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/images/view-image/index.ts",
-        "hash": "13728236716384287242"
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.spec.tsx",
-        "hash": "11901376039455304814",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.tsx",
-        "hash": "13318135067630248710",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.spec.tsx",
-        "hash": "60387416039564744",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.tsx",
-        "hash": "4081698546588482063",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/text/text.spec.tsx",
-        "hash": "5580896138217710311",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/text/text.tsx",
-        "hash": "15405141256196777341",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/utils/StyleSheet.ts",
-        "hash": "18287389999873113073",
-        "deps": [
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/view/view.spec.tsx",
-        "hash": "1416208482098760011",
-        "deps": [
-          "npm:react",
-          "npm:@testing-library/react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/react-native/view/view.tsx",
-        "hash": "7236869464860014803",
-        "deps": [
-          "npm:react",
-          "npm:react-native"
-        ]
-      },
-      {
-        "file": "libs/ui-components/src/lib/theme/colors.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/ui-components/src/lib/theme/fonts.ts",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/ui-components/src/lib/ui-components.spec.ts",
-        "hash": "6521880691128958866"
-      },
-      {
-        "file": "libs/ui-components/src/lib/ui-components.ts",
-        "hash": "9502116515214805191"
-      },
-      {
-        "file": "libs/ui-components/tsconfig.json",
-        "hash": "12604366192291451303"
-      },
-      {
-        "file": "libs/ui-components/tsconfig.lib.json",
-        "hash": "1221998516278360018"
-      },
-      {
-        "file": "libs/ui-components/tsconfig.spec.json",
-        "hash": "11550347367511341917"
-      }
-    ],
     "utils": [
       {
         "file": "libs/utils/.eslintrc.json",
@@ -1007,140 +908,6 @@
       {
         "file": "libs/utils/tsconfig.spec.json",
         "hash": "11550347367511341917"
-      }
-    ],
-    "assets": [
-      {
-        "file": "libs/assets/.eslintrc.json",
-        "hash": "13800677001662881425"
-      },
-      {
-        "file": "libs/assets/README.md",
-        "hash": "14400355702647238831"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-100(-xhdpi).png",
-        "hash": "9266017091563597143"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-150(-xxhdpi).png",
-        "hash": "4365090919107450616"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-200(-xxxhdpi).png",
-        "hash": "10949775939702295092"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-38(-ldpi).png",
-        "hash": "6838591325800182663"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-50(-mdpi).png",
-        "hash": "14220679831142572359"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-75(-hdpi).png",
-        "hash": "7441433958644242533"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-100(@2×).png",
-        "hash": "9266017091563597143"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-150(@3×).png",
-        "hash": "4365090919107450616"
-      },
-      {
-        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-50(@1×).png",
-        "hash": "14220679831142572359"
-      },
-      {
-        "file": "libs/assets/assets/images/pexels-gabriel-conchinhas-5650817.jpg",
-        "hash": "13154247144754084457"
-      },
-      {
-        "file": "libs/assets/assets/images/pexels-lina-kivaka-1813466.jpg",
-        "hash": "2735945550546023858"
-      },
-      {
-        "file": "libs/assets/jest.config.ts",
-        "hash": "2929894248829946603"
-      },
-      {
-        "file": "libs/assets/package.json",
-        "hash": "2963640563104194084"
-      },
-      {
-        "file": "libs/assets/project.json",
-        "hash": "17246091172404211491"
-      },
-      {
-        "file": "libs/assets/src/index.ts",
-        "hash": "16995474028744690197"
-      },
-      {
-        "file": "libs/assets/src/lib/assets.spec.ts",
-        "hash": "7254474391034658790"
-      },
-      {
-        "file": "libs/assets/src/lib/assets.ts",
-        "hash": "13896967798292363039"
-      },
-      {
-        "file": "libs/assets/tsconfig.json",
-        "hash": "5840880287502376438"
-      },
-      {
-        "file": "libs/assets/tsconfig.lib.json",
-        "hash": "3632393694954060084"
-      },
-      {
-        "file": "libs/assets/tsconfig.spec.json",
-        "hash": "11550347367511341917"
-      }
-    ],
-    "enchanted-empathy-e2e": [
-      {
-        "file": "apps/enchanted-empathy-e2e/.babelrc",
-        "hash": "13020124393823981135"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/.detoxrc.json",
-        "hash": "2208335991767182356"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/.eslintrc.json",
-        "hash": "11012487992710232822"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/jest.config.json",
-        "hash": "11702916847232307440"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/project.json",
-        "hash": "15080537750204483168"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/src/app.spec.ts",
-        "hash": "3630406930217544639",
-        "deps": [
-          "npm:detox"
-        ]
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/test-setup.ts",
-        "hash": "891269836898640451",
-        "deps": [
-          "npm:detox"
-        ]
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/tsconfig.e2e.json",
-        "hash": "11142322477626239235"
-      },
-      {
-        "file": "apps/enchanted-empathy-e2e/tsconfig.json",
-        "hash": "4500232260948002331"
       }
     ],
     "eden": [
@@ -1578,6 +1345,239 @@
       {
         "file": "apps/eden/yarn.lock",
         "hash": "10739202724561220194"
+      }
+    ],
+    "ui-components": [
+      {
+        "file": "libs/ui-components/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/ui-components/README.md",
+        "hash": "8465044553896995223"
+      },
+      {
+        "file": "libs/ui-components/jest.config.ts",
+        "hash": "2756029735514207439"
+      },
+      {
+        "file": "libs/ui-components/package.json",
+        "hash": "5865906885926330130"
+      },
+      {
+        "file": "libs/ui-components/project.json",
+        "hash": "16110373323051338774"
+      },
+      {
+        "file": "libs/ui-components/src/index.ts",
+        "hash": "11618140973684937048"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.spec.tsx",
+        "hash": "17591669263731296165",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.tsx",
+        "hash": "16713475789796260198",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/index.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/image/image.spec.tsx",
+        "hash": "5488877259162982307",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/image/image.tsx",
+        "hash": "5421956988472135459",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.spec.tsx",
+        "hash": "11970071048094325028",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.styled.ts",
+        "hash": "15910045165182500022",
+        "deps": [
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.tsx",
+        "hash": "13396813859339179388",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/index.ts",
+        "hash": "13728236716384287242"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.spec.tsx",
+        "hash": "11901376039455304814",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.tsx",
+        "hash": "13318135067630248710",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.spec.tsx",
+        "hash": "60387416039564744",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.tsx",
+        "hash": "4081698546588482063",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text/text.spec.tsx",
+        "hash": "5580896138217710311",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text/text.tsx",
+        "hash": "15405141256196777341",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/utils/StyleSheet.ts",
+        "hash": "18287389999873113073",
+        "deps": [
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/view/view.spec.tsx",
+        "hash": "1416208482098760011",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/view/view.tsx",
+        "hash": "7236869464860014803",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/theme/colors.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/theme/fonts.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/ui-components.spec.ts",
+        "hash": "6521880691128958866"
+      },
+      {
+        "file": "libs/ui-components/src/lib/ui-components.ts",
+        "hash": "9502116515214805191"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.json",
+        "hash": "12604366192291451303"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.lib.json",
+        "hash": "1221998516278360018"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      }
+    ],
+    "services": [
+      {
+        "file": "libs/services/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/services/README.md",
+        "hash": "3787425301963138422"
+      },
+      {
+        "file": "libs/services/jest.config.ts",
+        "hash": "16020791029813649370"
+      },
+      {
+        "file": "libs/services/package.json",
+        "hash": "546871388272304668"
+      },
+      {
+        "file": "libs/services/project.json",
+        "hash": "15877819164790188302"
+      },
+      {
+        "file": "libs/services/src/index.ts",
+        "hash": "5048797096905419464"
+      },
+      {
+        "file": "libs/services/src/lib/services.spec.ts",
+        "hash": "14195356880662025677"
+      },
+      {
+        "file": "libs/services/src/lib/services.ts",
+        "hash": "10346528241049533398"
+      },
+      {
+        "file": "libs/services/tsconfig.json",
+        "hash": "5840880287502376438"
+      },
+      {
+        "file": "libs/services/tsconfig.lib.json",
+        "hash": "3632393694954060084"
+      },
+      {
+        "file": "libs/services/tsconfig.spec.json",
+        "hash": "11550347367511341917"
       }
     ]
   }

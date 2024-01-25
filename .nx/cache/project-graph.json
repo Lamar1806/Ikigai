@@ -13775,6 +13775,11 @@
         "source": "enchanted-empathy",
         "target": "npm:react-native-share",
         "type": "static"
+      },
+      {
+        "source": "enchanted-empathy",
+        "target": "npm:react-native-paper",
+        "type": "static"
       }
     ],
     "ui-components": [
