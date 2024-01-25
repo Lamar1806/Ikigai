@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+import { InviteContacts } from '../../components/contacts/contacts';
+import { SocialShare } from '../../components/social-share/social-share';
 
 export const HomeScreen = () => {
   return (
@@ -12,6 +14,9 @@ export const HomeScreen = () => {
         <TouchableOpacity style={styles.inviteButton}>
           <Text style={styles.buttonText}>Invite Friends</Text>
         </TouchableOpacity>
+
+        {/* <InviteContacts></InviteContacts> */}
+        <SocialShare></SocialShare>
       </View>
       {/* Additional sections or components can be added here */}
     </View>

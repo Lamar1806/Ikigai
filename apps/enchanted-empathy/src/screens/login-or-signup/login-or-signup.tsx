@@ -37,7 +37,7 @@ export const SignupOrLoginScreen: FC<NavigationProps<'Login' | 'Signup'>> = ({
   };
 
   const handleSignUpClick = () => {
-    return navigation.navigate('Signup');
+    return navigation.navigate('SignupScreen');
   };
 
   return (

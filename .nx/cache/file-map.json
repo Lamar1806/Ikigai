@@ -1,0 +1,1584 @@
+{
+  "version": "6.0",
+  "nxVersion": "16.4.2",
+  "deps": {
+    "@nx/devkit": "16.5.0",
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/native-stack": "^6.9.13",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@swc/helpers": "~0.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.10",
+    "react-native-contacts": "^7.0.8",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-paper": "^5.12.3",
+    "react-native-safe-area-context": "^4.6.3",
+    "react-native-screens": "3.19.0",
+    "react-native-share": "^10.0.2",
+    "react-native-vector-icons": "^10.0.3",
+    "react-redux": "^8.1.1",
+    "styled-components": "^6.0.3",
+    "tslib": "^2.3.0",
+    "@babel/preset-react": "^7.14.5",
+    "@nx/detox": "16.4.2",
+    "@nx/eslint-plugin": "16.4.2",
+    "@nx/jest": "16.5.0",
+    "@nx/js": "16.5.0",
+    "@nx/linter": "16.4.2",
+    "@nx/plugin": "^16.5.0",
+    "@nx/react": "16.4.2",
+    "@nx/react-native": "16.4.2",
+    "@nx/workspace": "16.4.2",
+    "@react-native-community/cli": "10.2.2",
+    "@react-native-community/cli-platform-android": "10.2.0",
+    "@react-native-community/cli-platform-ios": "10.2.1",
+    "@swc-node/register": "~1.4.2",
+    "@swc/cli": "~0.1.62",
+    "@swc/core": "~1.3.51",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/jest-native": "5.4.2",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/react-native": "12.1.2",
+    "@types/jest": "^29.4.0",
+    "@types/node": "18.14.4",
+    "@types/react": "18.2.13",
+    "@types/react-dom": "18.2.6",
+    "@types/react-native": "0.71.7",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "babel-jest": "^29.4.1",
+    "detox": "^20.9.0",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jest": "^29.4.1",
+    "jest-circus": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "jest-react-native": "18.0.0",
+    "metro": "0.74.1",
+    "metro-babel-register": "0.74.1",
+    "metro-react-native-babel-preset": "0.74.1",
+    "metro-react-native-babel-transformer": "0.74.1",
+    "metro-resolver": "0.74.1",
+    "nx": "16.4.2",
+    "prettier": "^2.6.2",
+    "react-native-svg": "13.9.0",
+    "react-native-svg-transformer": "1.0.0",
+    "react-test-renderer": "18.2.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
+    "typescript": "~5.1.3"
+  },
+  "pathMappings": {
+    "@ikigai/assets": [
+      "libs/assets/src/index.ts"
+    ],
+    "@ikigai/services": [
+      "libs/services/src/index.ts"
+    ],
+    "@ikigai/ui-components": [
+      "libs/ui-components/src/index.ts"
+    ],
+    "@ikigai/utils": [
+      "libs/utils/src/index.ts"
+    ],
+    "@ikigai/workspace-extensions": [
+      "libs/tooling/workspace-extensions/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "projectFileMap": {
+    "services": [
+      {
+        "file": "libs/services/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/services/README.md",
+        "hash": "3787425301963138422"
+      },
+      {
+        "file": "libs/services/jest.config.ts",
+        "hash": "16020791029813649370"
+      },
+      {
+        "file": "libs/services/package.json",
+        "hash": "546871388272304668"
+      },
+      {
+        "file": "libs/services/project.json",
+        "hash": "15877819164790188302"
+      },
+      {
+        "file": "libs/services/src/index.ts",
+        "hash": "5048797096905419464"
+      },
+      {
+        "file": "libs/services/src/lib/services.spec.ts",
+        "hash": "14195356880662025677"
+      },
+      {
+        "file": "libs/services/src/lib/services.ts",
+        "hash": "10346528241049533398"
+      },
+      {
+        "file": "libs/services/tsconfig.json",
+        "hash": "5840880287502376438"
+      },
+      {
+        "file": "libs/services/tsconfig.lib.json",
+        "hash": "3632393694954060084"
+      },
+      {
+        "file": "libs/services/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      }
+    ],
+    "utils": [
+      {
+        "file": "libs/utils/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/utils/README.md",
+        "hash": "3816604565008484386"
+      },
+      {
+        "file": "libs/utils/jest.config.ts",
+        "hash": "5669222313238020651"
+      },
+      {
+        "file": "libs/utils/package.json",
+        "hash": "456727787909298542"
+      },
+      {
+        "file": "libs/utils/project.json",
+        "hash": "1852287058035386387"
+      },
+      {
+        "file": "libs/utils/src/index.ts",
+        "hash": "5679720557803443103"
+      },
+      {
+        "file": "libs/utils/src/lib/utils.spec.ts",
+        "hash": "1869297507391227175"
+      },
+      {
+        "file": "libs/utils/src/lib/utils.ts",
+        "hash": "17287710670217841263"
+      },
+      {
+        "file": "libs/utils/tsconfig.json",
+        "hash": "5840880287502376438"
+      },
+      {
+        "file": "libs/utils/tsconfig.lib.json",
+        "hash": "3632393694954060084"
+      },
+      {
+        "file": "libs/utils/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      }
+    ],
+    "assets": [
+      {
+        "file": "libs/assets/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/assets/README.md",
+        "hash": "14400355702647238831"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-100(-xhdpi).png",
+        "hash": "9266017091563597143"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-150(-xxhdpi).png",
+        "hash": "4365090919107450616"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-200(-xxxhdpi).png",
+        "hash": "10949775939702295092"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-38(-ldpi).png",
+        "hash": "6838591325800182663"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-50(-mdpi).png",
+        "hash": "14220679831142572359"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/Android/icons8-google-75(-hdpi).png",
+        "hash": "7441433958644242533"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-100(@2×).png",
+        "hash": "9266017091563597143"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-150(@3×).png",
+        "hash": "4365090919107450616"
+      },
+      {
+        "file": "libs/assets/assets/Icons/icons8-google-ios-16-filled/iOS/icons8-google-50(@1×).png",
+        "hash": "14220679831142572359"
+      },
+      {
+        "file": "libs/assets/assets/images/pexels-gabriel-conchinhas-5650817.jpg",
+        "hash": "13154247144754084457"
+      },
+      {
+        "file": "libs/assets/assets/images/pexels-lina-kivaka-1813466.jpg",
+        "hash": "2735945550546023858"
+      },
+      {
+        "file": "libs/assets/jest.config.ts",
+        "hash": "2929894248829946603"
+      },
+      {
+        "file": "libs/assets/package.json",
+        "hash": "2963640563104194084"
+      },
+      {
+        "file": "libs/assets/project.json",
+        "hash": "17246091172404211491"
+      },
+      {
+        "file": "libs/assets/src/index.ts",
+        "hash": "16995474028744690197"
+      },
+      {
+        "file": "libs/assets/src/lib/assets.spec.ts",
+        "hash": "7254474391034658790"
+      },
+      {
+        "file": "libs/assets/src/lib/assets.ts",
+        "hash": "13896967798292363039"
+      },
+      {
+        "file": "libs/assets/tsconfig.json",
+        "hash": "5840880287502376438"
+      },
+      {
+        "file": "libs/assets/tsconfig.lib.json",
+        "hash": "3632393694954060084"
+      },
+      {
+        "file": "libs/assets/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      }
+    ],
+    "enchanted-empathy": [
+      {
+        "file": "apps/enchanted-empathy/.eslintrc.json",
+        "hash": "4314008619601461772"
+      },
+      {
+        "file": "apps/enchanted-empathy/.ruby-version",
+        "hash": "12227736524386239989"
+      },
+      {
+        "file": "apps/enchanted-empathy/Gemfile",
+        "hash": "16391871352302342716"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/build.gradle",
+        "hash": "15923986181222227315"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/debug.keystore",
+        "hash": "5037686243849261810"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/proguard-rules.pro",
+        "hash": "13814197385154279786"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/androidTest/java/com/enchantedempathy/DetoxTest.java",
+        "hash": "3235859060426767678"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/debug/AndroidManifest.xml",
+        "hash": "16997767733914164177"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/debug/java/com/enchantedempathy/ReactNativeFlipper.java",
+        "hash": "11142389316360096680"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/AndroidManifest.xml",
+        "hash": "7079440948961830635"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/java/com/enchantedempathy/MainActivity.java",
+        "hash": "16955808270579385675"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/java/com/enchantedempathy/MainApplication.java",
+        "hash": "3076822669563404515"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+        "hash": "8320471890799649723"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+        "hash": "10788509195642110029"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+        "hash": "14348562046770238248"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+        "hash": "328692529308011025"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+        "hash": "11802043336826859502"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+        "hash": "13006206334539413900"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+        "hash": "1812825738055967771"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+        "hash": "6104457872863500683"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+        "hash": "2478168592410677995"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+        "hash": "12283149652938275290"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+        "hash": "7126668675123994836"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/values/strings.xml",
+        "hash": "17798533323012783591"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/values/styles.xml",
+        "hash": "14052910750539201041"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/main/res/xml/network_security_config.xml",
+        "hash": "7470100900868657300"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/app/src/release/java/com/enchantedempathy/ReactNativeFlipper.java",
+        "hash": "9615235303090577989"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/build.gradle",
+        "hash": "8146412588124661027"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/gradle.properties",
+        "hash": "13326059795473764973"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/gradle/wrapper/gradle-wrapper.jar",
+        "hash": "17111259880925534468"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/gradle/wrapper/gradle-wrapper.properties",
+        "hash": "2047299243928432041"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/gradlew",
+        "hash": "4004713095611155780"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/gradlew.bat",
+        "hash": "4148442249581167124"
+      },
+      {
+        "file": "apps/enchanted-empathy/android/settings.gradle",
+        "hash": "1787028998114708058"
+      },
+      {
+        "file": "apps/enchanted-empathy/app.json",
+        "hash": "6137577836505283299"
+      },
+      {
+        "file": "apps/enchanted-empathy/babel.config.json",
+        "hash": "13548039303182445957"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/.xcode.env",
+        "hash": "12704946661619936455"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/AppDelegate.h",
+        "hash": "4105548683868581501"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/AppDelegate.mm",
+        "hash": "3851474373792049275"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/Images.xcassets/AppIcon.appiconset/Contents.json",
+        "hash": "11595540762170193386"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/Images.xcassets/Contents.json",
+        "hash": "16272710630576636421"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/Info.plist",
+        "hash": "11142416013295291902"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/LaunchScreen.storyboard",
+        "hash": "12646092097608827198"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathy/main.m",
+        "hash": "3932908704591016568"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathyTests/EnchantedEmpathyTests.m",
+        "hash": "7640227816504630252"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/EnchantedEmpathyTests/Info.plist",
+        "hash": "490535150174461673"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/Podfile",
+        "hash": "347354085269312387"
+      },
+      {
+        "file": "apps/enchanted-empathy/ios/Podfile.lock",
+        "hash": "11273251757943993051"
+      },
+      {
+        "file": "apps/enchanted-empathy/jest.config.ts",
+        "hash": "9744831657899115337"
+      },
+      {
+        "file": "apps/enchanted-empathy/metro.config.js",
+        "hash": "12650196564690923739",
+        "deps": [
+          "npm:@nx/react-native",
+          "npm:metro-config"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/package.json",
+        "hash": "12870861449423258267",
+        "deps": [
+          "npm:@testing-library/jest-native",
+          "npm:@testing-library/react-native",
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-svg",
+          "npm:metro-config",
+          "npm:@react-navigation/native",
+          "npm:react-native-safe-area-context",
+          "npm:react-native-screens",
+          "npm:@react-navigation/native-stack",
+          "npm:react-redux",
+          "npm:@reduxjs/toolkit",
+          "npm:styled-components",
+          "npm:react-native-linear-gradient",
+          "npm:react-native-contacts",
+          "npm:react-native-share"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/project.json",
+        "hash": "9037126937424535593"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/App.tsx",
+        "hash": "10417394526228901753",
+        "deps": [
+          "npm:react",
+          "npm:@react-navigation/native",
+          "npm:@react-navigation/native-stack",
+          "npm:react-redux"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/components/contacts/contacts.spec.tsx",
+        "hash": "6029131580991313472",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/components/contacts/contacts.tsx",
+        "hash": "8983205916489267850",
+        "deps": [
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-contacts"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/components/social-share/social-share.spec.tsx",
+        "hash": "6468892063761080339",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/components/social-share/social-share.tsx",
+        "hash": "14989218759897149956",
+        "deps": [
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-share"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/main.tsx",
+        "hash": "7754582785685154244",
+        "deps": [
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/navigation/DrawerNavigator.jsx",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/navigation/StackNavigator.jsx",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/counter/counter.spec.tsx",
+        "hash": "6413447176564088875",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/counter/counter.tsx",
+        "hash": "2029691232170364241",
+        "deps": [
+          "npm:react",
+          "npm:react-redux",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/create-account/create-account.spec.tsx",
+        "hash": "14035458672260098436",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/create-account/create-account.tsx",
+        "hash": "16775295360230207045",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/home-screen/home-screen.spec.tsx",
+        "hash": "9788763902892939782",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/home-screen/home-screen.tsx",
+        "hash": "9602391606211056791",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-or-signup/login-or-signup.spec.tsx",
+        "hash": "1666926028140004951"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-or-signup/login-or-signup.tsx",
+        "hash": "13402922834307123526",
+        "deps": [
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-linear-gradient",
+          "npm:@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-screen/LoginScreen.spec.tsx",
+        "hash": "11482675430167158666",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-screen/LoginScreen.styled.ts",
+        "hash": "15985937068234947114",
+        "deps": [
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-screen/LoginScreen.tsx",
+        "hash": "12127622871839838571",
+        "deps": [
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-linear-gradient",
+          "npm:@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/login-screen/index.ts",
+        "hash": "13397565217827979088"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/signup-screen/signup-screen.spec.tsx",
+        "hash": "11878891163304241010",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/signup-screen/signup-screen.tsx",
+        "hash": "4701044795528667018",
+        "deps": [
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-linear-gradient",
+          "npm:@ikigai/assets/assets/images/pexels-lina-kivaka-1813466.jpg"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/screens/types.ts",
+        "hash": "12245113126710865789",
+        "deps": [
+          "npm:@react-navigation/native",
+          "npm:@react-navigation/native-stack"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/services/api.js",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/enchanted-empathy/src/state/slices/counter.js",
+        "hash": "10511791724606528257",
+        "deps": [
+          "npm:@reduxjs/toolkit"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/src/state/store.js",
+        "hash": "2248204575938116511",
+        "deps": [
+          "npm:@reduxjs/toolkit"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/test-setup.ts",
+        "hash": "9919311210714806624",
+        "deps": [
+          "npm:@testing-library/jest-native"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy/tsconfig.app.json",
+        "hash": "6772333202380218204"
+      },
+      {
+        "file": "apps/enchanted-empathy/tsconfig.json",
+        "hash": "6521151027777375637"
+      },
+      {
+        "file": "apps/enchanted-empathy/tsconfig.spec.json",
+        "hash": "6584001254938469617"
+      }
+    ],
+    "tooling-workspace-extensions": [
+      {
+        "file": "libs/tooling/workspace-extensions/.eslintrc.json",
+        "hash": "5992982310765550431"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/README.md",
+        "hash": "12280361122933486583"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/generators.json",
+        "hash": "6628872564094662340"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/jest.config.ts",
+        "hash": "6740301376420759827"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/package.json",
+        "hash": "16990315446875366242"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/project.json",
+        "hash": "3636790058427538090"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/filler.js",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/files/__name__.spec.tsx",
+        "hash": "6178473761416266755",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/files/__name__.styled.ts",
+        "hash": "11148406339868444591",
+        "deps": [
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/files/__name__.tsx",
+        "hash": "325635291474645422",
+        "deps": [
+          "npm:react",
+          "ui-components"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/files/index.ts",
+        "hash": "10323604458344602222"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/generator.spec.ts",
+        "hash": "16104193765485576820"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/generator.ts",
+        "hash": "15718268251701323515",
+        "deps": [
+          "npm:@nx/devkit",
+          "npm:path"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/schema.d.ts",
+        "hash": "15373003028723967561"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-component/schema.json",
+        "hash": "2334431540465369344"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/files/__name__.spec.tsx",
+        "hash": "6178473761416266755",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/files/__name__.styled.ts",
+        "hash": "11148406339868444591",
+        "deps": [
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/files/__name__.tsx",
+        "hash": "325635291474645422",
+        "deps": [
+          "npm:react",
+          "ui-components"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/files/index.ts",
+        "hash": "10323604458344602222"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/generator.spec.ts",
+        "hash": "16104193765485576820"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/generator.ts",
+        "hash": "15718268251701323515",
+        "deps": [
+          "npm:@nx/devkit",
+          "npm:path"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/schema.d.ts",
+        "hash": "15373003028723967561"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/generators/react-native-component/schema.json",
+        "hash": "2334431540465369344"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/index.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/src/utils/utils.ts",
+        "hash": "4535684425095880803",
+        "deps": [
+          "npm:@nx/devkit"
+        ]
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/tsconfig.json",
+        "hash": "6693614989438379715"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/tsconfig.lib.json",
+        "hash": "11255466729094681109"
+      },
+      {
+        "file": "libs/tooling/workspace-extensions/tsconfig.spec.json",
+        "hash": "9110660443763673899"
+      }
+    ],
+    "eden": [
+      {
+        "file": "apps/eden/.eslintrc.json",
+        "hash": "4314008619601461772"
+      },
+      {
+        "file": "apps/eden/.ruby-version",
+        "hash": "12227736524386239989"
+      },
+      {
+        "file": "apps/eden/Gemfile",
+        "hash": "16391871352302342716"
+      },
+      {
+        "file": "apps/eden/android/app/build.gradle",
+        "hash": "17622929668017264336"
+      },
+      {
+        "file": "apps/eden/android/app/debug.keystore",
+        "hash": "5037686243849261810"
+      },
+      {
+        "file": "apps/eden/android/app/proguard-rules.pro",
+        "hash": "13814197385154279786"
+      },
+      {
+        "file": "apps/eden/android/app/src/androidTest/java/com/eden/DetoxTest.java",
+        "hash": "9095621436623912083"
+      },
+      {
+        "file": "apps/eden/android/app/src/debug/AndroidManifest.xml",
+        "hash": "16997767733914164177"
+      },
+      {
+        "file": "apps/eden/android/app/src/debug/java/com/eden/ReactNativeFlipper.java",
+        "hash": "12644845825184161970"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/AndroidManifest.xml",
+        "hash": "7079440948961830635"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/java/com/eden/MainActivity.java",
+        "hash": "15968093713206238935"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/java/com/eden/MainApplication.java",
+        "hash": "11401011843750573770"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/drawable/rn_edit_text_material.xml",
+        "hash": "8320471890799649723"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+        "hash": "10788509195642110029"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+        "hash": "14348562046770238248"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+        "hash": "328692529308011025"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+        "hash": "11802043336826859502"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+        "hash": "13006206334539413900"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+        "hash": "1812825738055967771"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+        "hash": "6104457872863500683"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+        "hash": "2478168592410677995"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+        "hash": "12283149652938275290"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+        "hash": "7126668675123994836"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/values/strings.xml",
+        "hash": "1150570385833357980"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/values/styles.xml",
+        "hash": "14052910750539201041"
+      },
+      {
+        "file": "apps/eden/android/app/src/main/res/xml/network_security_config.xml",
+        "hash": "7470100900868657300"
+      },
+      {
+        "file": "apps/eden/android/app/src/release/java/com/eden/ReactNativeFlipper.java",
+        "hash": "14883240200407968116"
+      },
+      {
+        "file": "apps/eden/android/build.gradle",
+        "hash": "8146412588124661027"
+      },
+      {
+        "file": "apps/eden/android/gradle.properties",
+        "hash": "13326059795473764973"
+      },
+      {
+        "file": "apps/eden/android/gradle/wrapper/gradle-wrapper.jar",
+        "hash": "17111259880925534468"
+      },
+      {
+        "file": "apps/eden/android/gradle/wrapper/gradle-wrapper.properties",
+        "hash": "2047299243928432041"
+      },
+      {
+        "file": "apps/eden/android/gradlew",
+        "hash": "4004713095611155780"
+      },
+      {
+        "file": "apps/eden/android/gradlew.bat",
+        "hash": "4148442249581167124"
+      },
+      {
+        "file": "apps/eden/android/settings.gradle",
+        "hash": "3418538138663941850"
+      },
+      {
+        "file": "apps/eden/app.json",
+        "hash": "13832762517294165831"
+      },
+      {
+        "file": "apps/eden/babel.config.json",
+        "hash": "13548039303182445957"
+      },
+      {
+        "file": "apps/eden/ios/.xcode.env",
+        "hash": "12704946661619936455"
+      },
+      {
+        "file": "apps/eden/ios/Eden/AppDelegate.h",
+        "hash": "4105548683868581501"
+      },
+      {
+        "file": "apps/eden/ios/Eden/AppDelegate.mm",
+        "hash": "5700253923411214647"
+      },
+      {
+        "file": "apps/eden/ios/Eden/Images.xcassets/AppIcon.appiconset/Contents.json",
+        "hash": "11595540762170193386"
+      },
+      {
+        "file": "apps/eden/ios/Eden/Images.xcassets/Contents.json",
+        "hash": "16272710630576636421"
+      },
+      {
+        "file": "apps/eden/ios/Eden/Info.plist",
+        "hash": "31205561095199776"
+      },
+      {
+        "file": "apps/eden/ios/Eden/LaunchScreen.storyboard",
+        "hash": "15061747921570424809"
+      },
+      {
+        "file": "apps/eden/ios/Eden/main.m",
+        "hash": "3932908704591016568"
+      },
+      {
+        "file": "apps/eden/ios/EdenTests/EdenTests.m",
+        "hash": "5831562044555653202"
+      },
+      {
+        "file": "apps/eden/ios/EdenTests/Info.plist",
+        "hash": "490535150174461673"
+      },
+      {
+        "file": "apps/eden/ios/Podfile",
+        "hash": "5480165626306571932"
+      },
+      {
+        "file": "apps/eden/ios/Podfile.lock",
+        "hash": "8908556999416620688"
+      },
+      {
+        "file": "apps/eden/jest.config.ts",
+        "hash": "7009974662511645369"
+      },
+      {
+        "file": "apps/eden/metro.config.js",
+        "hash": "12650196564690923739",
+        "deps": [
+          "npm:@nx/react-native",
+          "npm:metro-config"
+        ]
+      },
+      {
+        "file": "apps/eden/package.json",
+        "hash": "5586776513575498930",
+        "deps": [
+          "npm:@testing-library/jest-native",
+          "npm:@testing-library/react-native",
+          "npm:react",
+          "npm:react-native",
+          "npm:react-native-svg",
+          "npm:metro-config",
+          "npm:@react-navigation/native",
+          "npm:react-native-safe-area-context",
+          "npm:react-native-screens",
+          "npm:@react-navigation/native-stack",
+          "npm:react-redux",
+          "npm:@reduxjs/toolkit",
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "apps/eden/project.json",
+        "hash": "1235782185618873135"
+      },
+      {
+        "file": "apps/eden/src/App.tsx",
+        "hash": "2404544458726073162",
+        "deps": [
+          "npm:react",
+          "npm:@react-navigation/native",
+          "npm:@react-navigation/native-stack",
+          "npm:react-redux"
+        ]
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-anna-tarazevich-4927142.jpg",
+        "hash": "18347080642425902464"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-blank-space-2907301.jpg",
+        "hash": "7006877724342147647"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-eyad-tariq-3879495.jpg",
+        "hash": "15804160526602303973"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-lina-kivaka-1813466.jpg",
+        "hash": "2735945550546023858"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-nappy-936019.jpg",
+        "hash": "520170485452452422"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-rangga-aditya-armien-3389455.jpg",
+        "hash": "3483623132353782405"
+      },
+      {
+        "file": "apps/eden/src/assets/images/pexels-wallace-chuck-3602230.jpg",
+        "hash": "4783446024716914267"
+      },
+      {
+        "file": "apps/eden/src/main.tsx",
+        "hash": "15685183038798133544",
+        "deps": [
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/navigation/DrawerNavigator.jsx",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/eden/src/navigation/StackNavigator.jsx",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/eden/src/screens/cart/cart.spec.tsx",
+        "hash": "5815663046594281412",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/cart/cart.tsx",
+        "hash": "16663405944776494826",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/counter/counter.spec.tsx",
+        "hash": "6413447176564088875",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/counter/counter.tsx",
+        "hash": "2029691232170364241",
+        "deps": [
+          "npm:react",
+          "npm:react-redux",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/create-account/create-account.spec.tsx",
+        "hash": "14035458672260098436",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/create-account/create-account.tsx",
+        "hash": "16775295360230207045",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/home-screen/home-screen.spec.tsx",
+        "hash": "370336576171833486",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/home-screen/home-screen.tsx",
+        "hash": "7586149867754255037",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/login/login.spec.tsx",
+        "hash": "5366139384139105105",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/login/login.tsx",
+        "hash": "1639111162591644560",
+        "deps": [
+          "npm:react",
+          "ui-components",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/product-list/product-list.spec.tsx",
+        "hash": "1395668841262227461",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/product-list/product-list.tsx",
+        "hash": "7572198119576566183",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/product-view/product-view.spec.tsx",
+        "hash": "2189640029237434338",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/screens/product-view/product-view.tsx",
+        "hash": "1327871833499416416",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "apps/eden/src/services/api.js",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/eden/src/state/slices/counter.js",
+        "hash": "10511791724606528257",
+        "deps": [
+          "npm:@reduxjs/toolkit"
+        ]
+      },
+      {
+        "file": "apps/eden/src/state/store.js",
+        "hash": "2248204575938116511",
+        "deps": [
+          "npm:@reduxjs/toolkit"
+        ]
+      },
+      {
+        "file": "apps/eden/test-setup.ts",
+        "hash": "9919311210714806624",
+        "deps": [
+          "npm:@testing-library/jest-native"
+        ]
+      },
+      {
+        "file": "apps/eden/tsconfig.app.json",
+        "hash": "6772333202380218204"
+      },
+      {
+        "file": "apps/eden/tsconfig.json",
+        "hash": "15269945456840467768"
+      },
+      {
+        "file": "apps/eden/tsconfig.spec.json",
+        "hash": "6514620907549802163"
+      },
+      {
+        "file": "apps/eden/yarn.lock",
+        "hash": "10739202724561220194"
+      }
+    ],
+    "enchanted-empathy-e2e": [
+      {
+        "file": "apps/enchanted-empathy-e2e/.babelrc",
+        "hash": "13020124393823981135"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/.detoxrc.json",
+        "hash": "2208335991767182356"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/jest.config.json",
+        "hash": "11702916847232307440"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/project.json",
+        "hash": "15080537750204483168"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/src/app.spec.ts",
+        "hash": "3630406930217544639",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/test-setup.ts",
+        "hash": "891269836898640451",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/tsconfig.e2e.json",
+        "hash": "11142322477626239235"
+      },
+      {
+        "file": "apps/enchanted-empathy-e2e/tsconfig.json",
+        "hash": "4500232260948002331"
+      }
+    ],
+    "ui-components": [
+      {
+        "file": "libs/ui-components/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "libs/ui-components/README.md",
+        "hash": "8465044553896995223"
+      },
+      {
+        "file": "libs/ui-components/jest.config.ts",
+        "hash": "2756029735514207439"
+      },
+      {
+        "file": "libs/ui-components/package.json",
+        "hash": "5865906885926330130"
+      },
+      {
+        "file": "libs/ui-components/project.json",
+        "hash": "16110373323051338774"
+      },
+      {
+        "file": "libs/ui-components/src/index.ts",
+        "hash": "11618140973684937048"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.spec.tsx",
+        "hash": "17591669263731296165",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/button/button.tsx",
+        "hash": "16713475789796260198",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/buttons/index.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/image/image.spec.tsx",
+        "hash": "5488877259162982307",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/image/image.tsx",
+        "hash": "5421956988472135459",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.spec.tsx",
+        "hash": "11970071048094325028",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.styled.ts",
+        "hash": "15910045165182500022",
+        "deps": [
+          "npm:styled-components"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/ViewImage.tsx",
+        "hash": "13396813859339179388",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/images/view-image/index.ts",
+        "hash": "13728236716384287242"
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.spec.tsx",
+        "hash": "11901376039455304814",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/scroll-view/scroll-view.tsx",
+        "hash": "13318135067630248710",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.spec.tsx",
+        "hash": "60387416039564744",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text-input/text-input.tsx",
+        "hash": "4081698546588482063",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text/text.spec.tsx",
+        "hash": "5580896138217710311",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/text/text.tsx",
+        "hash": "15405141256196777341",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/utils/StyleSheet.ts",
+        "hash": "18287389999873113073",
+        "deps": [
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/view/view.spec.tsx",
+        "hash": "1416208482098760011",
+        "deps": [
+          "npm:react",
+          "npm:@testing-library/react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/react-native/view/view.tsx",
+        "hash": "7236869464860014803",
+        "deps": [
+          "npm:react",
+          "npm:react-native"
+        ]
+      },
+      {
+        "file": "libs/ui-components/src/lib/theme/colors.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/theme/fonts.ts",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/ui-components/src/lib/ui-components.spec.ts",
+        "hash": "6521880691128958866"
+      },
+      {
+        "file": "libs/ui-components/src/lib/ui-components.ts",
+        "hash": "9502116515214805191"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.json",
+        "hash": "12604366192291451303"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.lib.json",
+        "hash": "1221998516278360018"
+      },
+      {
+        "file": "libs/ui-components/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      }
+    ],
+    "eden-e2e": [
+      {
+        "file": "apps/eden-e2e/.babelrc",
+        "hash": "13020124393823981135"
+      },
+      {
+        "file": "apps/eden-e2e/.detoxrc.json",
+        "hash": "4346442618454954784"
+      },
+      {
+        "file": "apps/eden-e2e/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "apps/eden-e2e/jest.config.json",
+        "hash": "11702916847232307440"
+      },
+      {
+        "file": "apps/eden-e2e/project.json",
+        "hash": "603281115819728556"
+      },
+      {
+        "file": "apps/eden-e2e/src/app.spec.ts",
+        "hash": "8924695130312899901",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/eden-e2e/test-setup.ts",
+        "hash": "891269836898640451",
+        "deps": [
+          "npm:detox"
+        ]
+      },
+      {
+        "file": "apps/eden-e2e/tsconfig.e2e.json",
+        "hash": "11142322477626239235"
+      },
+      {
+        "file": "apps/eden-e2e/tsconfig.json",
+        "hash": "4500232260948002331"
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   SignupOrLoginScreen: undefined;
   Login: undefined;
-  Signup: undefined;
+  SignupScreen: undefined;
   Home: undefined;
   Profile: undefined;
   Settings: undefined;
