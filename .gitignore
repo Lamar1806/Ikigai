@@ -203,5 +203,4 @@ apps/enchanted-e2e/artifacts
 apps/enchanted-empathy-e2e/artifacts
 
 # Nx-cache
-.nx/cache/file-map.json
-.nx/cache/project-graph.json
+.nx/
