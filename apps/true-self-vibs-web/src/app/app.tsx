@@ -1,29 +1,21 @@
 import styled from '@emotion/styled';
+import { Navbar } from '../components/navbar/navbar';
+import Hero from '../components/hero/hero';
 
 const StyledContainer = styled.div`
   // Your style here
-  a {
-  }
 `;
 
 export function App() {
   return (
     <StyledContainer>
-      <nav className="mainNavBar">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Articles</li>
-          <li>Videos</li>
-          <li>Apps</li>
-          <li>Blog</li>
-        </ul>
-      </nav>
-      <div className="heroImage">
-        <img src="" alt="" />
-        <h1 className="heroImageText">True Self Vibs</h1>
-      </div>
+      <Navbar />
+      <Hero
+        media={[{ type: 'image', url: 'path/to/image1.jpg', alt: '1' }]}
+        text="True Self Vibs"
+      />
+
+      <section></section>
     </StyledContainer>
   );
 }
