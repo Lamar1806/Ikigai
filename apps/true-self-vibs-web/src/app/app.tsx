@@ -1,22 +1,23 @@
 import styled from '@emotion/styled';
 import { Navbar } from '../components/navbar/navbar';
-import Hero from '../components/hero/hero';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Home } from '../pages/home/home';
 const StyledContainer = styled.div`
   // Your style here
 `;
 
 export function App() {
   return (
-    <StyledContainer>
+    <>
       <Navbar />
-      <Hero
-        media={[{ type: 'image', url: 'path/to/image1.jpg', alt: '1' }]}
-        text="True Self Vibs"
-      />
-
-      <section></section>
-    </StyledContainer>
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

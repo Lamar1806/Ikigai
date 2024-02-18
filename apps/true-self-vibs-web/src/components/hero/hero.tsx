@@ -5,8 +5,12 @@ import styled from '@emotion/styled';
 const HeroWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 500px; /* Adjust height as needed */
+  height: 100vh; /* Adjust height as needed */
   overflow: hidden;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.95)
+  ); /* Gradient with 90% black */
 `;
 
 // Styled component for media (image or video)
@@ -25,6 +29,8 @@ const TextOverlay = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
+  font-size: 30px;
+  letter-spacing: 1.3px;
 `;
 
 interface MediaItem {
