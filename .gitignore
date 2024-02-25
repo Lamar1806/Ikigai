@@ -204,6 +204,3 @@ apps/enchanted-empathy-e2e/artifacts
 
 # Nx-cache
 .nx/
-
-# Stand Alone Apps
-apps/empathy-credits
