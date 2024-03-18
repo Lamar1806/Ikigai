@@ -5,7 +5,6 @@ import {
   CoinMarketQueryParams,
 } from '../api/axios/coin-data';
 import { queryKeys } from '../api/react-query/queryKeys';
-import BlurredCircleBackground from '../components/BlurredCircleBackground';
 
 export function Home() {
   // const { isError, data, isSuccess, error } = useQuery({
