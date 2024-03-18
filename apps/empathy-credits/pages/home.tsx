@@ -1,8 +1,11 @@
 import { View, Text } from 'react-native';
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { coinGeckoRequest } from '../api/axios/coin-data';
+import {
+  coinGeckoRequest,
+  CoinMarketQueryParams,
+} from '../api/axios/coin-data';
 import { queryKeys } from '../api/react-query/queryKeys';
+import BlurredCircleBackground from '../components/BlurredCircleBackground';
 
 export function Home() {
   // const { isError, data, isSuccess, error } = useQuery({
@@ -13,10 +16,10 @@ export function Home() {
   //   queryKey: [queryKeys.coinList],
   //   queryFn: coinGeckoRequest.coinsList,
   // });
-  const CoinMarketQueryParams = {
+  const CoinMarketQueryParams: CoinMarketQueryParams = {
     vs_currency: 'usd', // Example values, modify as needed
     order: 'market_cap_desc',
-    per_page: 100,
+    per_page: 5,
     page: 1,
     sparkline: false,
     locale: 'en',
@@ -28,14 +31,17 @@ export function Home() {
     isError,
     error,
   } = useQuery({
-    queryKey: ['coinMarketData'], // Provide a unique key for this query
+    queryKey: queryKeys.coinMarketData, // Provide a unique key for this query
     queryFn: () => coinGeckoRequest.fetchCoinMarketData(CoinMarketQueryParams), // Pass the fetchCoinMarketData function directly
-    // queryFnParams: CoinMarketQueryParams, // Pass the query parameters if necessary
   });
-  console.log(markets);
+  console.log('markets:', markets);
+  console.log('isLoading:', isLoading);
+  console.log('isError:', isError);
+  console.log('error:', error);
   return (
     <View>
-      <Text>Home</Text>
+      {/* <BlurredCircleBackground /> */}
+      <Text>Homes</Text>
     </View>
   );
 }
