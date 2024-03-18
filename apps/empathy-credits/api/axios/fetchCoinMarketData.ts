@@ -1,35 +1,7 @@
 import { AxiosResponse } from 'axios';
 import axios_coin_gecko_free from './axios';
 
-const pingCoinGecko = () => {
-  return axios_coin_gecko_free
-    .get('/ping', {
-      headers: {
-        accept: 'application/json',
-      },
-    })
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      throw error;
-    });
-};
-
-const coinsList = () => {
-  return axios_coin_gecko_free
-    .get('/coins/list?include_platform=true', {
-      headers: {
-        accept: 'application/json',
-      },
-    })
-    .then((response) => response.data)
-    .catch((error) => {
-      throw error;
-    });
-};
-
-type CoinMarketData = {
+export type CoinMarketData = {
   id: string;
   symbol: string;
   name: string;
@@ -76,7 +48,7 @@ export type CoinMarketQueryParams = {
   precision?: 'full' | number;
 };
 
-interface APIResponse {
+export interface APIResponse {
   status: string;
   data: CoinMarketData[];
 }
@@ -96,10 +68,4 @@ export const fetchCoinMarketData = async (
   } catch (error) {
     throw new Error('Failed to fetch coin market data');
   }
-};
-
-export const coinGeckoRequest = {
-  pingCoinGecko,
-  coinsList,
-  fetchCoinMarketData,
 };
