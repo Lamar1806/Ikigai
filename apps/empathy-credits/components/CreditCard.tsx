@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000000', // Shadow color (black)
     shadowOpacity: 0.5, // Shadow opacity (0.5 for example)
     shadowOffset: { width: 0, height: 2 }, // Shadow offset (adjust as needed)
-    shadowRadius: 4, // Shadow radius (adjust as needed)
+    shadowRadius: 15, // Shadow radius (adjust as needed)
     elevation: 5, // Elevation (for Android)
     flexDirection: 'row',
     position: 'relative',
