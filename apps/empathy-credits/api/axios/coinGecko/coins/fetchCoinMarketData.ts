@@ -105,7 +105,7 @@ export const fetchCoinMarketData = async (
 
   try {
     // Make a GET request to the API
-    const response: AxiosResponse<APIResponse> = await axios.get(url, {
+    const response: APIResponse = await axios.get(url, {
       params: queryParams,
     });
 

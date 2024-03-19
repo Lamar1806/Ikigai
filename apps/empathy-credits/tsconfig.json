@@ -1,4 +1,13 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./pages/**/*" // Include all TypeScript files in the pages directory and its subdirectories
+  ],
   "extends": "expo/tsconfig.base"
 }

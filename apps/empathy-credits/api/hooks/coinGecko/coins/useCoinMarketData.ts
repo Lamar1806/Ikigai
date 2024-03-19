@@ -1,37 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import {
   CoinMarketData,
   CoinMarketQueryParams,
   fetchCoinMarketData,
 } from '../../../axios/coinGecko/coins/fetchCoinMarketData';
 
-const useCoinMarketData = (
+export const useCoinMarketData = (
   queryParams: CoinMarketQueryParams
 ): {
   data: CoinMarketData[];
   loading: boolean;
   error: any;
 } => {
-  const [data, setData] = useState<CoinMarketData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<any>(null);
+  const {
+    data,
+    isLoading: loading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ['coinMarketData', queryParams],
+    queryFn: () => fetchCoinMarketData(queryParams),
+    enabled: false, // Disable automatic query execution
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const coinData = await fetchCoinMarketData(queryParams);
-        setData(coinData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Manually trigger query execution on mount and whenever queryParams change
+    refetch();
+  }, [queryParams, refetch]);
 
-    fetchData();
-  }, [queryParams]);
-
-  return { data, loading, error };
+  return { data: data ?? [], loading, error };
 };
-
-export default useCoinMarketData;

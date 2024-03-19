@@ -6,12 +6,11 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query'
-import { Home } from './pages/home.tsx'
+import { Home } from './pages/home'
 
 const queryClient = new QueryClient();
 
 export default function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
       <View style={styles.container}>

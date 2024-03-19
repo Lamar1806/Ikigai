@@ -1,16 +1,20 @@
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import useCoinMarketData from '../api/hooks/coinGecko/coins/useCoinMarketData';
+import { useCoinMarketData } from '../api/hooks/coinGecko/coins/useCoinMarketData';
 import CoinList from '../components/CoinList';
 import { CreditCard } from '../components/CreditCard';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function Home() {
-  const { data, loading, error } = useCoinMarketData({ vs_currency: 'usd' });
+  // Example query parameters
+  const exampleQueryParams = { vs_currency: 'usd', perPage: 10 };
+  const { data, loading, error } = useCoinMarketData(exampleQueryParams);
+
+  console.log('coin', data[0]);
 
   return (
     <View style={styles.container}>
       <CreditCard />
-      <CoinList />
+      <CoinList coins={data} />
     </View>
   );
 }
