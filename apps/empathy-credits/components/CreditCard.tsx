@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import fullmetal from '../assets/edward-elric-1920.jpeg';
 
 export const CreditCard = () => {
   return (
     <View style={styles.container}>
+      <Image source={fullmetal} style={styles.bgImage} />
       <Text style={styles.text}>Empathy Credits</Text>
       <FontAwesome
         style={styles.scanIcon}
@@ -25,7 +27,7 @@ export const CreditCard = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#383747',
+    backgroundColor: '#000',
     borderRadius: 5,
     width: 350,
     height: 150,
@@ -39,16 +41,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  bgImage: {
+    position: 'absolute',
+    width: 350,
+    height: 150,
+    opacity: 0.3,
+  },
   text: { color: '#fff' },
   scanIcon: {
     position: 'absolute',
     right: 15,
     bottom: '50%',
     transform: [{ rotate: '90deg' }, { translateX: 10 }],
+    color: 'white',
   },
   cardTypeIcon: {
     position: 'absolute',
     bottom: 15,
     right: 15,
+    color: 'white',
   },
 });
