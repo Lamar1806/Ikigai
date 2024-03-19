@@ -3,7 +3,7 @@ import {
   CoinMarketData,
   CoinMarketQueryParams,
   fetchCoinMarketData,
-} from '../../axios/coinGecko/coins/fetchCoinMarketData';
+} from '../../../axios/coinGecko/coins/fetchCoinMarketData';
 
 const useCoinMarketData = (
   queryParams: CoinMarketQueryParams

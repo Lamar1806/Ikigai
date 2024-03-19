@@ -3,7 +3,7 @@ import {
   CoinData,
   CoinQueryParams,
   fetchCoinData,
-} from '../../axios/coinGecko/coins/fetchCoinData';
+} from '../../../axios/coinGecko/coins/fetchCoinData';
 
 const useCoinData = (
   coinId: string,

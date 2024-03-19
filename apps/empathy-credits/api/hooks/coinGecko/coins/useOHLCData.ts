@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import {
   OHLCData,
   OHLCQueryParams,
-} from '../../axios/coinGecko/coins/fetchOHLCData';
+} from '../../../axios/coinGecko/coins/fetchOHLCData';
 
 export const useOHLCData = (queryParams: OHLCQueryParams): OHLCData[] => {
   const [ohlcData, setOHLCData] = useState<OHLCData[]>([]);

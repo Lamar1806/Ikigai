@@ -3,7 +3,7 @@ import {
   MarketChartData,
   MarketChartRangeQueryParams,
   fetchMarketChartRange,
-} from '../../axios/coinGecko/coins/fetchMarketChartRange';
+} from '../../../axios/coinGecko/coins/fetchMarketChartRange';
 
 interface UseMarketChartRangeProps {
   queryParams: MarketChartRangeQueryParams;
