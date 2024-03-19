@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
 // Define the structure of the coin market data
-interface CoinMarketData {
+export interface CoinMarketData {
   id: string;
   symbol: string;
   name: string;
@@ -44,7 +44,7 @@ interface APIResponse {
 }
 
 // Define the query parameters for the request
-interface CoinMarketQueryParams {
+export interface CoinMarketQueryParams {
   vs_currency: 'usd' | 'eur' | 'jpy' | string;
   ids?: string;
   category?: string;
