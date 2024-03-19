@@ -1,13 +1,15 @@
 import { View, Text } from 'react-native';
-import { useQuery } from '@tanstack/react-query';
-
-import { queryKeys } from '../api/react-query/queryKeys';
+import useCoinMarketData from '../api/hooks/coinGecko/coins/useCoinMarketData';
 
 export function Home() {
+  const { data, loading, error } = useCoinMarketData({ vs_currency: 'usd' });
+
   return (
     <View>
       {/* <BlurredCircleBackground /> */}
-      <Text>Homes</Text>
+      <Text>error:{JSON.stringify(error)}</Text>
+      <Text>loading: {JSON.stringify(loading)}</Text>
+      <Text>data:{JSON.stringify(data[0])}</Text>
     </View>
   );
 }
