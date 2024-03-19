@@ -7,7 +7,8 @@
     "esModuleInterop": true
   },
   "include": [
-    "./pages/**/*" // Include all TypeScript files in the pages directory and its subdirectories
+    "./pages/**/*", // Include all TypeScript files in the pages directory and its subdirectories
+    "./assets/**/*"
   ],
   "extends": "expo/tsconfig.base"
 }
