@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { TickerData, TickerQueryParams } from '../axios/fetchTickers';
+import {
+  TickerData,
+  TickerQueryParams,
+} from '../../axios/coinGecko/coins/fetchTickers';
 
 export const useTickerData = (queryParams: TickerQueryParams) => {
   const [tickerData, setTickerData] = useState<TickerData[]>([]);

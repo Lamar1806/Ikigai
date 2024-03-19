@@ -3,7 +3,7 @@ import {
   PriceData,
   PriceQueryParams,
   fetchPriceData,
-} from '../axios/fetchPriceData';
+} from '../../axios/coinGecko/coins/fetchPriceData';
 
 const usePriceData = (
   queryParams: PriceQueryParams

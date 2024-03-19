@@ -3,7 +3,7 @@ import {
   HistoricalData,
   HistoricalDataQueryParams,
   fetchHistoricalData,
-} from '../axios/fetchHistoricalData';
+} from '../../axios/coinGecko/coins/fetchHistoricalData';
 
 const useHistoricalData = ({
   id,

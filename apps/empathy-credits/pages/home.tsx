@@ -5,7 +5,7 @@ import { queryKeys } from '../api/react-query/queryKeys';
 import {
   CoinMarketQueryParams,
   fetchCoinMarketData,
-} from '../api/axios/fetchCoinMarketData';
+} from '../api/axios/coinGecko/coins/fetchCoinMarketData';
 
 export function Home() {
   // const { isError, data, isSuccess, error } = useQuery({

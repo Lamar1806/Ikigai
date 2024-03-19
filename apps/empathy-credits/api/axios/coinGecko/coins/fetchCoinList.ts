@@ -1,4 +1,4 @@
-import axios_coin_gecko_free from './axios';
+import axios_coin_gecko_free from '../../axios';
 
 export interface Coin {
   id: string;

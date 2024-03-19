@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import axios_coin_gecko_free from './axios';
+import axios_coin_gecko_free from '../../axios';
 
 export type CoinMarketData = {
   id: string;
