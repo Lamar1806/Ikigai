@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // Screen components for each tab
-import { WalletScreen } from '../pages/WalletScreen';
 import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
 import { SwapScreen } from '../pages/SwapScreen';
 import { EarnScreen } from '../pages/EarnScreen';
+import { MainStack } from './MainStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +16,7 @@ export const BottomTabNavigator = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Wallet"
-        component={WalletScreen}
+        component={MainStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="wallet" color={color} size={size} />
