@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 5,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: '#ccc',
-    marginRight: 10,
+    marginRight: 5,
   },
   selectedButton: {
     backgroundColor: '#007bff',
@@ -59,6 +59,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#000',
-    fontSize: 16,
+    fontSize: 8,
   },
 });

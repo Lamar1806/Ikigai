@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { FC } from 'react';
 import { CoinMarketData } from '../api/axios/coinGecko/coins/fetchCoinMarketData';
+//@ts-ignore
 import CryptoFiller from '../assets/crypto-filler.jpeg';
 import { FontAwesome5 } from '@expo/vector-icons';
 import styled from '@emotion/native';
@@ -55,15 +56,20 @@ export const CoinListItem: FC<Props> = ({ coin }) => {
   const navigation = useNavigation();
 
   const handleCryptoPress = () => {
-    navigation.navigate('CoinDetailScreen', { cryptoId: coin?.id });
+    //@ts-ignore
+    navigation.navigate('CoinDetailScreen', {
+      cryptoId: coin?.id,
+      cryptoName: coin?.name,
+      cryptoSymbol: coin?.symbol,
+    });
   };
 
   return (
-    <TouchableOpacity onPress={() => handleCryptoPress(coin.id)}>
+    <TouchableOpacity onPress={() => handleCryptoPress()}>
       <Container>
         <CoinImage source={{ uri: coin?.image || CryptoFiller }} />
         <Column>
-          <HeaderText>{coin?.name}</HeaderText>
+          <HeaderText>{coin?.symbol}</HeaderText>
           <Text>{formatCurrency(coin?.current_price)}</Text>
         </Column>
         <Row>

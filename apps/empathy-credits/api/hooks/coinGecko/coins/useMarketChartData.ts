@@ -15,7 +15,7 @@ export const useMarketChartData = (
     error,
     refetch,
   } = useQuery({
-    queryKey: ['marketChartData', queryParams], // Unique key for the query
+    queryKey: ['marketChartDataForCoin', queryParams], // Unique key for the query
     queryFn: () => fetchMarketChartData(queryParams), // Function to fetch data
     enabled: false, // Query is enabled by default
   });
@@ -25,5 +25,5 @@ export const useMarketChartData = (
     refetch();
   }, [queryParams, refetch]);
 
-  return [data, isLoading, error?.message || null];
+  return { data: data || null, isLoading, error: error?.message || null };
 };
