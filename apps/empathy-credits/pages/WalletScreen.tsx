@@ -5,7 +5,7 @@ import { CoinList } from '../components/CoinList';
 import { CreditCard } from '../components/CreditCard';
 // import AnimatedExample from './animationtest';
 
-export function Home() {
+export function WalletScreen() {
   // Example query parameters
   const exampleQueryParams = { vs_currency: 'usd', perPage: 10 };
   const { data, loading, error } = useCoinMarketData(exampleQueryParams);

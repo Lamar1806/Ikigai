@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // Screen components for each tab
-import WalletScreen from '../pages/WalletScreen';
-import NFTScreen from './NFTScreen';
-import BrowserScreen from './BrowserScreen';
-import SwapScreen from './SwapScreen';
-import EarnScreen from './EarnScreen';
+import { WalletScreen } from '../pages/WalletScreen';
+import { NFTScreen } from '../pages/NFTScreen';
+import { BrowserScreen } from '../pages/BrowserScreen';
+import { SwapScreen } from '../pages/SwapScreen';
+import { EarnScreen } from '../pages/EarnScreen';
 
 const Tab = createBottomTabNavigator();
 
