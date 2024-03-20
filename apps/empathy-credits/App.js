@@ -1,23 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'; // Import NavigationContainer
+import { BottomTabNavigator } from './navigation/BottomTabNavigator'; // Import your BottomTabNavigator component
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from '@tanstack/react-query'
-import { Home } from './pages/WalletScreen'
 
 const queryClient = new QueryClient();
 
-export default function App() {
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        {/* <Home /> */}
-
-      </View>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <BottomTabNavigator />
+        </View>
+      </NavigationContainer>
     </QueryClientProvider>
   );
 }
@@ -26,9 +26,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#12101D',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 30,
+    // paddingTop: 30,
   },
 });
-``
+
+export default App;

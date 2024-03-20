@@ -22,5 +22,6 @@ export function WalletScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 12,
   },
 });

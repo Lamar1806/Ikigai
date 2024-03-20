@@ -11,15 +11,9 @@ import { EarnScreen } from '../pages/EarnScreen';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = () => {
+export const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator
-      tabBarOptions={{
-        style: { backgroundColor: '#fff' },
-        activeTintColor: '#000',
-        inactiveTintColor: '#888',
-      }}
-    >
+    <Tab.Navigator>
       <Tab.Screen
         name="Wallet"
         component={WalletScreen}
@@ -68,5 +62,3 @@ const BottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-export default BottomTabNavigator;
