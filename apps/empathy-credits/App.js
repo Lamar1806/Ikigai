@@ -6,7 +6,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query'
-import { Home } from './pages/home'
+import { Home } from './pages/WalletScreen'
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,8 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <Home />
+        {/* <Home /> */}
+
       </View>
     </QueryClientProvider>
   );
