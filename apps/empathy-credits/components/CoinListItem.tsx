@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { CoinMarketData } from '../api/axios/coinGecko/coins/fetchCoinMarketData';
 //@ts-ignore
 import CryptoFiller from '../assets/crypto-filler.jpeg';
@@ -61,6 +61,9 @@ export const CoinListItem: FC<Props> = ({ coin }) => {
       cryptoId: coin?.id,
       cryptoName: coin?.name,
       cryptoSymbol: coin?.symbol,
+      currentAmount: coin?.current_price,
+      priceChangePercentage24h: coin?.price_change_percentage_24h,
+      priceChange: coin?.price_change_24h,
     });
   };
 

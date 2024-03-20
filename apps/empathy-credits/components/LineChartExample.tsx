@@ -21,29 +21,27 @@ export const LineChartExample: React.FC<LineChartProps> = ({
     return null;
   }
 
+  // Function to downsample the array to reduce the number of data points
+  const downsampleArray = (array: any[]) =>
+    array.filter((_, index) => index % 2 === 0);
+
   // Downsampling the prices array to reduce the number of data points
-  const prices = marketChartData.prices
-    .filter(
-      (_, index) => index % 2 === 0 // Adjust the modulus value as needed
-    )
-    .map(([_, price]) => price);
+  const prices = downsampleArray(marketChartData.prices).map(
+    ([_, price]) => price / 1000 // Divide prices by 1000
+  );
 
   // Downsampling the labels array to reduce the number of labels
-  const labels = marketChartData.prices
-    .filter(
-      (_, index) => index % 2 === 0 // Adjust the modulus value as needed
-    )
-    .map(([timestamp]) => {
-      // Parse timestamp into a Date object
-      const date = new Date(timestamp);
-      // Get the month name
-      return date.toLocaleString('default', { month: 'short' });
-    });
+  const labels = downsampleArray(marketChartData.prices).map(([timestamp]) => {
+    // Parse timestamp into a Date object
+    const date = new Date(timestamp);
+    // Get the month name
+    return date.toLocaleString('default', { month: 'short' });
+  });
 
   return (
     <LineChart
       data={{
-        labels: labels,
+        labels,
         datasets: [
           {
             data: prices,
@@ -51,9 +49,9 @@ export const LineChartExample: React.FC<LineChartProps> = ({
         ],
       }}
       width={screenWidth}
-      height={220}
+      height={250}
       yAxisLabel="$"
-      yAxisSuffix="k"
+      yAxisSuffix="k" // Display prices in thousands
       yAxisInterval={1}
       chartConfig={{
         backgroundColor: 'rgba(173, 216, 230, 0.5)', // Ethereal blue with transparency
@@ -66,7 +64,7 @@ export const LineChartExample: React.FC<LineChartProps> = ({
           borderRadius: 16,
         },
         propsForDots: {
-          r: '6',
+          r: '.5',
           strokeWidth: '2',
           stroke: '#FFFFFF', // White color for the dots
         },
