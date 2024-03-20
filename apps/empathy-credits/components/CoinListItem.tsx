@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { FC } from 'react';
 import { CoinMarketData } from '../api/axios/coinGecko/coins/fetchCoinMarketData';
 import CryptoFiller from '../assets/crypto-filler.jpeg';
@@ -52,25 +52,27 @@ export const CoinListItem: FC<Props> = ({ coin }) => {
   const iconColor = priceChangePercentage > 0 ? 'green' : 'red';
 
   return (
-    <Container>
-      <CoinImage source={{ uri: coin?.image || CryptoFiller }} />
-      <Column>
-        <HeaderText>{coin?.name}</HeaderText>
-        <Text>{formatCurrency(coin?.current_price)}</Text>
-      </Column>
-      <Row>
-        <FontAwesome5
-          style={{ marginRight: 5, bottom: 5 }}
-          name={priceChangePercentage > 0 ? 'sort-up' : 'sort-down'}
-          size={24}
-          color={iconColor}
-        />
-        <Text>{Math.abs(priceChangePercentage).toFixed(2)}%</Text>
-      </Row>
-      <Column>
-        <HeaderText>{amountOwned}</HeaderText>
-        <Text>{formatCurrency(valueOfAmountOwned)}</Text>
-      </Column>
-    </Container>
+    <TouchableOpacity>
+      <Container>
+        <CoinImage source={{ uri: coin?.image || CryptoFiller }} />
+        <Column>
+          <HeaderText>{coin?.name}</HeaderText>
+          <Text>{formatCurrency(coin?.current_price)}</Text>
+        </Column>
+        <Row>
+          <FontAwesome5
+            style={{ marginRight: 5, bottom: 5 }}
+            name={priceChangePercentage > 0 ? 'sort-up' : 'sort-down'}
+            size={24}
+            color={iconColor}
+          />
+          <Text>{Math.abs(priceChangePercentage).toFixed(2)}%</Text>
+        </Row>
+        <Column>
+          <HeaderText>{amountOwned}</HeaderText>
+          <Text>{formatCurrency(valueOfAmountOwned)}</Text>
+        </Column>
+      </Container>
+    </TouchableOpacity>
   );
 };
