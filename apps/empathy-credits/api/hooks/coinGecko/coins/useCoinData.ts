@@ -5,7 +5,7 @@ import {
   fetchCoinData,
 } from '../../../axios/coinGecko/coins/fetchCoinData';
 
-const useCoinData = (
+export const useCoinData = (
   coinId: string,
   queryParams: CoinQueryParams
 ): [CoinData | null, boolean, string | null] => {
@@ -37,5 +37,3 @@ const useCoinData = (
 
   return [coinData, isLoading, error];
 };
-
-export default useCoinData;

@@ -5,6 +5,7 @@ import CryptoFiller from '../assets/crypto-filler.jpeg';
 import { FontAwesome5 } from '@expo/vector-icons';
 import styled from '@emotion/native';
 import { formatCurrency } from '../utils/formatCurrency';
+import { useNavigation } from '@react-navigation/native';
 
 const Container = styled.View`
   flex-direction: row;
@@ -51,8 +52,14 @@ export const CoinListItem: FC<Props> = ({ coin }) => {
   const priceChangePercentage = coin?.price_change_percentage_24h || 0;
   const iconColor = priceChangePercentage > 0 ? 'green' : 'red';
 
+  const navigation = useNavigation();
+
+  const handleCryptoPress = () => {
+    navigation.navigate('CoinDetailScreen', { cryptoId: coin?.id });
+  };
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => handleCryptoPress(coin.id)}>
       <Container>
         <CoinImage source={{ uri: coin?.image || CryptoFiller }} />
         <Column>

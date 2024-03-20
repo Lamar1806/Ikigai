@@ -15,7 +15,7 @@ export const BottomTabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Wallet"
+        name="Home"
         component={MainStack}
         options={{
           tabBarIcon: ({ color, size }) => (

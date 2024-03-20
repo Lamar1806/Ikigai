@@ -7,6 +7,7 @@ import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
 import { SwapScreen } from '../pages/SwapScreen';
 import { EarnScreen } from '../pages/EarnScreen';
+import { CoinDetailScreen } from '../pages/CoinDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const MainStack = () => {
       <Stack.Screen name="Browser" component={BrowserScreen} />
       <Stack.Screen name="Swap" component={SwapScreen} />
       <Stack.Screen name="Earn" component={EarnScreen} />
+      <Stack.Screen name="CoinDetailScreen" component={CoinDetailScreen} />
     </Stack.Navigator>
   );
 };

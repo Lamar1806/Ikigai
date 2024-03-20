@@ -5,7 +5,7 @@ import {
   fetchPriceData,
 } from '../../../axios/coinGecko/simple/fetchPriceData';
 
-const usePriceData = (
+export const usePriceData = (
   queryParams: PriceQueryParams
 ): [PriceData | null, boolean, string | null] => {
   const [priceData, setPriceData] = useState<PriceData | null>(null);
@@ -36,5 +36,3 @@ const usePriceData = (
 
   return [priceData, isLoading, error];
 };
-
-export default usePriceData;

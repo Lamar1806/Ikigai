@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import {
   MarketChartData,
   MarketChartRangeQueryParams,
@@ -9,35 +9,15 @@ interface UseMarketChartRangeProps {
   queryParams: MarketChartRangeQueryParams;
 }
 
-const useMarketChartRange = ({ queryParams }: UseMarketChartRangeProps) => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<MarketChartData | null>(null);
+export const useMarketChartRange = ({
+  queryParams,
+}: UseMarketChartRangeProps) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['marketChartRange', queryParams], // Unique key for the query
+    queryFn: () => fetchMarketChartRange(queryParams), // Fetch function
+    // Options object
+    enabled: !!queryParams, // Only fetch data if queryParams exist
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const marketChartData = await fetchMarketChartRange(queryParams);
-        setData(marketChartData);
-        setError(null);
-      } catch (error) {
-        setError('Failed to fetch market chart range data');
-        setData(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-
-    // Cleanup function
-    return () => {
-      // Optionally, perform any cleanup here
-    };
-  }, [queryParams]);
-
-  return { loading, error, data };
+  return { loading: isLoading, error, data: data };
 };
-
-export default useMarketChartRange;

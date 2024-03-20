@@ -27,6 +27,7 @@ export const fetchMarketChartData = async (
     );
     return response.data;
   } catch (error) {
+    console.error('Error fetching market chart data:', error);
     throw new Error('Failed to fetch market chart data');
   }
 };
