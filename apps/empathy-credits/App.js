@@ -25,8 +25,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#12101D',
-    // paddingTop: 30,
   },
 });
 
