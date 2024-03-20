@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export const CoinScreen = () => {
+export const CoinDetailScreen = () => {
   return (
     <View>
       <Text>CoinScreen</Text>
