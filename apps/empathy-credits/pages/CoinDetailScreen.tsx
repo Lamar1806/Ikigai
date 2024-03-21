@@ -58,7 +58,7 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.row}>
         <View style={styles.columnOne}>
           <Text>{formatCurrency(currentAmount)}</Text>
@@ -87,7 +87,10 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   row: {
     flexDirection: 'row',
   },

@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { WalletScreen } from '../pages/WalletScreen';
 import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
-import { SwapScreen } from '../pages/SwapScreen';
 import { EarnScreen } from '../pages/EarnScreen';
 import { CoinDetailScreen } from '../pages/CoinDetailScreen';
 
@@ -21,7 +20,6 @@ export const MainStack = () => {
       />
       <Stack.Screen name="NFT" component={NFTScreen} />
       <Stack.Screen name="Browser" component={BrowserScreen} />
-      <Stack.Screen name="Swap" component={SwapScreen} />
       <Stack.Screen name="Earn" component={EarnScreen} />
       <Stack.Screen name="CoinDetailScreen" component={CoinDetailScreen} />
     </Stack.Navigator>

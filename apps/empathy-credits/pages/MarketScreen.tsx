@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export const SwapScreen = () => {
+export const MarketScreen = () => {
   return (
     <View>
-      <Text>SwapScreen</Text>
+      <Text>MarketScreen</Text>
     </View>
   );
 };
