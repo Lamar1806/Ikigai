@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export const PillButton = ({ title, imageSource, style, onPress }) => {
   return (
     <TouchableOpacity style={[styles.buttonContainer, style]} onPress={onPress}>
-      <Image source={imageSource} style={styles.image} />
+      <Image source={{ uri: imageSource }} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <FontAwesome5 name="chevron-down" style={styles.icon} />
     </TouchableOpacity>
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 16,
     paddingVertical: 8,
+    width: 110,
   },
   image: {
     width: 24,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 8,
     fontWeight: 'bold',
   },
   icon: {

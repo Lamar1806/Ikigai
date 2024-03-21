@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { PillButton } from '../components/PillButton';
 import { FilterButton } from '../components/FilterButton';
@@ -12,8 +12,10 @@ export const TradeScreen = ({ navigation }) => {
   const amountOwned = 0;
 
   const exampleQueryParams = { vs_currency: 'usd', perPage: 10 };
-  const { data, loading, error } = useCoinMarketData(exampleQueryParams);
-  console.log(data);
+  const { data: coins, loading, error } = useCoinMarketData(exampleQueryParams);
+
+  const [coinOne, setCoinOne] = useState(null);
+  const [coinTwo, setCoinTwo] = useState(null);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -36,30 +38,36 @@ export const TradeScreen = ({ navigation }) => {
           <Text>Swap & Bridge</Text>
           <FilterButton onPress={undefined} />
         </View>
-        <SlideUpModal visible={modalVisible} onClose={handleCloseModal} />
+        <SlideUpModal
+          visible={modalVisible}
+          onClose={handleCloseModal}
+          children={undefined}
+        ></SlideUpModal>
         {/* Render the SlideUpModal */}
         <View style={styles.row}>
           <View>
-            <Text style={styles.cryptoName}>Ethereum</Text>
+            <Text style={styles.cryptoName}>{coins[0]?.name}</Text>
             <PillButton
-              title={'USDT'}
-              imageSource={undefined}
+              title={coins[0]?.symbol}
+              imageSource={coins[0]?.image}
               style={undefined}
               onPress={() => setModalVisible(true)}
             />
           </View>
 
           <View style={styles.tradeAmount}>
-            <Text>Max {amountOwned} usdc</Text>
+            <Text>
+              <Text style={{ color: 'blue' }}>Max</Text> {amountOwned} usdc
+            </Text>
             <Text>0</Text>
           </View>
         </View>
         <View style={[styles.row, { borderBottomWidth: 0 }]}>
           <View>
-            <Text style={styles.cryptoName}>Ethereum</Text>
+            <Text style={styles.cryptoName}>{coins[1]?.name}</Text>
             <PillButton
-              title={'USDT'}
-              imageSource={undefined}
+              title={coins[1]?.symbol}
+              imageSource={coins[1]?.image}
               style={undefined}
               onPress={() => setModalVisible(true)}
             />

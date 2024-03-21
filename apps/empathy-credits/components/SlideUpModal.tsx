@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export const SlideUpModal = ({ visible, onClose }) => {
+export const SlideUpModal = ({ visible, onClose, children }) => {
   const [animation] = useState(new Animated.Value(0));
 
   React.useEffect(() => {
@@ -47,7 +47,7 @@ export const SlideUpModal = ({ visible, onClose }) => {
           },
         ]}
       >
-        <Text style={styles.modalText}>Your modal content goes here</Text>
+        {children}
       </Animated.View>
     </Modal>
   );
