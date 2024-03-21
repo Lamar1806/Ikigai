@@ -63,7 +63,7 @@ export const TradeScreen = ({ navigation }) => {
         {/* Coin Two */}
         <SlideUpModal
           visible={modalTwoVisible}
-          onClose={handleCloseModal}
+          onClose={handleCloseModalTwo}
           children={<CoinListBasic coins={coins} onChange={handleSetCoinTwo} />}
         />
         {/* Coin One */}
