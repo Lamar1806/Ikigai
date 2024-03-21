@@ -6,18 +6,22 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { store } from './redux/store';
+import { Provider } from 'react-dom';
 
 const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <View style={styles.container}>
-          <StatusBar style="auto" />
-          <BottomTabNavigator />
-        </View>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <View style={styles.container}>
+            <StatusBar style="auto" />
+            <BottomTabNavigator />
+          </View>
+        </NavigationContainer>
+      </Provider>
     </QueryClientProvider>
   );
 }
