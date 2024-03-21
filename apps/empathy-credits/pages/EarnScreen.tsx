@@ -3,10 +3,15 @@ import React from 'react';
 
 export const EarnScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>EarnScreen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+});
