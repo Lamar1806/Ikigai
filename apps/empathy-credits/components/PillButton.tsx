@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export const PillButton = ({ title, imageSource }) => {
+export const PillButton = ({ title, imageSource, style }) => {
   return (
-    <TouchableOpacity style={styles.buttonContainer}>
+    <TouchableOpacity style={[styles.buttonContainer, style]}>
       <Image source={imageSource} style={styles.image} />
       <Text style={styles.title}>{title}</Text>
       <FontAwesome5 name="chevron-down" style={styles.icon} />
