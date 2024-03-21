@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { TradeScreen } from '../pages/TradeScreen';
 import { MarketScreen } from '../pages/MarketScreen';
+import { SwapStack } from './SwapStack';
 
 const Tab = createMaterialTopTabNavigator();
 

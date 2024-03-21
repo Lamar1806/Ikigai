@@ -14,7 +14,7 @@ export const TradeScreen = ({ navigation }) => {
   const exampleQueryParams = { vs_currency: 'usd', perPage: 10 };
   const { data, loading, error } = useCoinMarketData(exampleQueryParams);
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleAddCrypto = () => {
     navigation.navigate('BuyCryptoScreen');

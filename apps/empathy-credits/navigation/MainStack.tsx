@@ -7,7 +7,7 @@ import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
 import { EarnScreen } from '../pages/EarnScreen';
 import { CoinDetailScreen } from '../pages/CoinDetailScreen';
-import { BuyScreen } from '../pages/buyScreen';
+import { BuyScreen } from '../pages/BuyScreen';
 
 const Stack = createStackNavigator();
 
