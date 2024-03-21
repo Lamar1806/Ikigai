@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const PillButton = ({ title, imageSource }) => {
+export const PillButton = ({ title, imageSource }) => {
   return (
     <TouchableOpacity style={styles.buttonContainer}>
       <Image source={imageSource} style={styles.image} />
@@ -36,5 +36,3 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 });
-
-export default PillButton;
