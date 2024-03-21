@@ -57,14 +57,7 @@ export const CoinListItem: FC<Props> = ({ coin }) => {
 
   const handleCryptoPress = () => {
     //@ts-ignore
-    navigation.navigate('CoinDetailScreen', {
-      cryptoId: coin?.id,
-      cryptoName: coin?.name,
-      cryptoSymbol: coin?.symbol,
-      currentAmount: coin?.current_price,
-      priceChangePercentage24h: coin?.price_change_percentage_24h,
-      priceChange: coin?.price_change_24h,
-    });
+    navigation.navigate('CoinDetailScreen', { coin });
   };
 
   return (

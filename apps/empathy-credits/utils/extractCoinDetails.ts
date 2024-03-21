@@ -4,7 +4,7 @@ export const extractCoinDetails = (coin) => {
   const cryptoSymbol = coin?.symbol;
   const currentAmount = coin?.current_price;
   const priceChangePercentage24h = coin?.price_change_percentage_24h;
-  const priceChange = coin?.price_change_24h;
+  const priceChange24h = coin?.price_change_24h;
 
   return {
     cryptoId,
@@ -12,6 +12,6 @@ export const extractCoinDetails = (coin) => {
     cryptoSymbol,
     currentAmount,
     priceChangePercentage24h,
-    priceChange,
+    priceChange24h,
   };
 };

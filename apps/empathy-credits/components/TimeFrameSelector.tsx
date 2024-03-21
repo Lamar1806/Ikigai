@@ -5,13 +5,12 @@ export const TimeFrameSelector = ({ onSelect }) => {
   const [selectedTimeFrame, setSelectedTimeFrame] = useState('1h');
 
   const timeFrames = [
-    { label: '1h', value: '1h' },
     { label: '24hr', value: '24hr' },
-    { label: '1w', value: '1w' },
-    { label: '1m', value: '1m' },
-    { label: '3m', value: '3m' },
-    { label: '1year', value: '1year' },
-    { label: 'All time', value: 'allTime' },
+    { label: '1w', value: '7' },
+    { label: '1m', value: '30' },
+    { label: '3m', value: '90' },
+    { label: '1year', value: '365' },
+    { label: 'All time', value: '1000' },
     // Add more time frame options as needed
   ];
 
