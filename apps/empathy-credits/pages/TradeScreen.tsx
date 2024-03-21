@@ -33,6 +33,10 @@ export const TradeScreen = ({ navigation }) => {
     setModalVisible(false);
   };
 
+  const handleCloseModalTwo = () => {
+    setModalTwoVisible(false);
+  };
+
   const handleSetCoinOne = (coin) => {
     setCoinOne(coin);
     setModalVisible(false);

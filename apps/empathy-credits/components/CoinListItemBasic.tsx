@@ -21,7 +21,10 @@ export const CoinListItemBasic: FC<Props> = ({ coin, onChange }) => {
       onPress={() => handleCryptoPress()}
       style={styles.container}
     >
-      <Image source={{ uri: coin?.image }} style={styles.coinImage} />
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: coin?.image }} style={styles.coinImage} />
+        <Text>{coin?.name}</Text>
+      </View>
       <View style={styles.column}>
         <Text style={styles.headerText}>{amountOwned}</Text>
         <Text>{formatCurrency(valueOfAmountOwned)}</Text>
@@ -39,6 +42,11 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     justifyContent: 'space-between',
   },
+  imageContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   coinImage: {
     width: 25,
     height: 25,
@@ -48,6 +56,7 @@ const styles = StyleSheet.create({
   column: {
     flex: 1,
     flexDirection: 'column',
+    alignItems: 'flex-end',
   },
   headerText: {
     fontSize: 16,

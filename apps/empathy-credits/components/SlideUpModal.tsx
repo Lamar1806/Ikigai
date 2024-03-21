@@ -5,7 +5,6 @@ import {
   Text,
   TouchableWithoutFeedback,
   Animated,
-  ScrollView,
   StyleSheet,
 } from 'react-native';
 
@@ -48,7 +47,7 @@ export const SlideUpModal = ({ visible, onClose, children }) => {
           },
         ]}
       >
-        <View style={styles.scrollViewContent}>{children}</View>
+        <View style={styles.childrenContainer}>{children}</View>
       </Animated.View>
     </Modal>
   );
@@ -61,18 +60,16 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     position: 'absolute',
-    bottom: 0, // Adjust bottom position as needed
+    bottom: 0,
     left: 0,
     right: 0,
-    maxHeight: '70%', // Set a maximum height for the modal
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 20,
   },
-  scrollViewContent: {
-    height: 600,
-    paddingBottom: 20, // Adjust as needed to avoid content being hidden behind the modal's padding
+  childrenContainer: {
+    height: 200,
   },
   modalText: {
     fontSize: 16,
