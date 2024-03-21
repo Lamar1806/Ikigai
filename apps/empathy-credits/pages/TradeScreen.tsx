@@ -17,7 +17,7 @@ export const TradeScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAddCrypto = () => {
-    navigation.navigate('BuyCryptoScreen');
+    navigation.navigate('Buy');
   };
 
   const handleOpenModal = () => {
