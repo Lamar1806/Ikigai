@@ -1,14 +1,14 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import { CoinMarketData } from '../api/axios/coinGecko/coins/fetchCoinMarketData';
 import { CoinListItemBasic } from './CoinListItemBasic';
 
 interface Props {
   coins: CoinMarketData[];
-  onChange: () => void;
+  onChange: (coin: CoinMarketData) => void;
 }
 export const CoinListBasic: FC<Props> = ({ coins, onChange }) => {
-  if (!coins || coins.length <= 0) return <Text>Loading</Text>;
+  if (!coins || coins?.length <= 0) return <Text>Loading</Text>;
 
   return (
     <FlatList

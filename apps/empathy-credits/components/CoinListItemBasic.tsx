@@ -37,10 +37,11 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    justifyContent: 'space-between',
   },
   coinImage: {
-    width: 50,
-    height: 50,
+    width: 25,
+    height: 25,
     borderRadius: 25,
     marginRight: 10,
   },

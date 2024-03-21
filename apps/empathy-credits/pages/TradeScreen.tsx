@@ -6,6 +6,7 @@ import { Button } from '../components/Button';
 import { DownChevronIcon } from '../components/icons/DownChevronIcon';
 import { SlideUpModal } from '../components/SlideUpModal';
 import { useCoinMarketData } from '../api/hooks/coinGecko/coins/useCoinMarketData';
+import { CoinListBasic } from '../components/CoinListBasic';
 
 export const TradeScreen = ({ navigation }) => {
   const currencyName = 'Ethereum';
@@ -31,6 +32,11 @@ export const TradeScreen = ({ navigation }) => {
     setModalVisible(false);
   };
 
+  const handleSetCoinOne = (coin) => {
+    setCoinOne(coin);
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -41,8 +47,8 @@ export const TradeScreen = ({ navigation }) => {
         <SlideUpModal
           visible={modalVisible}
           onClose={handleCloseModal}
-          children={undefined}
-        ></SlideUpModal>
+          children={<CoinListBasic coins={coins} onChange={handleSetCoinOne} />}
+        />
         {/* Render the SlideUpModal */}
         <View style={styles.row}>
           <View>
@@ -74,7 +80,9 @@ export const TradeScreen = ({ navigation }) => {
           </View>
 
           <View style={styles.tradeAmount}>
-            <Text>{amountOwned} usdc</Text>
+            <Text>
+              {amountOwned} {coins[1]?.symbol}
+            </Text>
             <Text>0</Text>
           </View>
         </View>

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    width: 110,
+    width: 115,
   },
   image: {
     width: 24,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 8,
+    fontSize: 12,
     fontWeight: 'bold',
   },
   icon: {
