@@ -7,7 +7,7 @@ import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
 import { EarnScreen } from '../pages/EarnScreen';
 import { MainStack } from './MainStack';
-import SwapStack from './SwapStack';
+import SwapTabStack from './SwapTabStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +34,7 @@ export const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name="Swap"
-        component={SwapStack}
+        component={SwapTabStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="exchange-alt" color={color} size={size} />

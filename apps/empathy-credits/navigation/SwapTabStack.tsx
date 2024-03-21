@@ -8,7 +8,7 @@ import { MarketScreen } from '../pages/MarketScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function SwapStack() {
+export default function SwapTabStack() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Trade" component={TradeScreen} />

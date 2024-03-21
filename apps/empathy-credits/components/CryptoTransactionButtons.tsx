@@ -5,9 +5,10 @@ export const CryptoTransactionButtons = ({
   onBuyPress,
   onSellPress,
   onSendPress,
+  style,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <TouchableOpacity style={styles.button} onPress={onSendPress}>
         <Text style={styles.buttonText}>Send</Text>
       </TouchableOpacity>

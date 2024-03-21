@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { PillButton } from '../components/PillButton';
 import { FilterButton } from '../components/FilterButton';
 import { Button } from '../components/Button';
 import { DownChevronIcon } from '../components/icons/DownChevronIcon';
+import { SlideUpModal } from '../components/SlideUpModal';
+import { useCoinMarketData } from '../api/hooks/coinGecko/coins/useCoinMarketData';
 
-export const TradeScreen = () => {
+export const TradeScreen = ({ navigation }) => {
   const currencyName = 'Ethereum';
   const amountOwned = 0;
+
+  const exampleQueryParams = { vs_currency: 'usd', perPage: 10 };
+  const { data, loading, error } = useCoinMarketData(exampleQueryParams);
+
+  const [modalVisible, setModalVisible] = useState(true);
+
+  const handleAddCrypto = () => {
+    navigation.navigate('BuyCryptoScreen');
+  };
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -16,7 +35,8 @@ export const TradeScreen = () => {
           <Text>Swap & Bridge</Text>
           <FilterButton onPress={undefined} />
         </View>
-
+        <SlideUpModal visible={modalVisible} onClose={handleCloseModal} />
+        {/* Render the SlideUpModal */}
         <View style={styles.row}>
           <View>
             <Text style={styles.cryptoName}>Ethereum</Text>
@@ -24,6 +44,7 @@ export const TradeScreen = () => {
               title={'USDT'}
               imageSource={undefined}
               style={undefined}
+              onPress={() => setModalVisible(true)}
             />
           </View>
 
@@ -32,7 +53,6 @@ export const TradeScreen = () => {
             <Text>0</Text>
           </View>
         </View>
-
         <View style={[styles.row, { borderBottomWidth: 0 }]}>
           <View>
             <Text style={styles.cryptoName}>Ethereum</Text>
@@ -40,6 +60,7 @@ export const TradeScreen = () => {
               title={'USDT'}
               imageSource={undefined}
               style={undefined}
+              onPress={() => setModalVisible(true)}
             />
           </View>
 
@@ -48,7 +69,6 @@ export const TradeScreen = () => {
             <Text>0</Text>
           </View>
         </View>
-
         <View style={styles.chevronContainer}>
           <DownChevronIcon />
         </View>
@@ -62,7 +82,7 @@ export const TradeScreen = () => {
 
         <Button
           label={`Add ${currencyName}`}
-          onPress={undefined}
+          onPress={handleAddCrypto}
           style={undefined}
         />
       </View>
