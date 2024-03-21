@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { PillButton } from '../components/PillButton';
 import { FilterButton } from '../components/FilterButton';
 import { Button } from '../components/Button';
@@ -17,7 +17,6 @@ export const TradeScreen = ({ navigation }) => {
 
   const [coinOne, setCoinOne] = useState(null);
   const [coinTwo, setCoinTwo] = useState(null);
-
   const [modalVisible, setModalVisible] = useState(false);
   const [modalTwoVisible, setModalTwoVisible] = useState(false);
 
@@ -54,19 +53,12 @@ export const TradeScreen = ({ navigation }) => {
           <Text>Swap & Bridge</Text>
           <FilterButton onPress={undefined} />
         </View>
-        {/* Coin One */}
-        <SlideUpModal
-          visible={modalVisible}
-          onClose={handleCloseModal}
-          children={<CoinListBasic coins={coins} onChange={handleSetCoinOne} />}
-        />
-        {/* Coin Two */}
-        <SlideUpModal
-          visible={modalTwoVisible}
-          onClose={handleCloseModalTwo}
-          children={<CoinListBasic coins={coins} onChange={handleSetCoinTwo} />}
-        />
-        {/* Coin One */}
+        <SlideUpModal visible={modalVisible} onClose={handleCloseModal}>
+          <CoinListBasic coins={coins} onChange={handleSetCoinOne} />
+        </SlideUpModal>
+        <SlideUpModal visible={modalTwoVisible} onClose={handleCloseModalTwo}>
+          <CoinListBasic coins={coins} onChange={handleSetCoinTwo} />
+        </SlideUpModal>
         <View style={styles.row}>
           <View>
             <Text style={styles.cryptoName}>
@@ -75,7 +67,6 @@ export const TradeScreen = ({ navigation }) => {
             <PillButton
               title={coinOne ? coinOne.symbol : coins[0]?.symbol}
               imageSource={coinOne ? coinOne.image : coins[0]?.image}
-              style={undefined}
               onPress={() => setModalVisible(true)}
             />
           </View>
@@ -86,7 +77,6 @@ export const TradeScreen = ({ navigation }) => {
             <Text>0</Text>
           </View>
         </View>
-        {/* Coin Two */}
         <View style={[styles.row, { borderBottomWidth: 0 }]}>
           <View>
             <Text style={styles.cryptoName}>
@@ -95,14 +85,12 @@ export const TradeScreen = ({ navigation }) => {
             <PillButton
               title={coinTwo ? coinTwo.symbol : coins[1]?.symbol}
               imageSource={coinTwo ? coinTwo.image : coins[1]?.image}
-              style={undefined}
               onPress={() => setModalTwoVisible(true)}
             />
           </View>
-
           <View style={styles.tradeAmount}>
             <Text>
-              {amountOwned} {coins[1]?.symbol}
+              {amountOwned} {coinTwo ? coinTwo.symbol : coins[1]?.symbol}
             </Text>
             <Text>0</Text>
           </View>
@@ -111,18 +99,12 @@ export const TradeScreen = ({ navigation }) => {
           <DownChevronIcon />
         </View>
       </View>
-
       <View style={styles.bottomContainer}>
         <Text style={styles.bottomText}>
           Your wallet has no {currencyName} right now. Add some and start
           trading it immediately
         </Text>
-
-        <Button
-          label={`Add ${currencyName}`}
-          onPress={handleAddCrypto}
-          style={undefined}
-        />
+        <Button label={`Add ${currencyName}`} onPress={handleAddCrypto} />
       </View>
     </View>
   );
