@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
-import mockdata from '../api/mocks/coinMarketData.json';
 import { LineChartExample } from '../components/LineChartExample';
 import { TimeFrameSelector } from '../components/TimeFrameSelector';
 import { useMarketChartData } from '../api/hooks/coinGecko/coins/useMarketChartData';

@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator();
 export default function SwapStack() {
   return (
     <Tab.Navigator>
-      <Tab.Screen style={{}} name="Trade" component={TradeScreen} />
+      <Tab.Screen name="Trade" component={TradeScreen} />
       <Tab.Screen name="Market" component={MarketScreen} />
     </Tab.Navigator>
   );
