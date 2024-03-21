@@ -19,6 +19,7 @@ export const TradeScreen = ({ navigation }) => {
   const [coinTwo, setCoinTwo] = useState(null);
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalTwoVisible, setModalTwoVisible] = useState(false);
 
   const handleAddCrypto = () => {
     navigation.navigate('Buy');
@@ -37,6 +38,11 @@ export const TradeScreen = ({ navigation }) => {
     setModalVisible(false);
   };
 
+  const handleSetCoinTwo = (coin) => {
+    setCoinTwo(coin);
+    setModalTwoVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -44,23 +50,31 @@ export const TradeScreen = ({ navigation }) => {
           <Text>Swap & Bridge</Text>
           <FilterButton onPress={undefined} />
         </View>
+        {/* Coin One */}
         <SlideUpModal
           visible={modalVisible}
           onClose={handleCloseModal}
           children={<CoinListBasic coins={coins} onChange={handleSetCoinOne} />}
         />
-        {/* Render the SlideUpModal */}
+        {/* Coin Two */}
+        <SlideUpModal
+          visible={modalTwoVisible}
+          onClose={handleCloseModal}
+          children={<CoinListBasic coins={coins} onChange={handleSetCoinTwo} />}
+        />
+        {/* Coin One */}
         <View style={styles.row}>
           <View>
-            <Text style={styles.cryptoName}>{coins[0]?.name}</Text>
+            <Text style={styles.cryptoName}>
+              {coinOne ? coinOne.name : coins[0]?.name}
+            </Text>
             <PillButton
-              title={coins[0]?.symbol}
-              imageSource={coins[0]?.image}
+              title={coinOne ? coinOne.symbol : coins[0]?.symbol}
+              imageSource={coinOne ? coinOne.image : coins[0]?.image}
               style={undefined}
               onPress={() => setModalVisible(true)}
             />
           </View>
-
           <View style={styles.tradeAmount}>
             <Text>
               <Text style={{ color: 'blue' }}>Max</Text> {amountOwned} usdc
@@ -68,14 +82,17 @@ export const TradeScreen = ({ navigation }) => {
             <Text>0</Text>
           </View>
         </View>
+        {/* Coin Two */}
         <View style={[styles.row, { borderBottomWidth: 0 }]}>
           <View>
-            <Text style={styles.cryptoName}>{coins[1]?.name}</Text>
+            <Text style={styles.cryptoName}>
+              {coinTwo ? coinTwo.name : coins[1]?.name}
+            </Text>
             <PillButton
-              title={coins[1]?.symbol}
-              imageSource={coins[1]?.image}
+              title={coinTwo ? coinTwo.symbol : coins[1]?.symbol}
+              imageSource={coinTwo ? coinTwo.image : coins[1]?.image}
               style={undefined}
-              onPress={() => setModalVisible(true)}
+              onPress={() => setModalTwoVisible(true)}
             />
           </View>
 
