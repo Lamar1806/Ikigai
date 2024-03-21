@@ -10,6 +10,7 @@ import { extractCoinDetails } from '../utils/extractCoinDetails';
 import { formatCurrency } from '../utils/formatCurrency';
 import { numberToPercent } from '../utils/numberToPercent';
 import { FullWidthButton } from '../components/FullWidthButton';
+import { CryptoTransactionButtons } from '../components/CryptoTransactionButtons';
 
 // Define the type of props for the component
 type CoinDetailScreenProps = {
@@ -75,6 +76,11 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
       </View>
       <TimeFrameSelector onSelect={handleTimeFrameSelect} />
       <LineChartExample marketChartData={data} />
+      <CryptoTransactionButtons
+        onBuyPress={undefined}
+        onSellPress={undefined}
+        onSendPress={undefined}
+      />
       <FullWidthButton title={'transactions'} onPress={undefined} />
     </View>
   );
