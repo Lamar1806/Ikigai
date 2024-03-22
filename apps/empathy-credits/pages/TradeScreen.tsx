@@ -46,6 +46,31 @@ export const TradeScreen = ({ navigation }) => {
     setModalTwoVisible(false);
   };
 
+  const renderCoin = (coin, index) => (
+    <View key={index} style={styles.row}>
+      <View>
+        <Text style={styles.cryptoName}>
+          {coin ? coin.name : coins[0]?.name}
+        </Text>
+        <PillButton
+          title={coin ? coin.symbol : coins[0]?.symbol}
+          imageSource={coin ? coin.image : coins[0]?.image}
+          onPress={() =>
+            index === 0 ? setModalVisible(true) : setModalTwoVisible(true)
+          }
+          style={undefined}
+        />
+      </View>
+      <View style={styles.tradeAmount}>
+        <Text>
+          <Text style={{ color: 'blue' }}>Max</Text> {amountOwned}{' '}
+          {coin ? coin.symbol : coins[1]?.symbol}
+        </Text>
+        <Text>0</Text>
+      </View>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -59,53 +84,25 @@ export const TradeScreen = ({ navigation }) => {
         <SlideUpModal visible={modalTwoVisible} onClose={handleCloseModalTwo}>
           <CoinListBasic coins={coins} onChange={handleSetCoinTwo} />
         </SlideUpModal>
-        <View style={styles.row}>
-          <View>
-            <Text style={styles.cryptoName}>
-              {coinOne ? coinOne.name : coins[0]?.name}
-            </Text>
-            <PillButton
-              title={coinOne ? coinOne.symbol : coins[0]?.symbol}
-              imageSource={coinOne ? coinOne.image : coins[0]?.image}
-              onPress={() => setModalVisible(true)}
-            />
-          </View>
-          <View style={styles.tradeAmount}>
-            <Text>
-              <Text style={{ color: 'blue' }}>Max</Text> {amountOwned} usdc
-            </Text>
-            <Text>0</Text>
-          </View>
-        </View>
-        <View style={[styles.row, { borderBottomWidth: 0 }]}>
-          <View>
-            <Text style={styles.cryptoName}>
-              {coinTwo ? coinTwo.name : coins[1]?.name}
-            </Text>
-            <PillButton
-              title={coinTwo ? coinTwo.symbol : coins[1]?.symbol}
-              imageSource={coinTwo ? coinTwo.image : coins[1]?.image}
-              onPress={() => setModalTwoVisible(true)}
-            />
-          </View>
-          <View style={styles.tradeAmount}>
-            <Text>
-              {amountOwned} {coinTwo ? coinTwo.symbol : coins[1]?.symbol}
-            </Text>
-            <Text>0</Text>
-          </View>
-        </View>
+        {renderCoin(coinOne, 0)}
+        {renderCoin(coinTwo, 1)}
         <View style={styles.chevronContainer}>
           <DownChevronIcon />
         </View>
       </View>
-      <View style={styles.bottomContainer}>
-        <Text style={styles.bottomText}>
-          Your wallet has no {currencyName} right now. Add some and start
-          trading it immediately
-        </Text>
-        <Button label={`Add ${currencyName}`} onPress={handleAddCrypto} />
-      </View>
+      {coinOne && (
+        <View style={styles.bottomContainer}>
+          <Text style={styles.bottomText}>
+            Your wallet has no {coinOne.name} right now. Add some and start
+            trading it immediately
+          </Text>
+          <Button
+            label={`Add ${coinOne.name}`}
+            onPress={handleAddCrypto}
+            style={undefined}
+          />
+        </View>
+      )}
     </View>
   );
 };

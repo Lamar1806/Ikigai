@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   childrenContainer: {
-    height: 200,
+    height: 500,
   },
   modalText: {
     fontSize: 16,

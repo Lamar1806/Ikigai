@@ -26,7 +26,7 @@ export const CoinListItemBasic: FC<Props> = ({ coin, onChange }) => {
         <Text>{coin?.name}</Text>
       </View>
       <View style={styles.column}>
-        <Text style={styles.headerText}>{amountOwned}</Text>
+        <Text style={styles.headerText}>{amountOwned} </Text>
         <Text>{formatCurrency(valueOfAmountOwned)}</Text>
       </View>
     </TouchableOpacity>
