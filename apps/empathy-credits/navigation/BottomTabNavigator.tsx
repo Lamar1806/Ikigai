@@ -7,7 +7,6 @@ import { NFTScreen } from '../pages/NFTScreen';
 import { BrowserScreen } from '../pages/BrowserScreen';
 import { EarnScreen } from '../pages/EarnScreen';
 import { MainStack } from './MainStack';
-import SwapTabStack from './SwapTabStack';
 import { SwapStack } from './SwapStack';
 
 const Tab = createBottomTabNavigator();

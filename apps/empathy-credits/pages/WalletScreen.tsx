@@ -12,7 +12,6 @@ export function WalletScreen() {
 
   return (
     <View style={styles.container}>
-      {/* <AnimatedExample /> */}
       <CreditCard />
       <CoinList coins={data} />
     </View>
