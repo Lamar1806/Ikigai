@@ -10,6 +10,7 @@ export interface CoinData {
   community_data?: boolean;
   developer_data?: boolean;
   sparkline?: boolean;
+  description?: string;
 }
 
 export interface CoinQueryParams {

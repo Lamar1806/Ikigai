@@ -35,5 +35,5 @@ export const useCoinData = (
     };
   }, [coinId, queryParams]);
 
-  return [coinData, isLoading, error];
+  return { coinData, isLoading, error };
 };
