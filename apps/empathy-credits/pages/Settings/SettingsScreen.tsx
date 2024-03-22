@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    paddingTop: 16,
   },
   imageWalletContainer: {
     width: '100%',
