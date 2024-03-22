@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useCoinMarketData } from '../api/hooks/coinGecko/coins/useCoinMarketData';
 import { CoinList } from '../components/CoinList';
 import { CreditCard } from '../components/CreditCard';
+import { MainHeaderNav } from '../navigation/MainHeaderNav';
 // import AnimatedExample from './animationtest';
 
 export function WalletScreen() {

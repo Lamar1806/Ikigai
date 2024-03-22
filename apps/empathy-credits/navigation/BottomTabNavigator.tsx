@@ -8,6 +8,7 @@ import { BrowserScreen } from '../pages/BrowserScreen';
 import { EarnScreen } from '../pages/EarnScreen';
 import { MainStack } from './MainStack';
 import { SwapStack } from './SwapStack';
+import { MainHeaderNav } from './MainHeaderNav';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +22,13 @@ export const BottomTabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="wallet" color={color} size={size} />
           ),
+          header: ({ scene, previous, navigation }) => (
+            <MainHeaderNav
+              scene={scene}
+              previous={previous}
+              navigation={navigation}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -29,6 +37,13 @@ export const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="file-alt" color={color} size={size} />
+          ),
+          header: ({ scene, previous, navigation }) => (
+            <MainHeaderNav
+              scene={scene}
+              previous={previous}
+              navigation={navigation}
+            />
           ),
         }}
       />
@@ -39,6 +54,13 @@ export const BottomTabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="exchange-alt" color={color} size={size} />
           ),
+          header: ({ scene, previous, navigation }) => (
+            <MainHeaderNav
+              scene={scene}
+              previous={previous}
+              navigation={navigation}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -48,6 +70,13 @@ export const BottomTabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="globe" color={color} size={size} />
           ),
+          header: ({ scene, previous, navigation }) => (
+            <MainHeaderNav
+              scene={scene}
+              previous={previous}
+              navigation={navigation}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -56,6 +85,13 @@ export const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="hand-holding-usd" color={color} size={size} />
+          ),
+          header: ({ scene, previous, navigation }) => (
+            <MainHeaderNav
+              scene={scene}
+              previous={previous}
+              navigation={navigation}
+            />
           ),
         }}
       />
