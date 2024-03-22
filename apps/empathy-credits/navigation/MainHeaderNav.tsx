@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import cryptoWallet from '../assets/crytoWallet.png';
 
-export const MainHeaderNav = ({ navigation }) => {
+export const MainHeaderNav = ({ navigation, scene }) => {
   return (
     <TouchableOpacity
       style={styles.container}

@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 // Import your screen components
 import { WalletScreen } from '../pages/WalletScreen';
 import { CoinDetailScreen } from '../pages/CoinDetailScreen';
-import { SettingsScreen } from '../pages/SettingsScreen';
+import { SettingsScreen } from '../pages/Settings/SettingsScreen';
 import { RecoverPhraseScreen } from '../pages/Settings/RecoverPhraseScreen';
 import ChangePassCodeScreen from '../pages/Settings/ChangePassCodeScreen';
 import { EnableFaceIdScreen } from '../pages/Settings/EnableFaceIdScreen';
