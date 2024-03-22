@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { PillButton } from '../components/PillButton';
-import { FilterButton } from '../components/FilterButton';
-import { Button } from '../components/Button';
-import { DownChevronIcon } from '../components/icons/DownChevronIcon';
-import { SlideUpModal } from '../components/SlideUpModal';
-import { useCoinMarketData } from '../api/hooks/coinGecko/coins/useCoinMarketData';
-import { CoinListBasic } from '../components/CoinListBasic';
+import { PillButton } from '../../components/PillButton';
+import { FilterButton } from '../../components/FilterButton';
+import { Button } from '../../components/Button';
+import { DownChevronIcon } from '../../components/icons/DownChevronIcon';
+import { SlideUpModal } from '../../components/SlideUpModal';
+import { useCoinMarketData } from '../../api/hooks/coinGecko/coins/useCoinMarketData';
+import { CoinListBasic } from '../../components/CoinListBasic';
+import { SearchComponent } from '../../components/SearchComponent';
 
 export const TradeScreen = ({ navigation }) => {
   const currencyName = 'Ethereum';
@@ -17,7 +18,7 @@ export const TradeScreen = ({ navigation }) => {
 
   const [coinOne, setCoinOne] = useState(null);
   const [coinTwo, setCoinTwo] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   const [modalTwoVisible, setModalTwoVisible] = useState(false);
 
   const handleAddCrypto = () => {
@@ -47,7 +48,10 @@ export const TradeScreen = ({ navigation }) => {
   };
 
   const renderCoin = (coin, index) => (
-    <View key={index} style={styles.row}>
+    <View
+      key={index}
+      style={[styles.row, index === 1 ? { borderBottomWidth: 0 } : null]}
+    >
       <View>
         <Text style={styles.cryptoName}>
           {coin ? coin.name : coins[0]?.name}
@@ -79,9 +83,11 @@ export const TradeScreen = ({ navigation }) => {
           <FilterButton onPress={undefined} />
         </View>
         <SlideUpModal visible={modalVisible} onClose={handleCloseModal}>
+          <SearchComponent onSearch={undefined} />
           <CoinListBasic coins={coins} onChange={handleSetCoinOne} />
         </SlideUpModal>
         <SlideUpModal visible={modalTwoVisible} onClose={handleCloseModalTwo}>
+          <SearchComponent onSearch={undefined} />
           <CoinListBasic coins={coins} onChange={handleSetCoinTwo} />
         </SlideUpModal>
         {renderCoin(coinOne, 0)}

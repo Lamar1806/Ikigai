@@ -3,7 +3,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { TradeScreen } from '../pages/TradeScreen';
+import { TradeScreen } from '../pages/TradeScreen/TradeScreen';
 import { MarketScreen } from '../pages/MarketScreen';
 import { SwapStack } from './SwapStack';
 
