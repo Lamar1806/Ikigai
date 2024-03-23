@@ -3,6 +3,7 @@ import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import fullmetal from '../assets/edward-elric-1920.jpeg';
+import { TransactionActionButtonRow } from '../components/TransactionActionButtonRow';
 
 export const CreditCard = () => {
   return (
@@ -21,6 +22,7 @@ export const CreditCard = () => {
         size={24}
         color="black"
       />
+      <TransactionActionButtonRow styles={styles.transactionActionButtonRow} />
     </View>
   );
 };
@@ -40,6 +42,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  transactionActionButtonRow: {
+    position: 'absolute',
+    flexDirection: 'row',
+    bottom: 0,
+    width: 150,
+    justifyContent: 'space-between',
   },
   bgImage: {
     position: 'absolute',

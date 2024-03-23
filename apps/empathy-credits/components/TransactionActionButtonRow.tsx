@@ -2,9 +2,9 @@ import { View, StyleSheet } from 'react-native';
 import { IconButton } from './IconButon';
 import React from 'react';
 
-export const ButtonsRow = () => {
+export const TransactionActionButtonRow = ({ styles }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styles]}>
       <IconButton
         iconName="paper-plane"
         label="Send"
@@ -23,6 +23,7 @@ export const ButtonsRow = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
