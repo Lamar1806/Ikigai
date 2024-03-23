@@ -1,36 +1,21 @@
 import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
-import { useEffect } from 'react';
+import { Home } from '../pages/home/home';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const StyledApp = styled.div`
   // Your style here
 `;
 
-async function fetchRecentRelease(page: number, type: string) {
-  try {
-    const response = await fetch(`/recent-release?page=${page}&type=${type}`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Fetch error:', error);
-  }
-}
+// Create a client
+const queryClient = new QueryClient();
 
 export function App() {
-  useEffect(() => {
-    fetchRecentRelease(1, 'movie').then((data) => console.log(data));
-    console.log('hi');
-  });
-  // Example usage:
-
   return (
-    <StyledApp>
-      <NxWelcome title="ani-ikigai-web" />
-    </StyledApp>
+    <QueryClientProvider client={queryClient}>
+      <StyledApp>
+        <Home />
+      </StyledApp>
+    </QueryClientProvider>
   );
 }
 
