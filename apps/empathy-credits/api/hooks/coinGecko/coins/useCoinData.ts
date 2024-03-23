@@ -4,38 +4,16 @@ import {
   CoinQueryParams,
   fetchCoinData,
 } from '../../../axios/coinGecko/coins/fetchCoinData';
+import { useQuery } from '@tanstack/react-query';
 
-const useCoinData = (
+export const useCoinData = (
   coinId: string,
-  queryParams: CoinQueryParams
+  queryParams?: CoinQueryParams
 ): [CoinData | null, boolean, string | null] => {
-  const [coinData, setCoinData] = useState<CoinData | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['coinData', coinId],
+    queryFn: () => fetchCoinData(coinId, queryParams),
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchCoinData(coinId, queryParams);
-        setCoinData(data);
-        setError(null);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-
-    // Cleanup function
-    return () => {
-      // Any cleanup code if needed
-    };
-  }, [coinId, queryParams]);
-
-  return [coinData, isLoading, error];
+  return { data, isLoading, error };
 };
-
-export default useCoinData;

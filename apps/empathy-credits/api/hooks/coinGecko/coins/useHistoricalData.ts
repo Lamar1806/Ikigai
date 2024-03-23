@@ -5,7 +5,7 @@ import {
   fetchHistoricalData,
 } from '../../../axios/coinGecko/coins/fetchHistoricalData';
 
-const useHistoricalData = ({
+export const useHistoricalData = ({
   id,
   date,
   localization = true,
@@ -44,5 +44,3 @@ const useHistoricalData = ({
 
   return { loading, error, historicalData };
 };
-
-export default useHistoricalData;

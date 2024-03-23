@@ -3,10 +3,15 @@ import React from 'react';
 
 export const BrowserScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>BrowserScreen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+});

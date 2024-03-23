@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 const baseURL = {
-  coinGecko: 'https://api.coingecko.com/api/v3',
+  coinGecko: process.env.EXPO_PUBLIC_COIN_GECKO_API,
 };
 
 const axios_coin_gecko_free = axios.create({

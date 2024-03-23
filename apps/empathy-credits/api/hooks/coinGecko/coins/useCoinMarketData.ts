@@ -21,13 +21,7 @@ export const useCoinMarketData = (
   } = useQuery({
     queryKey: ['coinMarketData', queryParams],
     queryFn: () => fetchCoinMarketData(queryParams),
-    enabled: false, // Disable automatic query execution
   });
-
-  useEffect(() => {
-    // Manually trigger query execution on mount and whenever queryParams change
-    refetch();
-  }, [queryParams, refetch]);
 
   return { data: data ?? [], loading, error };
 };

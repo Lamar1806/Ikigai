@@ -4,7 +4,8 @@
     "module": "commonjs",
     "jsx": "react",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitAny": true
   },
   "include": [
     "./pages/**/*", // Include all TypeScript files in the pages directory and its subdirectories
