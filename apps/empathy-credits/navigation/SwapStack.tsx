@@ -11,7 +11,7 @@ export const SwapStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Swap"
+        name="Swapping"
         component={SwapTabStack}
         options={{ headerShown: false }}
       />

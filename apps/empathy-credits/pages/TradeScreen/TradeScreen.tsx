@@ -18,7 +18,7 @@ export const TradeScreen = ({ navigation }) => {
 
   const [coinOne, setCoinOne] = useState(null);
   const [coinTwo, setCoinTwo] = useState(null);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   const [modalTwoVisible, setModalTwoVisible] = useState(false);
 
   const handleAddCrypto = () => {
