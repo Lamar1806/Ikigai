@@ -4,12 +4,17 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import fullmetal from '../assets/edward-elric-1920.jpeg';
 import { TransactionActionButtonRow } from '../components/TransactionActionButtonRow';
+import { formatCurrency } from '../utils/formatCurrency';
 
 export const CreditCard = () => {
+  const totalFunds = '0.000000001';
   return (
     <View style={styles.container}>
       <Image source={fullmetal} style={styles.bgImage} />
-      <Text style={styles.text}>Empathy Credits</Text>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={styles.text}>Empathy Credits</Text>
+        <Text style={styles.totalFunds}>${totalFunds}</Text>
+      </View>
       <FontAwesome
         style={styles.scanIcon}
         name="wifi"
@@ -56,7 +61,10 @@ const styles = StyleSheet.create({
     height: 150,
     opacity: 0.3,
   },
-  text: { color: '#fff' },
+  totalFunds: {
+    color: 'white',
+  },
+  text: { color: '#fff', marginBottom: 5 },
   scanIcon: {
     position: 'absolute',
     right: 15,
