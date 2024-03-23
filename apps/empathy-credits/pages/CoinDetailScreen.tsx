@@ -55,8 +55,6 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
 
   const handleTimeFrameSelect = (timeFrame) => {
     setSelectedTimeFrame(timeFrame);
-    // Update your graph data based on the selected time frame
-    // Example: fetchData(timeFrame);
   };
 
   return (

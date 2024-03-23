@@ -1,11 +1,10 @@
 export const extractCoinDetails = (coin) => {
-  const cryptoId: string | undefined = coin?.cryptoId;
-  const cryptoName: string | undefined = coin?.cryptoName;
-  const cryptoSymbol: string | undefined = coin?.cryptoSymbol;
-  const currentAmount: number | undefined = coin?.currentAmount;
-  const priceChangePercentage24h: number | undefined =
-    coin?.priceChangePercentage24h;
-  const priceChange24h: number | undefined = coin?.priceChange24h;
+  const cryptoId = coin?.id;
+  const cryptoName = coin?.name;
+  const cryptoSymbol = coin?.symbol;
+  const currentAmount = coin?.current_price;
+  const priceChangePercentage24h = coin?.price_change_percentage_24h;
+  const priceChange24h = coin?.price_change_24h;
 
   return {
     cryptoId,
