@@ -13,6 +13,9 @@ import { CryptoTransactionButtons } from '../components/CryptoTransactionButtons
 import { CoinMarketData } from '../api/axios/coinGecko/coins/fetchCoinMarketData';
 import { ScrollView } from 'react-native-gesture-handler';
 import { abbreviateNumber } from '../utils/abbreviateNumber';
+import { useQuery } from '@tanstack/react-query';
+import { fetchMarketChartData } from '../api/axios/coinGecko/coins/fetchMarketChartData';
+import { useCoinData } from '../api/hooks/coinGecko/coins/useCoinData';
 
 // Define the type of props for the component
 type CoinDetailScreenProps = {
@@ -37,12 +40,13 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
   const [vs_currency] = useState('usd');
   const [selectedTimeFrame, setSelectedTimeFrame] = useState(1);
 
-  // Call the custom hook with the query parameters
-  const { data, isLoading, error } = useMarketChartData({
+  const { data, isLoading, error, refetch } = useMarketChartData({
     id: cryptoId,
     vs_currency,
     days: selectedTimeFrame,
   });
+
+  const { data: coinData } = useCoinData(cryptoId);
 
   useEffect(() => {
     // Change the header title when the component mounts
@@ -123,6 +127,12 @@ export const CoinDetailScreen: React.FC<CoinDetailScreenProps> = ({
             )}
           </View>
         </View>
+        {coinData && coinData.description && coinData.description.en && (
+          <View style={{ padding: 16 }}>
+            <Text style={{ marginBottom: 16, fontWeight: 'bold' }}>About</Text>
+            <Text>{coinData.description.en}</Text>
+          </View>
+        )}
       </ScrollView>
       <CryptoTransactionButtons
         onBuyPress={undefined}

@@ -21,7 +21,6 @@ export const fetchCoinData = async (
         params: queryParams,
       }
     );
-    // console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error(`Failed to fetch data for coin with ID ${coinId}`);
