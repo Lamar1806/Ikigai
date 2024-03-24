@@ -49,8 +49,8 @@ export const ProjectListItem: React.FC<ProjectListItemProps> = ({
     <LinkButton href={liveUrl} target="_blank" rel="noopener noreferrer">
       Live View
     </LinkButton>
-    <LinkButton href={detailUrl} target="_blank" rel="noopener noreferrer">
+    {/* <LinkButton href={detailUrl} target="_blank" rel="noopener noreferrer">
       View Details
-    </LinkButton>
+    </LinkButton> */}
   </Container>
 );

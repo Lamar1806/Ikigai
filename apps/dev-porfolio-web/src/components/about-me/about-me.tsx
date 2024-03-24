@@ -27,6 +27,7 @@ const Line = styled.div`
 const Summary = styled.p`
   text-align: center;
   font-size: 16;
+  letter-spacing: 1px;
 `;
 
 const IconLink = styled.a`
@@ -38,13 +39,19 @@ const IconLink = styled.a`
 // New ContactLinks Component
 export const ContactLinks = () => (
   <div>
-    <IconLink href="mailto:segrestbrooks@gmail.com">
+    <IconLink href="mailto:segrestbrooks@gmail.com" target="_blank">
       <AiOutlineMail title="Email" />
     </IconLink>
-    <IconLink href="https://www.linkedin.com/in/dalmar-brooks-61194b99/">
+    <IconLink
+      href="https://www.linkedin.com/in/dalmar-brooks-61194b99/"
+      target="_blank"
+    >
       <FaLinkedin title="LinkedIn" />
     </IconLink>
-    <IconLink href="https://www.upwork.com/freelancers/dalmarbrooks">
+    <IconLink
+      href="https://www.upwork.com/freelancers/dalmarbrooks"
+      target="_blank"
+    >
       <SiUpwork title="Upwork" />
     </IconLink>
   </div>
