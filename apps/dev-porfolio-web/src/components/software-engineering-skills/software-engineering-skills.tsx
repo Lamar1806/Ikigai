@@ -36,8 +36,6 @@ export const SoftwareEngineerSkills = () => {
         <br />
         <Skill>JavaScript</Skill>
         <br />
-        <Skill>Ruby</Skill>
-        <br />
         <Skill>React</Skill>
         <br />
         <Skill>Redux</Skill>
