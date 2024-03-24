@@ -20,7 +20,7 @@ const SubHeading = styled.h2`
 `;
 
 const MainHeading = styled.h1`
-  font-size: 36px;
+  font-size: 30px;
   margin: 10px 0;
 `;
 

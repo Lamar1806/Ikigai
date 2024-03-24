@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import me from '../assets/me.png';
+import me from '../assets/me2.png';
 import { AboutDalmar, ContactLinks } from '../components/about-me/about-me';
 import {
   GraphicDesignSkills,
@@ -27,7 +27,7 @@ const ImageOfMe = styled.img`
 const opacity = 0.3;
 
 export const H1 = styled.h1<H1Props>`
-  font-size: 50px;
+  font-size: 48;
   color: rgb(0, 0, 0);
   text-align: ${(props) => props.textAlign};
   opacity: ${(props) => (props.withOpacity ? opacity : 1)};
@@ -55,7 +55,11 @@ export function App() {
         </H1>
         <AboutDalmar />
       </section>
-      <H1 textAlign={'center'} withOpacity style={{ marginTop: 50 }}>
+      <H1
+        textAlign={'center'}
+        withOpacity
+        style={{ marginTop: 60, marginBottom: 30 }}
+      >
         About
       </H1>
       <HeadingWithSubtextAbove

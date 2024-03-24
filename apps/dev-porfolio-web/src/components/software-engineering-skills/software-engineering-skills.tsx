@@ -38,8 +38,6 @@ export const SoftwareEngineerSkills = () => {
         <br />
         <Skill>Ruby</Skill>
         <br />
-        <Skill>Ruby on Rails</Skill>
-        <br />
         <Skill>React</Skill>
         <br />
         <Skill>Redux</Skill>
