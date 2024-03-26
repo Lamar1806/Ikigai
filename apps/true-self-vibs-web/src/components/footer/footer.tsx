@@ -39,7 +39,6 @@ const CustomIcon = styled.div`
 
 const Footer = () => {
   const { YouTube, Facebook, Instagram, Medium, Quora } = links;
-  console.log(YouTube);
   return (
     <FooterContainer>
       <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
