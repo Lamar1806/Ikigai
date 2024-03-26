@@ -6,6 +6,8 @@ import { missionTextData } from '../../components/our-mission/our-mission-data';
 import Features from '../../components/features/features';
 import { features } from '../../api/mocks/features';
 import Testimonials from '../../components/testimonials/testimonials';
+import ArticleSection from '../../components/article-section/article-section';
+
 /* eslint-disable-next-line */
 export interface HomeProps {}
 
@@ -27,6 +29,7 @@ export function Home(props: HomeProps) {
         <OurMission missionData={missionTextData} />
         <Features features={features} />
         <Testimonials />
+        <ArticleSection />
       </InnerContainer>
     </StyledHome>
   );
