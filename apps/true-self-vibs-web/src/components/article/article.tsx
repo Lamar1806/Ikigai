@@ -15,7 +15,12 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+`;
+
+const StyledParagraph = styled.p`
+  font-style: italic;
+  margin-bottom: 30px;
 `;
 
 const BodyText = styled.p`
@@ -56,11 +61,23 @@ const Article: React.FC<ArticleProps> = ({
   body,
   readMoreUrl,
 }) => {
+  const paragraphs = body.split('\n\n');
+
   return (
     <ArticleContainer>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
-      <BodyText>{body}</BodyText>
+      {paragraphs.map((paragraph, index) => {
+        // Check if the paragraph starts with a special symbol
+        const isStyledParagraph = paragraph.trim().startsWith('—');
+
+        // If it does, render it with the styled component, otherwise render it normally
+        return !isStyledParagraph ? (
+          <StyledParagraph key={index}>{paragraph}</StyledParagraph>
+        ) : (
+          <p key={index}>{paragraph}</p>
+        );
+      })}
       <ReadMoreButton href={readMoreUrl}>Read more</ReadMoreButton>
     </ArticleContainer>
   );
