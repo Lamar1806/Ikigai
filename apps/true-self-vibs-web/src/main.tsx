@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { GlobalStyles } from './theme/global-styles';
-
+// @ts-ignore
+import app from './firebaseConfig';
 import App from './app/app';
 
 const root = ReactDOM.createRoot(
