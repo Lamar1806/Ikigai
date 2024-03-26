@@ -1,19 +1,19 @@
 import { Navbar } from '../components/navbar/navbar';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Home } from '../pages/home/home';
+import Footer from '../components/footer/footer';
 
 export function App() {
   return (
-    <>
-      <Navbar />
-      <Router>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Navbar />
+          <Home />
+          <Footer />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
