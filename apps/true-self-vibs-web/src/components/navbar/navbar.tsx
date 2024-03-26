@@ -10,7 +10,7 @@ const NavbarWrapper = styled.nav`
 
 const NavbarList = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style-type: none;
