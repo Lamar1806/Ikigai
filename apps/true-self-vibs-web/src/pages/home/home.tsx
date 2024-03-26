@@ -5,6 +5,7 @@ import OurMission from '../../components/our-mission/our-mission';
 import { missionTextData } from '../../components/our-mission/our-mission-data';
 import Features from '../../components/features/features';
 import { features } from '../../api/mocks/features';
+import Testimonials from '../../components/testimonials/testimonials';
 /* eslint-disable-next-line */
 export interface HomeProps {}
 
@@ -25,6 +26,7 @@ export function Home(props: HomeProps) {
         {/*  @ts-ignore */}
         <OurMission missionData={missionTextData} />
         <Features features={features} />
+        <Testimonials />
       </InnerContainer>
     </StyledHome>
   );
