@@ -38,11 +38,17 @@ const ReadMoreButton = styled.a`
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
+  letter-spacing: 1px;
   cursor: pointer;
 
   &:hover {
     background-color: black;
     color: white;
+  }
+
+  span {
+    font-size: 20px;
+    letter-spacing: 1.5px;
   }
 `;
 
@@ -78,7 +84,9 @@ const Article: React.FC<ArticleProps> = ({
           <p key={index}>{paragraph}</p>
         );
       })}
-      <ReadMoreButton href={readMoreUrl}>Read more</ReadMoreButton>
+      <ReadMoreButton href={readMoreUrl}>
+        Read more <span>...</span>
+      </ReadMoreButton>
     </ArticleContainer>
   );
 };

@@ -5,8 +5,7 @@ import Article from '../article/article';
 export interface ArticleSectionProps {}
 
 const StyledArticleSection = styled.div`
-  /* color: pink; */
-  /* max-width: 890px; */
+  margin-top: 100px;
   display: flex;
   justify-content: center;
 `;
