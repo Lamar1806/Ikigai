@@ -8,16 +8,20 @@ const H2 = styled.h2`
   margin-bottom: 60px;
   font-weight: 300;
   font-size: 48px;
+  text-align: center;
 `;
+
+const Container = styled.div``;
 
 const RowContainer = styled.div`
   margin-bottom: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CardContainer = styled.div`
-  display: inline-block; /* Change display to inline-block */
-  margin-right: 20px; /* Add margin right to create space between cards */
+  margin-right: 20px;
 `;
 
 interface FeaturesProps {
@@ -32,8 +36,8 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
   }
 
   return (
-    <div>
-      <H2>Features and Benefits of TrueSelf:</H2>
+    <Container>
+      <H2>Features and Benefits of TrueSelf</H2>
       {rows.map((row, index) => (
         <RowContainer key={index}>
           {row.map((feature) => (
@@ -48,7 +52,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           ))}
         </RowContainer>
       ))}
-    </div>
+    </Container>
   );
 };
 
