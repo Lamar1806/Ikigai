@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // Define the styled image component
 const TestimonialsImage = styled.img`
+  width: 100%;
   max-width: 682px;
   max-height: 682px;
   opacity: 0.8;

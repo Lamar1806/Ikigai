@@ -6,6 +6,31 @@ import { FaAlignJustify } from 'react-icons/fa6';
 const NavbarWrapper = styled.nav`
   background-color: #333; /* Obsidian black */
   /* width: 100vw; */
+
+  /* Extra Small Devices (phones) */
+  @media (max-width: 576px) {
+    /* CSS styles for extra small devices go here */
+  }
+
+  /* Small Devices (tablets) */
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* CSS styles for small devices go here */
+  }
+
+  /* Medium Devices (small laptops, tablets in landscape) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* CSS styles for medium devices go here */
+  }
+
+  /* Large Devices (desktops, laptops) */
+  @media (min-width: 992px) and (max-width: 1200px) {
+    /* CSS styles for large devices go here */
+  }
+
+  /* Extra Large Devices (large desktops, wide screens) */
+  @media (min-width: 1200px) {
+    /* CSS styles for extra large devices go here */
+  }
 `;
 
 const NavbarList = styled.ul`
