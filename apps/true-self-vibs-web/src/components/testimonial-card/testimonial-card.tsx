@@ -8,7 +8,32 @@ const CardContainer = styled.div`
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 350px;
+  width: 250px;
+  @media (max-width: 576px) {
+    /* CSS styles for extra small devices go here */
+  }
+
+  /* Small Devices (tablets) */
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* CSS styles for small devices go here */
+  }
+
+  /* Medium Devices (small laptops, tablets in landscape) */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* CSS styles for medium devices go here */
+  }
+
+  /* Large Devices (desktops, laptops) */
+  @media (min-width: 992px) and (max-width: 1200px) {
+    /* CSS styles for large devices go here */
+  }
+
+  /* Extra Large Devices (large desktops, wide screens) */
+  @media (min-width: 1200px) {
+    /* CSS styles for extra large devices go here */
+    height: 350px;
+    width: auto;
+  }
 `;
 
 // Define the thumbnail image
