@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "nx build true-self-vibs-web && yarn move-dist-folder",
-    "serve": "nx serve true-self-vibs-web",
+    "start": "nx serve true-self-vibs-web",
     "lint": "nx lint true-self-vibs-web",
     "test": "nx test true-self-vibs-web",
     "deploy": "firebase deploy",
