@@ -11,6 +11,8 @@ const HeroWrapper = styled.div`
     rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 0.95)
   ); /* Gradient with 90% black */
+  background-size: cover;
+  background-position: center;
 `;
 
 // Styled component for media (image or video)
@@ -21,6 +23,9 @@ const Media = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TextOverlay = styled.div`
@@ -53,7 +58,12 @@ const Hero: FC<HeroProps> = ({ media, text }) => {
             <img src={item.url} alt={`${index} ${item.alt}`} />
           )}
           {item.type === 'video' && (
-            <video autoPlay muted loop>
+            <video
+              autoPlay
+              muted
+              loop
+              style={{ maxWidth: '100%', maxHeight: '100%' }}
+            >
               <source src={item.url} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

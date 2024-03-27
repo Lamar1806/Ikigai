@@ -5,9 +5,10 @@ import fullmetal from '../../assets/images/fullMetal.png';
 const Hero = styled.div`
   position: relative;
   background-image: url(${fullmetal});
-  background-size: cover;
+  background-size: cover; /* Change to contain */
   height: 80vh;
   margin-top: 100px;
+  background-position: center;
 `;
 
 const Overlay = styled.div`

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "nx build true-self-vibs-web && yarn move-dist-folder",
+    "build": "nx build true-self-vibs-web && yarn move-dist-folder && yarn deploy",
     "start": "nx serve true-self-vibs-web",
     "lint": "nx lint true-self-vibs-web",
     "test": "nx test true-self-vibs-web",
