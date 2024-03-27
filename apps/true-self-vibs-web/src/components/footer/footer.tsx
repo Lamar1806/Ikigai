@@ -48,7 +48,7 @@ const Footer = () => {
             <FaYoutube />
           </CustomIcon>
         </a>
-        <a href={Facebook.url} target="_blank" rel="noopener noreferrer">
+        {/* <a href={Facebook.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
             <FaFacebook />
           </CustomIcon>
@@ -67,7 +67,7 @@ const Footer = () => {
           <CustomIcon>
             <FaQuora />
           </CustomIcon>
-        </a>
+        </a> */}
       </LinksContainer>
     </FooterContainer>
   );
