@@ -5,6 +5,7 @@
     "lint": "nx lint true-self-vibs-web",
     "test": "nx test true-self-vibs-web",
     "deploy": "firebase deploy",
-    "move-dist-folder": "mv ../../dist/apps/true-self-vibs-web ./dist"
+    "move-dist-folder": "yarn rm-old-dist && mv ../../dist/apps/true-self-vibs-web ./dist",
+    "rm-old-dist": "rm -rf ./dist"
   }
 }
