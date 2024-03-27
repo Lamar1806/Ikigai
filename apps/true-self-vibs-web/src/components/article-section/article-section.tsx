@@ -11,6 +11,7 @@ const StyledArticleSection = styled.div`
 `;
 
 const InnerContainer = styled.div`
+  width: 100%;
   max-width: 890px;
 `;
 

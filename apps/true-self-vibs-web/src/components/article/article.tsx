@@ -7,25 +7,33 @@ const ArticleContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 48px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  /* Extra Large Devices (large desktops, wide screens) */
+  @media (min-width: 1200px) {
+    /* CSS styles for extra large devices go here */
+    font-size: 48px;
+  }
 `;
 
 const Subtitle = styled.h2`
-  font-size: 30px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
+  /* Extra Large Devices (large desktops, wide screens) */
+  @media (min-width: 1200px) {
+    /* CSS styles for extra large devices go here */
+    font-size: 30px;
+  }
 `;
 
 const StyledParagraph = styled.p`
   font-style: italic;
   margin-bottom: 30px;
-`;
-
-const BodyText = styled.p`
-  font-size: 20px;
-  line-height: 1.5;
+  @media (min-width: 1200px) {
+    /* CSS styles for extra large devices go here */
+  }
 `;
 
 const ReadMoreButton = styled.a`
