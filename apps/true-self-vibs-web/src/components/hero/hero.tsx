@@ -34,8 +34,12 @@ const TextOverlay = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 30px;
+  font-size: 24px;
   letter-spacing: 1.3px;
+  @media (min-width: 1200px) {
+    /* Your CSS styles for screens up to 1200px wide */
+    font-size: 30px;
+  }
 `;
 
 interface MediaItem {
