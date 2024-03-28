@@ -5,35 +5,40 @@ import {
   FaInstagram,
   FaMedium,
   FaQuora,
+  FaTwitch,
 } from 'react-icons/fa';
 
 interface Links {
   [platform: string]: {
     url: string;
-    // icon: IconType;
+    Icon: IconType;
   };
 }
 
 const links: Links = {
   YouTube: {
     url: 'https://www.youtube.com/@trueselfvibs',
-    // icon: FaYoutube,
+    Icon: FaYoutube,
   },
   Facebook: {
     url: 'https://www.facebook.com/trueselfvibs',
-    // icon: FaFacebook,
+    Icon: FaFacebook,
   },
   Instagram: {
     url: 'https://www.instagram.com/true_self_vibs/',
-    // icon: FaInstagram,
+    Icon: FaInstagram,
   },
   Medium: {
     url: 'https://medium.com/@true_self_vibs',
-    // icon: FaMedium,
+    Icon: FaMedium,
   },
   Quora: {
     url: 'https://www.quora.com/profile/True-Self-23',
-    // icon: FaQuora,
+    Icon: FaQuora,
+  },
+  Twitch: {
+    url: 'https://www.twitch.tv/trueselfvibs',
+    Icon: FaTwitch,
   },
 };
 

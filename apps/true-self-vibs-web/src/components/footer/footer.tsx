@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import links from '../../api/mocks/links';
-import {
-  FaYoutube,
-  FaFacebook,
-  FaInstagram,
-  FaMedium,
-  FaQuora,
-} from 'react-icons/fa';
+
 import trueSelfIcon from '../../assets/images/Mask.png';
 
 const FooterContainer = styled.footer`
@@ -38,34 +32,39 @@ const CustomIcon = styled.div`
 `;
 
 const Footer = () => {
-  const { YouTube, Facebook, Instagram, Medium, Quora } = links;
+  const { YouTube, Facebook, Instagram, Medium, Quora, Twitch } = links;
   return (
     <FooterContainer>
       <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
       <LinksContainer>
         <a href={YouTube.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
-            <FaYoutube />
+            <YouTube.Icon />
           </CustomIcon>
         </a>
-        {/* <a href={Facebook.url} target="_blank" rel="noopener noreferrer">
+        {/* <a href={Twitch.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
-            <FaFacebook />
+            <Twitch.Icon />
+          </CustomIcon>
+        </a>
+        <a href={Facebook.url} target="_blank" rel="noopener noreferrer">
+          <CustomIcon>
+            <Facebook.Icon />
           </CustomIcon>
         </a>
         <a href={Instagram.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
-            <FaInstagram />
+            <Instagram.Icon />
           </CustomIcon>
         </a>
         <a href={Medium.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
-            <FaMedium />
+            <Medium.Icon />
           </CustomIcon>
         </a>
         <a href={Quora.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
-            <FaQuora />
+            <Quora.Icon />
           </CustomIcon>
         </a> */}
       </LinksContainer>
