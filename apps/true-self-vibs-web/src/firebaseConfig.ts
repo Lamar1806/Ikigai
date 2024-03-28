@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCca6LERXIv0qRRfr2Hvr4jKvhTzAtBqiU',
-  authDomain: 'true-self-vibs.firebaseapp.com',
-  projectId: 'true-self-vibs',
-  storageBucket: 'true-self-vibs.appspot.com',
-  messagingSenderId: '698112603592',
-  appId: '1:698112603592:web:33c4dae0cd596fddb2bcfd',
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
