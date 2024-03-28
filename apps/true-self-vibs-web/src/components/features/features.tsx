@@ -24,7 +24,7 @@ const RowContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 16px; /* Adjusted padding for mobile view */
 
   /* Extra Large Devices (large desktops, wide screens) */
   @media (min-width: 1200px) {
