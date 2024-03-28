@@ -37,12 +37,12 @@ const Footer = () => {
     <FooterContainer>
       <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
       <LinksContainer>
-        <a href={YouTube.url} target="_blank" rel="noopener noreferrer">
+        {/* <a href={YouTube.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
             <YouTube.Icon />
           </CustomIcon>
         </a>
-        {/* <a href={Twitch.url} target="_blank" rel="noopener noreferrer">
+        <a href={Twitch.url} target="_blank" rel="noopener noreferrer">
           <CustomIcon>
             <Twitch.Icon />
           </CustomIcon>
