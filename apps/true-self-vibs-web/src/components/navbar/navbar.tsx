@@ -5,13 +5,16 @@ import mask from '../../assets/images/Mask@3x.png';
 
 // Styled components for navbar elements
 const NavbarWrapper = styled.nav`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  padding: 16px;
   /* width: 100vw; */ /* Extra Small Devices (phones) */
   @media (max-width: 576px) {
     /* CSS styles for extra small devices go here */
+    /* padding: 16px; */
   }
 
   /* Small Devices (tablets) */
@@ -32,14 +35,17 @@ const NavbarWrapper = styled.nav`
   /* Extra Large Devices (large desktops, wide screens) */
   @media (min-width: 1200px) {
     /* CSS styles for extra large devices go here */
+    justify-content: space-between;
+    padding: none;
   }
 `;
 
 const NavbarList = styled.ul`
-  display: flex;
+  display: none;
   justify-content: flex-end;
   list-style-type: none;
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    display: flex;
   }
   /* width: 100vw; */
 `;
@@ -59,19 +65,33 @@ const NavbarLink = styled.a`
     color: white;
   }
 `;
-
-const NavBarListDropDown = styled.ul`
-  list-style-type: none;
-`;
-
 const DropdownList = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: #333; /* Obsidian black */
+  right: 0;
+  background-color: black; /* Obsidian black */
   padding: 10px;
   z-index: 999;
+`;
+
+const NavBarListDropDown = styled.ul`
+  list-style-type: none;
+`;
+const NavbarItemDropDown = styled.li`
+  margin: 0 10px;
+`;
+
+const NavbarLinkDropDown = styled.a`
+  display: block;
+  padding: 10px 20px;
+  color: white; /* White text */
+  text-decoration: none;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 `;
 
 const DropdownToggle = styled.div`
@@ -79,11 +99,15 @@ const DropdownToggle = styled.div`
   @media (max-width: 768px) {
     display: block;
     cursor: pointer;
+    font-size: 25px;
   }
 `;
 
 const ImageContainer = styled.div`
   padding: 20px;
+  @media (max-width: 992px) {
+    padding: 0;
+  }
 `;
 const MaskImage = styled.img`
   width: 80px;
@@ -108,13 +132,13 @@ export const Navbar = () => {
 
   return (
     <NavbarWrapper>
+      <ImageContainer>
+        <MaskImage src={mask} alt="True Self Icon" />
+      </ImageContainer>
       <DropdownToggle onClick={toggleDropdown}>
         <FaAlignJustify />
       </DropdownToggle>
 
-      <ImageContainer>
-        <MaskImage src={mask} alt="True Self Icon" />
-      </ImageContainer>
       <NavbarList>
         {links.map((link, index) => (
           <NavbarItem key={index}>
@@ -124,11 +148,13 @@ export const Navbar = () => {
       </NavbarList>
       <DropdownList isOpen={isOpen}>
         {links.map((link, index) => (
-          <NavbarList>
-            <NavbarItem key={index}>
-              <NavbarLink href={link.href}>{link.text}</NavbarLink>
-            </NavbarItem>
-          </NavbarList>
+          <NavBarListDropDown>
+            <NavbarItemDropDown key={index}>
+              <NavbarLinkDropDown href={link.href}>
+                {link.text}
+              </NavbarLinkDropDown>
+            </NavbarItemDropDown>
+          </NavBarListDropDown>
         ))}
       </DropdownList>
     </NavbarWrapper>
