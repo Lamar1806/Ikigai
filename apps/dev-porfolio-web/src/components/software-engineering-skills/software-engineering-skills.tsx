@@ -34,14 +34,15 @@ const softwareEngineerSkills = [
   'Tailwind CSS',
   'JavaScript',
   'React',
-  'Nx (Mono-Repo)',
   'Redux',
   'Next.js',
+  'Nx (Mono-Repo)',
+  'Cypress',
+  // Backend and other skills follow
   'Node.js',
   'Express.js',
   'MongoDB',
   'SQL',
-  'Cypress',
 ];
 
 // Data for graphic design skills
