@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { FaAlignJustify } from 'react-icons/fa6';
+import mask from '../../assets/images/Mask@3x.png';
 
 // Styled components for navbar elements
 const NavbarWrapper = styled.nav`
-  background-color: #333; /* Obsidian black */
-  /* width: 100vw; */
-
-  /* Extra Small Devices (phones) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  /* width: 100vw; */ /* Extra Small Devices (phones) */
   @media (max-width: 576px) {
     /* CSS styles for extra small devices go here */
   }
@@ -49,11 +51,12 @@ const NavbarItem = styled.li`
 const NavbarLink = styled.a`
   display: block;
   padding: 10px 20px;
-  color: #fff; /* White text */
+  color: black; /* White text */
   text-decoration: none;
 
   &:hover {
-    background-color: #555; /* Darker shade of obsidian black */
+    background-color: black;
+    color: white;
   }
 `;
 
@@ -75,6 +78,14 @@ const DropdownToggle = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+  padding: 20px;
+`;
+const MaskImage = styled.img`
+  width: 80px;
+  height: 80px;
+`;
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -87,6 +98,10 @@ export const Navbar = () => {
       <DropdownToggle onClick={toggleDropdown}>
         <FaAlignJustify />
       </DropdownToggle>
+
+      <ImageContainer>
+        <MaskImage src={mask} alt="True Self Icon" />
+      </ImageContainer>
       <NavbarList>
         <NavbarItem>
           <NavbarLink href="#home">Home</NavbarLink>

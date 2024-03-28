@@ -19,7 +19,7 @@ const LinksContainer = styled.div`
 `;
 
 const TrueSelfIcon = styled.img`
-  width: 50px; /* Adjust size as needed */
+  width: 60px; /* Adjust size as needed */
 `;
 
 // Define a custom styled component for each icon
