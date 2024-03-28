@@ -11,30 +11,8 @@ const NavbarWrapper = styled.nav`
   align-items: center;
   background-color: white;
   padding: 16px;
-  /* width: 100vw; */ /* Extra Small Devices (phones) */
-  @media (max-width: 576px) {
-    /* CSS styles for extra small devices go here */
-    /* padding: 16px; */
-  }
 
-  /* Small Devices (tablets) */
-  @media (min-width: 576px) and (max-width: 768px) {
-    /* CSS styles for small devices go here */
-  }
-
-  /* Medium Devices (small laptops, tablets in landscape) */
-  @media (min-width: 768px) and (max-width: 992px) {
-    /* CSS styles for medium devices go here */
-  }
-
-  /* Large Devices (desktops, laptops) */
-  @media (min-width: 992px) and (max-width: 1200px) {
-    /* CSS styles for large devices go here */
-  }
-
-  /* Extra Large Devices (large desktops, wide screens) */
   @media (min-width: 1200px) {
-    /* CSS styles for extra large devices go here */
     justify-content: space-between;
     padding: none;
   }
@@ -44,10 +22,10 @@ const NavbarList = styled.ul`
   display: none;
   justify-content: flex-end;
   list-style-type: none;
+
   @media (min-width: 768px) {
     display: flex;
   }
-  /* width: 100vw; */
 `;
 
 const NavbarItem = styled.li`
@@ -57,7 +35,7 @@ const NavbarItem = styled.li`
 const NavbarLink = styled.a`
   display: block;
   padding: 10px 20px;
-  color: black; /* White text */
+  color: black;
   text-decoration: none;
 
   &:hover {
@@ -65,12 +43,13 @@ const NavbarLink = styled.a`
     color: white;
   }
 `;
+
 const DropdownList = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: black; /* Obsidian black */
+  background-color: black;
   padding: 10px;
   z-index: 999;
 `;
@@ -78,6 +57,7 @@ const DropdownList = styled.div<{ isOpen: boolean }>`
 const NavBarListDropDown = styled.ul`
   list-style-type: none;
 `;
+
 const NavbarItemDropDown = styled.li`
   margin: 0 10px;
 `;
@@ -85,7 +65,7 @@ const NavbarItemDropDown = styled.li`
 const NavbarLinkDropDown = styled.a`
   display: block;
   padding: 10px 20px;
-  color: white; /* White text */
+  color: white;
   text-decoration: none;
 
   &:hover {
@@ -96,6 +76,7 @@ const NavbarLinkDropDown = styled.a`
 
 const DropdownToggle = styled.div`
   display: none;
+
   @media (max-width: 768px) {
     display: block;
     cursor: pointer;
@@ -105,16 +86,18 @@ const DropdownToggle = styled.div`
 
 const ImageContainer = styled.div`
   padding: 20px;
+
   @media (max-width: 992px) {
     padding: 0;
   }
 `;
+
 const MaskImage = styled.img`
   width: 80px;
   height: 80px;
 `;
 
-export const Navbar = () => {
+const Navbar = () => {
   const links = [
     { text: 'Home', href: '#home' },
     { text: 'About', href: '#about' },
@@ -124,6 +107,7 @@ export const Navbar = () => {
     { text: 'Blog', href: '#blog' },
     { text: 'Contact', href: '#contact' },
   ];
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -148,8 +132,8 @@ export const Navbar = () => {
       </NavbarList>
       <DropdownList isOpen={isOpen}>
         {links.map((link, index) => (
-          <NavBarListDropDown>
-            <NavbarItemDropDown key={index}>
+          <NavBarListDropDown key={index}>
+            <NavbarItemDropDown>
               <NavbarLinkDropDown href={link.href}>
                 {link.text}
               </NavbarLinkDropDown>
@@ -160,3 +144,5 @@ export const Navbar = () => {
     </NavbarWrapper>
   );
 };
+
+export default Navbar;
