@@ -14,59 +14,62 @@ const SkillCategory = styled.h2`
 `;
 
 const Skill = styled.span`
+  display: block;
   font-size: 18px;
   color: #666;
   line-height: 1.5;
+  &:not(:last-child) {
+    margin-bottom: 10px; /* Adds spacing between skills, removing <br /> */
+  }
 `;
 
 const SkillList = styled.div`
   margin-bottom: 20px;
 `;
 
-export const SoftwareEngineerSkills = () => {
-  return (
-    <SkillsContainer>
-      <SkillCategory>Software Engineer</SkillCategory>
-      <SkillList>
-        <Skill>HTML</Skill>
-        <br />
-        <Skill>CSS</Skill>
-        <br />
-        <Skill>Tailwind CSS</Skill>
-        <br />
-        <Skill>JavaScript</Skill>
-        <br />
-        <Skill>React</Skill>
-        <br />
-        <Skill>Redux</Skill>
-        <br />
-        <Skill>Next.js</Skill>
-        <br />
-        <Skill>Node.js</Skill>
-        <br />
-        <Skill>Express.js</Skill>
-        <br />
-        <Skill>MongoDB</Skill>
-        <br />
-        <Skill>SQL</Skill>
-        <br />
-        <Skill>Cypress</Skill>
-        <br />
-        <Skill>Microsoft PlayWright</Skill>
-      </SkillList>
-    </SkillsContainer>
-  );
-};
+// Data for software engineer skills
+const softwareEngineerSkills = [
+  'HTML',
+  'CSS',
+  'Tailwind CSS',
+  'JavaScript',
+  'React',
+  'Nx (Mono-Repo)',
+  'Redux',
+  'Next.js',
+  'Node.js',
+  'Express.js',
+  'MongoDB',
+  'SQL',
+  'Cypress',
+];
+
+// Data for graphic design skills
+const graphicDesignSkills = [
+  'Adobe Photoshop',
+  'Adobe Illustrator',
+  'Adobe XD',
+  'Figma',
+];
+
+export const SoftwareEngineerSkills = () => (
+  <SkillsContainer>
+    <SkillCategory>Software Engineer</SkillCategory>
+    <SkillList>
+      {softwareEngineerSkills.map((skill) => (
+        <Skill key={skill}>{skill}</Skill>
+      ))}
+    </SkillList>
+  </SkillsContainer>
+);
 
 export const GraphicDesignSkills = () => (
   <SkillsContainer>
     <SkillCategory>Graphic Design</SkillCategory>
     <SkillList>
-      <Skill>Adobe Photoshop</Skill>
-      <br />
-      <Skill>Adobe Illustrator</Skill>
-      <br />
-      <Skill>Adobe XD</Skill>
+      {graphicDesignSkills.map((skill) => (
+        <Skill key={skill}>{skill}</Skill>
+      ))}
     </SkillList>
   </SkillsContainer>
 );

@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "nx build dev-porfolio-web && yarn move-dist-folder && yarn deploy",
+    "start": "nx serve dev-porfolio-web",
+    "lint": "nx lint dev-porfolio-web",
+    "test": "nx test dev-porfolio-web",
+    "deploy": "firebase deploy",
+    "move-dist-folder": "yarn rm-old-dist && mv ../../dist/apps/dev-porfolio-web ./dist",
+    "rm-old-dist": "rm -rf ./dist"
+  }
+}

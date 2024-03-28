@@ -46,11 +46,11 @@ export const ProjectListItem: React.FC<ProjectListItemProps> = ({
     <ProjectTitle>{title}</ProjectTitle>
     <ProjectImage src={imageUrl} alt={title} />
     <ProjectDescription>{description}</ProjectDescription>
+    <LinkButton href={detailUrl} target="_blank" rel="noopener noreferrer">
+      View Details
+    </LinkButton>
     <LinkButton href={liveUrl} target="_blank" rel="noopener noreferrer">
       Live View
     </LinkButton>
-    {/* <LinkButton href={detailUrl} target="_blank" rel="noopener noreferrer">
-      View Details
-    </LinkButton> */}
   </Container>
 );
