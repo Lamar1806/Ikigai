@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Hero from '../../components/hero/hero';
 import herImage from '../../assets/images/Hero Image.png';
 import OurMission from '../../components/our-mission/our-mission';
-import { missionTextData } from '../../components/our-mission/our-mission-data';
+import { missionTextData } from '../../api/mocks/our-mission-data';
 import Features from '../../components/features/features';
 import { features } from '../../api/mocks/features';
 import Testimonials from '../../components/testimonials/testimonials';

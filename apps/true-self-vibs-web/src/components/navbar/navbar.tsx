@@ -38,9 +38,9 @@ const NavbarWrapper = styled.nav`
 const NavbarList = styled.ul`
   display: flex;
   justify-content: flex-end;
-  margin: 0;
-  padding: 0;
   list-style-type: none;
+  @media (min-width: 1200px) {
+  }
   /* width: 100vw; */
 `;
 
@@ -58,6 +58,10 @@ const NavbarLink = styled.a`
     background-color: black;
     color: white;
   }
+`;
+
+const NavBarListDropDown = styled.ul`
+  list-style-type: none;
 `;
 
 const DropdownList = styled.div<{ isOpen: boolean }>`
@@ -87,6 +91,15 @@ const MaskImage = styled.img`
 `;
 
 export const Navbar = () => {
+  const links = [
+    { text: 'Home', href: '#home' },
+    { text: 'About', href: '#about' },
+    { text: 'Articles', href: '#articles' },
+    { text: 'Videos', href: '#videos' },
+    { text: 'Apps', href: '#apps' },
+    { text: 'Blog', href: '#blog' },
+    { text: 'Contact', href: '#contact' },
+  ];
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -103,36 +116,20 @@ export const Navbar = () => {
         <MaskImage src={mask} alt="True Self Icon" />
       </ImageContainer>
       <NavbarList>
-        <NavbarItem>
-          <NavbarLink href="#home">Home</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#about">About</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#articles">Articles</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#videos">Videos</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#apps">Apps</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#blog">Blog</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink href="#contact">Contact</NavbarLink>
-        </NavbarItem>
+        {links.map((link, index) => (
+          <NavbarItem key={index}>
+            <NavbarLink href={link.href}>{link.text}</NavbarLink>
+          </NavbarItem>
+        ))}
       </NavbarList>
       <DropdownList isOpen={isOpen}>
-        <NavbarLink href="#home">Home</NavbarLink>
-        <NavbarLink href="#about">About</NavbarLink>
-        <NavbarLink href="#articles">Articles</NavbarLink>
-        <NavbarLink href="#videos">Videos</NavbarLink>
-        <NavbarLink href="#apps">Apps</NavbarLink>
-        <NavbarLink href="#blog">Blog</NavbarLink>
-        <NavbarLink href="#contact">Contact</NavbarLink>
+        {links.map((link, index) => (
+          <NavbarList>
+            <NavbarItem key={index}>
+              <NavbarLink href={link.href}>{link.text}</NavbarLink>
+            </NavbarItem>
+          </NavbarList>
+        ))}
       </DropdownList>
     </NavbarWrapper>
   );
