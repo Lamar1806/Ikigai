@@ -7,5 +7,8 @@
     "deploy": "firebase deploy",
     "move-dist-folder": "yarn rm-old-dist && mv ../../dist/apps/true-self-vibs-web ./dist",
     "rm-old-dist": "rm -rf ./dist"
+  },
+  "dependencies": {
+    "react-spring": "^9.7.3"
   }
 }
