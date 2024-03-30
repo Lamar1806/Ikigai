@@ -23,7 +23,7 @@ const ModalWrapper = styled(animated.div)`
   border-radius: 15px;
   max-width: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  /* text-align: center; */
   line-height: 1.5;
   border: 1px solid white;
   @media (min-width: 1200px) {
@@ -70,6 +70,15 @@ const UnderConstructionModal = () => {
             work as expected for now, but we're on it. TrueSelf is committed to
             supporting your healing and self-discovery journey with even greater
             ease and innovation. Explore the evolving TrueSelf experience today!
+          </p>
+          <br />
+          <p>
+            <strong>Please note:</strong> All data, including therapist profiles
+            and contact information, is currently mocked for demonstration
+            purposes. Actual therapist details and functionality will be updated
+            as we continue to develop and refine the TrueSelf platform. We
+            appreciate your understanding and patience as we work towards
+            creating a more robust and helpful experience for everyone.
           </p>
           <CloseButton onClick={() => setShowModal(false)}>Close</CloseButton>
         </ModalWrapper>

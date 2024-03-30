@@ -14,6 +14,9 @@ export function App() {
           <Home />
           <Footer />
         </Route>
+        <Route path="/therapists">
+
+        </Route>
       </Switch>
     </Router>
   );

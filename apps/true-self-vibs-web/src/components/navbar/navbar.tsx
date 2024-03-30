@@ -100,6 +100,8 @@ const MaskImage = styled.img`
 const Navbar = () => {
   const links = [
     { text: 'Home', href: '#home' },
+    { text: 'Therapists', href: '/therapists' },
+    { text: 'Doctors', href: '/Doctors' },
     { text: 'About', href: '#about' },
     { text: 'Articles', href: '#articles' },
     { text: 'Videos', href: '#videos' },
