@@ -51,9 +51,10 @@ interface MediaItem {
 interface HeroProps {
   media: MediaItem[];
   text?: string;
+  children?: React.ReactElement;
 }
 
-const Hero: FC<HeroProps> = ({ media, text }) => {
+const Hero: FC<HeroProps> = ({ media, text, children }) => {
   return (
     <HeroWrapper>
       {media.map((item, index) => (
@@ -75,6 +76,7 @@ const Hero: FC<HeroProps> = ({ media, text }) => {
         </Media>
       ))}
       {text && <TextOverlay>{text}</TextOverlay>}
+      {children && children}
     </HeroWrapper>
   );
 };

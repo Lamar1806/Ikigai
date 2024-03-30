@@ -1,5 +1,25 @@
 import { useState } from 'react';
 
+export type GenderIdentity =
+  | 'Male'
+  | 'Female'
+  | 'Non-Binary'
+  | 'Transgender'
+  | 'Trans Female' // Also known as Trans Woman
+  | 'Trans Male' // Also known as Trans Man
+  | 'Intersex'
+  | 'Genderqueer'
+  | 'Genderfluid'
+  | 'Agender' // Without gender
+  | 'Bigender' // Identifying as two genders
+  | 'Pangender' // Identifying with all genders
+  | 'Gender Variant'
+  | 'Two-Spirit' // A Native American term for people with both masculine and feminine spirits
+  | 'Neutrois' // Neutral-gender
+  | 'Questioning'
+  | 'Prefer not to say'
+  | 'Self-Describe'
+  | '';
 interface QuestionnaireHook {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -12,7 +32,7 @@ interface QuestionnaireHook {
   userAge: string;
   setUserAge: React.Dispatch<React.SetStateAction<string>>;
   userGenderIdentity: string;
-  setUserGenderIdentity: React.Dispatch<React.SetStateAction<string>>;
+  setUserGenderIdentity: React.Dispatch<React.SetStateAction<GenderIdentity>>;
   userLocation: string;
   setUserLocation: React.Dispatch<React.SetStateAction<string>>;
   presentingConcern: string;
@@ -44,13 +64,14 @@ interface QuestionnaireHook {
   nextStep: () => void;
 }
 
-const useQuestionnaire = (): QuestionnaireHook => {
+export const useQuestionnaire = (): QuestionnaireHook => {
   const [step, setStep] = useState<number>(1);
   const [userConsent, setUserConsent] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
   const [userAge, setUserAge] = useState<string>('');
-  const [userGenderIdentity, setUserGenderIdentity] = useState<string>('');
+  const [userGenderIdentity, setUserGenderIdentity] =
+    useState<GenderIdentity>('');
   const [userLocation, setUserLocation] = useState<string>('');
   const [presentingConcern, setPresentingConcern] = useState<string>('');
   const [experiences, setExperiences] = useState<string>('');
@@ -123,5 +144,3 @@ const useQuestionnaire = (): QuestionnaireHook => {
     nextStep,
   };
 };
-
-export default useQuestionnaire;

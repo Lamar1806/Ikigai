@@ -24,6 +24,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
       >
         <p style={{ color: 'white' }}>d</p>
         <Form></Form>
+
       </Hero>
     </StyledWhatBringsYouHerePage>
   );
