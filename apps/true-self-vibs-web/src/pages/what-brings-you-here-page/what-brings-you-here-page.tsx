@@ -9,6 +9,11 @@ const StyledWhatBringsYouHerePage = styled.div`
   color: pink;
 `;
 
+const Form = styled.form`
+  background-color: transparent;
+  border
+`;
+
 export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
   return (
     <StyledWhatBringsYouHerePage>
@@ -16,8 +21,10 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
         media={[
           { type: 'image', url: BlossomsOfRenewal, alt: 'main library image' },
         ]}
-        text="True Self Vibs"
-      />
+      >
+        <p style={{ color: 'white' }}>d</p>
+        <Form></Form>
+      </Hero>
     </StyledWhatBringsYouHerePage>
   );
 }
