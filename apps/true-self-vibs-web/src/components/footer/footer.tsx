@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import links from '../../api/mocks/links';
-
 import trueSelfIcon from '../../assets/images/Mask.png';
 
 const FooterContainer = styled.footer`
@@ -19,55 +18,38 @@ const LinksContainer = styled.div`
 `;
 
 const TrueSelfIcon = styled.img`
-  width: 60px; /* Adjust size as needed */
+  width: 60px; // Adjust size as needed
 `;
 
-// Define a custom styled component for each icon
-const CustomIcon = styled.div`
+const IconLink = styled.a`
   font-size: 24px;
   color: #fff;
   cursor: pointer;
+  // Add any additional styles you want for the icon links
 
-  /* Add any additional styles you want */
+  &:hover {
+    // Example hover effect
+    opacity: 0.8;
+  }
 `;
 
 const Footer = () => {
-  const { YouTube, Facebook, Instagram, Medium, Quora, Twitch } = links;
+  // Simplify the mapping of links to automatically generate the link icons
   return (
     <FooterContainer>
       <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
-      <LinksContainer>
-        {/* <a href={YouTube.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <YouTube.Icon />
-          </CustomIcon>
-        </a>
-        <a href={Twitch.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <Twitch.Icon />
-          </CustomIcon>
-        </a>
-        <a href={Facebook.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <Facebook.Icon />
-          </CustomIcon>
-        </a>
-        <a href={Instagram.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <Instagram.Icon />
-          </CustomIcon>
-        </a>
-        <a href={Medium.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <Medium.Icon />
-          </CustomIcon>
-        </a>
-        <a href={Quora.url} target="_blank" rel="noopener noreferrer">
-          <CustomIcon>
-            <Quora.Icon />
-          </CustomIcon>
-        </a> */}
-      </LinksContainer>
+      {/* <LinksContainer>
+        {Object.entries(links).map(([key, value]) => (
+          <IconLink
+            key={key}
+            href={value.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <value.Icon />
+          </IconLink>
+        ))}
+      </LinksContainer> */}
     </FooterContainer>
   );
 };

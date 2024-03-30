@@ -5,6 +5,7 @@ import Footer from '../components/footer/footer';
 import UnderConstructionModal from '../components/under-construction-modal/under-construction-modal';
 import TherapistsPage from '../pages/therapists-page/therapists-page';
 import styled from '@emotion/styled';
+import TherapistDetailsPage from '../pages/therapist-details-page/therapist-details-page';
 
 const AppContainer = styled.div`
   display: flex;
@@ -24,13 +25,14 @@ export function App() {
         <Navbar />
         <ContentWrapper>
           <Switch>
-            {/* Define the /therapists route before the / route to ensure it's matched first */}
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/therapists">
               <TherapistsPage />
             </Route>
-            {/* Use the exact prop on the root path to ensure it only matches the exact path "/" */}
-            <Route exact path="/">
-              <Home />
+            <Route path="/therapists/:id">
+              <TherapistDetailsPage />
             </Route>
           </Switch>
         </ContentWrapper>
