@@ -28,7 +28,7 @@ export function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/therapists">
+            <Route exact path="/therapists">
               <TherapistsPage />
             </Route>
             <Route path="/therapists/:id">
