@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { FaAlignJustify } from 'react-icons/fa6';
 import mask from '../../assets/images/Mask@3x.png';
+import { Link } from 'react-router-dom';
 
 // Styled components for navbar elements
 const NavbarWrapper = styled.nav`
@@ -32,7 +33,7 @@ const NavbarItem = styled.li`
   margin: 0 10px;
 `;
 
-const NavbarLink = styled.a`
+const NavbarLink = styled(Link)`
   display: block;
   padding: 10px 20px;
   color: black;
@@ -62,7 +63,7 @@ const NavbarItemDropDown = styled.li`
   margin: 0 10px;
 `;
 
-const NavbarLinkDropDown = styled.a`
+const NavbarLinkDropDown = styled(Link)`
   display: block;
   padding: 10px 20px;
   color: white;
@@ -99,9 +100,9 @@ const MaskImage = styled.img`
 
 const Navbar = () => {
   const links = [
-    { text: 'Home', href: '#home' },
-    { text: 'Therapists', href: '/therapists' },
-    { text: 'Doctors', href: '/Doctors' },
+    { text: 'Home', href: '/' },
+    { text: 'Therapists', href: 'therapists' },
+    { text: 'Doctors', href: 'Doctors' },
     { text: 'About', href: '#about' },
     { text: 'Articles', href: '#articles' },
     { text: 'Videos', href: '#videos' },
@@ -128,7 +129,7 @@ const Navbar = () => {
       <NavbarList>
         {links.map((link, index) => (
           <NavbarItem key={index}>
-            <NavbarLink href={link.href}>{link.text}</NavbarLink>
+            <NavbarLink to={link.href}>{link.text}</NavbarLink>
           </NavbarItem>
         ))}
       </NavbarList>
@@ -136,7 +137,7 @@ const Navbar = () => {
         {links.map((link, index) => (
           <NavBarListDropDown key={index}>
             <NavbarItemDropDown>
-              <NavbarLinkDropDown href={link.href}>
+              <NavbarLinkDropDown to={link.href}>
                 {link.text}
               </NavbarLinkDropDown>
             </NavbarItemDropDown>

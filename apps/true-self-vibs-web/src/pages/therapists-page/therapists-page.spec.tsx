@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Therapists from './therapists';
+import TherapistsPage from './therapists-page';
 
-describe('Therapists', () => {
+describe('TherapistsPage', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Therapists />);
+    const { baseElement } = render(<TherapistsPage />);
     expect(baseElement).toBeTruthy();
   });
 });
