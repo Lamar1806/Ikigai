@@ -15,7 +15,9 @@ export function App() {
           <Footer />
         </Route>
         <Route path="/therapists">
+          <Navbar />
 
+          <Footer />
         </Route>
       </Switch>
     </Router>
