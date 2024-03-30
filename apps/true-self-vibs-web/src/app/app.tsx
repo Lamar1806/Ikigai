@@ -6,6 +6,7 @@ import UnderConstructionModal from '../components/under-construction-modal/under
 import TherapistsPage from '../pages/therapists-page/therapists-page';
 import styled from '@emotion/styled';
 import TherapistDetailsPage from '../pages/therapist-details-page/therapist-details-page';
+import WhatBringsYouHerePage from '../pages/what-brings-you-here-page/what-brings-you-here-page';
 
 const AppContainer = styled.div`
   display: flex;
@@ -27,6 +28,9 @@ export function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/WhatBringsYouHere">
+              <WhatBringsYouHerePage />
             </Route>
             <Route exact path="/therapists">
               <TherapistsPage />
