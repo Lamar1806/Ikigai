@@ -1,47 +1,45 @@
 import { useState } from 'react';
 import { GenderIdentity } from '../api/mocks/genders';
 
-interface QuestionnaireHook {
+export interface QuestionnaireHook {
   step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setStep: React.Dispatch<number>;
   userConsent: boolean;
-  setUserConsent: React.Dispatch<React.SetStateAction<boolean>>;
+  setUserConsent: React.Dispatch<boolean>;
   userName: string;
-  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  setUserName: React.Dispatch<string>;
   userEmail: string;
-  setUserEmail: React.Dispatch<React.SetStateAction<string>>;
+  setUserEmail: React.Dispatch<string>;
   userAge: string;
-  setUserAge: React.Dispatch<React.SetStateAction<string>>;
+  setUserAge: React.Dispatch<string>;
   userGenderIdentity: GenderIdentity;
-  setUserGenderIdentity: React.Dispatch<React.SetStateAction<GenderIdentity>>;
+  setUserGenderIdentity: React.Dispatch<GenderIdentity>;
   userLocation: string;
-  setUserLocation: React.Dispatch<React.SetStateAction<string>>;
+  setUserLocation: React.Dispatch<string>;
   presentingConcern: string;
-  setPresentingConcern: React.Dispatch<React.SetStateAction<string>>;
+  setPresentingConcern: React.Dispatch<string>;
   experiences: string;
-  setExperiences: React.Dispatch<React.SetStateAction<string>>;
+  setExperiences: React.Dispatch<string>;
   understoodMoment: string;
-  setUnderstoodMoment: React.Dispatch<React.SetStateAction<string>>;
+  setUnderstoodMoment: React.Dispatch<string>;
   healingVision: string;
-  setHealingVision: React.Dispatch<React.SetStateAction<string>>;
+  setHealingVision: React.Dispatch<string>;
   therapyHopes: string;
-  setTherapyHopes: React.Dispatch<React.SetStateAction<string>>;
+  setTherapyHopes: React.Dispatch<string>;
   copingStrategies: string;
-  setCopingStrategies: React.Dispatch<React.SetStateAction<string>>;
+  setCopingStrategies: React.Dispatch<string>;
   innerWorldDescription: string;
-  setInnerWorldDescription: React.Dispatch<React.SetStateAction<string>>;
+  setInnerWorldDescription: React.Dispatch<string>;
   strengths: string;
-  setStrengths: React.Dispatch<React.SetStateAction<string>>;
+  setStrengths: React.Dispatch<string>;
   growthAspirations: string;
-  setGrowthAspirations: React.Dispatch<React.SetStateAction<string>>;
+  setGrowthAspirations: React.Dispatch<string>;
   therapyFears: string;
-  setTherapyFears: React.Dispatch<React.SetStateAction<string>>;
+  setTherapyFears: React.Dispatch<string>;
   progress: number;
-  setProgress: React.Dispatch<React.SetStateAction<number>>;
+  setProgress: React.Dispatch<number>;
   handleConsent: (consent: boolean) => void;
-  handleInputChange: (
-    setter: React.Dispatch<React.SetStateAction<string>>
-  ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
+
   previousStep: () => void;
   nextStep: () => void;
 }
@@ -86,12 +84,6 @@ export const useQuestionnaire = (): QuestionnaireHook => {
     setUserConsent(consent);
     if (consent) nextStep();
   };
-
-  const handleInputChange =
-    (setter: React.Dispatch<React.SetStateAction<string>>) =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setter(event.target.value);
-    };
 
   return {
     // Step 1: Welcome & Consent
@@ -142,7 +134,6 @@ export const useQuestionnaire = (): QuestionnaireHook => {
     setProgress,
     // Utility Functions
     handleConsent,
-    handleInputChange,
     previousStep,
     nextStep,
   };
