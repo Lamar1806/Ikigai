@@ -12,8 +12,8 @@ export interface QuestionnaireHook {
   setUserEmail: React.Dispatch<string>;
   userAge: string;
   setUserAge: React.Dispatch<string>;
-  userGenderIdentity: GenderIdentity;
-  setUserGenderIdentity: React.Dispatch<GenderIdentity>;
+  userGenderIdentity: GenderIdentity[]; // Now correctly expecting an array of GenderIdentity
+  setUserGenderIdentity: React.Dispatch<React.SetStateAction<GenderIdentity[]>>; // Setter also expects an array
   userLocation: string;
   setUserLocation: React.Dispatch<string>;
   presentingConcern: string;
@@ -50,8 +50,9 @@ export const useQuestionnaire = (): QuestionnaireHook => {
   const [userName, setUserName] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
   const [userAge, setUserAge] = useState<string>('');
-  const [userGenderIdentity, setUserGenderIdentity] =
-    useState<GenderIdentity>('');
+  const [userGenderIdentity, setUserGenderIdentity] = useState<
+    GenderIdentity[]
+  >([]);
   const [userLocation, setUserLocation] = useState<string>('');
   const [presentingConcern, setPresentingConcern] = useState<string>('');
   const [experiences, setExperiences] = useState<string>('');

@@ -170,12 +170,14 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
               </>
             )}
             {questionnaire.step === 2 && (
+              <GenderSelect
+                onGenderSelect={(genders: GenderIdentity[]) =>
+                  questionnaire.setUserGenderIdentity(genders)
+                }
+              />
+            )}
+            {questionnaire.step === 3 && (
               <>
-                <GenderSelect
-                  onGenderSelect={function (gender: string[]): void {
-                    throw new Error('Function not implemented.');
-                  }}
-                />
                 <Input
                   type="number"
                   placeholder="Age"
@@ -191,7 +193,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
               </>
             )}
             {/* Step 4: Presenting Concern */}
-            {questionnaire.step === 3 && (
+            {questionnaire.step === 4 && (
               <TextArea
                 placeholder="What brings you here?"
                 value={questionnaire.presentingConcern}
@@ -200,7 +202,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 5: Experience and Perspective */}
-            {questionnaire.step === 4 && (
+            {questionnaire.step === 5 && (
               <>
                 <TextArea
                   placeholder="How have your experiences shaped your current perspective?"
@@ -216,7 +218,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 6: Goals and Expectations */}
-            {questionnaire.step === 5 && (
+            {questionnaire.step === 6 && (
               <>
                 <TextArea
                   placeholder="What does healing look like to you?"
@@ -232,7 +234,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 7: Coping and Comfort */}
-            {questionnaire.step === 6 && (
+            {questionnaire.step === 7 && (
               <TextArea
                 placeholder="In moments of discomfort, how do you find comfort?"
                 value={questionnaire.copingStrategies}
@@ -241,7 +243,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 8: Inner World Exploration */}
-            {questionnaire.step === 7 && (
+            {questionnaire.step === 8 && (
               <TextArea
                 placeholder="How do you describe your inner world?"
                 value={questionnaire.innerWorldDescription}
@@ -250,7 +252,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 9: Strengths and Growth */}
-            {questionnaire.step === 8 && (
+            {questionnaire.step === 9 && (
               <>
                 <TextArea
                   placeholder="What are the pillars of your strength?"
@@ -266,7 +268,7 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
 
             {/* Step 10: Therapy Process */}
-            {questionnaire.step === 8 && (
+            {questionnaire.step === 10 && (
               <TextArea
                 placeholder="Is there anything you fear about the therapy process?"
                 value={questionnaire.therapyFears}
