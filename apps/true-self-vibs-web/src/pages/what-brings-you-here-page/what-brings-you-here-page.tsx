@@ -14,12 +14,6 @@ const StyledWhatBringsYouHerePage = styled.div``;
 
 const InnerContainer = styled.div``;
 
-const FormTitle = styled.h1`
-  font-size: 48px;
-  font-weight: 300;
-  margin-bottom: 20px;
-`;
-
 const Form = styled.div`
   background-color: transparent;
   border: 1px solid white;
