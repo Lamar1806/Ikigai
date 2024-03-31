@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GenderIdentity } from '../../hooks/useQuestionnaire';
+import { GenderIdentity } from '../../api/mocks/genders';
 
 interface GenderSelectProps {
   onGenderSelect: (gender: GenderIdentity | string) => void; // Callback prop for when gender is selected/entered
@@ -12,7 +12,7 @@ const GenderSelect: React.FC<GenderSelectProps> = ({ onGenderSelect }) => {
   const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const gender: GenderIdentity = event.target.value as GenderIdentity;
     setSelectedGender(gender);
-    if (gender !== 'Self-Describe') {
+    if (gender !== 'SelfDescribe') {
       onGenderSelect(gender);
     }
   };
@@ -48,7 +48,7 @@ const GenderSelect: React.FC<GenderSelectProps> = ({ onGenderSelect }) => {
         <option value="Prefer not to say">Prefer not to say</option>
         <option value="Self-Describe">Self-Describe</option>
       </select>
-      {selectedGender === 'Self-Describe' && (
+      {selectedGender === 'SelfDescribe' && (
         <input
           type="text"
           value={selfDescribedGender}

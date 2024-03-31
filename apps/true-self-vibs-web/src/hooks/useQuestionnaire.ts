@@ -1,25 +1,6 @@
 import { useState } from 'react';
+import { GenderIdentity } from '../api/mocks/genders';
 
-export type GenderIdentity =
-  | 'Male'
-  | 'Female'
-  | 'Non-Binary'
-  | 'Transgender'
-  | 'Trans Female' // Also known as Trans Woman
-  | 'Trans Male' // Also known as Trans Man
-  | 'Intersex'
-  | 'Genderqueer'
-  | 'Genderfluid'
-  | 'Agender' // Without gender
-  | 'Bigender' // Identifying as two genders
-  | 'Pangender' // Identifying with all genders
-  | 'Gender Variant'
-  | 'Two-Spirit' // A Native American term for people with both masculine and feminine spirits
-  | 'Neutrois' // Neutral-gender
-  | 'Questioning'
-  | 'Prefer not to say'
-  | 'Self-Describe'
-  | '';
 interface QuestionnaireHook {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -31,7 +12,7 @@ interface QuestionnaireHook {
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
   userAge: string;
   setUserAge: React.Dispatch<React.SetStateAction<string>>;
-  userGenderIdentity: string;
+  userGenderIdentity: GenderIdentity;
   setUserGenderIdentity: React.Dispatch<React.SetStateAction<GenderIdentity>>;
   userLocation: string;
   setUserLocation: React.Dispatch<React.SetStateAction<string>>;
@@ -103,42 +84,53 @@ export const useQuestionnaire = (): QuestionnaireHook => {
     };
 
   return {
+    // Step 1: Welcome & Consent
     step,
-    setStep, // Setter for 'step'
+    setStep,
     userConsent,
-    setUserConsent, // Setter for 'userConsent'
+    setUserConsent,
+    // Step 2: Initial Contact Information
     userName,
-    setUserName, // Setter for 'userName'
+    setUserName,
     userEmail,
-    setUserEmail, // Setter for 'userEmail'
+    setUserEmail,
+    // Step 3: Basic Information
     userAge,
-    setUserAge, // Setter for 'userAge'
+    setUserAge,
     userGenderIdentity,
-    setUserGenderIdentity, // Setter for 'userGenderIdentity'
+    setUserGenderIdentity,
     userLocation,
-    setUserLocation, // Setter for 'userLocation'
+    setUserLocation,
+    // Step 4: Presenting Concern
     presentingConcern,
-    setPresentingConcern, // Setter for 'presentingConcern'
+    setPresentingConcern,
+    // Step 5: Experience and Perspective
     experiences,
-    setExperiences, // Setter for 'experiences'
+    setExperiences,
     understoodMoment,
-    setUnderstoodMoment, // Setter for 'understoodMoment'
+    setUnderstoodMoment,
+    // Step 6: Goals and Expectations
     healingVision,
-    setHealingVision, // Setter for 'healingVision'
+    setHealingVision,
     therapyHopes,
-    setTherapyHopes, // Setter for 'therapyHopes'
+    setTherapyHopes,
+    // Step 7: Coping and Comfort
     copingStrategies,
-    setCopingStrategies, // Setter for 'copingStrategies'
+    setCopingStrategies,
+    // Step 8: Inner World Exploration
     innerWorldDescription,
-    setInnerWorldDescription, // Setter for 'innerWorldDescription'
+    setInnerWorldDescription,
+    // Step 9: Strengths and Growth
     strengths,
-    setStrengths, // Setter for 'strengths'
+    setStrengths,
     growthAspirations,
-    setGrowthAspirations, // Setter for 'growthAspirations'
+    setGrowthAspirations,
+    // Step 10: Therapy Process
     therapyFears,
-    setTherapyFears, // Setter for 'therapyFears'
+    setTherapyFears,
     progress,
-    setProgress, // Setter for 'progress'
+    setProgress,
+    // Utility Functions
     handleConsent,
     handleInputChange,
     nextStep,
