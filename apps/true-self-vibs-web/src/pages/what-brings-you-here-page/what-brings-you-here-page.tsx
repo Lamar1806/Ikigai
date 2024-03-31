@@ -171,18 +171,16 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
             )}
             {questionnaire.step === 2 && (
               <>
+                <GenderSelect
+                  onGenderSelect={function (gender: string[]): void {
+                    throw new Error('Function not implemented.');
+                  }}
+                />
                 <Input
                   type="number"
                   placeholder="Age"
                   value={questionnaire.userAge}
                   onChange={handleAgeChange}
-                />
-                <GenderSelect
-                  onGenderSelect={(genderIdentity) =>
-                    questionnaire.setUserGenderIdentity(
-                      genderIdentity as GenderIdentity
-                    )
-                  }
                 />
                 <Input
                   type="text"

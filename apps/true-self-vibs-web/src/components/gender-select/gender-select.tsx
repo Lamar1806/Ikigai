@@ -1,62 +1,69 @@
 import React, { useState } from 'react';
-import { GenderIdentity } from '../../api/mocks/genders';
+import styled from '@emotion/styled';
+import { GENDERS, GenderIdentity } from '../../api/mocks/genders'; // Adjust the import path as necessary
+
+// Adjusted styled components for better alignment
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; // Space between items
+  padding: 20px;
+`;
+
+const CheckboxContainer = styled.div`
+  width: calc(50% - 10px); // Assuming gap is 20px, adjust for your actual gap
+  display: flex;
+  align-items: center; // Align checkbox and label text in each row
+`;
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 10px;
+`;
 
 interface GenderSelectProps {
-  onGenderSelect: (gender: GenderIdentity | string) => void; // Callback prop for when gender is selected/entered
+  onGenderSelect: (gender: GenderIdentity[]) => void;
 }
 
 const GenderSelect: React.FC<GenderSelectProps> = ({ onGenderSelect }) => {
-  const [selectedGender, setSelectedGender] = useState<GenderIdentity>('');
-  const [selfDescribedGender, setSelfDescribedGender] = useState('');
+  const [selectedGenders, setSelectedGenders] = useState<GenderIdentity[]>([]);
 
-  const handleGenderChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const gender: GenderIdentity = event.target.value as GenderIdentity;
-    setSelectedGender(gender);
-    if (gender !== 'SelfDescribe') {
-      onGenderSelect(gender);
+  const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value as GenderIdentity;
+    if (event.target.checked) {
+      const updatedSelectedGenders = [...selectedGenders, value];
+      setSelectedGenders(updatedSelectedGenders);
+      onGenderSelect(updatedSelectedGenders);
+    } else {
+      const updatedSelectedGenders = selectedGenders.filter(
+        (gender) => gender !== value
+      );
+      setSelectedGenders(updatedSelectedGenders);
+      onGenderSelect(updatedSelectedGenders);
     }
   };
 
-  const handleSelfDescribeChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const gender = event.target.value;
-    setSelfDescribedGender(gender);
-    onGenderSelect(gender);
-  };
-
   return (
-    <div>
-      <select value={selectedGender} onChange={handleGenderChange}>
-        <option value="">Select your gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Non-Binary">Non-Binary</option>
-        <option value="Transgender">Transgender</option>
-        <option value="Trans Female">Trans Female</option>
-        <option value="Trans Male">Trans Male</option>
-        <option value="Intersex">Intersex</option>
-        <option value="Genderqueer">Genderqueer</option>
-        <option value="Genderfluid">Genderfluid</option>
-        <option value="Agender">Agender</option>
-        <option value="Bigender">Bigender</option>
-        <option value="Pangender">Pangender</option>
-        <option value="Gender Variant">Gender Variant</option>
-        <option value="Two-Spirit">Two-Spirit</option>
-        <option value="Neutrois">Neutrois</option>
-        <option value="Questioning">Questioning</option>
-        <option value="Prefer not to say">Prefer not to say</option>
-        <option value="Self-Describe">Self-Describe</option>
-      </select>
-      {selectedGender === 'SelfDescribe' && (
-        <input
-          type="text"
-          value={selfDescribedGender}
-          onChange={handleSelfDescribeChange}
-          placeholder="Please describe"
-        />
-      )}
-    </div>
+    <Container>
+      {Object.entries(GENDERS).map(([key, value]) => (
+        <CheckboxContainer key={key}>
+          <Checkbox
+            type="checkbox"
+            value={key}
+            onChange={handleGenderChange}
+            checked={selectedGenders.includes(key as GenderIdentity)}
+          />
+          <Label>{value}</Label>
+        </CheckboxContainer>
+      ))}
+    </Container>
   );
 };
 

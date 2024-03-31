@@ -4,6 +4,7 @@ type FlowStep = {
   description: string;
   explanation?: string;
   designTips?: string[];
+  // component: (props: any)
 };
 
 export const flowStructure: FlowStep[] = [
@@ -23,6 +24,13 @@ export const flowStructure: FlowStep[] = [
   },
   {
     step: 3,
+    title: 'Gender Identity',
+    description: 'Question: "How do you identify your gender?"',
+    explanation:
+      'Understanding your gender identity helps us approach our conversation with the appropriate respect and understanding.',
+  },
+  {
+    step: 4,
     title: 'Basic Information',
     description:
       'Question Group 2: Age, Gender Identity, Location (optional: to understand timezone for scheduling).',
@@ -30,14 +38,14 @@ export const flowStructure: FlowStep[] = [
       'This basic info helps us tailor our approach to support you best.',
   },
   {
-    step: 4,
+    step: 5,
     title: 'Presenting Concern',
     description: "Question 1: 'What brings you here?'",
     explanation:
       'In your own words, tell us what’s on your mind. Feel free to share as much or as little as you like.',
   },
   {
-    step: 5,
+    step: 6,
     title: 'Experience and Perspective',
     description:
       "Questions 2 and 3: 'How have your experiences shaped your current perspective?' and 'Can you share a time when you felt truly understood?'",
@@ -45,7 +53,7 @@ export const flowStructure: FlowStep[] = [
       'Understanding your journey and moments of connection helps us see the world through your eyes.',
   },
   {
-    step: 6,
+    step: 7,
     title: 'Goals and Expectations',
     description:
       "Questions 4 and 5: 'What does healing look like to you?' and 'What are your hopes for therapy?'",
@@ -53,7 +61,7 @@ export const flowStructure: FlowStep[] = [
       'Envisioning your path to healing and what you seek from therapy can guide our journey together.',
   },
   {
-    step: 7,
+    step: 8,
     title: 'Coping and Comfort',
     description:
       "Question 6: 'In moments of discomfort, how do you find comfort?'",
@@ -61,14 +69,14 @@ export const flowStructure: FlowStep[] = [
       'Knowing how you navigate difficult times helps us understand your resilience and coping strategies.',
   },
   {
-    step: 8,
+    step: 9,
     title: 'Inner World Exploration',
     description: "Question 7: 'How do you describe your inner world?'",
     explanation:
       'This glimpse into your feelings, thoughts, and dreams offers a deeper understanding of your emotional landscape.',
   },
   {
-    step: 9,
+    step: 10,
     title: 'Strengths and Growth',
     description:
       "Questions 8 and 9: 'What are the pillars of your strength?' and 'How do you wish to grow or change?'",
@@ -76,7 +84,7 @@ export const flowStructure: FlowStep[] = [
       'Recognizing your strengths and aspirations for growth enriches our collaborative path forward.',
   },
   {
-    step: 10,
+    step: 11,
     title: 'Therapy Process',
     description:
       "Question 10: 'Is there anything you fear about the therapy process?'",
@@ -84,13 +92,13 @@ export const flowStructure: FlowStep[] = [
       'Addressing any concerns or questions you have about therapy can help make this journey more comfortable for you.',
   },
   {
-    step: 11,
+    step: 12,
     title: 'Closing & Next Steps',
     description:
       'Offer a heartfelt thank you for their time and openness. Outline the next steps, including how and when they will hear back from your team.',
   },
   {
-    step: 12,
+    step: 13,
     title: 'Design Tips',
     description: 'Design considerations for the flow structure.',
     designTips: [

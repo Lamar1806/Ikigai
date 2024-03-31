@@ -46,7 +46,7 @@ const ButtonNav = styled(Link)`
 
 const Explanation = styled.p`
   max-width: 600px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 30px;
 `;
 
@@ -72,8 +72,8 @@ const FormStepper: React.FC<Props> = ({
   return (
     <FormStepperStyled>
       <Title>{title}</Title>
-      {children}
       <Explanation>{explanation}</Explanation>
+      {children}
       <div>
         <Button onClick={handlePrevious} disabled={step <= 1}>
           Previous

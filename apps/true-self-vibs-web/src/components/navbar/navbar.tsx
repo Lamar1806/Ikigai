@@ -99,6 +99,14 @@ const MaskImage = styled.img`
 `;
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropDownRef = React.useRef(null);
+
+  const toggleDropdown = () => {
+    console.log('Dropdown toggled', !isOpen); // Log the action of toggling
+    setIsOpen(!isOpen);
+  };
+
   const links = [
     { text: 'Home', href: '/' },
     { text: 'What Brings You Here...', href: 'WhatBringsYouHere' },
@@ -111,13 +119,6 @@ const Navbar = () => {
     { text: 'Blog', href: '#blog' },
     { text: 'Contact', href: '#contact' },
   ];
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <NavbarWrapper>
       <ImageContainer>
@@ -134,7 +135,7 @@ const Navbar = () => {
           </NavbarItem>
         ))}
       </NavbarList>
-      <DropdownList isOpen={isOpen}>
+      <DropdownList ref={dropDownRef} isOpen={isOpen}>
         {links.map((link, index) => (
           <NavBarListDropDown key={index}>
             <NavbarItemDropDown>
