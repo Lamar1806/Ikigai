@@ -1,18 +1,58 @@
+import React from 'react';
+// Import styled from @emotion/styled for creating styled components
 import styled from '@emotion/styled';
 
-/* eslint-disable-next-line */
-export interface FormStepperProps {}
+interface Props {
+  step: number;
+  title: string;
+  handleNext: () => void;
+  handlePrevious: () => void;
+  children?: React.ReactNode;
+  explaination?: string;
+}
 
-const StyledFormStepper = styled.div`
-  color: pink;
+// Create a styled paragraph for the title
+const Title = styled.p`
+  font-weight: 300;
 `;
 
-export function FormStepper(props: FormStepperProps) {
+// Create styled buttons with the desired styles
+const Button = styled.button`
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+
+  &:disabled {
+    background-color: grey;
+  }
+`;
+
+const Explanation = styled.p``;
+
+const FormStepper: React.FC<Props> = ({
+  step,
+  title,
+  handleNext,
+  handlePrevious,
+  children,
+  explaination,
+}) => {
   return (
-    <StyledFormStepper>
-      <h1>Welcome to FormStepper!</h1>
-    </StyledFormStepper>
+    <div>
+      <Title>{title}</Title>
+      {children}
+      <Explanation>{explaination}</Explanation>
+      <div>
+        <Button onClick={handlePrevious} disabled={step <= 1}>
+          Previous
+        </Button>
+        <Button onClick={handleNext}>Next</Button>
+      </div>
+    </div>
   );
-}
+};
 
 export default FormStepper;

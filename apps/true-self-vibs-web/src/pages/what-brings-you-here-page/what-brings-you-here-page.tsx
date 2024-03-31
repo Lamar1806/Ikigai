@@ -4,6 +4,7 @@ import BlossomsOfRenewal from '../../assets/images/Blossoms of Renewal- A Path t
 import GenderSelect from '../../components/gender-select/gender-select';
 import { useQuestionnaire } from '../../hooks/useQuestionnaire';
 import { GenderIdentity } from '../../api/mocks/genders';
+import FormStepper from '../../components/form-stepper/form-stepper';
 
 /* eslint-disable-next-line */
 export interface WhatBringsYouHerePageProps {}
@@ -148,113 +149,116 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
       ></Hero> */}
       <InnerContainer>
         <Form>
-          {/* Form titles */}
-          <FormTitle>{formTitles[0]}</FormTitle>
-          <Input
-            type="text"
-            placeholder="Name"
-            value={questionnaire.userName}
-            onChange={handleNameChange}
-          />
-          <Input
-            type="text"
-            placeholder="Email"
-            value={questionnaire.userEmail}
-            onChange={handleEmailChange}
-          />
+          <FormStepper
+            step={0}
+            title={formTitles[questionnaire.step]}
+            handleNext={questionnaire.nextStep}
+            handlePrevious={questionnaire.previousStep}
+          >
+            {/* Initial Contact Information Information */}
+            <Input
+              type="text"
+              placeholder="Name"
+              value={questionnaire.userName}
+              onChange={handleNameChange}
+            />
+            <Input
+              type="text"
+              placeholder="Email"
+              value={questionnaire.userEmail}
+              onChange={handleEmailChange}
+            />
+            <Input
+              type="number"
+              placeholder="Age"
+              value={questionnaire.userAge}
+              onChange={handleAgeChange}
+            />
+            <GenderSelect
+              onGenderSelect={(genderIdentity) =>
+                questionnaire.setUserGenderIdentity(
+                  genderIdentity as GenderIdentity
+                )
+              }
+            />
+            <Input
+              type="text"
+              placeholder="Location"
+              value={questionnaire.userLocation}
+              onChange={handleLocationChange}
+            />
 
-          {/* Step 3: Basic Information */}
-          <FormTitle>{formTitles[1]}</FormTitle>
-          <Input
-            type="number"
-            placeholder="Age"
-            value={questionnaire.userAge}
-            onChange={handleAgeChange}
-          />
-          <GenderSelect
-            onGenderSelect={(genderIdentity) =>
-              questionnaire.setUserGenderIdentity(
-                genderIdentity as GenderIdentity
-              )
-            }
-          />
-          <Input
-            type="text"
-            placeholder="Location"
-            value={questionnaire.userLocation}
-            onChange={handleLocationChange}
-          />
+            {/* Step 4: Presenting Concern */}
+            <FormTitle>{formTitles[2]}</FormTitle>
+            <TextArea
+              placeholder="What brings you here?"
+              value={questionnaire.presentingConcern}
+              onChange={handleConcernChange}
+            />
 
-          {/* Step 4: Presenting Concern */}
-          <FormTitle>{formTitles[2]}</FormTitle>
-          <TextArea
-            placeholder="What brings you here?"
-            value={questionnaire.presentingConcern}
-            onChange={handleConcernChange}
-          />
+            {/* Step 5: Experience and Perspective */}
+            <FormTitle>{formTitles[3]}</FormTitle>
+            <TextArea
+              placeholder="How have your experiences shaped your current perspective?"
+              value={questionnaire.experiences}
+              onChange={handleExperienceChange}
+            />
+            <TextArea
+              placeholder="Can you share a time when you felt truly understood?"
+              value={questionnaire.understoodMoment}
+              onChange={handleMomentChange}
+            />
 
-          {/* Step 5: Experience and Perspective */}
-          <FormTitle>{formTitles[3]}</FormTitle>
-          <TextArea
-            placeholder="How have your experiences shaped your current perspective?"
-            value={questionnaire.experiences}
-            onChange={handleExperienceChange}
-          />
-          <TextArea
-            placeholder="Can you share a time when you felt truly understood?"
-            value={questionnaire.understoodMoment}
-            onChange={handleMomentChange}
-          />
+            {/* Step 6: Goals and Expectations */}
+            <FormTitle>{formTitles[4]}</FormTitle>
+            <TextArea
+              placeholder="What does healing look like to you?"
+              value={questionnaire.healingVision}
+              onChange={handleVisionChange}
+            />
+            <TextArea
+              placeholder="What are your hopes for therapy?"
+              value={questionnaire.therapyHopes}
+              onChange={handleHopesChange}
+            />
 
-          {/* Step 6: Goals and Expectations */}
-          <FormTitle>{formTitles[4]}</FormTitle>
-          <TextArea
-            placeholder="What does healing look like to you?"
-            value={questionnaire.healingVision}
-            onChange={handleVisionChange}
-          />
-          <TextArea
-            placeholder="What are your hopes for therapy?"
-            value={questionnaire.therapyHopes}
-            onChange={handleHopesChange}
-          />
+            {/* Step 7: Coping and Comfort */}
+            <FormTitle>{formTitles[5]}</FormTitle>
+            <TextArea
+              placeholder="In moments of discomfort, how do you find comfort?"
+              value={questionnaire.copingStrategies}
+              onChange={handleStrategiesChange}
+            />
 
-          {/* Step 7: Coping and Comfort */}
-          <FormTitle>{formTitles[5]}</FormTitle>
-          <TextArea
-            placeholder="In moments of discomfort, how do you find comfort?"
-            value={questionnaire.copingStrategies}
-            onChange={handleStrategiesChange}
-          />
+            {/* Step 8: Inner World Exploration */}
+            <FormTitle>{formTitles[6]}</FormTitle>
+            <TextArea
+              placeholder="How do you describe your inner world?"
+              value={questionnaire.innerWorldDescription}
+              onChange={handleDescriptionChange}
+            />
 
-          {/* Step 8: Inner World Exploration */}
-          <FormTitle>{formTitles[6]}</FormTitle>
-          <TextArea
-            placeholder="How do you describe your inner world?"
-            value={questionnaire.innerWorldDescription}
-            onChange={handleDescriptionChange}
-          />
+            {/* Step 9: Strengths and Growth */}
+            <FormTitle>{formTitles[7]}</FormTitle>
+            <TextArea
+              placeholder="What are the pillars of your strength?"
+              value={questionnaire.strengths}
+              onChange={handleStrengthsChange}
+            />
+            <TextArea
+              placeholder="How do you wish to grow or change?"
+              value={questionnaire.growthAspirations}
+              onChange={handleAspirationsChange}
+            />
 
-          {/* Step 9: Strengths and Growth */}
-          <FormTitle>{formTitles[7]}</FormTitle>
-          <TextArea
-            placeholder="What are the pillars of your strength?"
-            value={questionnaire.strengths}
-            onChange={handleStrengthsChange}
-          />
-          <TextArea
-            placeholder="How do you wish to grow or change?"
-            value={questionnaire.growthAspirations}
-            onChange={handleAspirationsChange}
-          />
-
-          {/* Step 10: Therapy Process */}
-          <FormTitle>{formTitles[8]}</FormTitle>
-          <TextArea
-            placeholder="Is there anything you fear about the therapy process?"
-            value={questionnaire.therapyFears}
-            onChange={handleFearsChange}
-          />
+            {/* Step 10: Therapy Process */}
+            <FormTitle>{formTitles[8]}</FormTitle>
+            <TextArea
+              placeholder="Is there anything you fear about the therapy process?"
+              value={questionnaire.therapyFears}
+              onChange={handleFearsChange}
+            />
+          </FormStepper>
         </Form>
       </InnerContainer>
     </StyledWhatBringsYouHerePage>

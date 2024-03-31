@@ -42,6 +42,7 @@ interface QuestionnaireHook {
   handleInputChange: (
     setter: React.Dispatch<React.SetStateAction<string>>
   ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
+  previousStep: () => void;
   nextStep: () => void;
 }
 
@@ -66,6 +67,15 @@ export const useQuestionnaire = (): QuestionnaireHook => {
   const [growthAspirations, setGrowthAspirations] = useState<string>('');
   const [therapyFears, setTherapyFears] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
+
+  const previousStep = () => {
+    // Decrease the step, ensuring it doesn't go below 1
+    setStep((currentStep) => Math.max(currentStep - 1, 1));
+    // Update the progress, ensuring it doesn't go below 0%
+    setProgress((currentProgress) =>
+      Math.max(currentProgress - (1 / 11) * 100, 0)
+    );
+  };
 
   const nextStep = () => {
     setStep((currentStep) => currentStep + 1);
@@ -133,6 +143,7 @@ export const useQuestionnaire = (): QuestionnaireHook => {
     // Utility Functions
     handleConsent,
     handleInputChange,
+    previousStep,
     nextStep,
   };
 };
