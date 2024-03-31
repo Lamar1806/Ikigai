@@ -1,15 +1,14 @@
 import React from 'react';
 // Import styled from @emotion/styled for creating styled components
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
-interface Props {
-  step: number;
-  title: string;
-  handleNext: () => void;
-  handlePrevious: () => void;
-  children?: React.ReactNode;
-  explaination?: string;
-}
+const FormStepperStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+`;
 
 // Create a styled paragraph for the title
 const Title = styled.p`
@@ -30,28 +29,55 @@ const Button = styled.button`
   }
 `;
 
+const ButtonNav = styled(Link)`
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: none;
+
+  &:disabled {
+    background-color: grey;
+  }
+`;
+
 const Explanation = styled.p``;
+interface Props {
+  step: number;
+  title: string;
+  handleNext: () => void;
+  handlePrevious: () => void;
+  children?: React.ReactNode;
+  explanation?: string;
+  stepsLength: number;
+}
 
 const FormStepper: React.FC<Props> = ({
+  stepsLength,
   step,
   title,
   handleNext,
   handlePrevious,
   children,
-  explaination,
+  explanation,
 }) => {
   return (
-    <div>
+    <FormStepperStyled>
       <Title>{title}</Title>
       {children}
-      <Explanation>{explaination}</Explanation>
+      <Explanation>{explanation}</Explanation>
       <div>
         <Button onClick={handlePrevious} disabled={step <= 1}>
           Previous
         </Button>
-        <Button onClick={handleNext}>Next</Button>
+        {step !== stepsLength - 1 && <Button onClick={handleNext}>Next</Button>}
+        {step === stepsLength - 1 && (
+          <ButtonNav to={'/therapists'}>Find A Therepist</ButtonNav>
+        )}
       </div>
-    </div>
+    </FormStepperStyled>
   );
 };
 

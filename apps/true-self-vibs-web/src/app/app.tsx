@@ -22,7 +22,7 @@ export function App() {
   return (
     <Router>
       <AppContainer>
-        <UnderConstructionModal />
+        {/* <UnderConstructionModal /> */}
         <Navbar />
         <ContentWrapper>
           <Switch>
