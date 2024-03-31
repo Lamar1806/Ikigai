@@ -5,6 +5,7 @@ import GenderSelect from '../../components/gender-select/gender-select';
 import { useQuestionnaire } from '../../hooks/useQuestionnaire';
 import { GenderIdentity } from '../../api/mocks/genders';
 import FormStepper from '../../components/form-stepper/form-stepper';
+import { flowStructure } from '../../api/mocks/stepFlow';
 
 /* eslint-disable-next-line */
 export interface WhatBringsYouHerePageProps {}
@@ -151,10 +152,11 @@ export function WhatBringsYouHerePage(props: WhatBringsYouHerePageProps) {
         <Form>
           <FormStepper
             step={questionnaire.step}
-            title={formTitles[questionnaire.step]}
+            title={flowStructure[questionnaire.step].title || ''}
             handleNext={questionnaire.nextStep}
             handlePrevious={questionnaire.previousStep}
             stepsLength={formTitles.length}
+            explanation={flowStructure[questionnaire.step].explanation || ''}
           >
             {/* Initial Contact Information Information */}
             {questionnaire.step === 1 && (

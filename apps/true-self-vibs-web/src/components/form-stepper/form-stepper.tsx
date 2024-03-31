@@ -11,8 +11,9 @@ const FormStepperStyled = styled.div`
 `;
 
 // Create a styled paragraph for the title
-const Title = styled.p`
+const Title = styled.h2`
   font-weight: 300;
+  margin-bottom: 30px;
 `;
 
 // Create styled buttons with the desired styles
@@ -43,14 +44,19 @@ const ButtonNav = styled(Link)`
   }
 `;
 
-const Explanation = styled.p``;
+const Explanation = styled.p`
+  max-width: 600px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+`;
+
 interface Props {
   step: number;
   title: string;
   handleNext: () => void;
   handlePrevious: () => void;
   children?: React.ReactNode;
-  explanation?: string;
+  explanation: string;
   stepsLength: number;
 }
 

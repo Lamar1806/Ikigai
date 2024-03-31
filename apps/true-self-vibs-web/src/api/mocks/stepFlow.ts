@@ -6,7 +6,7 @@ type FlowStep = {
   designTips?: string[];
 };
 
-const flowStructure: FlowStep[] = [
+export const flowStructure: FlowStep[] = [
   {
     step: 1,
     title: 'Welcome & Consent',
@@ -101,5 +101,3 @@ const flowStructure: FlowStep[] = [
     ],
   },
 ];
-
-export default flowStructure;
