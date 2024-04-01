@@ -35,7 +35,7 @@ export function App() {
             <Route exact path="/therapists">
               <TherapistsPage />
             </Route>
-            <Route path="/therapists/:id">
+            <Route exact path="/therapists/:id">
               <TherapistDetailsPage />
             </Route>
           </Switch>

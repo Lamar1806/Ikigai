@@ -1,3 +1,4 @@
+import therapist from '../../assets/images/therapist-smile-girl.webp';
 interface TherapistContact {
   email: string;
   phone: string;
@@ -8,7 +9,7 @@ interface TherapistBio {
   long: string;
 }
 
-interface Therapist {
+export interface Therapist {
   id: number;
   name: string;
   specialties: string[];
@@ -23,7 +24,7 @@ interface Therapist {
   licensedCountries: string[];
 }
 
-export const therapists: Therapist[] = [
+export const therapistsData: Therapist[] = [
   {
     id: 8,
     name: 'Dr. Rem',
@@ -54,7 +55,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567897',
     },
     availability: 'Wednesday to Sunday, 10am - 6pm',
-    imageUrl: 'https://example.com/images/rem.jpg',
+    imageUrl: therapist,
     licenses: ['LMFT', 'CBT'],
     licensedStates: ['New York', 'Massachusetts'],
     licensedCountries: ['USA'],
@@ -88,7 +89,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567890',
     },
     availability: 'Monday to Friday, 9am - 5pm',
-    imageUrl: 'https://example.com/images/sakura.jpg',
+    imageUrl: therapist,
     licenses: ['LPC', 'NCC'],
     licensedStates: ['California'],
     licensedCountries: ['USA'],
@@ -122,7 +123,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567891',
     },
     availability: 'Monday to Friday, 8am - 6pm',
-    imageUrl: 'https://example.com/images/naruto.jpg',
+    imageUrl: therapist,
     licenses: ['LCSW', 'BCD'],
     licensedStates: ['New York', 'New Jersey'],
     licensedCountries: ['USA'],
@@ -156,7 +157,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567892',
     },
     availability: 'Tuesday to Saturday, 10am - 7pm',
-    imageUrl: 'https://example.com/images/hinata.jpg',
+    imageUrl: therapist,
     licenses: ['LMFT', 'RPT'],
     licensedStates: ['Texas', 'Florida'],
     licensedCountries: ['USA'],
@@ -191,7 +192,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567893',
     },
     availability: 'Wednesday to Sunday, 11am - 8pm',
-    imageUrl: 'https://example.com/images/kaneki.jpg',
+    imageUrl: therapist,
     licenses: ['PhD', 'PsyD'],
     licensedStates: ['Illinois'],
     licensedCountries: ['USA'],
@@ -226,7 +227,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567894',
     },
     availability: 'Monday to Friday, 8am - 4pm',
-    imageUrl: 'https://example.com/images/arima.jpg',
+    imageUrl: therapist,
     licenses: ['LCSW', 'CEAP'],
     licensedStates: ['Washington', 'Oregon'],
     licensedCountries: ['USA'],
@@ -257,7 +258,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567895',
     },
     availability: 'Tuesday to Saturday, 10am - 6pm',
-    imageUrl: 'https://example.com/images/touka.jpg',
+    imageUrl: therapist,
     licenses: ['LMHC', 'RPT-S'],
     licensedStates: ['Virginia', 'Maryland'],
     licensedCountries: ['USA'],
@@ -288,7 +289,7 @@ export const therapists: Therapist[] = [
       phone: '+1234567896',
     },
     availability: 'Monday to Friday, 9am - 5pm',
-    imageUrl: 'https://example.com/images/emilia.jpg',
+    imageUrl: therapist,
     licenses: ['LPC', 'NCC'],
     licensedStates: ['Colorado', 'Utah'],
     licensedCountries: ['USA'],
