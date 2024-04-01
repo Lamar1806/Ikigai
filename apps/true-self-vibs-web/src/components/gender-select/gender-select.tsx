@@ -5,15 +5,24 @@ import { GENDERS, GenderIdentity } from '../../api/mocks/genders'; // Adjust the
 // Adjusted styled components for better alignment
 const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; // Changed to column for mobile-first approach
   gap: 20px; // Space between items
   padding: 20px;
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 const CheckboxContainer = styled.div`
-  width: calc(50% - 10px); // Assuming gap is 20px, adjust for your actual gap
   display: flex;
   align-items: center; // Align checkbox and label text in each row
+  width: 100%; // Take full width on mobile
+
+  @media (min-width: 1200px) {
+    // Adjust breakpoint as needed
+    width: calc(50% - 10px); // For larger screens, adjust for actual gap
+  }
 `;
 
 const Label = styled.label`
@@ -21,6 +30,7 @@ const Label = styled.label`
   align-items: center;
   color: #333;
   font-size: 16px;
+  width: 200px;
   cursor: pointer;
 `;
 
@@ -55,12 +65,13 @@ const GenderSelect: React.FC<GenderSelectProps> = ({ onGenderSelect }) => {
       {Object.entries(GENDERS).map(([key, value]) => (
         <CheckboxContainer key={key}>
           <Checkbox
+            id={key}
             type="checkbox"
             value={key}
             onChange={handleGenderChange}
             checked={selectedGenders.includes(key as GenderIdentity)}
           />
-          <Label>{value}</Label>
+          <Label htmlFor={key}>{value}</Label>
         </CheckboxContainer>
       ))}
     </Container>
