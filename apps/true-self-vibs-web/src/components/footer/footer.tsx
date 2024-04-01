@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import links from '../../api/mocks/links';
 import trueSelfIcon from '../../assets/images/Mask.png';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background-color: #000;
@@ -37,7 +38,9 @@ const Footer = () => {
   // Simplify the mapping of links to automatically generate the link icons
   return (
     <FooterContainer>
-      <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
+      <Link to="/">
+        <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
+      </Link>
       {/* <LinksContainer>
         {Object.entries(links).map(([key, value]) => (
           <IconLink

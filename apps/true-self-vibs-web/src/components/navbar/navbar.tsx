@@ -107,9 +107,28 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Close dropdown if click is outside of navbar
+  React.useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      // Check if the click is outside the dropdown. If so, close it.
+      //@ts-ignore
+      if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    // Attach the event listener to the document
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Return a cleanup function to remove the event listener when the component unmounts or the useEffect cleanup runs
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const links = [
     { text: 'Home', href: '/' },
-    { text: 'What Brings You Here...', href: 'WhatBringsYouHere' },
+    { text: 'What Brings You Here...?', href: 'WhatBringsYouHere' },
     { text: 'Therapists', href: 'therapists' },
     { text: 'Doctors', href: 'Doctors' },
     { text: 'About', href: '#about' },
@@ -122,7 +141,9 @@ const Navbar = () => {
   return (
     <NavbarWrapper>
       <ImageContainer>
-        <MaskImage src={mask} alt="True Self Icon" />
+        <Link to="/">
+          <MaskImage src={mask} alt="True Self Icon" />
+        </Link>
       </ImageContainer>
       <DropdownToggle onClick={toggleDropdown}>
         <FaAlignJustify />
