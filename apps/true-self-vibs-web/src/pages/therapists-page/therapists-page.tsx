@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import HeroForQuarterScreen from '../../components/renewal-banner/HeroForQuarterScreen';
+import Blossoms from '../../assets/images/Blossoms of Renewal- A Path to Healing.png';
 
 /* eslint-disable-next-line */
 export interface TherapistsPageProps {}
@@ -12,7 +14,7 @@ const StyledTherapistsPage = styled.div`
 export function TherapistsPage(props: TherapistsPageProps) {
   return (
     <StyledTherapistsPage>
-      <h1>Welcome to TherapistsPage!</h1>
+      <HeroForQuarterScreen backgroundImage={Blossoms} />
     </StyledTherapistsPage>
   );
 }
