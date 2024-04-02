@@ -50,7 +50,7 @@ export function App() {
       <ImageOfMe src={me} alt="me" />
       <section>
         <H1 textAlign={'left'} style={{ marginTop: 60, marginBottom: 30 }}>
-          Echo Anime
+          Echo Anime (Dalmar Brooks)
         </H1>
         <AboutDalmar />
       </section>
