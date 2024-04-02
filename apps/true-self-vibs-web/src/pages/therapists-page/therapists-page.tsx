@@ -6,7 +6,7 @@ import { therapistsData } from '../../api/mocks/therapist-data';
 import TherapistList from '../../components/therapist-list/therapist-list';
 
 const Title = styled.h2`
-  font-size: 48px;
+  font-size: 40px;
   text-align: center;
   font-weight: 300;
   margin-top: 68px;

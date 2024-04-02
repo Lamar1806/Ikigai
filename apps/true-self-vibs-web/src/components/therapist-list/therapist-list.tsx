@@ -6,7 +6,10 @@ import TherapistCard from '../therapist-card/therapist-card';
 export interface TherapistListProps {}
 
 const StyledTherapistList = styled.div`
-  padding: 0px 200px;
+  padding: 0px 16px;
+  @media (min-width: 1200px) {
+    padding: 0px 200px;
+  }
 `;
 
 export function TherapistList(props: TherapistListProps) {
