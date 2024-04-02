@@ -7,6 +7,7 @@ import TherapistsPage from '../pages/therapists-page/therapists-page';
 import styled from '@emotion/styled';
 import TherapistDetailsPage from '../pages/therapist-details-page/therapist-details-page';
 import WhatBringsYouHerePage from '../pages/what-brings-you-here-page/what-brings-you-here-page';
+import ComingSoon from '../components/coming-soon/coming-soon';
 
 const AppContainer = styled.div`
   display: flex;
@@ -37,6 +38,18 @@ export function App() {
             </Route>
             <Route exact path="/therapists/:id">
               <TherapistDetailsPage />
+            </Route>
+            <Route exact path="/doctors">
+              <ComingSoon />
+            </Route>
+            <Route exact path="/videos">
+              <ComingSoon />
+            </Route>
+            <Route exact path="/apps">
+              <ComingSoon />
+            </Route>
+            <Route exact path="/Articles">
+              <ComingSoon />
             </Route>
           </Switch>
         </ContentWrapper>

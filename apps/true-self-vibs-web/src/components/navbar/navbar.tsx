@@ -130,12 +130,12 @@ const Navbar = () => {
     { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
     { text: 'Therapists', href: '/therapists' },
     { text: 'Doctors', href: '/Doctors' },
-    { text: 'About', href: '#about' },
-    { text: 'Articles', href: '#articles' },
-    { text: 'Videos', href: '#videos' },
-    { text: 'Apps', href: '#apps' },
-    { text: 'Blog', href: '#blog' },
-    { text: 'Contact', href: '#contact' },
+    // { text: 'About', href: '/about' },
+    { text: 'Articles', href: '/articles' },
+    { text: 'Videos', href: '/videos' },
+    { text: 'Apps', href: '/apps' },
+    // { text: 'Blog', href: '/blog' },
+    // { text: 'Contact', href: '/contact' },
   ];
   return (
     <NavbarWrapper>
