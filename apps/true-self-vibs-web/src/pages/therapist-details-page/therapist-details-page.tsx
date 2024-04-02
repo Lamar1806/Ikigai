@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
-import HeroForQuarterScreen from '../../components/renewal-banner/HeroForQuarterScreen';
+import HeroForQuarterScreen from '../../components/hero-quarter-screen/HeroForQuarterScreen';
 import Blossoms from '../../assets/images/Blossoms of Renewal- A Path to Healing.png';
 import { therapistsData } from '../../api/mocks/therapist-data';
 import { renderParagraphs } from '../../utils/renderParagraphs';

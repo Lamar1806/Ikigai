@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import HeroForQuarterScreen from '../../components/renewal-banner/HeroForQuarterScreen';
+import HeroForQuarterScreen from '../../components/hero-quarter-screen/HeroForQuarterScreen';
 import Blossoms from '../../assets/images/Blossoms of Renewal- A Path to Healing.png';
 import TherapistCard from '../../components/therapist-card/therapist-card';
 import { therapistsData } from '../../api/mocks/therapist-data';
