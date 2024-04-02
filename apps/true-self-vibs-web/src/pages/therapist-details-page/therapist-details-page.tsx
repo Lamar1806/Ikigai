@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import HeroForQuarterScreen from '../../components/renewal-banner/HeroForQuarterScreen';
 import Blossoms from '../../assets/images/Blossoms of Renewal- A Path to Healing.png';
 import { therapistsData } from '../../api/mocks/therapist-data';
+import { renderParagraphs } from '../../utils/renderParagraphs';
 
 /* eslint-disable-next-line */
 export interface TherapistDetailsPageProps {}
@@ -37,7 +38,7 @@ export function TherapistDetailsPage(props: TherapistDetailsPageProps) {
         <Licenses>{therapist?.licenses.join(', ')}</Licenses>
         <Name>{therapist?.name}</Name>
         <Specialties>{therapist?.specialties.join(', ')}</Specialties>
-        <Bio>{therapist?.bio.long}</Bio>
+        {renderParagraphs(therapist?.bio.long || '')}
       </InnerContainer>
     </StyledTherapistDetailsPage>
   );
