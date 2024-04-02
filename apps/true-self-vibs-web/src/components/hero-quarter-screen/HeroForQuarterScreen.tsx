@@ -40,10 +40,13 @@ const Overlay = styled.div`
 const Title = styled.h1`
   z-index: 2;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
-  font-weight: 300;
+  font-weight: 700;
+  @media (min-width: 1200px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled.h2`
@@ -57,8 +60,8 @@ const Subtitle = styled.h2`
 `;
 
 const TitleContainer = styled.div`
-  position: relative;
-  top: 75px;
+  position: absolute;
+  bottom: 20px;
   z-index: 2;
 `;
 
