@@ -33,7 +33,7 @@ const ModalWrapper = styled(animated.div)`
 
 const H2 = styled.h2`
   font-weight: 300;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
 `;
 const CloseButton = styled.button`
   width: 100%;
@@ -63,22 +63,18 @@ const UnderConstructionModal = () => {
         <ModalWrapper style={modalAnimation}>
           <H2>🚧 Exciting News from TrueSelf! 🚧</H2>
           <p>
-            Thrilled to share that TrueSelf has evolved from concept to a more
-            accessible reality! 🌟 Enjoy smoother navigation with MobileView and
-            look forward to new features like appointment scheduling. Heads up:
-            we're enhancing the contact form and some links, so they may not
-            work as expected for now, but we're on it. TrueSelf is committed to
-            supporting your healing and self-discovery journey with even greater
-            ease and innovation. Explore the evolving TrueSelf experience today!
+            TrueSelf has evolved, offering smoother navigation with MobileView
+            and upcoming features like appointment scheduling. While we enhance
+            the contact form and links, users may experience temporary
+            disruptions. TrueSelf remains committed to facilitating healing
+            journeys with increased ease and innovation.
           </p>
           <br />
           <p>
-            <strong>Please note:</strong> All data, including therapist profiles
-            and contact information, is currently mocked for demonstration
-            purposes. Actual therapist details and functionality will be updated
-            as we continue to develop and refine the TrueSelf platform. We
-            appreciate your understanding and patience as we work towards
-            creating a more robust and helpful experience for everyone.
+            <strong>Please note:</strong> Therapist profiles and contact info
+            are currently simulated for demonstration; actual details will be
+            updated as we refine the platform. We appreciate your patience as we
+            work to create a more robust experience for all users.
           </p>
           <CloseButton onClick={() => setShowModal(false)}>Close</CloseButton>
         </ModalWrapper>

@@ -33,6 +33,16 @@ const Specialties = styled.p`
   margin-bottom: 16px;
 `;
 const Bio = styled.div``;
+const BookNowBTN = styled.button`
+  background-color: black;
+  padding: 16px;
+  width: 150px;
+  color: white;
+  /* font-size: 1.2rem; */
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const StyledTherapistDetailsPage = styled.div`
   /* color: pink; */
@@ -55,6 +65,8 @@ export function TherapistDetailsPage(props: TherapistDetailsPageProps) {
         <Name>{therapist?.name}</Name>
         <Specialties>{therapist?.specialties.join(', ')}</Specialties>
         <Bio>{renderParagraphs(therapist?.bio.long || '')}</Bio>
+        {/* Will use calendarly for this. */}
+        <BookNowBTN>Book</BookNowBTN>
       </InnerContainer>
     </StyledTherapistDetailsPage>
   );

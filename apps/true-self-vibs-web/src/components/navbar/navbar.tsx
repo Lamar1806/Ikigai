@@ -135,7 +135,7 @@ const Navbar = () => {
     { text: 'Videos', href: '/videos' },
     { text: 'Apps', href: '/apps' },
     // { text: 'Blog', href: '/blog' },
-    // { text: 'Contact', href: '/contact' },
+    { text: 'Contact', href: '/contact' },
   ];
   return (
     <NavbarWrapper>

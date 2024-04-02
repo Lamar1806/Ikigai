@@ -51,6 +51,9 @@ export function App() {
             <Route exact path="/Articles">
               <ComingSoon />
             </Route>
+            <Route exact path="/Contact">
+              <ComingSoon />
+            </Route>
           </Switch>
         </ContentWrapper>
         <Footer />
