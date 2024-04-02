@@ -103,7 +103,6 @@ const Navbar = () => {
   const dropDownRef = React.useRef(null);
 
   const toggleDropdown = () => {
-    console.log('Dropdown toggled', !isOpen); // Log the action of toggling
     setIsOpen(!isOpen);
   };
 
