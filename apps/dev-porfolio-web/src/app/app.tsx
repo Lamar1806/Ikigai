@@ -15,7 +15,13 @@ interface H1Props {
 }
 
 const StyledApp = styled.div`
-  padding: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1200px) {
+    padding: 0px 200px;
+  }
 `;
 
 const ImageOfMe = styled.img`
@@ -31,6 +37,7 @@ export const H1 = styled.h1<H1Props>`
   text-align: ${(props) => props.textAlign};
   opacity: ${(props) => (props.withOpacity ? opacity : 1)};
   margin: 5px 0px;
+  font-weight: 300;
 `;
 
 const H2 = styled.h1<H1Props>`
@@ -39,6 +46,7 @@ const H2 = styled.h1<H1Props>`
   text-align: ${(props) => props.textAlign};
   opacity: ${(props) => (props.withOpacity ? opacity : 1)};
   margin: 5px 0px;
+  font-weight: 300;
 `;
 
 export function App() {
@@ -48,12 +56,10 @@ export function App() {
         About
       </H1>
       <ImageOfMe src={me} alt="me" />
-      <section>
-        <H1 textAlign={'left'} style={{ marginTop: 60, marginBottom: 30 }}>
-          Echo Anime (Dalmar Brooks)
-        </H1>
-        <AboutDalmar />
-      </section>
+      <H1 textAlign={'left'} style={{ marginTop: 60, marginBottom: 30 }}>
+        Echo Anime (Dalmar Brooks)
+      </H1>
+      <AboutDalmar />
       <H1
         textAlign={'center'}
         withOpacity
@@ -61,13 +67,16 @@ export function App() {
       >
         About
       </H1>
-      <HeadingWithSubtextAbove
-        heading="Here Are Some of My Skills"
-        subHeading="My Skills"
-        textAlign="left"
-      />
-      <GraphicDesignSkills />
-      <SoftwareEngineerSkills />
+      <section>
+        <HeadingWithSubtextAbove
+          heading="Here Are Some of My Skills"
+          subHeading="My Skills"
+          textAlign="left"
+        />
+        <GraphicDesignSkills />
+        <SoftwareEngineerSkills />
+      </section>
+
       <HeadingWithSubtextAbove heading="Portfolio" subHeading="Projects" />
       {projects.map((project, index) => (
         <ProjectListItem
