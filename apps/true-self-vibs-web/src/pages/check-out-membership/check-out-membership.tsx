@@ -19,10 +19,13 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
   const selectedMembership = membershipOptions.find(
     (membership) => membership.id === id
   );
+  const test = process.env.REACT_APP_projectId;
+  console.log('test', test);
   return (
     <StyledCheckOutMembership>
       <h1>Welcome to CheckOutMembership {id}</h1>
-      <CheckOutForm />
+      {test}
+      {/* <CheckOutForm /> */}
     </StyledCheckOutMembership>
   );
 }

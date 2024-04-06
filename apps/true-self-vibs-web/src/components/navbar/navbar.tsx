@@ -126,10 +126,12 @@ const Navbar = () => {
   }, []);
 
   const links = [
+    { text: 'memberships', href: '/memberships' },
     { text: 'Home', href: '/' },
     { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
     { text: 'Therapists', href: '/therapists' },
     { text: 'Doctors', href: '/Doctors' },
+
     // { text: 'About', href: '/about' },
     { text: 'Articles', href: '/articles' },
     { text: 'Videos', href: '/videos' },
