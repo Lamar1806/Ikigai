@@ -11,6 +11,7 @@ import ComingSoon from '../components/coming-soon/coming-soon';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import MembershipsPage from '../pages/memberships-page/memberships-page';
+import CheckOutMembership from '../pages/check-out-membership/check-out-membership';
 
 const AppContainer = styled.div`
   display: flex;
@@ -36,8 +37,8 @@ export function App() {
             <Route exact path="/memberships">
               <MembershipsPage />
             </Route>
-            <Route exact path="/membership/:id">
-              {/* <MembershipsPage /> */}
+            <Route exact path="/memberships/:id">
+              <CheckOutMembership />
             </Route>
             <Route path="/WhatBringsYouHere">
               <WhatBringsYouHerePage />
