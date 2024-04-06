@@ -25,7 +25,7 @@ export function MembershipsPage(props: MembershipsPageProps) {
     <StyledMembershipsPage>
       <InnerContainer>
         {membershipOptions.map((option: MembershipOption) => (
-          <MembershipCard membership={option} />
+          <MembershipCard key={option.id} membership={option} />
         ))}
       </InnerContainer>
     </StyledMembershipsPage>
