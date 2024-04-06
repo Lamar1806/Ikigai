@@ -8,6 +8,9 @@ import styled from '@emotion/styled';
 import TherapistDetailsPage from '../pages/therapist-details-page/therapist-details-page';
 import WhatBringsYouHerePage from '../pages/what-brings-you-here-page/what-brings-you-here-page';
 import ComingSoon from '../components/coming-soon/coming-soon';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import MembershipsPage from '../pages/memberships-page/memberships-page';
 
 const AppContainer = styled.div`
   display: flex;
@@ -29,6 +32,12 @@ export function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/memberships">
+              <MembershipsPage />
+            </Route>
+            <Route exact path="/membership/:id">
+              {/* <MembershipsPage /> */}
             </Route>
             <Route path="/WhatBringsYouHere">
               <WhatBringsYouHerePage />
