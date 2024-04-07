@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "nx build true-self && yarn move-dist-folder && yarn deploy",
+    "start": "yarn env && nx serve true-self",
+    "lint": "nx lint true-self",
+    "test": "nx test true-self",
+    "deploy": "firebase deploy",
+    "move-dist-folder": "yarn rm-old-dist && mv ../../dist/apps/true-self ./dist",
+    "rm-old-dist": "rm -rf ./dist",
+    "env": "../../node_modules/.bin/cross-env && yarn print-env",
+    "print-env": "cat .env"
+  }
+}

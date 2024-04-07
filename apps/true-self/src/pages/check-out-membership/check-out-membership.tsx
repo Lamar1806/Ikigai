@@ -5,6 +5,7 @@ import {
   membershipOptions,
   MembershipOption,
 } from '../../api/mocks/membership-options';
+import { useEffect } from 'react';
 
 /* eslint-disable-next-line */
 export interface CheckOutMembershipProps {}
@@ -19,12 +20,14 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
   const selectedMembership = membershipOptions.find(
     (membership) => membership.id === id
   );
-  const test = process.env.REACT_APP_projectId;
-  console.log('test', test);
+  useEffect(() => {
+    // Log the environment variable
+    console.log('API URL:', process.env.NX_SERVER_URL);
+  }, []);
   return (
     <StyledCheckOutMembership>
       <h1>Welcome to CheckOutMembership {id}</h1>
-      {test}
+
       {/* <CheckOutForm /> */}
     </StyledCheckOutMembership>
   );
