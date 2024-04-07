@@ -33,6 +33,7 @@
     "react-native-vector-icons": "^10.0.3",
     "react-redux": "^8.1.1",
     "react-router-dom": "^5.0.0",
+    "react-spring": "^9.7.3",
     "stripe": "^14.24.0",
     "styled-components": "^6.0.3",
     "tslib": "^2.3.0"
