@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
-import CheckOutForm from '../../components/check-out-form/check-out-form';
+import PaymentForm from '../../components/payment-form/payment-form';
 import {
   membershipOptions,
   MembershipOption,
@@ -27,8 +27,7 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
   return (
     <StyledCheckOutMembership>
       <h1>Welcome to CheckOutMembership {id}</h1>
-
-      {/* <CheckOutForm /> */}
+      <PaymentForm />
     </StyledCheckOutMembership>
   );
 }

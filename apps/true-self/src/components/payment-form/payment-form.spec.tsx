@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import CheckOutForm from './check-out-form';
+import PaymentForm from './payment-form';
 
-describe('CheckOutForm', () => {
+describe('PaymentForm', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CheckOutForm />);
+    const { baseElement } = render(<PaymentForm />);
     expect(baseElement).toBeTruthy();
   });
 });

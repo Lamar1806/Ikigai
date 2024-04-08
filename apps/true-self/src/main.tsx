@@ -8,10 +8,10 @@ import app from './firebaseConfig';
 import App from './app/app';
 // import dotenv from 'dotenv';
 // dotenv.config({ path: './.' });
+const publishableKey = process.env.NX_STRIPE_TEST_PUBLISHABLE_KEY;
+const secretKey = process.env.NX_STRIPE_TEST_SECRET_KEY;
 
-const stripePromise = loadStripe(
-  `${process.env.REACT_APP_STRIPE_TEST_publishableKey}`
-);
+const stripePromise = loadStripe(`${publishableKey}`);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
