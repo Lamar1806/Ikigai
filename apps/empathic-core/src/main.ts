@@ -1,7 +1,6 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import * as path from 'path';
 import { setUpFireBaseRoutes } from './routes/firebase-routes';
-import { createSubscription } from './services/subscriptions';
 import { setUpStripeRoutes } from './routes/stripe-routes';
 
 const app = express();
@@ -10,6 +9,7 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 setUpFireBaseRoutes(app);
 setUpStripeRoutes(app);
+
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to EmpathicCore!' });
 });
