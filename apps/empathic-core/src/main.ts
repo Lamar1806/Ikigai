@@ -1,8 +1,7 @@
 import express, { Request, Response } from 'express';
 import * as path from 'path';
 import { setUpFireBaseRoutes } from './routes/firebase-routes';
-
-import { createSubscription } from './subscriptions';
+import { createSubscription } from './services/subscriptions';
 
 const app = express();
 
