@@ -1,16 +1,17 @@
-import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import firebaseConfig from './firebase-config.js';
 import { Express } from 'express';
+import { FirebaseApp } from 'firebase/app';
+import { firebaseConfig } from '../config/firebase-config.js';
 
 export const setUpFireBaseRoutes = (app: Express) => {
   app.get('/test', async (req, res) => {
-    res.send({ ok: 'here' });
+    res.send({ ok: 'here', firebaseConfig });
   });
 
   // app.get('/test-firebase', async (req, res) => {
   //   try {
-  //     const db = getFirestore();
+  //     // Now explicitly using the passed firebaseApp for getting Firestore
+  //     const db = getFirestore(firebaseApp);
   //     const testDocRef = doc(db, 'test', 'testDoc');
   //     const testDoc = await getDoc(testDocRef);
 
