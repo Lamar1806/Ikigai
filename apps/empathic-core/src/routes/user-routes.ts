@@ -1,5 +1,5 @@
 import { TrueSelfUser } from '../models/true-self-user'; // Adjust the path as necessary
-import { FB } from '../config/firebase-config.js'; // Ensure this points to your config
+import { FB } from '../config/firebase-config'; // Ensure this points to your config
 import { Express } from 'express';
 
 // Initialize TrueSelfUser with Firebase config

@@ -105,28 +105,28 @@ export class TrueSelfUser {
 
 // Example data
 
-const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
+// const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
 
-const userData: TrueSelfUserInterface = {
-  consent: true,
-  contactInformation: { name: 'Jane Doe', email: 'jane@example.com' },
-  basicInformation: { age: 30, genderIdentity: 'Female', location: 'New York' },
-  presentingConcern: 'Stress and anxiety',
-  experienceAndPerspective: {
-    experiencesShape: 'Life experiences have shaped my current perspective.',
-    feltUnderstood: 'Sometimes',
-  },
-  goalsAndExpectations: {
-    healingVision: 'To find peace and balance',
-    therapyHopes: 'To develop coping strategies',
-  },
-  copingAndComfort: 'Music and walking',
-  innerWorldDescription: 'Complex and vivid',
-  strengthsAndGrowth: {
-    pillarsOfStrength: 'Resilience and empathy',
-    growthAspirations: 'To become more self-aware',
-  },
-};
+// const userData: TrueSelfUserInterface = {
+//   consent: true,
+//   contactInformation: { name: 'Jane Doe', email: 'jane@example.com' },
+//   basicInformation: { age: 30, genderIdentity: 'Female', location: 'New York' },
+//   presentingConcern: 'Stress and anxiety',
+//   experienceAndPerspective: {
+//     experiencesShape: 'Life experiences have shaped my current perspective.',
+//     feltUnderstood: 'Sometimes',
+//   },
+//   goalsAndExpectations: {
+//     healingVision: 'To find peace and balance',
+//     therapyHopes: 'To develop coping strategies',
+//   },
+//   copingAndComfort: 'Music and walking',
+//   innerWorldDescription: 'Complex and vivid',
+//   strengthsAndGrowth: {
+//     pillarsOfStrength: 'Resilience and empathy',
+//     growthAspirations: 'To become more self-aware',
+//   },
+// };
 
-// Create a new user
-trueSelfUser.createUser('jane@example.com', 'userPassword', userData);
+// // Create a new user
+// trueSelfUser.createUser('jane@example.com', 'userPassword', userData);
