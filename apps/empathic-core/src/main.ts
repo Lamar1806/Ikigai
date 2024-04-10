@@ -2,11 +2,15 @@ import express from 'express';
 import * as path from 'path';
 import { setUpFireBaseRoutes } from './routes/firebase-routes';
 import { setUpStripeRoutes } from './routes/stripe-routes';
+import bodyParser from 'body-parser';
 
 const app = express();
 
+// Middleware
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(bodyParser.json());
 
+//routes
 setUpFireBaseRoutes(app);
 setUpStripeRoutes(app);
 

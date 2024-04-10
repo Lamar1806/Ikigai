@@ -1,20 +1,15 @@
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { Express } from 'express';
-import { FirebaseApp } from 'firebase/app';
-import { firebaseConfig } from '../config/firebase-config.js';
-import { initializeApp } from 'firebase/app';
-const firebaseApp = initializeApp(firebaseConfig);
+import { FB } from '../config/firebase-config';
 
 export const setUpFireBaseRoutes = (app: Express) => {
   app.get('/test', async (req, res) => {
-    res.send({ ok: 'here', firebaseConfig });
+    res.send({ ok: 'here', config: FB.config });
   });
 
   app.get('/test-firebase', async (req, res) => {
     try {
-      // Now explicitly using the passed firebaseApp for getting Firestore
-      const db = getFirestore(firebaseApp);
-      const testDocRef = doc(db, 'test', 'testDoc');
+      const testDocRef = doc(FB.db, 'test', 'testDoc');
       const testDoc = await getDoc(testDocRef);
 
       if (testDoc.exists()) {
