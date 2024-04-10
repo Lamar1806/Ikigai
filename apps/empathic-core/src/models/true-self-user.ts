@@ -104,7 +104,7 @@ export class TrueSelfUser {
 }
 
 // Example data
-
+// ! does not work
 // const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
 
 // const userData: TrueSelfUserInterface = {
