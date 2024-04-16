@@ -6,12 +6,19 @@ import {
   MembershipOption,
 } from '../../api/mocks/membership-options';
 import { useEffect } from 'react';
+import { formatCurrency } from '../../utils/formatCurrency';
 
 /* eslint-disable-next-line */
 export interface CheckOutMembershipProps {}
 
 const StyledCheckOutMembership = styled.div`
-  color: pink;
+  /* color: pink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const Header = styled.h1`
+  margin-bottom: 16px;
 `;
 
 export function CheckOutMembership(props: CheckOutMembershipProps) {
@@ -20,13 +27,18 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
   const selectedMembership = membershipOptions.find(
     (membership) => membership.id === id
   );
+  const name = selectedMembership?.name;
+  const price = formatCurrency(selectedMembership?.price || '');
+
   useEffect(() => {
     // Log the environment variable
     console.log('API URL:', process.env.NX_SERVER_URL);
   }, []);
   return (
     <StyledCheckOutMembership>
-      <h1>Welcome to CheckOutMembership {id}</h1>
+      <Header>
+        {name} {price}
+      </Header>
       <PaymentForm />
     </StyledCheckOutMembership>
   );

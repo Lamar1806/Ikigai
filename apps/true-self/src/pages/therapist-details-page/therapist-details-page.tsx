@@ -4,6 +4,7 @@ import HeroForQuarterScreen from '../../components/hero-quarter-screen/HeroForQu
 import Blossoms from '../../assets/images/Blossoms of Renewal- A Path to Healing.png';
 import { therapistsData } from '../../api/mocks/therapist-data';
 import { renderParagraphs } from '../../utils/renderParagraphs';
+import React from 'react';
 
 /* eslint-disable-next-line */
 export interface TherapistDetailsPageProps {}
@@ -56,6 +57,7 @@ export function TherapistDetailsPage(props: TherapistDetailsPageProps) {
   );
   console.log('id: ', id);
   console.log('therapist: ', therapist);
+
   return (
     <StyledTherapistDetailsPage>
       <HeroForQuarterScreen backgroundImage={Blossoms} />

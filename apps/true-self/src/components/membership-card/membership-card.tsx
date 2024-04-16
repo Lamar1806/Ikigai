@@ -21,7 +21,7 @@ const Card = styled.div`
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 30px; /* Increased padding */
+  padding: 30px;
   margin: 20px; /* Increased margin */
   width: 340px; /* Adjusted width for added padding */
 `;
@@ -30,6 +30,8 @@ const CardTitle = styled.h2`
   color: #333;
   font-size: 1.5em;
   margin-bottom: 15px; /* Added space below the title */
+  border-bottom: 1px solid grey;
+  padding: 16px;
 `;
 
 const CardPrice = styled.p`
