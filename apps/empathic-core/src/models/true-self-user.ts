@@ -10,6 +10,7 @@ import {
   createUserWithEmailAndPassword,
   Auth,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { FB } from '../config/firebase-config';
 import { TrueSelfUserInterface } from './true-self-user-interface';
@@ -24,6 +25,7 @@ export class TrueSelfUser {
   }
 
   // Create a new user
+  // user created glaK6LQwKnOU0KmRXKH6tQd7B2q2
   async createUser(email, password, userData) {
     try {
       // Create user with email and password for authentication
@@ -86,7 +88,7 @@ export class TrueSelfUser {
       console.error('Error deleting user: ', error);
     }
   }
-
+  // Login a user
   async loginUser(email: string, password: string) {
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -101,32 +103,14 @@ export class TrueSelfUser {
       // Handle errors (e.g., user not found, wrong password)
     }
   }
+
+  // Method to log out a user
+  async logoutUser() {
+    try {
+      await signOut(this.auth);
+      console.log('User successfully logged out.');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  }
 }
-
-// Example data
-// ! does not work
-// const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
-
-// const userData: TrueSelfUserInterface = {
-//   consent: true,
-//   contactInformation: { name: 'Jane Doe', email: 'jane@example.com' },
-//   basicInformation: { age: 30, genderIdentity: 'Female', location: 'New York' },
-//   presentingConcern: 'Stress and anxiety',
-//   experienceAndPerspective: {
-//     experiencesShape: 'Life experiences have shaped my current perspective.',
-//     feltUnderstood: 'Sometimes',
-//   },
-//   goalsAndExpectations: {
-//     healingVision: 'To find peace and balance',
-//     therapyHopes: 'To develop coping strategies',
-//   },
-//   copingAndComfort: 'Music and walking',
-//   innerWorldDescription: 'Complex and vivid',
-//   strengthsAndGrowth: {
-//     pillarsOfStrength: 'Resilience and empathy',
-//     growthAspirations: 'To become more self-aware',
-//   },
-// };
-
-// // Create a new user
-// trueSelfUser.createUser('jane@example.com', 'userPassword', userData);

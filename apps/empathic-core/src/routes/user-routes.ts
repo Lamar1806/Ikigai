@@ -7,7 +7,7 @@ const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
 
 export const userRoutes = (app: Express) => {
   // Create User
-  app.post('/user', async (req, res) => {
+  app.post('/users', async (req, res) => {
     const { email, password, userData } = req.body;
     try {
       await trueSelfUser.createUser(email, password, userData);
@@ -18,7 +18,7 @@ export const userRoutes = (app: Express) => {
   });
 
   // Login User
-  app.post('/user/login', async (req, res) => {
+  app.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
     try {
       await trueSelfUser.loginUser(email, password);
@@ -29,7 +29,7 @@ export const userRoutes = (app: Express) => {
   });
 
   // Get User Data
-  app.get('/user/:userId', async (req, res) => {
+  app.get('/users/:userId', async (req, res) => {
     try {
       const userData = await trueSelfUser.getUser(req.params.userId);
       if (userData) {
@@ -43,7 +43,7 @@ export const userRoutes = (app: Express) => {
   });
 
   // Update User Data
-  app.put('/user/:userId', async (req, res) => {
+  app.put('/users/:userId', async (req, res) => {
     try {
       await trueSelfUser.updateUser(req.params.userId, req.body);
       res.status(200).send({ message: 'User updated successfully' });
@@ -53,7 +53,7 @@ export const userRoutes = (app: Express) => {
   });
 
   // Delete User
-  app.delete('/user/:userId', async (req, res) => {
+  app.delete('/users/:userId', async (req, res) => {
     try {
       await trueSelfUser.deleteUser(req.params.userId);
       res.status(200).send({ message: 'User deleted successfully' });

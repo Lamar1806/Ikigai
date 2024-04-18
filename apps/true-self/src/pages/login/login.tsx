@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import HeroImage from '../../assets/images/Hero Image.png';
 import Hero from '../../components/hero/hero';
 import SocialLoginButtons from '../../components/social-login-buttons/social-login-buttons';
-
+import { loginUser } from '../../api/axios/user';
+import { useState } from 'react';
 /* eslint-disable-next-line */
 export interface LoginProps {}
 
@@ -52,17 +53,39 @@ const SubmitButton = styled.button`
 `;
 
 export function Login(props: LoginProps) {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [email, setEmail] = useState<string>('segrestbrooks@gmail.com');
+  const [password, setPassword] = useState<string>('Vayne1806');
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    try {
+      const userData = await loginUser(email, password);
+      if (userData) console.log('Login successful:', userData);
+      // Redirect or perform additional actions after successful login
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   };
   return (
     <StyledLogin>
       <Hero media={[{ type: 'image', url: HeroImage, alt: 'hero' }]}>
         <InnerContainer>
           <Header>Login In</Header>
-          <Form onSubmit={(event) => handleSubmit(event)}>
-            <Input type="text" placeholder="Email" required />
-            <Input type="password" placeholder="Password" required />
+          <Form onSubmit={(event) => handleLogin(event)}>
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <Input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
             <SubmitButton type="submit">Login</SubmitButton>
             <SocialLoginButtons
               bgColor="transparent"

@@ -3,10 +3,18 @@ import * as path from 'path';
 import { setUpFireBaseRoutes } from './routes/firebase-routes';
 import { setUpStripeRoutes } from './routes/stripe-routes';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
 // Middleware
+app.use(cors(corsOptions)); // Apply CORS middleware with options
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(bodyParser.json());
 
