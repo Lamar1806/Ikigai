@@ -12,6 +12,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import MembershipsPage from '../pages/memberships-page/memberships-page';
 import CheckOutMembership from '../pages/check-out-membership/check-out-membership';
+import Login from '../pages/login/login';
+import SignUp from '../pages/sign-up/sign-up';
 
 const AppContainer = styled.div`
   display: flex;
@@ -33,6 +35,12 @@ export function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signUp">
+              <SignUp />
             </Route>
             <Route exact path="/memberships">
               <MembershipsPage />

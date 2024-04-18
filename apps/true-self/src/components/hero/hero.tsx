@@ -51,7 +51,7 @@ interface MediaItem {
 interface HeroProps {
   media: MediaItem[];
   text?: string;
-  children?: React.ReactElement;
+  children?: React.ReactElement | React.ReactElement[];
 }
 
 const Hero: FC<HeroProps> = ({ media, text, children }) => {
