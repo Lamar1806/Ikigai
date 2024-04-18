@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import HeroImage from '../../assets/images/Hero Image.png';
 import Hero from '../../components/hero/hero';
 import SocialLoginButtons from '../../components/social-login-buttons/social-login-buttons';
-import { loginUser } from '../../api/axios/user';
+import { loginUser } from '../../api/axios/users';
 import { useState } from 'react';
 /* eslint-disable-next-line */
 export interface LoginProps {}
