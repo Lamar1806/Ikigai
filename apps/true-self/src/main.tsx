@@ -6,6 +6,8 @@ import { loadStripe } from '@stripe/stripe-js';
 // @ts-ignore
 import app from './firebaseConfig';
 import App from './app/app';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 // import dotenv from 'dotenv';
 // dotenv.config({ path: './.' });
 const publishableKey = process.env.NX_STRIPE_TEST_PUBLISHABLE_KEY;
@@ -18,9 +20,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <Elements stripe={stripePromise}>
-      <GlobalStyles />
-      <App />
-    </Elements>
+    <Provider store={store}>
+      <Elements stripe={stripePromise}>
+        <GlobalStyles />
+        <App />
+      </Elements>
+    </Provider>
   </StrictMode>
 );
