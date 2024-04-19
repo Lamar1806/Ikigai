@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import HeroImage from '../../assets/images/Hero Image.png';
 import Hero from '../../components/hero/hero';
 import SocialLoginButtons from '../../components/social-login-buttons/social-login-buttons';
-import { loginUser } from '../../api/axios/users';
+import { getUser, loginUser } from '../../api/axios/users';
 import { useState } from 'react';
 /* eslint-disable-next-line */
 export interface LoginProps {}
@@ -60,6 +60,9 @@ export function Login(props: LoginProps) {
 
     try {
       const userData = await loginUser(email, password);
+      const uuid = userData.userCredential.user.uid;
+      const user = await getUser(uuid);
+      console.log(user);
       // Redirect or perform additional actions after successful login
     } catch (error) {
       console.error('Login failed:', error);

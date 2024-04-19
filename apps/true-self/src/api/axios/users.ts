@@ -1,3 +1,4 @@
+import { SignInResponse } from '@ikigai/shared-interfaces';
 import axios from './axios';
 
 // Define a user interface, adjust according to actual user data structure
@@ -79,7 +80,10 @@ export async function deleteUser(userId: string): Promise<void> {
 }
 
 // LoginUser function
-export async function loginUser(email: string, password: string): Promise<any> {
+export async function loginUser(
+  email: string,
+  password: string
+): Promise<SignInResponse> {
   // Define a specific type instead of any if possible
   try {
     const response = await axios.post('/users/login', {

@@ -50,7 +50,7 @@ export class TrueSelfUser {
   // Read (get) a user's data
   async getUser(userId: string) {
     try {
-      const docRef = doc(this.db, 'trueSelfUsers', userId);
+      const docRef = doc(this.db, 'users', userId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -71,7 +71,7 @@ export class TrueSelfUser {
     updatedUserData: Partial<TrueSelfUserInterface>
   ) {
     try {
-      const userRef = doc(this.db, 'trueSelfUsers', userId);
+      const userRef = doc(this.db, 'users', userId);
       await updateDoc(userRef, updatedUserData);
       console.log('User successfully updated.');
     } catch (error) {
@@ -82,7 +82,7 @@ export class TrueSelfUser {
   // Delete a user
   async deleteUser(userId: string) {
     try {
-      await deleteDoc(doc(this.db, 'trueSelfUsers', userId));
+      await deleteDoc(doc(this.db, 'users', userId));
       console.log('User successfully deleted.');
     } catch (error) {
       console.error('Error deleting user: ', error);
