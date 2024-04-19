@@ -1,5 +1,6 @@
 import { SignInResponse } from '@ikigai/shared-interfaces';
 import axios from './axios';
+import { TrueSelfUser } from '@ikigai/interfaces';
 
 // Define a user interface, adjust according to actual user data structure
 interface UserData {

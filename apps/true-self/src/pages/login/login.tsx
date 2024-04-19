@@ -4,6 +4,10 @@ import Hero from '../../components/hero/hero';
 import SocialLoginButtons from '../../components/social-login-buttons/social-login-buttons';
 import { getUser, loginUser } from '../../api/axios/users';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/authSlice';
+// import {navigate}
+import { useHistory } from 'react-router-dom';
 /* eslint-disable-next-line */
 export interface LoginProps {}
 
@@ -53,6 +57,8 @@ const SubmitButton = styled.button`
 `;
 
 export function Login(props: LoginProps) {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [email, setEmail] = useState<string>('segrestbrooks@gmail.com');
   const [password, setPassword] = useState<string>('Vayne1806');
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -62,7 +68,9 @@ export function Login(props: LoginProps) {
       const userData = await loginUser(email, password);
       const uuid = userData.userCredential.user.uid;
       const user = await getUser(uuid);
-      console.log(user);
+      //@ts-ignore
+      dispatch(loginSuccess(user));
+      history.push('/');
       // Redirect or perform additional actions after successful login
     } catch (error) {
       console.error('Login failed:', error);

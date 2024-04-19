@@ -126,9 +126,9 @@ const Navbar = () => {
   }, []);
 
   const links = [
-    // { text: 'Login', href: '/login' },
-    // { text: 'Sign Up', href: '/signUp' },
-    // { text: 'Memberships', href: '/memberships' },
+    { text: 'Login', href: '/login' },
+    { text: 'Sign Up', href: '/signUp' },
+    { text: 'Memberships', href: '/memberships' },
     { text: 'Home', href: '/' },
     { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
     { text: 'Therapists', href: '/therapists' },
