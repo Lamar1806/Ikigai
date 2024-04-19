@@ -86,8 +86,8 @@ export async function loginUser(email: string, password: string): Promise<any> {
       email,
       password,
     });
-    console.log('User logged in:', response);
-    return response; // This may include a token for session management
+    console.log('User logged in:', response.data);
+    return response.data; // This may include a token for session management
   } catch (error: any) {
     console.error('Error logging in user:', error.response);
     throw error;

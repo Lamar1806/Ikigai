@@ -97,6 +97,7 @@ export class TrueSelfUser {
         password
       );
       console.log('User logged in:', userCredential.user);
+      return userCredential;
       // You can return userCredential if needed
     } catch (error) {
       console.error('Error logging in user:', error);

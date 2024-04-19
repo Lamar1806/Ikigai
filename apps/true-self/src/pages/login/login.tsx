@@ -60,7 +60,6 @@ export function Login(props: LoginProps) {
 
     try {
       const userData = await loginUser(email, password);
-      if (userData) console.log('Login successful:', userData);
       // Redirect or perform additional actions after successful login
     } catch (error) {
       console.error('Login failed:', error);

@@ -21,8 +21,10 @@ export const userRoutes = (app: Express) => {
   app.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
     try {
-      await trueSelfUser.loginUser(email, password);
-      res.status(200).send({ message: 'User logged in successfully' });
+      const userCredential = await trueSelfUser.loginUser(email, password);
+      res
+        .status(200)
+        .send({ userCredential, message: 'User logged in successfully' });
     } catch (error) {
       res.status(401).send(error.message);
     }

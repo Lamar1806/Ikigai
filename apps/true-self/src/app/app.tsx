@@ -14,6 +14,8 @@ import MembershipsPage from '../pages/memberships-page/memberships-page';
 import CheckOutMembership from '../pages/check-out-membership/check-out-membership';
 import Login from '../pages/login/login';
 import SignUp from '../pages/sign-up/sign-up';
+import { useSelector, useDispatch } from 'react-redux';
+// import
 
 const AppContainer = styled.div`
   display: flex;
@@ -26,6 +28,8 @@ const ContentWrapper = styled.div`
 `;
 
 export function App() {
+  // @ts-ignore
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <Router>
       <AppContainer>
@@ -36,12 +40,16 @@ export function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signUp">
-              <SignUp />
-            </Route>
+            {!isAuthenticated && (
+              <Route exact path="/login">
+                <Login />
+              </Route>
+            )}
+            {!isAuthenticated && (
+              <Route exact path="/signUp">
+                <SignUp />
+              </Route>
+            )}
             <Route exact path="/memberships">
               <MembershipsPage />
             </Route>
