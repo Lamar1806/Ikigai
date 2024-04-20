@@ -7,7 +7,7 @@ const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
 
 export const userRoutes = (app: Express) => {
   // Create User
-  app.post('/users', async (req, res) => {
+  app.post('/users/register', async (req, res) => {
     const { email, password, userData } = req.body;
     try {
       await trueSelfUser.createUser(email, password, userData);

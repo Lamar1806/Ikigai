@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { FaAlignJustify } from 'react-icons/fa6';
 import mask from '../../assets/images/Mask@3x.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // Styled components for navbar elements
 const NavbarWrapper = styled.nav`
@@ -99,6 +100,8 @@ const MaskImage = styled.img`
 `;
 
 const Navbar = () => {
+  //@ts-ignore
+  const isAuthorized = useSelector((state) => state.auth.isAuthorized);
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = React.useRef(null);
 
@@ -125,9 +128,16 @@ const Navbar = () => {
     };
   }, []);
 
+  const authLink = (isAuthorized: boolean) => {
+    if (isAuthorized) return [];
+    return [
+      { text: 'Login', href: '/login' },
+      { text: 'Sign Up', href: '/signUp' },
+    ];
+  };
+
   const links = [
-    { text: 'Login', href: '/login' },
-    { text: 'Sign Up', href: '/signUp' },
+    ...authLink(isAuthorized),
     { text: 'Memberships', href: '/memberships' },
     { text: 'Home', href: '/' },
     { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },

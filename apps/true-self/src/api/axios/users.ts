@@ -4,8 +4,7 @@ import { TrueSelfUser } from '@ikigai/interfaces';
 
 // Define a user interface, adjust according to actual user data structure
 interface UserData {
-  email: string;
-  name?: string;
+  displayName: string;
   age?: number;
   // Add more fields as per the user data you expect
 }
