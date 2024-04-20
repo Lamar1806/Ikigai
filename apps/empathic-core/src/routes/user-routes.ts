@@ -10,8 +10,9 @@ export const userRoutes = (app: Express) => {
   app.post('/users/register', async (req, res) => {
     const { email, password, userData } = req.body;
     try {
-      await trueSelfUser.createUser(email, password, userData);
-      res.status(201).send({ message: 'User created successfully' });
+      // If user does not exist, create the user
+      const user = await trueSelfUser.createUser(email, password, userData);
+      res.status(200).send({ user, message: 'User created successfully' });
     } catch (error) {
       res.status(400).send(error.message);
     }

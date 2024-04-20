@@ -5,12 +5,17 @@ import {
   updateDoc,
   deleteDoc,
   Firestore,
+  collection,
+  getDocs,
+  query,
+  where,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword,
   Auth,
   signInWithEmailAndPassword,
   signOut,
+  fetchSignInMethodsForEmail,
 } from 'firebase/auth';
 import { FB } from '../config/firebase-config';
 import { TrueSelfUserInterface } from './true-self-user-interface';
@@ -24,27 +29,31 @@ export class TrueSelfUser {
     this.auth = auth;
   }
 
+  async checkFirestoreForEmail(email: string) {
+    const usersRef = collection(this.db, 'users');
+    const querySnapshot = await getDocs(
+      query(usersRef, where('email', '==', email))
+    );
+    return !querySnapshot.empty; // returns true if email exists
+  }
+
   // Create a new user
   // user created glaK6LQwKnOU0KmRXKH6tQd7B2q2
   async createUser(email, password, userData) {
-    try {
-      // Create user with email and password for authentication
-      const userCredential = await createUserWithEmailAndPassword(
-        this.auth,
-        email,
-        password
-      );
-
-      // User is now created and signed in, you can get the user info like this:
-      const user = userCredential.user;
-
-      // Optional: Store additional user information in Firestore
-      await setDoc(doc(this.db, 'users', user.uid), userData);
-
-      console.log('User created and data stored in Firestore:', user.uid);
-    } catch (error) {
-      console.error('Error creating user:', error);
+    const emailExists = await this.checkFirestoreForEmail(email);
+    if (emailExists) {
+      throw new Error('Email already exists.');
     }
+    // Proceed with creating the user
+    const userCredential = await createUserWithEmailAndPassword(
+      this.auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    userData.email = email; // Store email in Firestore for future checks
+    await setDoc(doc(this.db, 'users', user.uid), userData);
+    console.log('User created and data stored in Firestore:', user.uid);
   }
 
   // Read (get) a user's data
