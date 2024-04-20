@@ -53,6 +53,10 @@ export function SocialLoginButtons({
   bgColorHover,
   colorHover,
 }: SocialLoginButtonProps) {
+  const handleGoogleLogin = () => {
+    // Redirect to the backend sign-in route
+    window.location.href = `${process.env.NX_SERVER_URL}/auth/google`;
+  };
   return (
     <SocialLoginButtonsStyled>
       <SocialButton
@@ -60,6 +64,7 @@ export function SocialLoginButtons({
         iconColor={color}
         bgColorHover={bgColorHover}
         colorHover={colorHover}
+        onClick={handleGoogleLogin}
       >
         <FaGoogle />
         Login with Google

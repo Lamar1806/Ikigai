@@ -26,6 +26,19 @@ const setupGoogleRoutes = (app: Express) => {
       res.redirect('/');
     }
   });
+
+  // Logout route
+  app.get('/logout', (req: Request, res: Response) => {
+    //@ts-ignore
+    req.logout((err) => {
+      if (err) {
+        //@ts-ignore
+        return next(err);
+      }
+      // Optionally, you can redirect to home page or login page after logging out
+      res.redirect('/login');
+    });
+  });
 };
 
 export default setupGoogleRoutes;
