@@ -8,6 +8,9 @@ import { features } from '../../api/mocks/features';
 import Testimonials from '../../components/testimonials/testimonials';
 import ArticleSection from '../../components/article-section/article-section';
 import Contact from '../../components/contact/contact';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/authSlice';
 
 /* eslint-disable-next-line */
 export interface HomeProps {}
@@ -24,6 +27,15 @@ const InnerContainer = styled.div`
 `;
 
 export function Home(props: HomeProps) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const authStatus = urlParams.get('auth');
+    if (authStatus === 'success') {
+      // Update your authentication state in the context or state management library
+      // dispatch(loginSuccess());
+    }
+  }, []);
   return (
     <StyledHome>
       <Hero

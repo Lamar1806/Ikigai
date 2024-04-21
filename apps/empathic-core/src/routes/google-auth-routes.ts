@@ -13,7 +13,8 @@ const setupGoogleRoutes = (app: Express) => {
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req: Request, res: Response) => {
       // Successful authentication, redirect home or to another page
-      res.redirect('/success');
+      // res.redirect('/success');
+      res.redirect(`http://localhost:4200/?auth=success`);
     }
   );
 
@@ -27,17 +28,23 @@ const setupGoogleRoutes = (app: Express) => {
     }
   });
 
-  // Logout route
-  app.get('/logout', (req: Request, res: Response) => {
+  app.get('/auth/session', (req, res) => {
     //@ts-ignore
-    req.logout((err) => {
-      if (err) {
-        //@ts-ignore
-        return next(err);
-      }
-      // Optionally, you can redirect to home page or login page after logging out
-      res.redirect('/login');
-    });
+    if (req.isAuthenticated()) {
+      //@ts-ignore
+      res.status(200).json({ isAuthenticated: true, user: req.user });
+    } else {
+      res.status(200).json({ isAuthenticated: false });
+    }
+  });
+
+  // Logout route
+  app.get('/logout', (req, res) => {
+    //@ts-ignore
+    req.logout();
+    //@ts-ignore
+    req.session.destroy(); // Optional: destroys the session
+    res.redirect('http://localhost:4200');
   });
 };
 

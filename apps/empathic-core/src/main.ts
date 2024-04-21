@@ -15,15 +15,22 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: 'http://localhost:4200', // Ensure this matches your React app's URL
+  credentials: true, // This is important: it allows cookies to be sent with requests
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
+
 app.use(
   session({
-    secret: 'secret', // Change this to a random secret in production
+    secret: 'secret', // Change this in production
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false, // Change this if you don't want to store sessions until something is modified
+    cookie: {
+      httpOnly: true, // Recommended: limits access to cookies
+      secure: false, // Set to true if you are using https
+      sameSite: 'none', // Set to 'none' if your React app and Express server are served from different origins
+    },
   })
 );
 

@@ -1,6 +1,7 @@
 import { SignInResponse } from '@ikigai/shared-interfaces';
 import axios from './axios';
 import { TrueSelfUser } from '@ikigai/interfaces';
+import { AxiosResponse } from 'axios';
 
 // Define a user interface, adjust according to actual user data structure
 interface UserData {
@@ -97,3 +98,40 @@ export async function loginUser(
     throw error;
   }
 }
+
+// Axios request to logout
+export const logout = async (): Promise<void> => {
+  try {
+    await axios.get('/logout');
+  } catch (error) {
+    console.error('Error logging out:', error);
+    throw error;
+  }
+};
+
+interface User {
+  uid: string;
+  email: string;
+  emailVerified: boolean;
+  displayName: string | null;
+  phoneNumber: string | null;
+  photoURL: string | null;
+}
+
+interface AuthResponse {
+  isAuthenticated: boolean;
+  user?: User;
+}
+
+// Axios request to check if the user is authenticated
+export const checkAuthSession = async (): Promise<AuthResponse> => {
+  try {
+    const response: AxiosResponse<AuthResponse> = await axios.get(
+      '/auth/session'
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error checking authentication session:', error);
+    throw error;
+  }
+};
