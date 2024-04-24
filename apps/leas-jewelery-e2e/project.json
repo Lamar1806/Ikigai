@@ -1,0 +1,33 @@
+{
+  "name": "leas-jewelery-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/leas-jewelery-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/leas-jewelery-e2e/cypress.config.ts",
+        "devServerTarget": "leas-jewelery:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "leas-jewelery:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "leas-jewelery:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/leas-jewelery-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["leas-jewelery"]
+}
