@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Movie {
   id: number;
@@ -9,10 +7,6 @@ interface Movie {
   year: number;
   image_url: string;
 }
-
-const StyledApp = styled.div`
-  // Your style here
-`;
 
 const MovieContainer = styled.div`
   display: flex;
@@ -34,20 +28,58 @@ const MovieImage = styled.img`
   height: auto;
 `;
 
+const StyledApp = styled.div`
+  // Your style here
+`;
+
 export function App() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchYear, setSearchYear] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch('/movies')
+    fetch('http://127.0.0.1:5000/movies')
       .then((response) => response.json())
       .then((data) => setMovies(data))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
+  const filteredMovies = movies.filter((movie) => {
+    const titleMatch = movie.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const yearMatch = searchYear ? movie.year === searchYear : true;
+    return titleMatch && yearMatch;
+  });
+
+  const years = Array.from(new Set(movies.map((movie) => movie.year)));
+
   return (
     <StyledApp>
+      <h1>Disney Movie Classics</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Search by movie name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select
+          value={searchYear || ''}
+          onChange={(e) =>
+            setSearchYear(e.target.value ? parseInt(e.target.value) : null)
+          }
+        >
+          <option value="">Filter by year</option>
+          {years.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+      </div>
       <MovieContainer>
-        {movies.map((movie: Movie) => (
+        {filteredMovies.map((movie) => (
           <MovieCard key={movie.id}>
             <MovieImage src={movie.image_url} alt={movie.title} />
             <h2>{movie.title}</h2>

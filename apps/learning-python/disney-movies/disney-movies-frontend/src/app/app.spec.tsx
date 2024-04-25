@@ -11,7 +11,9 @@ describe('App', () => {
   it('should have a greeting as the title', () => {
     const { getByText } = render(<App />);
     expect(
-      getByText(/Welcome learning-python-disney-movies-frontend/gi)
+      getByText(
+        /Welcome learning-python-disney-movies-disney-movies-frontend/gi
+      )
     ).toBeTruthy();
   });
 });
