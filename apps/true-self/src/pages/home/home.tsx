@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Hero from '../../components/hero/hero';
-import heroImage from '../../assets/images/Hero Image.png';
+import { images } from '../../assets/images';
 import OurMission from '../../components/our-mission/our-mission';
 import { missionTextData } from '../../api/mocks/our-mission-data';
 import Features from '../../components/features/features';
@@ -39,7 +39,13 @@ export function Home(props: HomeProps) {
   return (
     <StyledHome>
       <Hero
-        media={[{ type: 'image', url: heroImage, alt: 'main library image' }]}
+        media={[
+          {
+            type: 'image',
+            url: images['Hero Image'],
+            alt: 'main library image',
+          },
+        ]}
         text="True Self Vibs"
       />
       <InnerContainer>

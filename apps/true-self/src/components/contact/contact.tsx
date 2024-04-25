@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import fullmetal from '../../assets/images/fullMetal.png';
+import images from '../../assets/images';
 
 const Hero = styled.div`
   position: relative;
-  background-image: url(${fullmetal});
+  background-image: url(${images.fullMetal});
   background-size: cover; /* Change to contain */
   height: 80vh;
   margin-top: 100px;
