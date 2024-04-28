@@ -1,10 +1,7 @@
 import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
 import PaymentForm from '../../components/payment-form/payment-form';
-import {
-  membershipOptions,
-  MembershipOption,
-} from '../../api/mocks/membership-options';
+import { membershipOptions } from '../../api/mocks/membership-options';
 import { useEffect } from 'react';
 import { formatCurrency } from '../../utils/formatCurrency';
 

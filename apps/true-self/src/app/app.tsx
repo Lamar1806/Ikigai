@@ -8,14 +8,12 @@ import styled from '@emotion/styled';
 import TherapistDetailsPage from '../pages/therapist-details-page/therapist-details-page';
 import WhatBringsYouHerePage from '../pages/what-brings-you-here-page/what-brings-you-here-page';
 import ComingSoon from '../components/coming-soon/coming-soon';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import MembershipsPage from '../pages/memberships-page/memberships-page';
 import CheckOutMembership from '../pages/check-out-membership/check-out-membership';
 import Login from '../pages/login/login';
 import SignUp from '../pages/sign-up/sign-up';
-import { useSelector, useDispatch } from 'react-redux';
-// import
+import { useSelector } from 'react-redux';
+import PaymentCompletion from '../components/payment-completion/payment-completion';
 
 const AppContainer = styled.div`
   display: flex;
@@ -55,6 +53,9 @@ export function App() {
             </Route>
             <Route exact path="/memberships/:id">
               <CheckOutMembership />
+            </Route>
+            <Route path="/completion">
+              <PaymentCompletion />
             </Route>
             <Route path="/WhatBringsYouHere">
               <WhatBringsYouHerePage />

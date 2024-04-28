@@ -128,12 +128,12 @@ export function SignUp(props: SignUpProps) {
             {error && (
               <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>
             )}
-            <SocialLoginButtons
+            {/* <SocialLoginButtons
               bgColor="transparent"
               color="white"
               bgColorHover="black"
               colorHover="white"
-            />
+            /> */}
           </Form>
         </InnerContainer>
       </Hero>

@@ -97,12 +97,12 @@ export function Login(props: LoginProps) {
               required
             />
             <SubmitButton type="submit">Login</SubmitButton>
-            <SocialLoginButtons
+            {/* <SocialLoginButtons
               bgColor="transparent"
               color="white"
               bgColorHover="black"
               colorHover="white"
-            />
+            /> */}
           </Form>
         </InnerContainer>
       </Hero>

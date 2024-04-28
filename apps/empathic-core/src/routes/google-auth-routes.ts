@@ -11,10 +11,24 @@ const setupGoogleRoutes = (app: Express) => {
   app.get(
     '/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
-    (req: Request, res: Response) => {
+    (req, res) => {
       // Successful authentication, redirect home or to another page
-      // res.redirect('/success');
-      res.redirect(`http://localhost:4200/?auth=success`);
+      //@ts-ignore
+      if (req.user) {
+        // Ensure the user object exists and has the data needed
+        //@ts-ignore
+        const userEmail = encodeURIComponent(req.user.email);
+        //@ts-ignore
+        const userToken = encodeURIComponent(req.user.token); // Assuming the token is stored in user object
+
+        // Redirect with user information
+        res.redirect(
+          `http://localhost:4200/?auth=success&email=${userEmail}&token=${userToken}`
+        );
+      } else {
+        // Handle case where user information is not available
+        res.redirect('/login');
+      }
     }
   );
 

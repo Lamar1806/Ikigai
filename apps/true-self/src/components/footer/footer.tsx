@@ -41,7 +41,7 @@ const Footer = () => {
       <Link to="/">
         <TrueSelfIcon src={trueSelfIcon} alt="TrueSelf Icon" />
       </Link>
-      {/* <LinksContainer>
+      <LinksContainer>
         {Object.entries(links).map(([key, value]) => (
           <IconLink
             key={key}
@@ -52,7 +52,7 @@ const Footer = () => {
             <value.Icon />
           </IconLink>
         ))}
-      </LinksContainer> */}
+      </LinksContainer>
     </FooterContainer>
   );
 };
