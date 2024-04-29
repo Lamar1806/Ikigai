@@ -15,10 +15,10 @@ import {
   Auth,
   signInWithEmailAndPassword,
   signOut,
-  fetchSignInMethodsForEmail,
 } from 'firebase/auth';
 import { FB } from '../config/firebase-config';
 import { TrueSelfUserInterface } from './true-self-user-interface';
+import { createCustomer } from './stripe-customer';
 
 export class TrueSelfUser {
   db: Firestore;
@@ -39,7 +39,7 @@ export class TrueSelfUser {
 
   // Create a new user
   // user created glaK6LQwKnOU0KmRXKH6tQd7B2q2
-  async createUser(email, password, userData) {
+  async createUser(email, password, userData: TrueSelfUserInterface) {
     const emailExists = await this.checkFirestoreForEmail(email);
     if (emailExists) {
       throw new Error('Email already exists.');
@@ -52,7 +52,12 @@ export class TrueSelfUser {
     );
     const user = userCredential.user;
     userData.email = email; // Store email in Firestore for future checks
-    await setDoc(doc(this.db, 'users', user.uid), userData);
+    const customer = await createCustomer(userData.email, userData.name);
+    await setDoc(doc(this.db, 'users', user.uid), {
+      ...userData,
+      stripe_customer_id: customer.id,
+    });
+
     console.log('User created and data stored in Firestore:', user.uid);
   }
 
@@ -71,6 +76,23 @@ export class TrueSelfUser {
       }
     } catch (error) {
       console.error('Error getting user data: ', error);
+    }
+  }
+
+  // Method to get a user ID by email
+  async getUserIdByEmail(email: string): Promise<string | null> {
+    const usersRef = collection(this.db, 'users');
+    const q = query(usersRef, where('email', '==', email));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      // Assuming each email is unique and can only have one document
+      const doc = querySnapshot.docs[0];
+      console.log('User ID found:', doc.id);
+      return doc.id; // returns the user ID
+    } else {
+      console.log('No user found with that email');
+      return null; // no user found
     }
   }
 
@@ -97,6 +119,7 @@ export class TrueSelfUser {
       console.error('Error deleting user: ', error);
     }
   }
+
   // Login a user
   async loginUser(email: string, password: string) {
     try {

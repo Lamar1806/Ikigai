@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { FaCheckCircle } from 'react-icons/fa'; // Importing FontAwesome check circle icon from React Icons
 import { Link } from 'react-router-dom';
+import { formatCentsToDollars } from '../../utils/formatCentsToDollars';
 
 // Define the TypeScript type for the props
 interface MembershipOption {
@@ -65,11 +66,12 @@ const LinkStyled = styled(Link)`
 export const MembershipCard: React.FC<MembershipCardProps> = ({
   membership,
 }) => {
+  const price = formatCentsToDollars(membership.price);
   return (
     <LinkStyled to={`memberships/${membership.id}`}>
       <Card>
         <CardTitle>{membership.name} Membership</CardTitle>
-        <CardPrice>${membership.price} / month</CardPrice>
+        <CardPrice>${price} / month</CardPrice>
         <BenefitsList>
           {membership.benefits.map((benefit, index) => (
             <Benefit key={index}>

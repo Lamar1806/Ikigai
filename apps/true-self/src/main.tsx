@@ -6,6 +6,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import App from './app/app';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setClientSecret } from './redux/stripeSlice';
 
 const publishableKey = process.env.NX_STRIPE_TEST_PUBLISHABLE_KEY;
 //@ts-ignore
@@ -31,7 +33,7 @@ const fetchClientSecret = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ amount: 1099 }), // Example: 1099 cents = $10.99
+    body: JSON.stringify({ amount: 1099 }),
   });
 
   const data = await response.json();
@@ -43,22 +45,23 @@ const fetchClientSecret = async () => {
 };
 
 const AppWrapper = () => {
-  const [clientSecret, setClientSecret] = useState('');
-  const [publishableKey, setPublishableKey] = useState('');
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const clientSecret = useSelector((state) => state.stripe.client_secret);
 
   useEffect(() => {
     const initializePaymentIntent = async () => {
       try {
-        const clientSecret = await fetchClientSecret();
-        setClientSecret(clientSecret);
-        console.log('clientSecret: ', clientSecret);
+        const client_secret = await fetchClientSecret();
+        dispatch(setClientSecret({ client_secret }));
+        console.log('client_secret: ', client_secret);
       } catch (error) {
         console.error(error);
       }
     };
 
     initializePaymentIntent();
-  }, []);
+  }, [dispatch]);
 
   if (clientSecret) {
     return (

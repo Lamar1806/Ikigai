@@ -10,7 +10,7 @@ export const membershipOptions: MembershipOption[] = [
   {
     id: 'basic',
     name: 'Basic',
-    price: 9.99,
+    price: 999,
     benefits: [
       'Access to basic resources',
       'Monthly newsletters',
@@ -22,7 +22,7 @@ export const membershipOptions: MembershipOption[] = [
   {
     id: 'premium',
     name: 'Premium',
-    price: 29.99,
+    price: 2999,
     benefits: [
       'All Basic tier benefits',
       'Unlimited access to all resources',
@@ -36,7 +36,7 @@ export const membershipOptions: MembershipOption[] = [
   {
     id: 'ultimate',
     name: 'Ultimate',
-    price: 59.99,
+    price: 5999,
     benefits: [
       'All Premium tier benefits',
       'One-on-one sessions with top therapists',

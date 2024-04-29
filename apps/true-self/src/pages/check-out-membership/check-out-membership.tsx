@@ -25,7 +25,11 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
     (membership) => membership.id === id
   );
   const name = selectedMembership?.name;
-  const price = formatCurrency(selectedMembership?.price || '');
+  const priceInDollars = selectedMembership?.price
+    ? selectedMembership?.price / 100
+    : 0;
+  const price = formatCurrency(priceInDollars || '');
+  const priceUnformatted = selectedMembership?.price;
 
   useEffect(() => {
     // Log the environment variable
@@ -36,7 +40,7 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
       <Header>
         {name} {price}
       </Header>
-      <PaymentForm />
+      {priceUnformatted && <PaymentForm amount={priceUnformatted} />}
     </StyledCheckOutMembership>
   );
 }

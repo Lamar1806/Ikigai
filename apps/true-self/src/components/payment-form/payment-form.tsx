@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import {
   useStripe,
   useElements,
   PaymentElement,
 } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import { useDispatch, useSelector } from 'react-redux';
+import { setClientSecret } from '../../redux/stripeSlice';
 
 const StyledPaymentForm = styled.form`
   padding: 16px;
@@ -13,14 +14,47 @@ const StyledPaymentForm = styled.form`
   max-width: 600px;
 `;
 
-export function PaymentForm() {
+interface Props {
+  amount: number;
+}
+
+const updatePaymentIntent = async (newAmount: number) => {
+  // Example POST request to your server endpoint to update or create a new payment intent
+  const response = await fetch('http://localhost:3333/create-payment-intent', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ amount: newAmount }),
+  });
+  const data = await response.json();
+  return data.clientSecret;
+};
+
+export function PaymentForm(props: Props) {
+  // @ts-ignore
+  const oldClientSecret = useSelector((state) => state.stripe.client_secret);
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
   const [isProcessing, setIsProcessing] = useState(false);
   const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    const fetchClientSecret = async () => {
+      try {
+        const clientSecret = await updatePaymentIntent(props.amount);
+        dispatch(setClientSecret({ client_secret: clientSecret }));
+        console.log('client_secret: ', clientSecret);
+      } catch (error) {
+        setMessage('Failed to initialize payment: ' + error);
+      }
+    };
+
+    fetchClientSecret();
+  }, []);
+
   if (!stripe || !elements) {
-    // Renders this content as long as Stripe context is loading
     return <div>Loading...</div>;
   }
 
@@ -33,12 +67,18 @@ export function PaymentForm() {
 
     const { error } = await stripe.confirmPayment({
       elements,
+      redirect: 'if_required',
       confirmParams: {
         return_url: `${window.location.origin}/completion`,
       },
     });
-    // @ts-ignore
-    if (error) setMessage(error.message);
+
+    if (error) {
+      // @ts-ignore
+      setMessage(error.message);
+    } else {
+      setMessage('Payment successful!');
+    }
 
     setIsProcessing(false);
   };

@@ -1,30 +1,21 @@
+import Stripe from 'stripe';
 export interface TrueSelfUserInterface {
   consent: boolean;
-  contactInformation: {
-    name: string;
-    email: string;
-  };
-  basicInformation: {
-    age: number;
-    genderIdentity: string;
-    location?: string; // Optional as per your flow
-  };
+  name: string;
+  email: string;
+  age: number;
+  genderIdentity: string;
+  location?: string;
   presentingConcern: string;
-  experienceAndPerspective: {
-    experiencesShape: string;
-    feltUnderstood: string;
-  };
-  goalsAndExpectations: {
-    healingVision: string;
-    therapyHopes: string;
-  };
+  experiencesShape: string;
+  feltUnderstood: string;
+  healingVision: string;
+  therapyHopes: string;
   copingAndComfort: string;
   innerWorldDescription: string;
-  strengthsAndGrowth: {
-    pillarsOfStrength: string;
-    growthAspirations: string;
-  };
-  therapyProcessConcerns?: string; // Optional, as they might not have any
-  // Consider adding a field for additional comments or questions
+  pillarsOfStrength: string;
+  growthAspirations: string;
+  therapyProcessConcerns?: string;
   additionalNotes?: string;
+  stripe_customer_ref_id: Stripe.Customer['id'];
 }

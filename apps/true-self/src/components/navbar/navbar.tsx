@@ -101,7 +101,7 @@ const MaskImage = styled.img`
 
 const Navbar = () => {
   //@ts-ignore
-  const isAuthorized = useSelector((state) => state.auth.isAuthorized);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = React.useRef(null);
 
@@ -128,28 +128,24 @@ const Navbar = () => {
     };
   }, []);
 
-  const authLink = (isAuthorized: boolean) => {
-    if (isAuthorized) return [];
-    return [
-      { text: 'Login', href: '/login' },
-      { text: 'Sign Up', href: '/signUp' },
-    ];
-  };
-
   const links = [
-    ...authLink(isAuthorized),
-    { text: 'Memberships', href: '/memberships' },
-    { text: 'Home', href: '/' },
-    { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
-    { text: 'Therapists', href: '/therapists' },
-    { text: 'Doctors', href: '/Doctors' },
-
-    // { text: 'About', href: '/about' },
-    { text: 'Articles', href: '/articles' },
-    { text: 'Videos', href: '/videos' },
-    { text: 'Apps', href: '/apps' },
-    // { text: 'Blog', href: '/blog' },
-    { text: 'Contact', href: '/contact' },
+    ...(isAuthenticated
+      ? [
+          { text: 'Home', href: '/' },
+          { text: 'Memberships', href: '/memberships' },
+          { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
+          { text: 'Therapists', href: '/therapists' },
+          { text: 'Doctors', href: '/Doctors' },
+          { text: 'Articles', href: '/articles' },
+          { text: 'Videos', href: '/videos' },
+          { text: 'Apps', href: '/apps' },
+          { text: 'Contact', href: '/contact' },
+        ]
+      : [
+          { text: 'Login', href: '/login' },
+          { text: 'Sign Up', href: '/signUp' },
+          { text: 'Home', href: '/' },
+        ]),
   ];
   return (
     <NavbarWrapper>
