@@ -4,6 +4,7 @@ import PaymentForm from '../../components/payment-form/payment-form';
 import { membershipOptions } from '../../api/mocks/membership-options';
 import { useEffect } from 'react';
 import { formatCurrency } from '../../utils/formatCurrency';
+import { formatCentsToDollars } from '../../utils/formatCentsToDollars';
 
 /* eslint-disable-next-line */
 export interface CheckOutMembershipProps {}
@@ -25,9 +26,7 @@ export function CheckOutMembership(props: CheckOutMembershipProps) {
     (membership) => membership.id === id
   );
   const name = selectedMembership?.name;
-  const priceInDollars = selectedMembership?.price
-    ? selectedMembership?.price / 100
-    : 0;
+  const priceInDollars = formatCentsToDollars(selectedMembership?.price || 0);
   const price = formatCurrency(priceInDollars || '');
   const priceUnformatted = selectedMembership?.price;
 
