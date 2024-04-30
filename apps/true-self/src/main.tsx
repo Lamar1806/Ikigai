@@ -8,6 +8,9 @@ import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { setClientSecret } from './redux/stripeSlice';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const publishableKey = process.env.NX_STRIPE_TEST_PUBLISHABLE_KEY;
 //@ts-ignore
@@ -86,7 +89,9 @@ const AppWrapper = () => {
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <AppWrapper />
+      <QueryClientProvider client={queryClient}>
+        <AppWrapper />
+      </QueryClientProvider>
     </Provider>
   </StrictMode>
 );
