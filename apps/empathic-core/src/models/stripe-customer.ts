@@ -11,6 +11,7 @@ export const createCustomer = async (
   const customer = await stripe.customers.create({
     email: email,
     name: name,
+    payment_method: 'pm_card_visa',
   });
   console.log('Customer created:', customer);
   return customer;

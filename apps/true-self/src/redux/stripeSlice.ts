@@ -5,8 +5,12 @@ const stripeSlice = createSlice({
   initialState: {
     client_secret: '',
     customer: null,
+    elementKey: 0,
   },
   reducers: {
+    incrementElementKey: (state, action) => {
+      state.elementKey = state.elementKey + 1;
+    },
     setClientSecret: (state, action) => {
       state.client_secret = action.payload.client_secret;
     },

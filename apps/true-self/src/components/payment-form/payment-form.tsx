@@ -43,16 +43,17 @@ export function PaymentForm(props: Props) {
   useEffect(() => {
     const fetchClientSecret = async () => {
       try {
-        const clientSecret = await updatePaymentIntent(props.amount);
-        dispatch(setClientSecret({ client_secret: clientSecret }));
-        console.log('client_secret: ', clientSecret);
+        const client_secret = await updatePaymentIntent(props.amount);
+        dispatch(setClientSecret({ client_secret }));
+
+        console.log('PaymentForm - client_secret: ', client_secret);
       } catch (error) {
         setMessage('Failed to initialize payment: ' + error);
       }
     };
 
     fetchClientSecret();
-  }, []);
+  }, [dispatch, props.amount]);
 
   if (!stripe || !elements) {
     return <div>Loading...</div>;

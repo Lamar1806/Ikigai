@@ -46,6 +46,7 @@ const fetchClientSecret = async () => {
 
 const AppWrapper = () => {
   const dispatch = useDispatch();
+  const [options, setOptions] = useState({});
   // @ts-ignore
   const clientSecret = useSelector((state) => state.stripe.client_secret);
 
@@ -54,7 +55,7 @@ const AppWrapper = () => {
       try {
         const client_secret = await fetchClientSecret();
         dispatch(setClientSecret({ client_secret }));
-        console.log('client_secret: ', client_secret);
+        console.log('AppWrapper - client_secret: ', client_secret);
       } catch (error) {
         console.error(error);
       }
@@ -63,9 +64,16 @@ const AppWrapper = () => {
     initializePaymentIntent();
   }, [dispatch]);
 
+  useEffect(() => {
+    // Update the Elements options when the clientSecret changes
+    if (clientSecret) {
+      setOptions({ clientSecret });
+    }
+  }, [clientSecret]);
+
   if (clientSecret) {
     return (
-      <Elements stripe={stripePromise} options={{ clientSecret }}>
+      <Elements stripe={stripePromise} options={options} key={clientSecret}>
         <GlobalStyles />
         <App />
       </Elements>
