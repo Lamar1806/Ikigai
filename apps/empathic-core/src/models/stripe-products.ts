@@ -17,9 +17,7 @@ export const createProduct = async ({ name, description }: ProductParams) => {
   return product;
 };
 
-export const getProduct = async (
-  productId: string
-): Promise<Stripe.Response<Stripe.Product>> => {
+export const getProduct = async (productId: string) => {
   const product = await stripe.products.retrieve(productId);
   return product;
 };
