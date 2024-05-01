@@ -66,8 +66,7 @@ export function PaymentForm({ amount }: Props) {
         const data = await response.json();
         if (!response.ok) throw new Error(data.error.message);
         dispatch(setClientSecret({ client_secret: data.clientSecret }));
-      } catch (error) {
-        //@ts-ignore
+      } catch (error: any) {
         setMessage(`Failed to initialize payment: ${error.message}`);
       }
     };

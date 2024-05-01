@@ -38,9 +38,8 @@ const TestimonialsRowContainer = styled.div`
 
 // Define a styled wrapper for each testimonial image
 const TestimonialsImageWrapper = styled.div`
-  width: calc(
-    33.33% - 10px
-  ); /* Each image takes up 1/3 of the container width with some spacing */
+  width: calc(33.33% - 10px);
+  /* Each image takes up 1/3 of the container width with some spacing */
   margin-bottom: 20px;
 `;
 

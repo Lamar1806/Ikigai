@@ -133,18 +133,19 @@ const Navbar = () => {
       ? [
           { text: 'Home', href: '/' },
           { text: 'Memberships', href: '/memberships' },
-          { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
-          { text: 'Therapists', href: '/therapists' },
-          { text: 'Doctors', href: '/Doctors' },
           { text: 'Articles', href: '/articles' },
           { text: 'Videos', href: '/videos' },
           { text: 'Apps', href: '/apps' },
+          { text: 'What Brings You Here...?', href: '/WhatBringsYouHere' },
+          { text: 'Therapists', href: '/therapists' },
+          { text: 'Doctors', href: '/Doctors' },
           { text: 'Contact', href: '/contact' },
         ]
       : [
+          { text: 'Home', href: '/' },
           { text: 'Login', href: '/login' },
           { text: 'Sign Up', href: '/signUp' },
-          { text: 'Home', href: '/' },
+          { text: 'Memberships', href: '/memberships' },
         ]),
   ];
   return (
