@@ -8,10 +8,8 @@ import { MembershipCard } from '../../components/membership-card/membership-card
 export interface MembershipsPageProps {}
 
 const StyledMembershipsPage = styled.div`
-  @media (min-width: 1200px) {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
 `;
 
 const InnerContainer = styled.div`
