@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import {
   useStripe,
   useElements,
-  PaymentElement,
+  CardNumberElement,
+  CardCvcElement,
+  CardExpiryElement,
 } from '@stripe/react-stripe-js';
 import { useDispatch, useSelector } from 'react-redux';
 import { setClientSecret } from '../../redux/stripeSlice';
@@ -12,28 +14,36 @@ const StyledPaymentForm = styled.form`
   padding: 16px;
   width: 100vw;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; // Adds space between form elements
 `;
+
+const cardStyle = {
+  style: {
+    base: {
+      color: '#32325d',
+      fontFamily: 'Arial, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a',
+    },
+  },
+};
 
 interface Props {
   amount: number;
 }
 
-const updatePaymentIntent = async (newAmount: number) => {
-  // Example POST request to your server endpoint to update or create a new payment intent
-  const response = await fetch('http://localhost:3333/create-payment-intent', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ amount: newAmount }),
-  });
-  const data = await response.json();
-  return data.clientSecret;
-};
-
-export function PaymentForm(props: Props) {
-  // @ts-ignore
-  const oldClientSecret = useSelector((state) => state.stripe.client_secret);
+export function PaymentForm({ amount }: Props) {
+  //@ts-ignore
+  const clientSecret = useSelector((state) => state.stripe.client_secret);
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
@@ -43,50 +53,65 @@ export function PaymentForm(props: Props) {
   useEffect(() => {
     const fetchClientSecret = async () => {
       try {
-        const client_secret = await updatePaymentIntent(props.amount);
-        dispatch(setClientSecret({ client_secret }));
-
-        console.log('PaymentForm - client_secret: ', client_secret);
+        const response = await fetch(
+          `${process.env.NX_SERVER_URL}/create-payment-intent`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ amount }),
+          }
+        );
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error.message);
+        dispatch(setClientSecret({ client_secret: data.clientSecret }));
       } catch (error) {
-        setMessage('Failed to initialize payment: ' + error);
+        //@ts-ignore
+        setMessage(`Failed to initialize payment: ${error.message}`);
       }
     };
 
     fetchClientSecret();
-  }, [dispatch, props.amount]);
+  }, [dispatch, amount]);
 
-  if (!stripe || !elements) {
-    return <div>Loading...</div>;
-  }
-
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!stripe || !elements) return;
-
-    setIsProcessing(true);
-
-    const { error } = await stripe.confirmPayment({
-      elements,
-      redirect: 'if_required',
-      confirmParams: {
-        return_url: `${window.location.origin}/completion`,
-      },
-    });
-
-    if (error) {
-      // @ts-ignore
-      setMessage(error.message);
-    } else {
-      setMessage('Payment successful!');
+    if (!stripe || !elements) {
+      setMessage('Stripe has not fully loaded yet.');
+      return;
     }
 
-    setIsProcessing(false);
+    setIsProcessing(true);
+    const cardElement = elements.getElement(CardNumberElement);
+
+    const { error, paymentIntent } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: cardElement!,
+          billing_details: {
+            name: 'Customer Name', // You should get this dynamically
+          },
+        },
+      }
+    );
+
+    if (error) {
+      setMessage(error.message || 'An error occurred');
+      setIsProcessing(false);
+    } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+      setMessage('Payment successful!');
+      setIsProcessing(false);
+    }
   };
 
   return (
     <StyledPaymentForm onSubmit={handleSubmit}>
-      <PaymentElement />
+      <CardNumberElement options={cardStyle} />
+      <CardExpiryElement options={cardStyle} />
+      <CardCvcElement options={cardStyle} />
       <button disabled={isProcessing} id="submit">
         {isProcessing ? 'Processing...' : 'Pay Now'}
       </button>

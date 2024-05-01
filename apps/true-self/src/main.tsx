@@ -65,7 +65,7 @@ const AppWrapper = () => {
     };
 
     initializePaymentIntent();
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     // Update the Elements options when the clientSecret changes
@@ -76,7 +76,7 @@ const AppWrapper = () => {
 
   if (clientSecret) {
     return (
-      <Elements stripe={stripePromise} options={options} key={clientSecret}>
+      <Elements stripe={stripePromise}>
         <GlobalStyles />
         <App />
       </Elements>
