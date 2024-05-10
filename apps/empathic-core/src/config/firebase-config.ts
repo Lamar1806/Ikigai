@@ -32,4 +32,6 @@ class FirebaseInstance {
   public getAuth = () => this.auth;
 }
 
-export const FB = new FirebaseInstance();
+export const FireBase = new FirebaseInstance();
+export const db = FireBase.db;
+export const auth = FireBase.auth;

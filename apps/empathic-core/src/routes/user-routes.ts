@@ -1,9 +1,11 @@
-import { TrueSelfUser } from '../models/true-self-user'; // Adjust the path as necessary
-import { FB } from '../config/firebase-config'; // Ensure this points to your config
 import { Express } from 'express';
-
-// Initialize TrueSelfUser with Firebase config
-const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
+import {
+  createUser,
+  deleteUser,
+  getUser,
+  loginUser,
+  updateUser,
+} from '../models/true-self-user';
 
 export const userRoutes = (app: Express) => {
   // Create User
@@ -11,7 +13,7 @@ export const userRoutes = (app: Express) => {
     const { email, password, userData } = req.body;
     try {
       // If user does not exist, create the user
-      const user = await trueSelfUser.createUser(email, password, userData);
+      const user = await createUser(email, password, userData);
       res.status(200).send({ user, message: 'User created successfully' });
     } catch (error) {
       res.status(400).send(error.message);
@@ -22,7 +24,7 @@ export const userRoutes = (app: Express) => {
   app.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
     try {
-      const userCredential = await trueSelfUser.loginUser(email, password);
+      const userCredential = await loginUser(email, password);
       res
         .status(200)
         .send({ userCredential, message: 'User logged in successfully' });
@@ -34,7 +36,7 @@ export const userRoutes = (app: Express) => {
   // Get User Data
   app.get('/users/:userId', async (req, res) => {
     try {
-      const userData = await trueSelfUser.getUser(req.params.userId);
+      const userData = await getUser(req.params.userId);
       if (userData) {
         res.status(200).send(userData);
       } else {
@@ -48,7 +50,7 @@ export const userRoutes = (app: Express) => {
   // Update User Data
   app.put('/users/:userId', async (req, res) => {
     try {
-      await trueSelfUser.updateUser(req.params.userId, req.body);
+      await updateUser(req.params.userId, req.body);
       res.status(200).send({ message: 'User updated successfully' });
     } catch (error) {
       res.status(400).send(error.message);
@@ -58,7 +60,7 @@ export const userRoutes = (app: Express) => {
   // Delete User
   app.delete('/users/:userId', async (req, res) => {
     try {
-      await trueSelfUser.deleteUser(req.params.userId);
+      await deleteUser(req.params.userId);
       res.status(200).send({ message: 'User deleted successfully' });
     } catch (error) {
       res.status(400).send(error.message);

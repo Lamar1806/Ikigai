@@ -1,17 +1,17 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { Express } from 'express';
-import { FB } from '../config/firebase-config';
+import { FireBase } from '../config/firebase-config';
 import { userRoutes } from './user-routes';
 
 export const setUpFireBaseRoutes = (app: Express) => {
   app.get('/test', async (req, res) => {
-    res.send({ ok: 'here', config: FB.config });
+    res.send({ ok: 'here', config: FireBase.config });
   });
   userRoutes(app);
 
   app.get('/test-firebase', async (req, res) => {
     try {
-      const testDocRef = doc(FB.db, 'test', 'testDoc');
+      const testDocRef = doc(FireBase.db, 'test', 'testDoc');
       const testDoc = await getDoc(testDocRef);
 
       if (testDoc.exists()) {

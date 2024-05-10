@@ -1,8 +1,7 @@
 import { Express, Request, Response } from 'express';
 import { createSubscription } from '../services/subscriptions';
 import Stripe from 'stripe';
-import { TrueSelfUser } from '../models/true-self-user';
-import { FB } from '../config/firebase-config';
+import { getUserIdByEmail, updateUser } from '../models/true-self-user';
 import { setUpStripeSubscriptionProductRoutes } from './stripe-sub-product-routes';
 import { setUpStripeCustomerRoutes } from './stripe-customer-routes';
 import { setUpStripeProductRoutes } from './stripe-product-routes';
@@ -10,9 +9,6 @@ import { setUpStripeProductRoutes } from './stripe-product-routes';
 const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
   apiVersion: '2023-10-16',
 });
-
-// Initialize TrueSelfUser with Firebase config
-const trueSelfUser = new TrueSelfUser(FB.db, FB.auth);
 
 export const setUpStripeRoutes = (app: Express) => {
   // Publishable Key
@@ -73,7 +69,7 @@ export const setUpStripeRoutes = (app: Express) => {
       });
 
       const clientSecret =
-        // @ts-ignore
+        //@ts-ignore
         subscription.latest_invoice.payment_intent.client_secret;
 
       res.send({
@@ -99,9 +95,9 @@ export const setUpStripeRoutes = (app: Express) => {
         email: email,
         // You can also add other fields like address, phone, etc.
       });
-      const userId = await trueSelfUser.getUserIdByEmail(email);
+      const userId = await getUserIdByEmail(email);
 
-      trueSelfUser.updateUser(userId, { stripe_customer_ref_id: customer.id });
+      updateUser(userId, { stripe_customer_ref_id: customer.id });
 
       // Customer has been created, and you can now return the customer ID
       res.status(201).send({

@@ -24,4 +24,5 @@ export interface TrueSelfUser {
     pillarsOfStrength: string;
   };
   copingAndComfort: string;
+  customerId: string;
 }
