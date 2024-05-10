@@ -4,21 +4,30 @@ const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
   apiVersion: '2023-10-16',
 });
 
-// Define interfaces for function parameters where needed
 interface ProductParams {
   name: string;
   description: string;
 }
+
 export const createProduct = async ({ name, description }: ProductParams) => {
+  console.log(
+    'Creating product with name:',
+    name,
+    'and description:',
+    description
+  );
   const product = await stripe.products.create({
     name,
     description,
   });
+  console.log('Product created:', product);
   return product;
 };
 
 export const getProduct = async (productId: string) => {
+  console.log('Retrieving product with ID:', productId);
   const product = await stripe.products.retrieve(productId);
+  console.log('Product retrieved:', product);
   return product;
 };
 
@@ -27,43 +36,31 @@ interface UpdateProductParams {
   newName: string;
   newDescription: string;
 }
+
 export const updateProduct = async ({
   productId,
   newName,
   newDescription,
 }: UpdateProductParams) => {
+  console.log(
+    'Updating product with ID:',
+    productId,
+    'to new name:',
+    newName,
+    'and new description:',
+    newDescription
+  );
   const updatedProduct = await stripe.products.update(productId, {
     name: newName,
     description: newDescription,
   });
+  console.log('Product updated:', updatedProduct);
   return updatedProduct;
 };
 
 export const deleteProduct = async (productId: string) => {
+  console.log('Deleting product with ID:', productId);
   const deletedProduct = await stripe.products.del(productId);
+  console.log('Product deleted:', deletedProduct);
   return deletedProduct;
 };
-
-// async function manageProducts() {
-//   try {
-//       // Create a product
-//       const createdProduct = await createProduct('Pro Plan', 'Advanced subscription plan with additional features');
-//       console.log('Product Created:', createdProduct);
-
-//       // Retrieve the product
-//       const retrievedProduct = await getProduct(createdProduct.id);
-//       console.log('Product Retrieved:', retrievedProduct);
-
-//       // Update the product
-//       const updatedProduct = await updateProduct(createdProduct.id, 'Pro Plan Updated', 'Updated description');
-//       console.log('Product Updated:', updatedProduct);
-
-//       // Delete the product
-//       const deletedProduct = await deleteProduct(createdProduct.id);
-//       console.log('Product Deleted:', deletedProduct);
-//   } catch (error) {
-//       console.error('Error managing products:', error);
-//   }
-// }
-
-// manageProducts();

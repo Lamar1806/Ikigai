@@ -56,17 +56,3 @@ export const deleteCustomer = async (
     return null;
   }
 };
-
-// // Creating a customer
-// createCustomer('example@email.com', 'John Doe');
-
-// // Getting a customer
-// getCustomer('cus_1234567890abcdef');
-
-// // Updating a customer
-// updateCustomer('cus_1234567890abcdef', {
-//   phone: '123-456-7890'
-// });
-
-// // Deleting a customer
-// deleteCustomer('cus_1234567890abcdef');
