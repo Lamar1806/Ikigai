@@ -1,59 +1,56 @@
 import { Express } from 'express';
-
 import {
-  createSubscriptionProduct,
-  deleteSubscriptionProduct,
-  getSubscriptionProduct,
-  updateSubscriptionProduct,
-} from '../models/stripe-subscription-products';
+  createProduct,
+  getProduct,
+  updateProduct,
+  deleteProduct,
+} from '../models/stripe-products';
 
-export const setUpStripeSubscriptionProducts = (app: Express) => {
-  // Create a new subscription product
-  app.post('/subscription-products/create', async (req, res) => {
+export const setUpStripeProducts = (app: Express) => {
+  // Create a new product
+  app.post('/products', async (req, res) => {
     try {
-      const { productName, description, amount, currency, interval } = req.body;
-      const result = await createSubscriptionProduct({
-        productName,
-        description,
-        amount,
-        currency,
-        interval,
+      const { name, description } = req.body;
+      const product = await createProduct({ name, description });
+      res.status(201).json(product);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Retrieve a specific product by its ID
+  app.get('/products/:productId', async (req, res) => {
+    try {
+      const productId = req.params.productId;
+      const product = await getProduct(productId);
+      res.status(200).json(product);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Update a specific product by its ID
+  app.put('/products/:productId', async (req, res) => {
+    try {
+      const { productId } = req.params;
+      const { newName, newDescription } = req.body;
+      const updatedProduct = await updateProduct({
+        productId,
+        newName,
+        newDescription,
       });
-      res.status(201).json(result);
+      res.status(200).json(updatedProduct);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   });
 
-  // Retrieve a subscription product and its prices
-  app.get('/subscription-products/:productId', async (req, res) => {
+  // Delete a specific product by its ID
+  app.delete('/products/:productId', async (req, res) => {
     try {
       const productId = req.params.productId;
-      const result = await getSubscriptionProduct(productId);
-      res.status(200).json(result);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
-
-  // Update a subscription product
-  app.patch('/subscription-products/:productId', async (req, res) => {
-    try {
-      const productId = req.params.productId;
-      const updates = req.body;
-      const result = await updateSubscriptionProduct(productId, updates);
-      res.status(200).json(result);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
-
-  // Delete a subscription product
-  app.delete('/subscription-products/:productId', async (req, res) => {
-    try {
-      const productId = req.params.productId;
-      const result = await deleteSubscriptionProduct(productId);
-      res.status(204).json(result);
+      const deletedProduct = await deleteProduct(productId);
+      res.status(204).json(deletedProduct);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
