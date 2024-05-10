@@ -3,12 +3,6 @@ import { createSubscription } from '../services/subscriptions';
 import Stripe from 'stripe';
 import { TrueSelfUser } from '../models/true-self-user';
 import { FB } from '../config/firebase-config';
-import {
-  createSubscriptionProduct,
-  getSubscriptionProduct,
-  updateSubscriptionProduct,
-  deleteSubscriptionProduct,
-} from '../models/stripe-subscription-products';
 
 const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
   apiVersion: '2023-10-16',
