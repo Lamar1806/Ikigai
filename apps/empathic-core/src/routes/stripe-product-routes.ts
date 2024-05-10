@@ -6,7 +6,7 @@ import {
   deleteProduct,
 } from '../models/stripe-products';
 
-export const setUpStripeProducts = (app: Express) => {
+export const setUpStripeProductRoutes = (app: Express) => {
   // Create a new product
   app.post('/products', async (req, res) => {
     try {

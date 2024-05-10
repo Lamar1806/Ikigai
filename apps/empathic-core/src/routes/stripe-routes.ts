@@ -3,6 +3,9 @@ import { createSubscription } from '../services/subscriptions';
 import Stripe from 'stripe';
 import { TrueSelfUser } from '../models/true-self-user';
 import { FB } from '../config/firebase-config';
+import { setUpStripeSubscriptionProductRoutes } from './stripe-sub-product-routes';
+import { setUpStripeCustomerRoutes } from './stripe-customer-routes';
+import { setUpStripeProductRoutes } from './stripe-product-routes';
 
 const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
   apiVersion: '2023-10-16',
@@ -113,4 +116,7 @@ export const setUpStripeRoutes = (app: Express) => {
       });
     }
   });
+  setUpStripeCustomerRoutes(app);
+  setUpStripeSubscriptionProductRoutes(app);
+  setUpStripeProductRoutes(app);
 };

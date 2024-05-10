@@ -6,7 +6,7 @@ import {
   deleteCustomer,
 } from '../models/stripe-customer';
 
-export const setUpStripeSubscriptionProducts = (app: Express) => {
+export const setUpStripeCustomerRoutes = (app: Express) => {
   // Create a new customer
   app.post('/customers', async (req, res) => {
     try {

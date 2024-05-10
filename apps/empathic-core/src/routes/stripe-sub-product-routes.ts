@@ -7,7 +7,7 @@ import {
   updateSubscriptionProduct,
 } from '../models/stripe-subscription-products';
 
-export const setUpStripeSubscriptionProducts = (app: Express) => {
+export const setUpStripeSubscriptionProductRoutes = (app: Express) => {
   // Create a new subscription product
   app.post('/subscription-products/create', async (req, res) => {
     try {
