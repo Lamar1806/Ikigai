@@ -1,8 +1,4 @@
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
-  apiVersion: '2023-10-16',
-});
+import { stripe } from '../config/stripe-config';
 
 interface CreateSubscriptionProductParams {
   productName: string;

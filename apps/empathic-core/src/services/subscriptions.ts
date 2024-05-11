@@ -1,8 +1,4 @@
-import Stripe from 'stripe';
-
-const stripe = new Stripe('your_stripe_secrete_key', {
-  apiVersion: '2023-10-16',
-});
+import { stripe } from '../config/stripe-config';
 
 export const createSubscription = async (
   customerId: string,

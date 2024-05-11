@@ -5,10 +5,7 @@ import { getUserIdByEmail, updateUser } from '../models/true-self-user';
 import { setUpStripeSubscriptionProductRoutes } from './stripe-sub-product-routes';
 import { setUpStripeCustomerRoutes } from './stripe-customer-routes';
 import { setUpStripeProductRoutes } from './stripe-product-routes';
-
-const stripe = new Stripe(process.env.NX_STRIPE_TEST_SECRET_KEY, {
-  apiVersion: '2023-10-16',
-});
+import { stripe } from '../config/stripe-config';
 
 export const setUpStripeRoutes = (app: Express) => {
   // Publishable Key
