@@ -15,7 +15,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { FireBase } from '../config/firebase-config';
-import { TrueSelfUserInterface } from './true-self-user-interface';
+import { TrueSelfUserInterface } from '../interfaces/true-self-user-interface';
 import { createCustomer } from './stripe-customer';
 
 const db = FireBase.db;
