@@ -1,5 +1,4 @@
 import { Express } from 'express';
-
 import { userRoutes } from './user-routes';
 import { firebaseTestRoutes } from './firebase-test-routes';
 
