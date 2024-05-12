@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "nx build empathic-core && yarn move-dist-folder",
+    "build": "nx build empathic-core && yarn move-dist-folder && git push heroku $(git rev-parse --abbrev-ref HEAD):main",
     "start": "yarn env && nx serve empathic-core",
     "lint": "nx lint empathic-core",
     "test": "nx test empathic-core",
