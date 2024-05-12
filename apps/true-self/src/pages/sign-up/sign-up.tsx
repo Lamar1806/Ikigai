@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import HeroImage from '../../assets/images/Hero Image.png';
 import Hero from '../../components/hero/hero';
-import SocialLoginButtons from '../../components/social-login-buttons/social-login-buttons';
 import { createUser } from '../../api/axios/users';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../redux/authSlice';
 import { useHistory } from 'react-router-dom';
+import PasswordInput from '../../components/password-input/password-input';
 
 /* eslint-disable-next-line */
 export interface SignUpProps {}
@@ -110,19 +110,10 @@ export function SignUp(props: SignUpProps) {
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
             />
-            <Input
-              type="password"
-              placeholder="Password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Input
-              type="password"
-              placeholder="Confirm Password"
-              required
-              value={passwordConfirm}
-              onChange={(e) => setPasswordConfirm(e.target.value)}
+            <PasswordInput password={password} onChange={setPassword} />
+            <PasswordInput
+              password={passwordConfirm}
+              onChange={setPasswordConfirm}
             />
             <SubmitButton type="submit">Sign Up</SubmitButton>
             {error && (

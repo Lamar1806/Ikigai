@@ -1,5 +1,12 @@
 import Navbar from '../components/navbar/navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  RouteProps,
+} from 'react-router-dom';
 import { Home } from '../pages/home/home';
 import Footer from '../components/footer/footer';
 import UnderConstructionModal from '../components/under-construction-modal/under-construction-modal';
@@ -25,9 +32,30 @@ const ContentWrapper = styled.div`
   flex: 1;
 `;
 
+// Assuming you have a function to check if the user is logged in
+const isAuthenticated = () => {
+  // Implement your authentication logic here
+  // For example, check if there's a token in localStorage
+  return localStorage.getItem('trueSelfVibsUser') !== null;
+};
+
+// Define your protected routes component
+interface ProtectedRouteProps extends RouteProps {
+  isAuthenticated: boolean;
+}
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  component,
+  ...rest
+}) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuthenticated() ? <Component {...props} /> : <Redirect to="/login" />
+    }
+  />
+);
+
 export function App() {
-  // @ts-ignore
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <Router>
       <AppContainer>
@@ -35,52 +63,63 @@ export function App() {
         <Navbar />
         <ContentWrapper>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            {!isAuthenticated && (
-              <Route exact path="/login">
-                <Login />
-              </Route>
-            )}
-            {!isAuthenticated && (
-              <Route exact path="/signUp">
-                <SignUp />
-              </Route>
-            )}
-            <Route exact path="/memberships">
-              <MembershipsPage />
-            </Route>
-            <Route exact path="/memberships/:id">
-              <CheckOutMembership />
-            </Route>
-            <Route path="/completion">
-              <PaymentCompletion />
-            </Route>
-            <Route path="/WhatBringsYouHere">
-              <WhatBringsYouHerePage />
-            </Route>
-            <Route exact path="/therapists">
-              <TherapistsPage />
-            </Route>
-            <Route exact path="/therapists/:id">
-              <TherapistDetailsPage />
-            </Route>
-            <Route exact path="/doctors">
-              <ComingSoon />
-            </Route>
-            <Route exact path="/videos">
-              <ComingSoon />
-            </Route>
-            <Route exact path="/apps">
-              <ComingSoon />
-            </Route>
-            <Route exact path="/Articles">
-              <ComingSoon />
-            </Route>
-            <Route exact path="/Contact">
-              <ComingSoon />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signUp" component={SignUp} />
+            <Route exact path="/memberships" component={MembershipsPage} />
+            <Route
+              exact
+              path="/memberships/:id"
+              component={CheckOutMembership}
+            />
+            <Route path="/completion" component={PaymentCompletion} />
+            <ProtectedRoute
+              isAuthenticated
+              path="/WhatBringsYouHere"
+              component={WhatBringsYouHerePage}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/therapists"
+              component={TherapistsPage}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/therapists/:id"
+              component={TherapistDetailsPage}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/doctors"
+              component={ComingSoon}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/videos"
+              component={ComingSoon}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/apps"
+              component={ComingSoon}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/Articles"
+              component={ComingSoon}
+            />
+            <ProtectedRoute
+              exact
+              isAuthenticated
+              path="/Contact"
+              component={ComingSoon}
+            />
           </Switch>
         </ContentWrapper>
         <Footer />

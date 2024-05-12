@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginSuccess } from '../../redux/authSlice';
 // import {navigate}
 import { useHistory } from 'react-router-dom';
+import PasswordInput from '../../components/password-input/password-input';
 /* eslint-disable-next-line */
 export interface LoginProps {}
 
@@ -89,13 +90,7 @@ export function Login(props: LoginProps) {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <PasswordInput password={password} onChange={setPassword} />
             <SubmitButton type="submit">Login</SubmitButton>
             {/* <SocialLoginButtons
               bgColor="transparent"

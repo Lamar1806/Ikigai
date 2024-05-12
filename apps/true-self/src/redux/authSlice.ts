@@ -30,16 +30,19 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = action.payload;
       state.error = undefined;
+      localStorage.setItem('trueSelfVibsUser', JSON.stringify(state));
     },
     loginFailure: (state, action: PayloadAction<string>) => {
       state.isAuthenticated = false;
       state.user = undefined;
       state.error = action.payload;
+      localStorage.removeItem('trueSelfVibsUser');
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = undefined;
       state.error = undefined;
+      localStorage.removeItem('trueSelfVibsUser');
     },
   },
 });
