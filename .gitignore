@@ -2,6 +2,7 @@
 
 # compiled output
 dist
+!apps/empathic-core/dist/
 tmp
 /out-tsc
 
