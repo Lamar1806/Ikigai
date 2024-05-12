@@ -3,6 +3,7 @@ import {
   createUser,
   deleteUser,
   getUser,
+  getUserIdByEmail,
   loginUser,
   updateUser,
 } from '../models/true-self-user';
@@ -25,9 +26,10 @@ export const userRoutes = (app: Express) => {
     const { email, password } = req.body;
     try {
       const userCredential = await loginUser(email, password);
+      const user = getUserIdByEmail(email);
       res
         .status(200)
-        .send({ userCredential, message: 'User logged in successfully' });
+        .send({ userCredential, message: 'User logged in successfully', user });
     } catch (error) {
       res.status(401).send(error.message);
     }

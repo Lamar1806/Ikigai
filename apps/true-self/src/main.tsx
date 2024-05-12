@@ -7,6 +7,7 @@ import App from './app/app';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { checkAuthStatus } from './redux/authSlice';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,9 @@ const AppWrapper = () => {
     </Elements>
   );
 };
+
+// Dispatch checkAuthStatus to initialize user session from localStorage
+store.dispatch(checkAuthStatus());
 
 root.render(
   <StrictMode>

@@ -44,8 +44,20 @@ const authSlice = createSlice({
       state.error = undefined;
       localStorage.removeItem('trueSelfVibsUser');
     },
+    checkAuthStatus: (state) => {
+      const storedState = localStorage.getItem('trueSelfVibsUser');
+      if (storedState) {
+        const parsedState = JSON.parse(storedState) as AuthState;
+        if (parsedState && parsedState.user) {
+          state.isAuthenticated = parsedState.isAuthenticated;
+          state.user = parsedState.user;
+          state.error = undefined;
+        }
+      }
+    },
   },
 });
 
-export const { loginSuccess, loginFailure, logout } = authSlice.actions;
+export const { loginSuccess, loginFailure, logout, checkAuthStatus } =
+  authSlice.actions;
 export default authSlice.reducer;

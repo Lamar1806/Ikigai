@@ -60,8 +60,8 @@ const SubmitButton = styled.button`
 export function Login(props: LoginProps) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [email, setEmail] = useState<string>('segrestbrooks@gmail.com');
-  const [password, setPassword] = useState<string>('Vayne1806');
+  const [email, setEmail] = useState<string>('test@gmail.com');
+  const [password, setPassword] = useState<string>('testing');
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

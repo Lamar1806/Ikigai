@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar/navbar';
-import { Component } from 'react';
+import { Component, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
