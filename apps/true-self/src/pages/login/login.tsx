@@ -60,8 +60,8 @@ const SubmitButton = styled.button`
 export function Login(props: LoginProps) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [email, setEmail] = useState<string>('test@gmail.com');
-  const [password, setPassword] = useState<string>('testing');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -77,11 +77,12 @@ export function Login(props: LoginProps) {
       console.error('Login failed:', error);
     }
   };
+
   return (
     <StyledLogin>
       <Hero media={[{ type: 'image', url: HeroImage, alt: 'hero' }]}>
         <InnerContainer>
-          <Header>Login In</Header>
+          <Header>Login</Header>
           <Form onSubmit={(event) => handleLogin(event)}>
             <Input
               type="email"

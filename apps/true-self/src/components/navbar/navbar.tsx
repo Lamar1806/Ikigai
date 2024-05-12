@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import { FaAlignJustify } from 'react-icons/fa6';
 import mask from '../../assets/images/Mask@3x.png';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../redux/authSlice';
+import { useHistory } from 'react-router-dom';
 
 // Styled components for navbar elements
 const NavbarWrapper = styled.nav`
@@ -44,6 +46,25 @@ const NavbarLink = styled(Link)`
     background-color: black;
     color: white;
   }
+`;
+
+const LogoutButton = styled.button`
+  position: relative;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  top: 8px;
+`;
+
+const LogoutButtonDropDown = styled.button`
+  color: white;
+  background: transparent;
+  border: none;
+  position: relative;
+  left: 20px;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 `;
 
 const DropdownList = styled.div<{ isOpen: boolean }>`
@@ -104,9 +125,16 @@ const Navbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = React.useRef(null);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    history.push('/');
   };
 
   // Close dropdown if click is outside of navbar
@@ -165,6 +193,11 @@ const Navbar = () => {
             <NavbarLink to={link.href}>{link.text}</NavbarLink>
           </NavbarItem>
         ))}
+        {isAuthenticated ? (
+          <NavbarItem>
+            <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+          </NavbarItem>
+        ) : null}
       </NavbarList>
       <DropdownList ref={dropDownRef} isOpen={isOpen}>
         {links.map((link, index) => (
@@ -176,6 +209,15 @@ const Navbar = () => {
             </NavbarItemDropDown>
           </NavBarListDropDown>
         ))}
+        {isAuthenticated ? (
+          <NavBarListDropDown>
+            <NavbarItemDropDown>
+              <LogoutButtonDropDown onClick={handleLogout}>
+                Logout
+              </LogoutButtonDropDown>
+            </NavbarItemDropDown>
+          </NavBarListDropDown>
+        ) : null}
       </DropdownList>
     </NavbarWrapper>
   );

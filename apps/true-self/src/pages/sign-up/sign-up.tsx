@@ -59,10 +59,10 @@ const SubmitButton = styled.button`
 export function SignUp(props: SignUpProps) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [email, setEmail] = useState('test@gmail.com');
-  const [displayName, setDisplayName] = useState('Hello World');
-  const [password, setPassword] = useState('testing');
-  const [passwordConfirm, setPasswordConfirm] = useState('testing');
+  const [email, setEmail] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

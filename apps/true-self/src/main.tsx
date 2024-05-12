@@ -10,11 +10,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { checkAuthStatus } from './redux/authSlice';
 
 const queryClient = new QueryClient();
-
 const publishableKey = process.env.NX_STRIPE_TEST_PUBLISHABLE_KEY;
-
 const stripePromise = loadStripe(publishableKey as string);
-
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 
 const AppWrapper = () => {
