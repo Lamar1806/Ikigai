@@ -19,7 +19,6 @@ import MembershipsPage from '../pages/memberships-page/memberships-page';
 import CheckOutMembership from '../pages/check-out-membership/check-out-membership';
 import Login from '../pages/login/login';
 import SignUp from '../pages/sign-up/sign-up';
-import { useSelector } from 'react-redux';
 import PaymentCompletion from '../components/payment-completion/payment-completion';
 
 const AppContainer = styled.div`
