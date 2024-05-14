@@ -37,6 +37,17 @@ const cardStyle = {
   },
 };
 
+const SubmitButton = styled.button`
+  padding: 8px;
+  background: transparent;
+  margin-top: 16px;
+  &:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+`;
+
 interface Props {
   amount: number;
 }
@@ -111,9 +122,9 @@ export function PaymentForm({ amount }: Props) {
       <CardNumberElement options={cardStyle} />
       <CardExpiryElement options={cardStyle} />
       <CardCvcElement options={cardStyle} />
-      <button disabled={isProcessing} id="submit">
+      <SubmitButton disabled={isProcessing} id="submit">
         {isProcessing ? 'Processing...' : 'Pay Now'}
-      </button>
+      </SubmitButton>
       <p>{message}</p>
     </StyledPaymentForm>
   );
