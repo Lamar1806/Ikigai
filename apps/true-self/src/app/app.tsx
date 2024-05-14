@@ -66,8 +66,9 @@ export function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signUp" component={SignUp} />
             <Route exact path="/memberships" component={MembershipsPage} />
-            <Route
+            <ProtectedRoute
               exact
+              isAuthenticated
               path="/memberships/:id"
               component={CheckOutMembership}
             />

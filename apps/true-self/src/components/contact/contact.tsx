@@ -77,6 +77,7 @@ const SendButton = styled.button`
   &:hover {
     background: black;
     color: white;
+    cursor: pointer;
   }
 `;
 
