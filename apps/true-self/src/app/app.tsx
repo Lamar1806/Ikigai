@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar/navbar';
-import { Component, useEffect } from 'react';
+import { Component, ReactNode } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,16 +40,19 @@ const isAuthenticated = () => {
 
 // Define your protected routes component
 interface ProtectedRouteProps extends RouteProps {
+  component: React.ComponentType<RouteProps>;
   isAuthenticated: boolean;
 }
+
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
-  component,
+  component: Component,
+  isAuthenticated,
   ...rest
 }) => (
   <Route
     {...rest}
     render={(props) =>
-      isAuthenticated() ? <Component {...props} /> : <Redirect to="/login" />
+      isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
     }
   />
 );
@@ -68,55 +71,55 @@ export function App() {
             <Route exact path="/memberships" component={MembershipsPage} />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/memberships/:id"
               component={CheckOutMembership}
             />
             <Route path="/completion" component={PaymentCompletion} />
             <ProtectedRoute
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/WhatBringsYouHere"
               component={WhatBringsYouHerePage}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/therapists"
               component={TherapistsPage}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/therapists/:id"
               component={TherapistDetailsPage}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/doctors"
               component={ComingSoon}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/videos"
               component={ComingSoon}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/apps"
               component={ComingSoon}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/Articles"
               component={ComingSoon}
             />
             <ProtectedRoute
               exact
-              isAuthenticated
+              isAuthenticated={isAuthenticated()}
               path="/Contact"
               component={ComingSoon}
             />

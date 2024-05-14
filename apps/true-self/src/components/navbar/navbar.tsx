@@ -53,7 +53,13 @@ const LogoutButton = styled.button`
   background: transparent;
   border: none;
   font-size: 16px;
-  top: 8px;
+  /* top: 8px; */
+  padding: 8px;
+  &:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
 `;
 
 const LogoutButtonDropDown = styled.button`
