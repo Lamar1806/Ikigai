@@ -56,6 +56,17 @@ const SubmitButton = styled.button`
   cursor: pointer;
   border: 1px solid white;
 `;
+const SignUpLink = styled.a`
+  color: white;
+  background: transparent;
+  padding: 16px;
+  margin-bottom: 16px;
+  width: 200px;
+  cursor: pointer;
+  border: 1px solid white;
+  text-decoration: none;
+  text-align: center;
+`;
 
 export function Login(props: LoginProps) {
   const dispatch = useDispatch();
@@ -93,6 +104,7 @@ export function Login(props: LoginProps) {
             />
             <PasswordInput password={password} onChange={setPassword} />
             <SubmitButton type="submit">Login</SubmitButton>
+            <SignUpLink href="/signUp">Sign Up</SignUpLink>
             {/* <SocialLoginButtons
               bgColor="transparent"
               color="white"
