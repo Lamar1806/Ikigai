@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
+import { Hero } from '@ikigai/ui-components';
 
 const StyledApp = styled.div`
   // Your style here
@@ -9,7 +8,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="night-owl-web" />
+      <Hero />
     </StyledApp>
   );
 }
