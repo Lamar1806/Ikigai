@@ -20,6 +20,9 @@
       "@ikigai/services": ["libs/services/src/index.ts"],
       "@ikigai/shared-interfaces": ["libs/shared-interfaces/src/index.ts"],
       "@ikigai/ui-components": ["libs/ui-components/src/index.ts"],
+      "@ikigai/ui-components-native": [
+        "libs/ui-components-native/src/index.ts"
+      ],
       "@ikigai/utils": ["libs/utils/src/index.ts"],
       "@ikigai/workspace-extensions": [
         "libs/tooling/workspace-extensions/src/index.ts"
