@@ -11,5 +11,5 @@ export const Fonts = {
     Thin: require('./fonts/Lato/Lato-Thin.ttf'),
     ThinItalic: require('./fonts/Lato/Lato-ThinItalic.ttf'),
   },
-  LavishlyYours: require('./fonts/Lavishly_Yours/Lavishly_Yours.ttf'),
+  LavishlyYours: require('./fonts/Lavishly_Yours/LavishlyYours-Regular.ttf'),
 };

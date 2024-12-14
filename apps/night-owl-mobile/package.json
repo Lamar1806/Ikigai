@@ -13,10 +13,12 @@
     "pod-install": "nx pod-install night-owl-mobile",
     "bundle-android": "nx bundle-android night-owl-mobile",
     "sync-deps": "nx sync-deps night-owl-mobile",
+    "sync-assets": "npx react-native-asset",
     "ensure-symlink": "nx ensure-symlink night-owl-mobile",
     "lint": "nx lint night-owl-mobile",
     "test": "nx test night-owl-mobile",
-    "test:ci": "nx test night-owl-mobile --configuration=ci"
+    "test:ci": "nx test night-owl-mobile --configuration=ci",
+    "start-clear-cache": "npx react-native start --reset-cache"
   },
   "dependencies": {
     "@testing-library/jest-native": "*",

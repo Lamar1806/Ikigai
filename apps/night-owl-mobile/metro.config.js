@@ -32,10 +32,7 @@ module.exports = (async () => {
       // the project root to start the metro server
       projectRoot: __dirname,
       // Specify folders to watch, in addition to Nx defaults (workspace libraries and node_modules)
-      watchFolders: [
-        './libs/assets/fonts/Lavishly_Yours',  // LavishlyYours font folder
-        './libs/assets/fonts/Lato',            // Lato font folder
-      ],
+      watchFolders: [],
     }
   );
 })();
