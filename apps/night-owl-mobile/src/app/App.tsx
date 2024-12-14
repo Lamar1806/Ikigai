@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import React from 'react';
+import styled from '@emotion/native';
 
 export default function App() {
   return (

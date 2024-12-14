@@ -15,10 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ikigai/api": ["libs/api/src/index.ts"],
       "@ikigai/assets": ["libs/assets/src/index.ts"],
       "@ikigai/interfaces": ["libs/shared-interfaces/src/index.ts"],
       "@ikigai/services": ["libs/services/src/index.ts"],
       "@ikigai/shared-interfaces": ["libs/shared-interfaces/src/index.ts"],
+      "@ikigai/state": ["libs/state/src/index.ts"],
+      "@ikigai/theme": ["libs/theme/src/index.ts"],
       "@ikigai/ui-components": ["libs/ui-components/src/index.ts"],
       "@ikigai/ui-components-native": [
         "libs/ui-components-native/src/index.ts"
