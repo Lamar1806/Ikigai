@@ -26,6 +26,10 @@
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "@emotion/native": "*"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "*"
   }
 }
