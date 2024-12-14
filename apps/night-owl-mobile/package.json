@@ -2,6 +2,22 @@
   "name": "night-owl-mobile",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "nx start night-owl-mobile",
+    "serve": "nx serve night-owl-mobile",
+    "run-ios": "nx run-ios night-owl-mobile",
+    "bundle-ios": "nx bundle-ios night-owl-mobile",
+    "run-android": "nx run-android night-owl-mobile",
+    "build-android": "nx build-android night-owl-mobile",
+    "build-ios": "nx build-ios night-owl-mobile",
+    "pod-install": "nx pod-install night-owl-mobile",
+    "bundle-android": "nx bundle-android night-owl-mobile",
+    "sync-deps": "nx sync-deps night-owl-mobile",
+    "ensure-symlink": "nx ensure-symlink night-owl-mobile",
+    "lint": "nx lint night-owl-mobile",
+    "test": "nx test night-owl-mobile",
+    "test:ci": "nx test night-owl-mobile --configuration=ci"
+  },
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
