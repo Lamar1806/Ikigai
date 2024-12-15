@@ -21,11 +21,6 @@ export default function App() {
           options={{ headerShown: false }} // Hide the header for SplashScreen
         /> */}
         {/* Home Screen */}
-        {/* <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
-        /> */}
         {/* Home Screen */}
         <Stack.Screen
           name="LoginOrSignUpScreen"
@@ -42,6 +37,12 @@ export default function App() {
         <Stack.Screen
           name="signUpScreen"
           component={SignUpScreen}
+          options={{ headerShown: false }}
+        />
+        {/* Home Screen */}
+        <Stack.Screen
+          name="homeScreen"
+          component={HomeScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
