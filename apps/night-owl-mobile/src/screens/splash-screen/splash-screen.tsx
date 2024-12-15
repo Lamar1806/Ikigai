@@ -1,15 +1,22 @@
-// SplashScreen.tsx
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { BackgroundImage } from '@ikigai/ui-components-native';
-// import { Images } from '@ikigai/assets';
-
 import BreakfastImage from '../../assets/breakfast.png';
-export const SplashScreen = ({ navigation }: { navigation: any }) => {
+
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../types/RootStackParamList';
+
+// Define props using RootStackParamList and 'splashScreen' route
+type SplashScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'splashScreen'
+>;
+
+export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   useEffect(() => {
     // Simulate a delay, then navigate to HomeScreen
     const timer = setTimeout(() => {
-      navigation.replace('Home'); // Replace SplashScreen with HomeScreen
+      navigation.replace('loginOrSignUpScreen'); // Navigate to homeScreen
     }, 2000); // 2-second delay
 
     return () => clearTimeout(timer); // Clear the timer when the component unmounts

@@ -5,3 +5,4 @@ export * from './view/view';
 export * from './utils/StyleSheet';
 export * from './buttons/button/button';
 export * from './background/background-image';
+export * from './buttons/full-width-button';
