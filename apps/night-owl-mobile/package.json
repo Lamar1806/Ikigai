@@ -36,7 +36,9 @@
     "react-native-gesture-handler": "*",
     "react-native-reanimated": "*",
     "react-native-vector-icons": "*",
-    "@react-native-community/masked-view": "*"
+    "@react-native-community/masked-view": "*",
+    "styled-components": "*",
+    "@emotion/styled": "*"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "*"

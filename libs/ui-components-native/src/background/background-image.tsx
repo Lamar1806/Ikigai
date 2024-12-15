@@ -9,10 +9,10 @@ interface BackgroundImageProps {
   overlayColor?: string; // Optional: Overlay color with transparency
 }
 
-const BackgroundImage: React.FC<BackgroundImageProps> = ({
+export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   source,
   children,
-  overlayColor = 'rgba(0, 0, 0, 0.3)', // Default overlay color
+  overlayColor = 'rgba(0, 0, 0, 0.6)', // Default overlay color
 }) => {
   return (
     <StyledImageBackground source={source} resizeMode="cover">
@@ -46,5 +46,3 @@ const ContentContainer = styled(View)`
   width: 100%;
   height: 100%;
 `;
-
-export default BackgroundImage;

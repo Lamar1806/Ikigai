@@ -13,3 +13,10 @@ export const Fonts = {
   },
   LavishlyYours: require('./fonts/Lavishly_Yours/LavishlyYours-Regular.ttf'),
 };
+
+export const Images = {
+  breakfast: require('./images/breakfast.png'),
+  owl: require('./images/owl.jpg'),
+  porridge: require('./images/porridge.png'),
+  bridge: require('./images/bridge.png'),
+};
