@@ -13,8 +13,8 @@
     "pod-install": "nx pod-install night-owl-mobile",
     "bundle-android": "nx bundle-android night-owl-mobile",
     "sync-deps": "nx sync-deps night-owl-mobile",
-    "sync-assets": "npx react-native-asset",
     "ensure-symlink": "nx ensure-symlink night-owl-mobile",
+    "sync-assets": "npx react-native-asset",
     "lint": "nx lint night-owl-mobile",
     "test": "nx test night-owl-mobile",
     "test:ci": "nx test night-owl-mobile --configuration=ci",
@@ -27,7 +27,16 @@
     "react-native": "*",
     "react-native-svg": "*",
     "metro-config": "*",
-    "@emotion/native": "*"
+    "@emotion/native": "*",
+    "@emotion/babel-plugin": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-reanimated": "*",
+    "react-native-vector-icons": "*",
+    "@react-native-community/masked-view": "*"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "*"
