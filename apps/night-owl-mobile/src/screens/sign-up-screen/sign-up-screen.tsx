@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import { FullWidthButton } from '@ikigai/ui-components-native';
 import { BackgroundImage } from '@ikigai/ui-components-native';
 import BreakfastImage from '../../assets/breakfast.png';
+// import { Ionicons } from '@expo/vector-icons'; // For the back arrow icon
 
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../types/RootStackParamList';
@@ -31,6 +39,12 @@ export const SignUpScreen: React.FC<SignUpScreenProps> = ({ navigation }) => {
     <View style={styles.container}>
       <BackgroundImage source={BreakfastImage}>
         <View style={styles.content}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
+            {/* <Ionicons name="arrow-back" size={32} color="white" /> */}
+          </TouchableOpacity>
           <Text style={styles.title}>Night Owl</Text>
 
           {/* Email Input */}
@@ -115,5 +129,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50, // Adjust for status bar
+    left: 20,
+    zIndex: 1,
   },
 });

@@ -15,15 +15,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         {/* Splash Screen */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Splash"
           component={SplashScreen}
           options={{ headerShown: false }} // Hide the header for SplashScreen
-        /> */}
-        {/* Home Screen */}
+        />
         {/* Home Screen */}
         <Stack.Screen
-          name="LoginOrSignUpScreen"
+          name="loginOrSignUpScreen"
           component={LoginOrSignUpScreen}
           options={{ headerShown: false }}
         />
