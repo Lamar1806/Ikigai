@@ -11,10 +11,12 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "outputs": ["{projectRoot}/dist"]
     },
     "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "outputs": ["{projectRoot}/coverage"]
     },
     "lint": {
       "inputs": [
@@ -36,7 +38,7 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/.eslintrc.json"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/global/**/*"]
   },
   "generators": {
     "@nx/react": {
@@ -55,5 +57,7 @@
         "style": "@emotion/styled"
       }
     }
-  }
+  },
+  "plugins": ["@nx/react", "@nx/node", "@nx/workspace"],
+  "defaultBase": "main"
 }
