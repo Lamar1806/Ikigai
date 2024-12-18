@@ -25,7 +25,7 @@
     "@emotion/babel-plugin": "*",
     "@emotion/native": "*",
     "@emotion/styled": "*",
-    "@react-native-community/cli-platform-ios": "^16.0.2",
+    "@react-native-community/cli-platform-ios": "*",
     "@react-native-community/masked-view": "*",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
@@ -40,7 +40,8 @@
     "react-native-screens": "*",
     "react-native-svg": "*",
     "react-native-vector-icons": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "react-native-svg-transformer": "*"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "*"
