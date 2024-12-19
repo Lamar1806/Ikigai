@@ -204,6 +204,9 @@ apps/enchanted-e2e/artifacts
 apps/enchanted-empathy-e2e/artifacts
 
 # Nx-cache
-.nx/
+.nx
 apps/gogoanime/
 apps/night-owl-mobile-e2e/artifacts
+vite.config.*.timestamp*
+yarn.lock
+package.json.lock
