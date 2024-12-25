@@ -27,30 +27,32 @@
     "refresh": "yarn clean && yarn install"
   },
   "dependencies": {
-    "@emotion/babel-plugin": "*",
     "@emotion/native": "*",
     "@emotion/styled": "*",
     "@react-native-community/cli-platform-ios": "*",
     "@react-native-community/masked-view": "*",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
-    "@testing-library/jest-native": "*",
-    "@testing-library/react-native": "*",
-    "metro-config": "*",
-    "react": "*",
     "react-dom": "*",
-    "react-native": "*",
-    "react-native-flipper": "*",
     "react-native-gesture-handler": "*",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "react-native-svg": "*",
     "react-native-svg-transformer": "*",
     "react-native-vector-icons": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "@react-native/metro-config": "*",
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "metro-config": "*"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "*"
+    "@emotion/babel-plugin": "*",
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "metro-config": "*"
   }
 }

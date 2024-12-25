@@ -209,3 +209,4 @@ apps/gogoanime/
 apps/night-owl-mobile-e2e/artifacts
 vite.config.*.timestamp*
 yarn.lock
+vitest.config.*.timestamp*
