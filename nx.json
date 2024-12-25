@@ -15,7 +15,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.circleci/config.yml"]
   },
-  "nxCloudId": "6762d99f13d76b08ef87287a",
   "plugins": [
     {
       "plugin": "@nx/react-native/plugin",
