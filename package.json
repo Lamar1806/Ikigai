@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@emotion/native": "^11.11.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.3",
     "@nx/devkit": "20.3.0",
