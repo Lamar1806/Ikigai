@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { NavMenu } from '../components/nav-menu';
 
 // Import SVG icons or replace with your own assets
 import MenuIcon from '../assets/nav-menu.svg';
@@ -8,11 +9,14 @@ import SpatulaIcon from '../assets/spatula.svg';
 import DownArrowIcon from '../assets/down-arrow.svg';
 
 export const TopNavBar = () => {
+  const [menuVisible, setMenuVisible] = useState(true);
+
   return (
     <View style={styles.container}>
       {/* Menu Icon */}
       <TouchableOpacity style={styles.iconContainer}>
         <MenuIcon width={24} height={24} fill="#FFD700" />
+        <NavMenu visible={menuVisible} onClose={() => setMenuVisible(false)} />
       </TouchableOpacity>
 
       {/* Location Section */}
