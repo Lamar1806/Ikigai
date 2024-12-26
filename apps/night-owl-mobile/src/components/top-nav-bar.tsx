@@ -21,15 +21,15 @@ export const TopNavBar = () => {
         <View style={styles.locationTextContainer}>
           <Text style={styles.locationTitle}>Location</Text>
           <Text style={styles.locationSubtitle}>172 Grand St, TN</Text>
-          <DownArrowIcon width={24} height={24} />
         </View>
+        <DownArrowIcon width={10} height={10} style={styles.locationArrow} />
       </TouchableOpacity>
 
       {/* Cart Icon */}
       <TouchableOpacity style={styles.iconContainer}>
         <SpatulaIcon width={24} height={24} fill="#FFD700" />
-        <View style={styles.spatula}>
-          <Text style={styles.spatulaText}>3</Text>
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>3</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
     color: yellow,
     fontSize: 12,
   },
-  spatula: {
+  locationArrow: {},
+  badge: {
     position: 'absolute',
     top: 13,
     right: 0,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     borderColor: yellow,
     borderWidth: 1,
   },
-  spatulaText: {
+  badgeText: {
     color: yellow,
     fontSize: 10,
     fontWeight: 'bold',

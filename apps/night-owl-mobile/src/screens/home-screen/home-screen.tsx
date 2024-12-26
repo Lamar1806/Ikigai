@@ -33,12 +33,14 @@ export function HomeScreen(props: HomeScreenProps) {
 
   return (
     <SafeAreaView style={{ backgroundColor: 'black' }}>
-      <ScrollView style={{ backgroundColor: 'white' }}>
-        <TopNavBar />
-        <HorizontalScrollableList title="Breakfast" items={items} />
-        <HorizontalScrollableList title="Coffee" items={items} />
-        <HorizontalScrollableList title="Promotions" items={items} />
-        <BottomNavbar />
+      <ScrollView style={{ backgroundColor: 'black' }}>
+        <View style={{ backgroundColor: 'white' }}>
+          <TopNavBar />
+          <HorizontalScrollableList title="Breakfast" items={items} />
+          <HorizontalScrollableList title="Coffee" items={items} />
+          <HorizontalScrollableList title="Promotions" items={items} />
+          <BottomNavbar />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
