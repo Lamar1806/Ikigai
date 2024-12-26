@@ -28,12 +28,12 @@ export const NavMenu: React.FC<MenuProps> = ({ visible, onClose }) => {
   return (
     <Modal
       visible={visible}
-      animationType="fade"
+      animationType="slide"
       transparent={true}
       onRequestClose={onClose}
     >
-      <SafeAreaView style={styles.overlay}>
-        <View style={styles.menuContainer}>
+      <TouchableOpacity style={styles.overlay} onPress={onClose}>
+        <SafeAreaView style={styles.menuContainer}>
           <Text style={styles.title}>Night Owl</Text>
           {menuItems.map((item, index) => (
             <TouchableOpacity
@@ -50,8 +50,8 @@ export const NavMenu: React.FC<MenuProps> = ({ visible, onClose }) => {
           >
             <ShareIcon />
           </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </TouchableOpacity>
     </Modal>
   );
 };
