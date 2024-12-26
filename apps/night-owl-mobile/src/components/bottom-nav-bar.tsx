@@ -48,7 +48,6 @@ export const BottomNavbar = () => {
 
 const styles = StyleSheet.create({
   navbar: {
-    marginBottom: 50,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
