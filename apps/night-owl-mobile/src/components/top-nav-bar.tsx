@@ -17,12 +17,17 @@ export const TopNavBar = () => {
 
       {/* Location Section */}
       <TouchableOpacity style={styles.locationContainer}>
-        <LocationIcon width={20} height={20} fill="#FFD700" />
+        <LocationIcon
+          width={20}
+          height={20}
+          fill="#FFD700"
+          style={{ top: 5 }}
+        />
         <View style={styles.locationTextContainer}>
           <Text style={styles.locationTitle}>Location</Text>
           <Text style={styles.locationSubtitle}>172 Grand St, TN</Text>
         </View>
-        <DownArrowIcon width={10} height={10} style={styles.locationArrow} />
+        <DownArrowIcon width={10} height={10} style={{ top: 7 }} />
       </TouchableOpacity>
 
       {/* Cart Icon */}
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
     color: yellow,
     fontSize: 12,
   },
-  locationArrow: {},
+
   badge: {
     position: 'absolute',
     top: 13,
