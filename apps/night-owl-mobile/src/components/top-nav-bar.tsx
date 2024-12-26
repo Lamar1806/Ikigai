@@ -14,7 +14,10 @@ export const TopNavBar = () => {
   return (
     <View style={styles.container}>
       {/* Menu Icon */}
-      <TouchableOpacity style={styles.iconContainer}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => setMenuVisible(true)}
+      >
         <MenuIcon width={24} height={24} fill="#FFD700" />
         <NavMenu visible={menuVisible} onClose={() => setMenuVisible(false)} />
       </TouchableOpacity>
