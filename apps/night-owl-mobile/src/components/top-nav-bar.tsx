@@ -2,9 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 // Import SVG icons or replace with your own assets
-import MenuIcon from '../assets/menu.svg';
+import MenuIcon from '../assets/nav-menu.svg';
 import LocationIcon from '../assets/location.svg';
-import CartIcon from '../assets/cart.svg';
+import SpatulaIcon from '../assets/spatula.svg';
+import DownArrowIcon from '../assets/down-arrow.svg';
 
 export const TopNavBar = () => {
   return (
@@ -15,17 +16,18 @@ export const TopNavBar = () => {
       </TouchableOpacity>
 
       {/* Location Section */}
-      <View style={styles.locationContainer}>
+      <TouchableOpacity style={styles.locationContainer}>
         <LocationIcon width={20} height={20} fill="#FFD700" />
         <View style={styles.locationTextContainer}>
           <Text style={styles.locationTitle}>Location</Text>
           <Text style={styles.locationSubtitle}>172 Grand St, TN</Text>
+          <DownArrowIcon width={24} height={24} />
         </View>
-      </View>
+      </TouchableOpacity>
 
       {/* Cart Icon */}
       <TouchableOpacity style={styles.iconContainer}>
-        <CartIcon width={24} height={24} fill="#FFD700" />
+        <SpatulaIcon width={24} height={24} fill="#FFD700" />
         <View style={styles.badge}>
           <Text style={styles.badgeText}>3</Text>
         </View>
@@ -33,6 +35,8 @@ export const TopNavBar = () => {
     </View>
   );
 };
+
+const yellow = '#FEEB75';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,27 +59,29 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   locationTitle: {
-    color: '#FFD700', // Yellow text
+    color: yellow, // Yellow text
     fontSize: 12,
     fontWeight: 'bold',
   },
   locationSubtitle: {
-    color: '#FFD700', // Yellow text
+    color: yellow, // Yellow text
     fontSize: 12,
   },
   badge: {
     position: 'absolute',
-    top: -5,
-    right: -5,
-    backgroundColor: '#FFD700', // Yellow badge
+    top: 13,
+    right: 0,
+    // backgroundColor: '#FFD700', // Yellow badge
     borderRadius: 8,
     width: 16,
     height: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    borderColor: yellow,
+    borderWidth: 1,
   },
   badgeText: {
-    color: '#000', // Black text for contrast
+    color: yellow, // Black text for contrast
     fontSize: 10,
     fontWeight: 'bold',
   },
