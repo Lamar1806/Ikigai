@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, SafeAreaView, ScrollView } from 'react-native';
 import { HorizontalScrollableList } from '@ikigai/ui-components-native';
 import { BottomNavbar } from '../../components/bottom-nav-bar';
+import { TopNavBar } from '../../components/top-nav-bar';
 /* eslint-disable-next-line */
 export interface HomeScreenProps {}
 
@@ -33,6 +34,7 @@ export function HomeScreen(props: HomeScreenProps) {
   return (
     <SafeAreaView style={{ backgroundColor: 'black' }}>
       <ScrollView style={{ backgroundColor: 'white' }}>
+        <TopNavBar />
         <HorizontalScrollableList title="Breakfast" items={items} />
         <HorizontalScrollableList title="Coffee" items={items} />
         <HorizontalScrollableList title="Promotions" items={items} />
