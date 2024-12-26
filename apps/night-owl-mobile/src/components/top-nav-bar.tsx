@@ -9,7 +9,7 @@ import SpatulaIcon from '../assets/spatula.svg';
 import DownArrowIcon from '../assets/down-arrow.svg';
 
 export const TopNavBar = () => {
-  const [menuVisible, setMenuVisible] = useState(true);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <View style={styles.container}>

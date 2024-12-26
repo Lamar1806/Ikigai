@@ -28,7 +28,7 @@ export const NavMenu: React.FC<MenuProps> = ({ visible, onClose }) => {
   return (
     <Modal
       visible={visible}
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       onRequestClose={onClose}
     >
