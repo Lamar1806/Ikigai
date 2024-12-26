@@ -28,8 +28,8 @@ export const TopNavBar = () => {
       {/* Cart Icon */}
       <TouchableOpacity style={styles.iconContainer}>
         <SpatulaIcon width={24} height={24} fill="#FFD700" />
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>3</Text>
+        <View style={styles.spatula}>
+          <Text style={styles.spatulaText}>3</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#000', // Black background
+    backgroundColor: '#000',
     paddingHorizontal: 16,
     height: 60,
   },
@@ -59,19 +59,18 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   locationTitle: {
-    color: yellow, // Yellow text
+    color: yellow,
     fontSize: 12,
     fontWeight: 'bold',
   },
   locationSubtitle: {
-    color: yellow, // Yellow text
+    color: yellow,
     fontSize: 12,
   },
-  badge: {
+  spatula: {
     position: 'absolute',
     top: 13,
     right: 0,
-    // backgroundColor: '#FFD700', // Yellow badge
     borderRadius: 8,
     width: 16,
     height: 16,
@@ -80,8 +79,8 @@ const styles = StyleSheet.create({
     borderColor: yellow,
     borderWidth: 1,
   },
-  badgeText: {
-    color: yellow, // Black text for contrast
+  spatulaText: {
+    color: yellow,
     fontSize: 10,
     fontWeight: 'bold',
   },
