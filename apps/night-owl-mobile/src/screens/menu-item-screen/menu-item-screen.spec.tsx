@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import MenuItem from './menu-item';
+import { MenuItemScreen } from './menu-item-screen';
 
-describe('MenuItem', () => {
+describe('MenuItemScreen', () => {
   it('should render successfully', () => {
-    const { root } = render(<MenuItem />);
+    const { root } = render(<MenuItemScreen />);
     expect(root).toBeTruthy();
   });
 });

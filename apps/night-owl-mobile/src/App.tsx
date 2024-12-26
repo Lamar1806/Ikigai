@@ -6,6 +6,7 @@ import { HomeScreen } from './screens/home-screen/home-screen';
 import { LoginOrSignUpScreen } from './screens/login-or-sign-up-screen/login-or-sign-up-screen';
 import { LoginScreen } from './screens/login-screen/login-screen';
 import { SignUpScreen } from './screens/sign-up-screen/sign-up-screen';
+import { MenuItemScreen } from './screens/menu-item-screen/menu-item-screen';
 
 // Create the Stack Navigator
 const Stack = createNativeStackNavigator();
@@ -42,6 +43,12 @@ export default function App() {
         <Stack.Screen
           name="homeScreen"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        {/* Menu Item */}
+        <Stack.Screen
+          name="menuItemScreen"
+          component={MenuItemScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
