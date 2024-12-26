@@ -1,9 +1,6 @@
 import React from 'react';
-
-import { View, Text, SafeAreaView, ScrollView } from 'react-native';
 import { HorizontalScrollableList } from '@ikigai/ui-components-native';
-import { BottomNavbar } from '../../components/bottom-nav-bar';
-import { TopNavBar } from '../../components/top-nav-bar';
+import { LayoutWrapper } from '../../components/layout-wrapper';
 /* eslint-disable-next-line */
 export interface HomeScreenProps {}
 
@@ -32,17 +29,11 @@ export function HomeScreen(props: HomeScreenProps) {
   ];
 
   return (
-    <SafeAreaView style={{ backgroundColor: 'black' }}>
-      <ScrollView style={{ backgroundColor: 'black' }}>
-        <View style={{ backgroundColor: 'white' }}>
-          <TopNavBar />
-          <HorizontalScrollableList title="Breakfast" items={items} />
-          <HorizontalScrollableList title="Coffee" items={items} />
-          <HorizontalScrollableList title="Promotions" items={items} />
-          <BottomNavbar />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <LayoutWrapper>
+      <HorizontalScrollableList title="Breakfast" items={items} />
+      <HorizontalScrollableList title="Coffee" items={items} />
+      <HorizontalScrollableList title="Promotions" items={items} />
+    </LayoutWrapper>
   );
 }
 
