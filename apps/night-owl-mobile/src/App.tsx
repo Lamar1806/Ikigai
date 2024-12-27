@@ -7,6 +7,7 @@ import { LoginOrSignUpScreen } from './screens/login-or-sign-up-screen/login-or-
 import { LoginScreen } from './screens/login-screen/login-screen';
 import { SignUpScreen } from './screens/sign-up-screen/sign-up-screen';
 import { MenuItemScreen } from './screens/menu-item-screen/menu-item-screen';
+import theme from '@ikigai/theme';
 
 // Create the Stack Navigator
 const Stack = createNativeStackNavigator();
@@ -58,10 +59,10 @@ export default function App() {
 
 const options = {
   headerStyle: {
-    backgroundColor: 'black', // Background color of the header
+    backgroundColor: theme.colors.black, // Background color of the header
   },
-  headerTintColor: 'white', // Text color of the header
+  headerTintColor: theme.colors.yellow, // Text color of the header
   contentStyle: {
-    backgroundColor: 'black', // Background color of the screen
+    backgroundColor: theme.colors.black, // Background color of the screen
   },
 };
