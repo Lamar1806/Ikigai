@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     backgroundColor: '#f0f0f0',
-    padding: 8,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -84,5 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#333',
     alignSelf: 'flex-start',
+    paddingLeft: 8,
+    paddingBottom: 8,
   },
 });
