@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavMenu } from '../components/nav-menu';
 
-// Import SVG icons or replace with your own assets
+// Import SVG icons
 import MenuIcon from '../assets/nav-menu.svg';
 import LocationIcon from '../assets/location.svg';
 import SpatulaIcon from '../assets/spatula.svg';
 import DownArrowIcon from '../assets/down-arrow.svg';
+import theme from '@ikigai/theme';
 
 export const TopNavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -43,8 +44,6 @@ export const TopNavBar = () => {
   );
 };
 
-const yellow = '#FEEB75';
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -66,12 +65,12 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   locationTitle: {
-    color: yellow,
+    color: theme.colors.yellow,
     fontSize: 12,
     fontWeight: 'bold',
   },
   locationSubtitle: {
-    color: yellow,
+    color: theme.colors.yellow,
     fontSize: 12,
   },
 
@@ -84,11 +83,11 @@ const styles = StyleSheet.create({
     height: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: yellow,
+    borderColor: theme.colors.yellow,
     borderWidth: 1,
   },
   badgeText: {
-    color: yellow,
+    color: theme.colors.yellow,
     fontSize: 10,
     fontWeight: 'bold',
   },
