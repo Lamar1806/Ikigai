@@ -8,22 +8,22 @@ export function HomeScreen(props: HomeScreenProps) {
   const items = [
     {
       name: 'Item 1',
-      page: 'Item1Page',
+      page: 'menuItemScreen',
       image: 'https://via.placeholder.com/100',
     },
     {
       name: 'Item 2',
-      page: 'Item2Page',
+      page: 'menuItemScreen',
       image: 'https://via.placeholder.com/100',
     },
     {
       name: 'Item 3',
-      page: 'Item3Page',
+      page: 'menuItemScreen',
       image: 'https://via.placeholder.com/100',
     },
     {
       name: 'Item 4',
-      page: 'Item4Page',
+      page: 'menuItemScreen',
       image: 'https://via.placeholder.com/100',
     },
   ];
