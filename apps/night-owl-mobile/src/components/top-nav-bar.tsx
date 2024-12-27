@@ -18,18 +18,13 @@ export const TopNavBar = () => {
         style={styles.iconContainer}
         onPress={() => setMenuVisible(true)}
       >
-        <MenuIcon width={24} height={24} fill="#FFD700" />
+        <MenuIcon width={24} height={24} style={{ top: 4 }} />
         <NavMenu visible={menuVisible} onClose={() => setMenuVisible(false)} />
       </TouchableOpacity>
 
       {/* Location Section */}
       <TouchableOpacity style={styles.locationContainer}>
-        <LocationIcon
-          width={20}
-          height={20}
-          fill="#FFD700"
-          style={{ top: 5 }}
-        />
+        <LocationIcon width={20} height={20} style={{ top: 5 }} />
         <View style={styles.locationTextContainer}>
           <Text style={styles.locationTitle}>Location</Text>
           <Text style={styles.locationSubtitle}>172 Grand St, TN</Text>
@@ -39,7 +34,7 @@ export const TopNavBar = () => {
 
       {/* Cart Icon */}
       <TouchableOpacity style={styles.iconContainer}>
-        <SpatulaIcon width={24} height={24} fill="#FFD700" />
+        <SpatulaIcon width={24} height={24} />
         <View style={styles.badge}>
           <Text style={styles.badgeText}>3</Text>
         </View>
