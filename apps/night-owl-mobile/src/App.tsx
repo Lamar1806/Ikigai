@@ -43,15 +43,25 @@ export default function App() {
         <Stack.Screen
           name="homeScreen"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: 'Home' }}
         />
         {/* Menu Item */}
         <Stack.Screen
           name="menuItemScreen"
           component={MenuItemScreen}
-          options={{ headerShown: false }}
+          options={{ ...options }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const options = {
+  headerStyle: {
+    backgroundColor: 'black', // Background color of the header
+  },
+  headerTintColor: 'white', // Text color of the header
+  contentStyle: {
+    backgroundColor: 'black', // Background color of the screen
+  },
+};
