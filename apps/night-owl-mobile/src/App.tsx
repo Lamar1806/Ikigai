@@ -76,7 +76,7 @@ export default function App() {
         <Stack.Screen
           name="accountScreen"
           component={AccountScreen}
-          options={{ headerTitle: 'Account' }}
+          options={{ headerShown: false }}
         />
         {/* Add Payment Method Screen */}
         <Stack.Screen
@@ -100,7 +100,7 @@ export default function App() {
         <Stack.Screen
           name="menuScreen"
           component={MenuScreen}
-          options={{ headerTitle: 'Menu' }}
+          options={{ headerShown: false }}
         />
         {/* QR Code Screen */}
         <Stack.Screen
@@ -112,7 +112,7 @@ export default function App() {
         <Stack.Screen
           name="receiptScreen"
           component={ReceiptScreen}
-          options={{ headerTitle: 'Receipt' }}
+          options={{ headerShown: false }}
         />
         {/* Shopping Cart Screen */}
         <Stack.Screen

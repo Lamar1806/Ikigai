@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavMenu } from '../components/nav-menu';
+import { useNavigation } from '@react-navigation/native';
 
 // Import SVG icons
 import MenuIcon from '../assets/nav-menu.svg';
@@ -11,6 +12,7 @@ import theme from '@ikigai/theme';
 
 export const TopNavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>

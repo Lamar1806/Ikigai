@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Platform } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import {
+  useNavigation,
+  NavigationProp,
+  useRoute,
+} from '@react-navigation/native';
 import { RootStackParamList } from '../types/RootStackParamList';
 
 // Import SVGs as components
@@ -8,39 +12,78 @@ import HomeIcon from '../assets/home.svg';
 import MenuIcon from '../assets/menu.svg';
 import ReceiptIcon from '../assets/receipt.svg';
 import AccountIcon from '../assets/account.svg';
+import theme from '@ikigai/theme';
 
 export const BottomNavbar = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const route = useRoute(); // Hook to get the current route
 
-  const handleNavigation = (route: keyof RootStackParamList) => {
-    navigation.navigate(route);
+  // Function to handle navigation
+  const handleNavigation = (routeName: keyof RootStackParamList) => {
+    navigation.navigate(routeName);
   };
+
+  // Helper function to determine if the current route is active
+  const isActive = (routeName: keyof RootStackParamList) =>
+    route.name === routeName;
 
   return (
     <View style={styles.navbar}>
+      {/* Home */}
       <TouchableOpacity
-        style={styles.navItem}
+        style={[
+          styles.navItem,
+          isActive('homeScreen') && styles.activeNavItem, // Apply active style
+        ]}
         onPress={() => handleNavigation('homeScreen')}
       >
-        <HomeIcon width={30} height={20} />
+        <HomeIcon
+          width={30}
+          height={20}
+          style={isActive('homeScreen') ? styles.activeIcon : undefined}
+        />
       </TouchableOpacity>
+      {/* Menu */}
       <TouchableOpacity
-        style={styles.navItem}
+        style={[
+          styles.navItem,
+          isActive('menuScreen') && styles.activeNavItem, // Apply active style
+        ]}
         onPress={() => handleNavigation('menuScreen')}
       >
-        <MenuIcon width={30} height={20} />
+        <MenuIcon
+          width={30}
+          height={20}
+          style={isActive('menuScreen') ? styles.activeIcon : undefined}
+        />
       </TouchableOpacity>
+      {/* Receipt */}
       <TouchableOpacity
-        style={styles.navItem}
+        style={[
+          styles.navItem,
+          isActive('receiptScreen') && styles.activeNavItem, // Apply active style
+        ]}
         onPress={() => handleNavigation('receiptScreen')}
       >
-        <ReceiptIcon width={30} height={20} />
+        <ReceiptIcon
+          width={30}
+          height={20}
+          style={isActive('receiptScreen') ? styles.activeIcon : undefined}
+        />
       </TouchableOpacity>
+      {/* Account */}
       <TouchableOpacity
-        style={styles.navItem}
+        style={[
+          styles.navItem,
+          isActive('accountScreen') && styles.activeNavItem, // Apply active style
+        ]}
         onPress={() => handleNavigation('accountScreen')}
       >
-        <AccountIcon width={30} height={20} />
+        <AccountIcon
+          width={30}
+          height={20}
+          style={isActive('accountScreen') ? styles.activeIcon : undefined}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -59,5 +102,14 @@ const styles = StyleSheet.create({
   navItem: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  activeNavItem: {
+    borderColor: theme.colors.yellow, // Yellow outline
+    borderWidth: 2,
+    borderRadius: theme.borderRadius.lg, // Round the border for aesthetics
+    padding: 5,
+  },
+  activeIcon: {
+    color: theme.colors.black, // Yellow color for the active icon
   },
 });
