@@ -32,13 +32,13 @@ export default function App() {
         <Stack.Screen
           name="loginScreen"
           component={LoginScreen}
-          options={{ headerShown: false }}
+          options={{ ...optionsForAuth, headerTitle: 'Login' }}
         />
         {/* Sign Up Screen */}
         <Stack.Screen
           name="signUpScreen"
           component={SignUpScreen}
-          options={{ headerShown: false }}
+          options={{ ...optionsForAuth, headerTitle: 'Sign Up' }}
         />
         {/* Home Screen */}
         <Stack.Screen
@@ -56,6 +56,13 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const optionsForAuth = {
+  headerStyle: {
+    backgroundColor: theme.colors.black, // Background color of the header
+  },
+  headerTintColor: theme.colors.white, // Text color of the header
+};
 
 const options = {
   headerStyle: {
