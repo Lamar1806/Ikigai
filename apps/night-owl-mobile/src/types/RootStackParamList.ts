@@ -17,4 +17,5 @@ export type RootStackParamList = {
   supportScreen: undefined;
   viewPaymentScreen: undefined;
   walletScreen: undefined;
+  menuItemScreen: undefined;
 };

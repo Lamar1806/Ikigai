@@ -20,10 +20,11 @@ import { ShoppingCartItemScreen } from './screens/shopping-cart-item-screen/shop
 import { SupportScreen } from './screens/support-screen/support-screen';
 import { ViewPaymentScreen } from './screens/view-payment-screen/view-payment-screen';
 import { WalletScreen } from './screens/wallet-screen/wallet-screen';
+import type { RootStackParamList } from './types/RootStackParamList';
 import theme from '@ikigai/theme';
 
 // Create the Stack Navigator
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
@@ -31,115 +32,115 @@ export default function App() {
       <Stack.Navigator>
         {/* Splash Screen */}
         <Stack.Screen
-          name="Splash"
+          name="splashScreen"
           component={SplashScreen}
-          options={{ headerShown: false }} // Hide the header for SplashScreen
+          options={{ headerShown: false }}
         />
         {/* Login or Sign Up Screen */}
         <Stack.Screen
-          name="LoginOrSignUp"
+          name="loginOrSignUpScreen"
           component={LoginOrSignUpScreen}
           options={{ headerShown: false }}
         />
         {/* Login Screen */}
         <Stack.Screen
-          name="Login"
+          name="loginScreen"
           component={LoginScreen}
           options={{ ...optionsForAuth, headerTitle: 'Login' }}
         />
         {/* Sign Up Screen */}
         <Stack.Screen
-          name="SignUp"
+          name="signUpScreen"
           component={SignUpScreen}
           options={{ ...optionsForAuth, headerTitle: 'Sign Up' }}
         />
         {/* Home Screen */}
         <Stack.Screen
-          name="Home"
+          name="homeScreen"
           component={HomeScreen}
           options={{ headerShown: false, headerTitle: 'Home' }}
         />
         {/* Menu Item Screen */}
         <Stack.Screen
-          name="MenuItem"
+          name="menuItemScreen"
           component={MenuItemScreen}
           options={{ ...options }}
         />
         {/* About Us Screen */}
         <Stack.Screen
-          name="AboutUs"
+          name="aboutUsScreen"
           component={AboutUsScreen}
           options={{ headerTitle: 'About Us' }}
         />
         {/* Account Screen */}
         <Stack.Screen
-          name="Account"
+          name="accountScreen"
           component={AccountScreen}
           options={{ headerTitle: 'Account' }}
         />
         {/* Add Payment Method Screen */}
         <Stack.Screen
-          name="AddPaymentMethod"
+          name="addPaymentMethodScreen"
           component={AddPaymentMethodScreen}
           options={{ headerTitle: 'Add Payment Method' }}
         />
         {/* Favorites Screen */}
         <Stack.Screen
-          name="Favorites"
+          name="favoritesScreen"
           component={FavoritesScreen}
           options={{ headerTitle: 'Favorites' }}
         />
         {/* Feedback Screen */}
         <Stack.Screen
-          name="Feedback"
+          name="feedbackScreen"
           component={FeedbackScreen}
           options={{ headerTitle: 'Feedback' }}
         />
         {/* Menu Screen */}
         <Stack.Screen
-          name="Menu"
+          name="menuScreen"
           component={MenuScreen}
           options={{ headerTitle: 'Menu' }}
         />
         {/* QR Code Screen */}
         <Stack.Screen
-          name="QRCode"
+          name="qrCodeScreen"
           component={QrCodeScreen}
           options={{ headerTitle: 'QR Code' }}
         />
         {/* Receipt Screen */}
         <Stack.Screen
-          name="Receipt"
+          name="receiptScreen"
           component={ReceiptScreen}
           options={{ headerTitle: 'Receipt' }}
         />
         {/* Shopping Cart Screen */}
         <Stack.Screen
-          name="ShoppingCart"
+          name="shoppingCartScreen"
           component={ShoppingCartScreen}
           options={{ headerTitle: 'Shopping Cart' }}
         />
         {/* Shopping Cart Item Screen */}
         <Stack.Screen
-          name="ShoppingCartItem"
+          name="shoppingCartItemScreen"
           component={ShoppingCartItemScreen}
           options={{ headerTitle: 'Cart Item' }}
         />
         {/* Support Screen */}
         <Stack.Screen
-          name="Support"
+          name="supportScreen"
           component={SupportScreen}
           options={{ headerTitle: 'Support' }}
         />
         {/* View Payment Screen */}
         <Stack.Screen
-          name="ViewPayment"
+          name="viewPaymentScreen"
           component={ViewPaymentScreen}
           options={{ headerTitle: 'View Payment' }}
         />
         {/* Wallet Screen */}
         <Stack.Screen
-          name="Wallet"
+          name="walletScreen"
           component={WalletScreen}
           options={{ headerTitle: 'Wallet' }}
         />
@@ -150,17 +151,17 @@ export default function App() {
 
 const optionsForAuth = {
   headerStyle: {
-    backgroundColor: theme.colors.black, // Background color of the header
+    backgroundColor: theme.colors.black,
   },
-  headerTintColor: theme.colors.white, // Text color of the header
+  headerTintColor: theme.colors.white,
 };
 
 const options = {
   headerStyle: {
-    backgroundColor: theme.colors.black, // Background color of the header
+    backgroundColor: theme.colors.black,
   },
-  headerTintColor: theme.colors.yellow, // Text color of the header
+  headerTintColor: theme.colors.yellow,
   contentStyle: {
-    backgroundColor: theme.colors.black, // Background color of the screen
+    backgroundColor: theme.colors.black,
   },
 };
