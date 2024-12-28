@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+  TextStyle,
+} from 'react-native';
 import {
   useNavigation,
   NavigationProp,
@@ -40,7 +46,11 @@ export const BottomNavbar = () => {
         <HomeIcon
           width={30}
           height={20}
-          style={isActive('homeScreen') ? styles.activeIcon : undefined}
+          style={
+            isActive('homeScreen')
+              ? [styles.activeIcon as TextStyle]
+              : undefined
+          }
         />
       </TouchableOpacity>
       {/* Menu */}
@@ -54,7 +64,11 @@ export const BottomNavbar = () => {
         <MenuIcon
           width={30}
           height={20}
-          style={isActive('menuScreen') ? styles.activeIcon : undefined}
+          style={
+            isActive('menuScreen')
+              ? [styles.activeIcon as TextStyle]
+              : undefined
+          }
         />
       </TouchableOpacity>
       {/* Receipt */}
@@ -68,7 +82,11 @@ export const BottomNavbar = () => {
         <ReceiptIcon
           width={30}
           height={20}
-          style={isActive('receiptScreen') ? styles.activeIcon : undefined}
+          style={
+            isActive('receiptScreen')
+              ? [styles.activeIcon as TextStyle]
+              : undefined
+          }
         />
       </TouchableOpacity>
       {/* Account */}
@@ -82,7 +100,11 @@ export const BottomNavbar = () => {
         <AccountIcon
           width={30}
           height={20}
-          style={isActive('accountScreen') ? styles.activeIcon : undefined}
+          style={
+            isActive('accountScreen')
+              ? [styles.activeIcon as TextStyle]
+              : undefined
+          }
         />
       </TouchableOpacity>
     </View>
