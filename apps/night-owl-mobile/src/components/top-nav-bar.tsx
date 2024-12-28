@@ -9,10 +9,11 @@ import LocationIcon from '../assets/location.svg';
 import SpatulaIcon from '../assets/spatula.svg';
 import DownArrowIcon from '../assets/down-arrow.svg';
 import theme from '@ikigai/theme';
+import { RootStackParamList } from '../types/RootStackParamList';
 
 export const TopNavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
-  const navigation = useNavigation();
+  const navigation = useNavigation<RootStackParamList>();
 
   return (
     <View style={styles.container}>
@@ -36,7 +37,10 @@ export const TopNavBar = () => {
       </TouchableOpacity>
 
       {/* Cart Icon */}
-      <TouchableOpacity style={styles.iconContainer}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate('shoppingCartScreen')}
+      >
         <SpatulaIcon width={24} height={24} />
         <View style={styles.badge}>
           <Text style={styles.badgeText}>3</Text>
