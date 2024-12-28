@@ -1,6 +1,8 @@
 import React from 'react';
 import { HorizontalScrollableList } from '@ikigai/ui-components-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
+import { menu } from '../../mock-data/menu';
+
 /* eslint-disable-next-line */
 export interface HomeScreenProps {}
 
@@ -30,9 +32,21 @@ export function HomeScreen(props: HomeScreenProps) {
 
   return (
     <LayoutWrapper>
-      <HorizontalScrollableList title="Breakfast" items={items} />
-      <HorizontalScrollableList title="Coffee" items={items} />
-      <HorizontalScrollableList title="Promotions" items={items} />
+      <HorizontalScrollableList
+        title="Breakfast"
+        items={menu.food}
+        toScreen="menuItemScreen"
+      />
+      <HorizontalScrollableList
+        title="Coffee"
+        items={menu.coffee}
+        toScreen="menuItemScreen"
+      />
+      <HorizontalScrollableList
+        title="Promotions"
+        items={menu.holidayAddOns}
+        toScreen="menuItemScreen"
+      />
     </LayoutWrapper>
   );
 }
