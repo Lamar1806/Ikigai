@@ -20,7 +20,7 @@ export const ReceiptScreen = () => {
   const navigation = useNavigation();
 
   const navigateToReceiptItem = (orderId) => {
-    navigation.navigate('receiptItemScreen', { orderId }); // Ensure you have this route set up in your navigator
+    navigation.navigate('receiptItemScreen', { orderId });
   };
 
   const renderReceiptItem = ({ item }) => (

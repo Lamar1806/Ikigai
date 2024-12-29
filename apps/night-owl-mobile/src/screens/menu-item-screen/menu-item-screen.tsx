@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  FlatList,
   CheckBox,
 } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
@@ -20,8 +19,8 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
 
   // State for managing extras, condiments, and quantity
   const [quantity, setQuantity] = useState(1);
-  const [selectedExtras, setSelectedExtras] = useState([]);
-  const [selectedCondiments, setSelectedCondiments] = useState([]);
+  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
+  const [selectedCondiments, setSelectedCondiments] = useState<string[]>([]);
 
   // Dynamically set the screen title
   useEffect(() => {
@@ -36,7 +35,7 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   // Handle selection for extras or condiments
-  const handleSelect = (type, name) => {
+  const handleSelect = (type: 'extras' | 'condiments', name: string) => {
     if (type === 'extras') {
       setSelectedExtras((prev) =>
         prev.includes(name)
@@ -91,37 +90,29 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
         {/* Extras Section */}
         <View style={styles.section}>
           <Text style={styles.subTitle}>Extras</Text>
-          <FlatList
-            data={item.extras || []} // Assuming item.extras contains extras for this menu item
-            keyExtractor={(extra) => extra}
-            renderItem={({ item: extra }) => (
-              <View style={styles.optionContainer}>
-                <Text>{extra}</Text>
-                <CheckBox
-                  value={selectedExtras.includes(extra)}
-                  onValueChange={() => handleSelect('extras', extra)}
-                />
-              </View>
-            )}
-          />
+          {(item.extras || []).map((extra: string) => (
+            <View style={styles.optionContainer} key={extra}>
+              <Text>{extra}</Text>
+              <CheckBox
+                value={selectedExtras.includes(extra)}
+                onValueChange={() => handleSelect('extras', extra)}
+              />
+            </View>
+          ))}
         </View>
 
         {/* Condiments Section */}
         <View style={styles.section}>
           <Text style={styles.subTitle}>Condiments</Text>
-          <FlatList
-            data={item.condiments || []} // Assuming item.condiments contains condiments for this menu item
-            keyExtractor={(cond) => cond}
-            renderItem={({ item: cond }) => (
-              <View style={styles.optionContainer}>
-                <Text>{cond}</Text>
-                <CheckBox
-                  value={selectedCondiments.includes(cond)}
-                  onValueChange={() => handleSelect('condiments', cond)}
-                />
-              </View>
-            )}
-          />
+          {(item.condiments || []).map((condiment: string) => (
+            <View style={styles.optionContainer} key={condiment}>
+              <Text>{condiment}</Text>
+              <CheckBox
+                value={selectedCondiments.includes(condiment)}
+                onValueChange={() => handleSelect('condiments', condiment)}
+              />
+            </View>
+          ))}
         </View>
 
         {/* Add to Cart Button */}
