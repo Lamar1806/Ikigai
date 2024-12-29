@@ -101,7 +101,7 @@ export default function App() {
         <Stack.Screen
           name="menuScreen"
           component={MenuScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: 'Menu' }}
         />
         {/* QR Code Screen */}
         <Stack.Screen
