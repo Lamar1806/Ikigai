@@ -3,25 +3,23 @@ import {
   View,
   Text,
   TextInput,
-  FlatList,
   StyleSheet,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
-
-const mockData = Array.from({ length: 10 }, (_, index) => ({
-  id: index.toString(),
-  title: 'Morning Boost Breakfast Plate',
-  price: '$11.49',
-  image: 'https://via.placeholder.com/60', // Placeholder image
-}));
+import { menu } from '../../mock-data/menu'; // Replace with the actual path to your menu data
 
 export const MenuScreen = () => {
   const [searchText, setSearchText] = useState('');
 
-  const filteredData = mockData.filter((item) =>
-    item.title.toLowerCase().includes(searchText.toLowerCase())
+  // Flatten the menu categories into a single array for easier searching and rendering
+  const menuItems = Object.values(menu).flat();
+
+  // Filter items based on the search text
+  const filteredData = menuItems.filter((item) =>
+    item.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
@@ -38,24 +36,30 @@ export const MenuScreen = () => {
         </View>
 
         {/* Food List */}
-        <FlatList
-          data={filteredData}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TouchableOpacity style={styles.itemContainer}>
+        <ScrollView contentContainerStyle={styles.listContainer}>
+          {filteredData.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={styles.itemContainer}
+              onPress={() => {
+                // Navigate to the menu item screen with the selected item
+                console.log('Item selected:', item);
+              }}
+            >
               <View style={styles.textContainer}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.price}>{item.price}</Text>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.price}>${item.price.toFixed(2)}</Text>
               </View>
               <Image
-                source={{ uri: item.image }}
+                source={{
+                  uri: item.image || 'https://via.placeholder.com/60',
+                }}
                 style={styles.image}
                 resizeMode="cover"
               />
             </TouchableOpacity>
-          )}
-          contentContainerStyle={styles.listContainer}
-        />
+          ))}
+        </ScrollView>
       </View>
     </LayoutWrapper>
   );
