@@ -37,7 +37,7 @@ export const ReceiptScreen = () => {
   );
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper useScrollView={false}>
       <View style={styles.container}>
         <FlatList
           data={receiptData}

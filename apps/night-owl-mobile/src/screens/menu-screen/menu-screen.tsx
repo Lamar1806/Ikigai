@@ -25,7 +25,7 @@ export const MenuScreen = () => {
   );
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper useScrollView={false}>
       <View style={styles.container}>
         {/* Search Bar */}
         <View style={styles.searchContainer}>

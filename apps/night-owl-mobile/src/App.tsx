@@ -113,13 +113,13 @@ export default function App() {
         <Stack.Screen
           name="receiptScreen"
           component={ReceiptScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: 'Receipts' }}
         />
         {/* Receipt Item Screen */}
         <Stack.Screen
           name="receiptItemScreen"
           component={ReceiptItemScreen}
-          options={{ ...options, headerTitle: 'Receipt Item' }}
+          options={{ ...options, headerTitle: 'Receipt Details' }}
         />
         {/* Shopping Cart Screen */}
         <Stack.Screen
