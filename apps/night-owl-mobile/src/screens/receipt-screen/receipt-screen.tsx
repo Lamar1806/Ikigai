@@ -8,7 +8,7 @@ export interface ReceiptScreenProps {}
 
 export function ReceiptScreen(props: ReceiptScreenProps) {
   return (
-    <LayoutWrapper>
+    <LayoutWrapper showTopNavBar={false}>
       <Text>Welcome to receiptScreen!</Text>
     </LayoutWrapper>
   );

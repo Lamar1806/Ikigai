@@ -8,7 +8,7 @@ export interface AccountScreenProps {}
 
 export function AccountScreen(props: AccountScreenProps) {
   return (
-    <LayoutWrapper>
+    <LayoutWrapper showTopNavBar={false}>
       <Text>Welcome to accountScreen!</Text>
     </LayoutWrapper>
   );
