@@ -5,7 +5,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import MailIcon from '../../assets/mail.svg';
 import { LayoutWrapper } from '../../components/layout-wrapper';
@@ -36,28 +35,34 @@ export const ReceiptItemScreen = () => {
           Order Number {orderData.orderNumber}
         </Text>
 
-        {/* Order Items */}
-        <FlatList
-          data={orderData.items}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.itemContainer}>
-              <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text>
+        {/* Order Items with Total and Email Button */}
+        <View style={styles.listAndSummary}>
+          {/* Order Items */}
+          <FlatList
+            data={orderData.items}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.itemContainer}>
+                <Text style={styles.itemName}>{item.name}</Text>
+                <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text>
+              </View>
+            )}
+            style={styles.itemsList}
+          />
+
+          {/* Total */}
+          <Text style={styles.total}>Total: ${orderData.total.toFixed(2)}</Text>
+
+          {/* Email Button */}
+          <TouchableOpacity
+            style={styles.emailButton}
+            onPress={handleEmailPress}
+          >
+            <View style={styles.emailIconContainer}>
+              <MailIcon style={styles.emailIcon} />
             </View>
-          )}
-          style={styles.itemsList}
-        />
-
-        {/* Total */}
-        <Text style={styles.total}>Total: ${orderData.total.toFixed(2)}</Text>
-
-        {/* Email Button */}
-        <TouchableOpacity style={styles.emailButton} onPress={handleEmailPress}>
-          <View style={styles.emailIconContainer}>
-            <MailIcon style={styles.emailIcon} />
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
       </View>
     </LayoutWrapper>
   );
@@ -87,8 +92,11 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginBottom: 16,
   },
+  listAndSummary: {
+    marginTop: 16,
+  },
   itemsList: {
-    marginBottom: 16,
+    marginBottom: 8,
   },
   itemContainer: {
     flexDirection: 'row',
@@ -115,6 +123,7 @@ const styles = StyleSheet.create({
   emailButton: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 8, // Adjust spacing between the total and the email button
   },
   emailIconContainer: {
     width: 50,
