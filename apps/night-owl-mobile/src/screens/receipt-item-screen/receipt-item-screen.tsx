@@ -24,7 +24,7 @@ export const ReceiptItemScreen = () => {
   };
 
   return (
-    <LayoutWrapper showTopNavBar={false}>
+    <LayoutWrapper showTopNavBar={false} useScrollView={false}>
       <View style={styles.container}>
         {/* Status */}
         <Text style={styles.status}>Status: {orderData.status}</Text>

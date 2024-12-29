@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  CheckBox,
-} from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
+import CheckBox from '@react-native-community/checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 export interface MenuItemScreenProps {}
