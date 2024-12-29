@@ -20,6 +20,7 @@ import { ShoppingCartItemScreen } from './screens/shopping-cart-item-screen/shop
 import { SupportScreen } from './screens/support-screen/support-screen';
 import { ViewPaymentScreen } from './screens/view-payment-screen/view-payment-screen';
 import { WalletScreen } from './screens/wallet-screen/wallet-screen';
+import { ReceiptItemScreen } from './screens/receipt-item-screen/receipt-item-screen';
 import type { RootStackParamList } from './types/RootStackParamList';
 import theme from '@ikigai/theme';
 
@@ -113,6 +114,12 @@ export default function App() {
           name="receiptScreen"
           component={ReceiptScreen}
           options={{ headerShown: false }}
+        />
+        {/* Receipt Item Screen */}
+        <Stack.Screen
+          name="receiptItemScreen"
+          component={ReceiptItemScreen}
+          options={{ ...options, headerTitle: 'Receipt Item' }}
         />
         {/* Shopping Cart Screen */}
         <Stack.Screen
