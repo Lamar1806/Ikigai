@@ -39,9 +39,9 @@ export const MenuScreen = () => {
 
         {/* Food List */}
         <ScrollView contentContainerStyle={styles.listContainer}>
-          {filteredData.map((item) => (
+          {filteredData.map((item, index) => (
             <TouchableOpacity
-              key={item.id}
+              key={index}
               style={styles.itemContainer}
               onPress={() => {
                 // Navigate to the menu item screen with the selected item
