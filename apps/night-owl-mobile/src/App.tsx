@@ -1,75 +1,13 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'; // Navigation Container
-import { createNativeStackNavigator } from '@react-navigation/native-stack'; // Stack Navigator
-import { SplashScreen } from './screens/splash-screen/splash-screen';
-import { HomeScreen } from './screens/home-screen/home-screen';
-import { LoginOrSignUpScreen } from './screens/login-or-sign-up-screen/login-or-sign-up-screen';
-import { LoginScreen } from './screens/login-screen/login-screen';
-import { SignUpScreen } from './screens/sign-up-screen/sign-up-screen';
-import { MenuItemScreen } from './screens/menu-item-screen/menu-item-screen';
-import theme from '@ikigai/theme';
-
-// Create the Stack Navigator
-const Stack = createNativeStackNavigator();
+import AppNavigator from './navigation/AppNavigator';
+import { CartContext } from './context/cart';
+import { useCart } from './hooks/use-cart';
 
 export default function App() {
+  const cart = useCart();
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {/* Splash Screen */}
-        <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-          options={{ headerShown: false }} // Hide the header for SplashScreen
-        />
-        {/* Home Screen */}
-        <Stack.Screen
-          name="loginOrSignUpScreen"
-          component={LoginOrSignUpScreen}
-          options={{ headerShown: false }}
-        />
-        {/* Login Screen */}
-        <Stack.Screen
-          name="loginScreen"
-          component={LoginScreen}
-          options={{ ...optionsForAuth, headerTitle: 'Login' }}
-        />
-        {/* Sign Up Screen */}
-        <Stack.Screen
-          name="signUpScreen"
-          component={SignUpScreen}
-          options={{ ...optionsForAuth, headerTitle: 'Sign Up' }}
-        />
-        {/* Home Screen */}
-        <Stack.Screen
-          name="homeScreen"
-          component={HomeScreen}
-          options={{ headerShown: false, headerTitle: 'Home' }}
-        />
-        {/* Menu Item */}
-        <Stack.Screen
-          name="menuItemScreen"
-          component={MenuItemScreen}
-          options={{ ...options }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CartContext.Provider value={cart}>
+      <AppNavigator />
+    </CartContext.Provider>
   );
 }
-
-const optionsForAuth = {
-  headerStyle: {
-    backgroundColor: theme.colors.black, // Background color of the header
-  },
-  headerTintColor: theme.colors.white, // Text color of the header
-};
-
-const options = {
-  headerStyle: {
-    backgroundColor: theme.colors.black, // Background color of the header
-  },
-  headerTintColor: theme.colors.yellow, // Text color of the header
-  contentStyle: {
-    backgroundColor: theme.colors.black, // Background color of the screen
-  },
-};

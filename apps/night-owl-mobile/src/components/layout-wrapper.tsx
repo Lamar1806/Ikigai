@@ -6,28 +6,36 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import { TopNavBar } from '../components/top-nav-bar';
-import { BottomNavbar } from '../components/bottom-nav-bar';
+import { TopNavBar } from './top-nav-bar';
+import { BottomNavbar } from '../navigation/bottom-nav-bar';
 
 interface LayoutWrapperProps {
   children: React.ReactNode;
   style?: object; // Optional additional styling for the main container
   showTopNavBar?: boolean; // Optional prop to control the visibility of the top navbar
+  showBottomNavBar?: boolean; // Optional prop to control the visibility of the bottom navbar
+  useScrollView?: boolean; // Optional prop to control whether a ScrollView is used
 }
 
 export const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
   children,
   style,
   showTopNavBar = true, // Default to true if not provided
+  showBottomNavBar = true, // Default to true if not provided
+  useScrollView = true, // Default to true if not provided
 }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, style]}>
         {showTopNavBar && <TopNavBar />}
-        <ScrollView contentContainerStyle={styles.scrollContent}>
-          {children}
-        </ScrollView>
-        <BottomNavbar />
+        {useScrollView ? (
+          <ScrollView contentContainerStyle={styles.scrollContent}>
+            {children}
+          </ScrollView>
+        ) : (
+          <View style={styles.contentContainer}>{children}</View>
+        )}
+        {showBottomNavBar && <BottomNavbar />}
       </View>
     </SafeAreaView>
   );
@@ -47,8 +55,10 @@ const styles = StyleSheet.create({
     minHeight: Dimensions.get('window').height, // Minimum height of the ScrollView is the device height
     backgroundColor: 'white',
   },
-  container: {
+  contentContainer: {
+    flex: 1, // Ensures the content container takes up the available space
     backgroundColor: 'white',
-    flex: 1,
   },
 });
+
+export default LayoutWrapper;

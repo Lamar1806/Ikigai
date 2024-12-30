@@ -1,16 +1,122 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import { LayoutWrapper } from '../../components/layout-wrapper';
+import { menu } from '../../mock-data/menu'; // Replace with the actual path to your menu data
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-import { View, Text } from 'react-native';
+import { RootStackParamList } from '../../types/RootStackParamList'; // Ensure this is correctly defined
 
-/* eslint-disable-next-line */
-export interface MenuScreenProps {}
+export const MenuScreen = () => {
+  // Correctly type the navigation hook
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const [searchText, setSearchText] = useState('');
 
-export function MenuScreen(props: MenuScreenProps) {
-  return (
-    <View>
-      <Text>Welcome to menuScreen!</Text>
-    </View>
+  // Flatten the menu categories into a single array for easier searching and rendering
+  const menuItems = Object.values(menu).flat();
+
+  // Filter items based on the search text
+  const filteredData = menuItems.filter((item) =>
+    item.name.toLowerCase().includes(searchText.toLowerCase())
   );
-}
 
-export default MenuScreen;
+  return (
+    <LayoutWrapper useScrollView={false}>
+      <View style={styles.container}>
+        {/* Search Bar */}
+        <View style={styles.searchContainer}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search Our Food Menu"
+            value={searchText}
+            onChangeText={setSearchText}
+          />
+        </View>
+
+        {/* Food List */}
+        <ScrollView contentContainerStyle={styles.listContainer}>
+          {filteredData.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.itemContainer}
+              onPress={() => {
+                // Navigate to the menu item screen with the selected item
+                navigation.navigate('menuItemScreen', { item });
+              }}
+            >
+              <View style={styles.textContainer}>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+              </View>
+              <Image
+                source={{
+                  uri: item.image || 'https://via.placeholder.com/60',
+                }}
+                style={styles.image}
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+    </LayoutWrapper>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingTop: 20,
+  },
+  searchContainer: {
+    marginBottom: 16,
+  },
+  searchInput: {
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingLeft: 12,
+    backgroundColor: '#f5f5f5',
+  },
+  listContainer: {
+    paddingBottom: 20,
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  textContainer: {
+    flex: 1,
+    marginRight: 16,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  price: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
+    backgroundColor: '#eee',
+  },
+});

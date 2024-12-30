@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   Text,
   TouchableOpacity,
   StyleSheet,
@@ -14,7 +13,7 @@ interface MenuProps {
   onClose: () => void;
 }
 
-export const NavMenu: React.FC<MenuProps> = ({ visible, onClose }) => {
+export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
   const menuItems = [
     'Drinks',
     'Sides',

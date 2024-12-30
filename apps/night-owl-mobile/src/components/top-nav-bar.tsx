@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { NavMenu } from '../components/nav-menu';
-
-// Import SVG icons
+import { NavMenuModal } from './nav-menu-modal';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import MenuIcon from '../assets/nav-menu.svg';
 import LocationIcon from '../assets/location.svg';
 import SpatulaIcon from '../assets/spatula.svg';
 import DownArrowIcon from '../assets/down-arrow.svg';
+import { RootStackParamList } from '../types/RootStackParamList';
 import theme from '@ikigai/theme';
+import { LocationModal } from './location-modal'; // Import the new component
 
 export const TopNavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const [locationModalVisible, setLocationModalVisible] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState('172 Grand St, TN');
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+  const locations = [
+    '172 Grand St, TN',
+    '123 Main St, NY',
+    '456 Elm St, CA',
+    '789 Maple Ave, TX',
+  ];
+
+  const handleLocationSelect = (location: string) => {
+    setSelectedLocation(location);
+    setLocationModalVisible(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -20,26 +36,44 @@ export const TopNavBar = () => {
         onPress={() => setMenuVisible(true)}
       >
         <MenuIcon width={24} height={24} style={{ top: 4 }} />
-        <NavMenu visible={menuVisible} onClose={() => setMenuVisible(false)} />
+        <NavMenuModal
+          visible={menuVisible}
+          onClose={() => setMenuVisible(false)}
+        />
       </TouchableOpacity>
 
       {/* Location Section */}
-      <TouchableOpacity style={styles.locationContainer}>
+      <TouchableOpacity
+        style={styles.locationContainer}
+        onPress={() => setLocationModalVisible(true)}
+      >
         <LocationIcon width={20} height={20} style={{ top: 5 }} />
         <View style={styles.locationTextContainer}>
           <Text style={styles.locationTitle}>Location</Text>
-          <Text style={styles.locationSubtitle}>172 Grand St, TN</Text>
+          <Text style={styles.locationSubtitle}>{selectedLocation}</Text>
         </View>
         <DownArrowIcon width={10} height={10} style={{ top: 7 }} />
       </TouchableOpacity>
 
       {/* Cart Icon */}
-      <TouchableOpacity style={styles.iconContainer}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate('shoppingCartScreen')}
+      >
         <SpatulaIcon width={24} height={24} />
         <View style={styles.badge}>
           <Text style={styles.badgeText}>3</Text>
         </View>
       </TouchableOpacity>
+
+      {/* Location Modal */}
+      <LocationModal
+        visible={locationModalVisible}
+        locations={locations}
+        onSelectLocation={handleLocationSelect}
+        onClose={() => setLocationModalVisible(false)}
+        selectedLocation={selectedLocation}
+      />
     </View>
   );
 };
@@ -73,7 +107,6 @@ const styles = StyleSheet.create({
     color: theme.colors.yellow,
     fontSize: 12,
   },
-
   badge: {
     position: 'absolute',
     top: 13,

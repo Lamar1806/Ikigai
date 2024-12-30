@@ -9,23 +9,29 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-type Item = {
-  page: string;
+export type Item = {
+  id: number;
   name: string;
-  image: string;
+  description: string;
+  ingredients: string[];
+  spicy: boolean;
+  vegetarian: boolean;
+  price: number;
+  image?: string; // Optional if you don't have images for all items
 };
 
 interface Props {
   title: string;
   items: Item[];
+  toScreen: string;
 }
 
-export const HorizontalScrollableList = ({ title, items }: Props) => {
+export const HorizontalScrollableList = ({ title, items, toScreen }: Props) => {
   const navigation = useNavigation();
 
   const handleItemPress = (item: Item) => {
     //@ts-ignore
-    navigation.navigate(item.page, { item }); // Navigate to the item's page with its data
+    navigation.navigate(toScreen, { item }); // Navigate to the item's page with its data
   };
 
   const renderItem = ({ item }: { item: Item }) => (
@@ -33,7 +39,10 @@ export const HorizontalScrollableList = ({ title, items }: Props) => {
       style={styles.itemContainer}
       onPress={() => handleItemPress(item)}
     >
-      <Image source={{ uri: item.image }} style={styles.itemImage} />
+      <Image
+        source={{ uri: item?.image || 'https://via.placeholder.com/100' }}
+        style={styles.itemImage}
+      />
       <Text style={styles.itemName}>{item.name}</Text>
     </TouchableOpacity>
   );
