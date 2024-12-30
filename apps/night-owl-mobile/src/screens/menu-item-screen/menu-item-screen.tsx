@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { CartContext } from '../../context/cart';
 
 export interface MenuItemScreenProps {}
 
@@ -10,6 +11,7 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
   const route = useRoute(); // Access the current route
   const navigation = useNavigation(); // Access the navigation object
   const { item } = route.params; // Retrieve the item from route params
+  const { addItemToCart } = useContext(CartContext); // Access the addItemToCart method
 
   // State for managing extras, condiments, and quantity
   const [quantity, setQuantity] = useState(1);
@@ -43,6 +45,20 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
           : [...prev, name]
       );
     }
+  };
+
+  // Handle adding the item to the cart
+  const handleAddToCart = () => {
+    const itemToAdd = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity,
+      extras: selectedExtras,
+      condiments: selectedCondiments,
+    };
+    addItemToCart(itemToAdd);
+    // navigation.navigate('shoppingCartScreen'); // Redirect to the shopping cart after adding
   };
 
   // Calculate total price dynamically
@@ -110,7 +126,10 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
         </View>
 
         {/* Add to Cart Button */}
-        <TouchableOpacity style={styles.addToCartButton}>
+        <TouchableOpacity
+          style={styles.addToCartButton}
+          onPress={handleAddToCart}
+        >
           <Text style={styles.addToCartText}>Add to Cart ${totalPrice}</Text>
         </TouchableOpacity>
       </View>
