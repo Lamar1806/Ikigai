@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavMenuModal } from './nav-menu-modal';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
@@ -9,12 +9,14 @@ import DownArrowIcon from '../assets/down-arrow.svg';
 import { RootStackParamList } from '../types/RootStackParamList';
 import theme from '@ikigai/theme';
 import { LocationModal } from './location-modal'; // Import the new component
+import { CartContext } from '../context/cart';
 
 export const TopNavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [locationModalVisible, setLocationModalVisible] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('172 Grand St, TN');
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const cart = useContext(CartContext);
 
   const locations = [
     '172 Grand St, TN',
@@ -62,7 +64,7 @@ export const TopNavBar = () => {
       >
         <SpatulaIcon width={24} height={24} />
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>3</Text>
+          <Text style={styles.badgeText}>{cart.getTotalItems()}</Text>
         </View>
       </TouchableOpacity>
 

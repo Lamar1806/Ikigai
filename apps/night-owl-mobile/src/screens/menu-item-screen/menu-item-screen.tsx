@@ -1,8 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { CartContext } from '../../context/cart';
 
 export interface MenuItemScreenProps {}
 
@@ -10,6 +18,7 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
   const route = useRoute(); // Access the current route
   const navigation = useNavigation(); // Access the navigation object
   const { item } = route.params; // Retrieve the item from route params
+  const { addItemToCart } = useContext(CartContext); // Access the addItemToCart method
 
   // State for managing extras, condiments, and quantity
   const [quantity, setQuantity] = useState(1);
@@ -43,6 +52,24 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
           : [...prev, name]
       );
     }
+  };
+
+  // Handle adding the item to the cart
+  const handleAddToCart = () => {
+    const itemToAdd = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity,
+      extras: selectedExtras,
+      condiments: selectedCondiments,
+    };
+    addItemToCart(itemToAdd);
+
+    // Show alert to notify the user
+    Alert.alert('Added to Cart', `${item.name} has been added to your cart.`, [
+      { text: 'OK', onPress: () => console.log('Alert closed') },
+    ]);
   };
 
   // Calculate total price dynamically
@@ -110,7 +137,10 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
         </View>
 
         {/* Add to Cart Button */}
-        <TouchableOpacity style={styles.addToCartButton}>
+        <TouchableOpacity
+          style={styles.addToCartButton}
+          onPress={handleAddToCart}
+        >
           <Text style={styles.addToCartText}>Add to Cart ${totalPrice}</Text>
         </TouchableOpacity>
       </View>

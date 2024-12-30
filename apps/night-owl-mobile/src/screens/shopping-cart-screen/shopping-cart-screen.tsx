@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   FlatList,
-  Image,
 } from 'react-native';
 import LayoutWrapper from '../../components/layout-wrapper';
 import theme from '@ikigai/theme';
-
-const mockCartData = [
-  { id: '1', name: 'Breakfast Plate', price: 23.9, quantity: 1 },
-  { id: '2', name: 'Eggs', price: 3.0, quantity: 2 },
-  { id: '3', name: 'Large Coffee', price: 4.5, quantity: 2 },
-  { id: '4', name: 'Chips', price: 2.0, quantity: 1 },
-];
+import { CartContext } from '../../context/cart';
 
 export const ShoppingCartScreen = () => {
-  const [cartData, setCartData] = useState(mockCartData);
-
-  const handleRemoveItem = (id: string) => {
-    setCartData(cartData.filter((item) => item.id !== id));
-  };
-
-  const calculateTotal = () =>
-    cartData.reduce((total, item) => total + item.price * item.quantity, 0);
+  const {
+    cartData,
+    removeItemFromCart,
+    calculateTotal,
+    updateItemQuantity,
+    getTotalItems,
+  } = useContext(CartContext);
 
   return (
     <LayoutWrapper
@@ -37,7 +29,7 @@ export const ShoppingCartScreen = () => {
         <View style={styles.innerContainer}>
           <FlatList
             data={cartData}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <View style={styles.itemContainer}>
                 <View style={styles.itemDetails}>
@@ -46,8 +38,27 @@ export const ShoppingCartScreen = () => {
                     ${item.price.toFixed(2)} x {item.quantity}
                   </Text>
                 </View>
+                <View style={styles.quantityContainer}>
+                  <TouchableOpacity
+                    style={styles.quantityButton}
+                    onPress={() =>
+                      updateItemQuantity(item.id, item.quantity - 1)
+                    }
+                  >
+                    <Text style={styles.quantityButtonText}>-</Text>
+                  </TouchableOpacity>
+                  <Text style={styles.quantityText}>{item.quantity}</Text>
+                  <TouchableOpacity
+                    style={styles.quantityButton}
+                    onPress={() =>
+                      updateItemQuantity(item.id, item.quantity + 1)
+                    }
+                  >
+                    <Text style={styles.quantityButtonText}>+</Text>
+                  </TouchableOpacity>
+                </View>
                 <TouchableOpacity
-                  onPress={() => handleRemoveItem(item.id)}
+                  onPress={() => removeItemFromCart(item.id)}
                   style={styles.removeButton}
                 >
                   <Text style={styles.removeButtonText}>Remove</Text>
@@ -56,7 +67,9 @@ export const ShoppingCartScreen = () => {
             )}
             ListFooterComponent={
               <View style={styles.footer}>
-                <Text style={styles.totalText}>Total:</Text>
+                <Text style={styles.totalText}>Total Items:</Text>
+                <Text style={styles.totalText}>{getTotalItems()}</Text>
+                <Text style={styles.totalText}>Total Price:</Text>
                 <Text style={styles.totalPrice}>
                   ${calculateTotal().toFixed(2)}
                 </Text>
@@ -77,7 +90,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f9f9f9',
-    // paddingHorizontal: 16,
     paddingTop: 16,
   },
   innerContainer: {
@@ -112,6 +124,24 @@ const styles = StyleSheet.create({
     color: '#666',
     marginTop: 4,
   },
+  quantityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  quantityButton: {
+    backgroundColor: '#ddd',
+    padding: 8,
+    borderRadius: 4,
+  },
+  quantityButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  quantityText: {
+    marginHorizontal: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   removeButton: {
     backgroundColor: '#ff4d4d',
     paddingVertical: 6,
@@ -124,13 +154,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     paddingVertical: 12,
     borderTopWidth: 1,
     borderTopColor: '#ccc',
     marginTop: 16,
+    alignItems: 'center',
   },
   totalText: {
     fontSize: 18,
@@ -146,7 +174,6 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 16,
-    height: 60,
   },
   checkoutButtonText: {
     color: theme.colors.yellow,
