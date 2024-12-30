@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import { TopNavBar } from '../components/top-nav-bar';
-import { BottomNavbar } from '../components/bottom-nav-bar';
+import { TopNavBar } from './top-nav-bar';
+import { BottomNavbar } from '../navigation/bottom-nav-bar';
 
 interface LayoutWrapperProps {
   children: React.ReactNode;

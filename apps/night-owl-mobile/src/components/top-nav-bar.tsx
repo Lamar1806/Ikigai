@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { NavMenu } from '../components/nav-menu';
+import { NavMenu } from './nav-menu';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 // Import SVG icons
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     color: theme.colors.yellow,
     fontSize: 12,
   },
-
   badge: {
     position: 'absolute',
     top: 13,
