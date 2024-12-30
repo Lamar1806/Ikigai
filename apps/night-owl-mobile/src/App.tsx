@@ -125,7 +125,7 @@ export default function App() {
         <Stack.Screen
           name="shoppingCartScreen"
           component={ShoppingCartScreen}
-          options={{ headerTitle: 'Shopping Cart' }}
+          options={{ ...options, headerTitle: 'Shopping Cart' }}
         />
         {/* Shopping Cart Item Screen */}
         <Stack.Screen

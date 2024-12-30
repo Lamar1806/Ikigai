@@ -13,6 +13,7 @@ interface LayoutWrapperProps {
   children: React.ReactNode;
   style?: object; // Optional additional styling for the main container
   showTopNavBar?: boolean; // Optional prop to control the visibility of the top navbar
+  showBottomNavBar?: boolean; // Optional prop to control the visibility of the bottom navbar
   useScrollView?: boolean; // Optional prop to control whether a ScrollView is used
 }
 
@@ -20,6 +21,7 @@ export const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
   children,
   style,
   showTopNavBar = true, // Default to true if not provided
+  showBottomNavBar = true, // Default to true if not provided
   useScrollView = true, // Default to true if not provided
 }) => {
   return (
@@ -33,7 +35,7 @@ export const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
         ) : (
           <View style={styles.contentContainer}>{children}</View>
         )}
-        <BottomNavbar />
+        {showBottomNavBar && <BottomNavbar />}
       </View>
     </SafeAreaView>
   );
