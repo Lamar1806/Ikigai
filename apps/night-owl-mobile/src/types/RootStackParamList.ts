@@ -1,3 +1,5 @@
+import { MenuItem } from '../mock-data/menu';
+
 export type RootStackParamList = {
   aboutUsScreen: undefined;
   accountScreen: undefined;
@@ -17,6 +19,6 @@ export type RootStackParamList = {
   supportScreen: undefined;
   viewPaymentScreen: undefined;
   walletScreen: undefined;
-  menuItemScreen: undefined;
+  menuItemScreen: { item: MenuItem };
   receiptItemScreen: undefined;
 };

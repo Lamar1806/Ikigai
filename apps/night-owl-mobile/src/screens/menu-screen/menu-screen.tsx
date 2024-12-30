@@ -10,10 +10,13 @@ import {
 } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import { menu } from '../../mock-data/menu'; // Replace with the actual path to your menu data
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+
+import { RootStackParamList } from '../../types/RootStackParamList'; // Ensure this is correctly defined
 
 export const MenuScreen = () => {
-  const navigation = useNavigation();
+  // Correctly type the navigation hook
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [searchText, setSearchText] = useState('');
 
   // Flatten the menu categories into a single array for easier searching and rendering
@@ -45,7 +48,6 @@ export const MenuScreen = () => {
               style={styles.itemContainer}
               onPress={() => {
                 // Navigate to the menu item screen with the selected item
-                console.log('Item selected:', item);
                 navigation.navigate('menuItemScreen', { item });
               }}
             >
