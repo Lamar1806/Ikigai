@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import CheckBox from '@react-native-community/checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -58,7 +65,11 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
       condiments: selectedCondiments,
     };
     addItemToCart(itemToAdd);
-    // navigation.navigate('shoppingCartScreen'); // Redirect to the shopping cart after adding
+
+    // Show alert to notify the user
+    Alert.alert('Added to Cart', `${item.name} has been added to your cart.`, [
+      { text: 'OK', onPress: () => console.log('Alert closed') },
+    ]);
   };
 
   // Calculate total price dynamically
