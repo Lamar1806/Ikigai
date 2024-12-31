@@ -9,7 +9,7 @@ export type RootStackParamList = {
   homeScreen: undefined;
   loginOrSignUpScreen: undefined;
   loginScreen: undefined;
-  menuScreen: { category: 'Drinks' | 'Sides' | 'Add-ons' };
+  menuScreen: undefined;
   qrCodeScreen: undefined;
   receiptScreen: undefined;
   shoppingCartItemScreen: undefined;

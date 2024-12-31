@@ -24,7 +24,7 @@ export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
       case 'Drinks':
       case 'Sides':
       case 'Add-ons':
-        navigation.navigate('menuScreen', { category: item });
+        navigation.navigate('menuScreen');
         break;
       case 'Promotions':
         navigation.navigate('favoritesScreen');
