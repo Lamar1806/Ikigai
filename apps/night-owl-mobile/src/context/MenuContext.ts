@@ -9,4 +9,9 @@ export const MenuContext = createContext<MenuContextType>({
     throw new Error('Function not implemented.');
   },
   filteredData: [],
+  activeFilter: '',
+  setActiveFilter: function (value: SetStateAction<string>): void {
+    throw new Error('Function not implemented.');
+  },
+  handleFilter: undefined,
 });

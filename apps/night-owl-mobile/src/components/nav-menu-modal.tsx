@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/RootStackParamList'; // Adjust the import path as needed
+import { RootStackParamList } from '../types/RootStackParamList'; // Adjust the import path as needed
 import ShareIcon from '../assets/share.svg';
 
 interface MenuProps {

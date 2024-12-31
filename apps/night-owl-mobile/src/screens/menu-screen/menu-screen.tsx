@@ -19,7 +19,13 @@ export const MenuScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   // Use the custom hook
-  const { searchText, setSearchText, filteredData } = useContext(MenuContext);
+  const {
+    searchText,
+    setSearchText,
+    filteredData,
+    activeFilter,
+    handleFilter,
+  } = useContext(MenuContext);
 
   return (
     <LayoutWrapper useScrollView={false}>
@@ -33,6 +39,29 @@ export const MenuScreen = () => {
             onChangeText={setSearchText}
             placeholderTextColor={'#999'}
           />
+        </View>
+
+        {/* Filter Buttons */}
+        <View style={styles.filterContainer}>
+          {['Drinks', 'Sides', 'Add-Ons'].map((filter) => (
+            <TouchableOpacity
+              key={filter}
+              style={[
+                styles.filterButton,
+                activeFilter === filter && styles.activeFilter,
+              ]}
+              onPress={() => handleFilter(filter)}
+            >
+              <Text
+                style={[
+                  styles.filterText,
+                  activeFilter === filter && styles.activeFilterText,
+                ]}
+              >
+                {filter}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
 
         {/* Food List */}
@@ -82,6 +111,28 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingLeft: 12,
     backgroundColor: '#f5f5f5',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 16,
+  },
+  filterButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
+  },
+  activeFilter: {
+    backgroundColor: '#007BFF',
+  },
+  filterText: {
+    fontSize: 14,
+    color: '#333',
+  },
+  activeFilterText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   listContainer: {
     paddingBottom: 20,

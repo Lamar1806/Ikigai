@@ -12,5 +12,21 @@ export const useMenu = () => {
     item.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  return { searchText, setSearchText, filteredData };
+  // State for active filter
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  // Dummy filter function based on category
+  const handleFilter = (category: string) => {
+    setActiveFilter(category === activeFilter ? null : category);
+    // Implement filtering logic in the context or here if needed
+  };
+
+  return {
+    searchText,
+    setSearchText,
+    filteredData,
+    activeFilter,
+    setActiveFilter,
+    handleFilter,
+  };
 };
