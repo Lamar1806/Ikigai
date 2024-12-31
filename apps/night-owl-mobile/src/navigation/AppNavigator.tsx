@@ -135,7 +135,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="supportScreen"
           component={SupportScreen}
-          options={{ headerTitle: 'Support' }}
+          options={{ ...options, headerTitle: 'Support' }}
         />
         <Stack.Screen
           name="viewPaymentScreen"
