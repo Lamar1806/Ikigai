@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../types/RootStackParamList'; // Adjust the import path as needed
 import ShareIcon from '../assets/share.svg';
+import { MenuContext } from '../context/MenuContext';
 
 interface MenuProps {
   visible: boolean;
@@ -18,12 +19,20 @@ interface MenuProps {
 
 export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const { setActiveFilter } = useContext(MenuContext);
 
   const handleNavigation = (item: string) => {
     switch (item) {
       case 'Drinks':
+        setActiveFilter('Drinks');
+        navigation.navigate('menuScreen');
+        break;
       case 'Sides':
-      case 'Add-ons':
+        setActiveFilter('Sides');
+        navigation.navigate('menuScreen');
+        break;
+      case 'Add-Ons':
+        setActiveFilter('Add-Ons');
         navigation.navigate('menuScreen');
         break;
       case 'Promotions':
@@ -47,7 +56,7 @@ export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
   const menuItems = [
     'Drinks',
     'Sides',
-    'Add-ons',
+    'Add-Ons',
     'Promotions',
     'Leave A Review',
     'About Us',
