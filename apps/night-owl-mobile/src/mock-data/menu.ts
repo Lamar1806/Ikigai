@@ -92,3 +92,13 @@ export const menu: MenuCategory = {
       { id: 3, name: "Vegan Butter", description: "", ingredients: ["vegan butter"], spicy: false, vegetarian: true, price: 0.5 }
   ]
 };
+
+// Flattened Menu
+export const flattenedMenu = Object.entries(menu).flatMap(([category, items]) =>
+  items.map((item) => ({ ...item, category }))
+);
+
+// Function to retrieve items by category
+export const getItemsByCategory = (category: string): MenuItem[] => {
+  return flattenedMenu.filter((item) => item.category === category);
+};

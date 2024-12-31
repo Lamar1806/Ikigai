@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   Text,
@@ -9,23 +9,23 @@ import {
   ScrollView,
 } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
-import { menu } from '../../mock-data/menu'; // Replace with the actual path to your menu data
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 import { RootStackParamList } from '../../types/RootStackParamList'; // Ensure this is correctly defined
+import { MenuContext } from '../../context/MenuContext';
 
 export const MenuScreen = () => {
   // Correctly type the navigation hook
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  const [searchText, setSearchText] = useState('');
 
-  // Flatten the menu categories into a single array for easier searching and rendering
-  const menuItems = Object.values(menu).flat();
-
-  // Filter items based on the search text
-  const filteredData = menuItems.filter((item) =>
-    item.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // Use the custom hook
+  const {
+    searchText,
+    setSearchText,
+    filteredData,
+    activeFilter,
+    handleFilter,
+  } = useContext(MenuContext);
 
   return (
     <LayoutWrapper useScrollView={false}>
@@ -37,7 +37,31 @@ export const MenuScreen = () => {
             placeholder="Search Our Food Menu"
             value={searchText}
             onChangeText={setSearchText}
+            placeholderTextColor={'#999'}
           />
+        </View>
+
+        {/* Filter Buttons */}
+        <View style={styles.filterContainer}>
+          {['Drinks', 'Sides', 'Add-Ons'].map((filter) => (
+            <TouchableOpacity
+              key={filter}
+              style={[
+                styles.filterButton,
+                activeFilter === filter && styles.activeFilter,
+              ]}
+              onPress={() => handleFilter(filter)}
+            >
+              <Text
+                style={[
+                  styles.filterText,
+                  activeFilter === filter && styles.activeFilterText,
+                ]}
+              >
+                {filter}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
 
         {/* Food List */}
@@ -87,6 +111,28 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingLeft: 12,
     backgroundColor: '#f5f5f5',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 16,
+  },
+  filterButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
+  },
+  activeFilter: {
+    backgroundColor: '#007BFF',
+  },
+  filterText: {
+    fontSize: 14,
+    color: '#333',
+  },
+  activeFilterText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   listContainer: {
     paddingBottom: 20,
