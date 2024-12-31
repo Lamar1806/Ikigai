@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   Text,
@@ -9,23 +9,17 @@ import {
   ScrollView,
 } from 'react-native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
-import { menu } from '../../mock-data/menu'; // Replace with the actual path to your menu data
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 import { RootStackParamList } from '../../types/RootStackParamList'; // Ensure this is correctly defined
+import { MenuContext } from '../../context/MenuContext';
 
 export const MenuScreen = () => {
   // Correctly type the navigation hook
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  const [searchText, setSearchText] = useState('');
 
-  // Flatten the menu categories into a single array for easier searching and rendering
-  const menuItems = Object.values(menu).flat();
-
-  // Filter items based on the search text
-  const filteredData = menuItems.filter((item) =>
-    item.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // Use the custom hook
+  const { searchText, setSearchText, filteredData } = useContext(MenuContext);
 
   return (
     <LayoutWrapper useScrollView={false}>
@@ -37,6 +31,7 @@ export const MenuScreen = () => {
             placeholder="Search Our Food Menu"
             value={searchText}
             onChangeText={setSearchText}
+            placeholderTextColor={'#999'}
           />
         </View>
 
