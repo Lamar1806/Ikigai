@@ -1,24 +1,26 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { ImageBackground, View, Text } from 'react-native';
+import { ImageBackground, View, ViewStyle } from 'react-native';
 import styled from '@emotion/native';
 
 interface BackgroundImageProps {
   source: any; // The image source (require or URL)
   children?: React.ReactNode; // Children to render on top of the image
   overlayColor?: string; // Optional: Overlay color with transparency
+  style?: ViewStyle; // Optional: Style for the content container
 }
 
 export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   source,
   children,
   overlayColor = 'rgba(0, 0, 0, 0.6)', // Default overlay color
+  style, // New: Accept custom styles
 }) => {
   return (
     <StyledImageBackground source={source} resizeMode="cover">
       {/* Optional overlay */}
       {overlayColor && <Overlay style={{ backgroundColor: overlayColor }} />}
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer style={style}>{children}</ContentContainer>
     </StyledImageBackground>
   );
 };

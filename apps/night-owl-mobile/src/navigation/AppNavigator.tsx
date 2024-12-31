@@ -80,7 +80,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="aboutUsScreen"
           component={AboutUsScreen}
-          options={{ headerTitle: 'About Us' }}
+          options={{ ...options, headerTitle: 'About Us' }}
         />
         <Stack.Screen
           name="accountScreen"
@@ -100,7 +100,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="feedbackScreen"
           component={FeedbackScreen}
-          options={{ headerTitle: 'Feedback' }}
+          options={{ ...options, headerTitle: 'Leave A Review' }}
         />
         <Stack.Screen
           name="menuScreen"
