@@ -6,6 +6,9 @@ import {
   Modal,
   SafeAreaView,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../navigation/RootStackParamList'; // Adjust the import path as needed
 import ShareIcon from '../assets/share.svg';
 
 interface MenuProps {
@@ -14,6 +17,33 @@ interface MenuProps {
 }
 
 export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+  const handleNavigation = (item: string) => {
+    switch (item) {
+      case 'Drinks':
+      case 'Sides':
+      case 'Add-ons':
+        navigation.navigate('menuScreen', { category: item });
+        break;
+      case 'Promotions':
+        navigation.navigate('favoritesScreen');
+        break;
+      case 'Leave A Review':
+        navigation.navigate('feedbackScreen');
+        break;
+      case 'About Us':
+        navigation.navigate('aboutUsScreen');
+        break;
+      case 'Support':
+        navigation.navigate('supportScreen');
+        break;
+      default:
+        break;
+    }
+    onClose(); // Close the modal after navigation
+  };
+
   const menuItems = [
     'Drinks',
     'Sides',
@@ -38,14 +68,14 @@ export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
             <TouchableOpacity
               key={index}
               style={styles.menuItem}
-              // onPress={() => {}}
+              onPress={() => handleNavigation(item)}
             >
               <Text style={styles.menuText}>{item}</Text>
             </TouchableOpacity>
           ))}
           <TouchableOpacity
             style={styles.shareButton}
-            // onPress={() => { }}
+            // Add functionality for sharing here
           >
             <ShareIcon />
           </TouchableOpacity>
