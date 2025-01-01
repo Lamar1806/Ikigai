@@ -7,12 +7,15 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import PorageImage from '../../assets/porridge.jpg'; // Import the Porage image
 import theme from '@ikigai/theme';
 import { MenuItem } from '../../mock-data/menu';
+import { RootStackParamList } from '../../types/RootStackParamList';
 
 export const FavoritesScreen = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const favoritesData: MenuItem[] = [
     {
       id: 0,
@@ -26,8 +29,8 @@ export const FavoritesScreen = () => {
     },
   ];
 
-  const handleFavoritesPress = () => {
-    console.log('Favorites button pressed');
+  const handleFavoritesPress = (item: MenuItem) => {
+    navigation.navigate('menuItemScreen', { item });
   };
 
   return (
@@ -43,11 +46,11 @@ export const FavoritesScreen = () => {
         {/* Favorites List */}
         <FlatList
           data={favoritesData}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.itemContainer}
-              onPress={handleFavoritesPress}
+              onPress={() => handleFavoritesPress(item)}
             >
               <View style={styles.textContainer}>
                 <Text style={styles.itemName}>{item.name}</Text>
