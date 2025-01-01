@@ -95,7 +95,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="favoritesScreen"
           component={FavoritesScreen}
-          options={{ headerTitle: 'Favorites' }}
+          options={{ ...options, headerTitle: 'Favorites' }}
         />
         <Stack.Screen
           name="feedbackScreen"
