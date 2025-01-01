@@ -85,7 +85,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="accountScreen"
           component={AccountScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: 'Account' }}
         />
         <Stack.Screen
           name="addPaymentMethodScreen"
