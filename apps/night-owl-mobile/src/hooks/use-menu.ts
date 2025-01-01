@@ -1,24 +1,53 @@
-import { useState } from 'react';
-import { menu } from '../mock-data/menu';
+import { useState, useEffect } from 'react';
+import { flattenedMenu } from '../mock-data/menu';
+export type ActiveFilter = 'Drinks' | 'Sides' | 'Add-Ons';
+
 // useAppMenu Hook
 export const useMenu = () => {
   const [searchText, setSearchText] = useState('');
+  const [activeFilter, setActiveFilter] = useState<ActiveFilter | null>(null);
+  const [filteredData, setFilteredData] = useState(flattenedMenu);
 
   // Flatten the menu categories into a single array for easier searching and rendering
-  const menuItems = Object.values(menu).flat();
+  const menuItems = flattenedMenu;
 
-  // Filter items based on the search text
-  const filteredData = menuItems.filter((item) =>
-    item.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  console.log('menuItems', menuItems);
 
-  // State for active filter
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  // Update filteredData whenever searchText or activeFilter changes
+  useEffect(() => {
+    let updatedData = menuItems;
+
+    // Filter by search text
+    if (searchText) {
+      updatedData = updatedData.filter((item) =>
+        item.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+
+    // Filter by active category
+    if (activeFilter) {
+      if (activeFilter === 'Drinks') {
+        updatedData = updatedData.filter(
+          (item) =>
+            item.category === 'coffee' ||
+            item.category === 'tea' ||
+            item.category === 'otherDrinks'
+        );
+      }
+      if (activeFilter === 'Add-Ons') {
+        updatedData = updatedData.filter((item) => item.category === 'addOns');
+      }
+      // updatedData = updatedData.filter(
+      //   (item) => item.category === activeFilter
+      // );
+    }
+
+    setFilteredData(updatedData);
+  }, [searchText, activeFilter, menuItems]);
 
   // Dummy filter function based on category
-  const handleFilter = (category: string) => {
+  const handleFilter = (category: ActiveFilter) => {
     setActiveFilter(category === activeFilter ? null : category);
-    // Implement filtering logic in the context or here if needed
   };
 
   return {

@@ -13,6 +13,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 import { RootStackParamList } from '../../types/RootStackParamList'; // Ensure this is correctly defined
 import { MenuContext } from '../../context/MenuContext';
+import { ActiveFilter } from '../../hooks/use-menu';
 
 export const MenuScreen = () => {
   // Correctly type the navigation hook
@@ -43,7 +44,7 @@ export const MenuScreen = () => {
 
         {/* Filter Buttons */}
         <View style={styles.filterContainer}>
-          {['Drinks', 'Sides', 'Add-Ons'].map((filter) => (
+          {['Drinks', 'Sides', 'Add-Ons'].map((filter: ActiveFilter) => (
             <TouchableOpacity
               key={filter}
               style={[
