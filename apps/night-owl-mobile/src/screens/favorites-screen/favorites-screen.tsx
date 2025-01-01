@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: theme.colors.yellow, // Gold color for the text
+    fontSize: theme.fontSizes.xxl,
   },
   listContainer: {
     paddingHorizontal: 16,
