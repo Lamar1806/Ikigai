@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf node_modules  && yarn cache clean && yarn install",
+    "clean": "rm -rf node_modules && yarn cache clean && yarn install",
     "start": "node apps/empathic-core/dist/main.js",
     "migrate": "yarn nx migrate latest"
   },
