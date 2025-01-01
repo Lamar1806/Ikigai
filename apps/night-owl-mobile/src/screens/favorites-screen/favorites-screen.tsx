@@ -34,7 +34,7 @@ export const FavoritesScreen = () => {
   };
 
   return (
-    <LayoutWrapper showTopNavBar={false}>
+    <LayoutWrapper showTopNavBar={false} useScrollView={false}>
       <View style={styles.container}>
         {/* Header Section */}
         <View style={styles.header}>
