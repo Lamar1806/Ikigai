@@ -1,53 +1,48 @@
 import { useState, useEffect } from 'react';
 import { flattenedMenu } from '../mock-data/menu';
+
 export type ActiveFilter = 'Drinks' | 'Sides' | 'Add-Ons';
 
-// useAppMenu Hook
+// useMenu Hook
 export const useMenu = () => {
   const [searchText, setSearchText] = useState('');
   const [activeFilter, setActiveFilter] = useState<ActiveFilter | null>(null);
   const [filteredData, setFilteredData] = useState(flattenedMenu);
 
-  // Flatten the menu categories into a single array for easier searching and rendering
-  const menuItems = flattenedMenu;
-
-  console.log('menuItems', menuItems);
+  // Categories mapping for active filters
+  const filterCategories: Record<ActiveFilter, string[]> = {
+    Drinks: ['coffee', 'tea', 'otherDrinks', 'milk'],
+    'Add-Ons': ['addOns'],
+    Sides: ['sides'],
+  };
 
   // Update filteredData whenever searchText or activeFilter changes
   useEffect(() => {
-    let updatedData = menuItems;
+    let updatedData = flattenedMenu;
 
-    // Filter by search text
+    // Apply search text filtering
     if (searchText) {
       updatedData = updatedData.filter((item) =>
         item.name.toLowerCase().includes(searchText.toLowerCase())
       );
     }
 
-    // Filter by active category
+    // Apply active filter category
     if (activeFilter) {
-      if (activeFilter === 'Drinks') {
-        updatedData = updatedData.filter(
-          (item) =>
-            item.category === 'coffee' ||
-            item.category === 'tea' ||
-            item.category === 'otherDrinks'
-        );
-      }
-      if (activeFilter === 'Add-Ons') {
-        updatedData = updatedData.filter((item) => item.category === 'addOns');
-      }
-      // updatedData = updatedData.filter(
-      //   (item) => item.category === activeFilter
-      // );
+      const allowedCategories = filterCategories[activeFilter];
+      updatedData = updatedData.filter((item) =>
+        allowedCategories.includes(item.category)
+      );
     }
 
     setFilteredData(updatedData);
-  }, [searchText, activeFilter, menuItems]);
+  }, [searchText, activeFilter]);
 
-  // Dummy filter function based on category
+  // Toggle filter logic
   const handleFilter = (category: ActiveFilter) => {
-    setActiveFilter(category === activeFilter ? null : category);
+    setActiveFilter((prevFilter) =>
+      prevFilter === category ? null : category
+    );
   };
 
   return {
