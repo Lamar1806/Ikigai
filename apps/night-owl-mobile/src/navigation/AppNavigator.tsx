@@ -6,21 +6,21 @@ import { HomeScreen } from '../screens/home-screen/home-screen';
 import { LoginOrSignUpScreen } from '../screens/login-or-sign-up-screen/login-or-sign-up-screen';
 import { LoginScreen } from '../screens/login-screen/login-screen';
 import { SignUpScreen } from '../screens/sign-up-screen/sign-up-screen';
-import { MenuItemScreen } from '../screens/menu-item-screen/menu-item-screen';
-import { AboutUsScreen } from '../screens/about-us-screen/about-us-screen';
-import { AccountScreen } from '../screens/account-screen/account-screen';
-import { AddPaymentMethodScreen } from '../screens/add-payment-method-screen/add-payment-method-screen';
-import { FavoritesScreen } from '../screens/favorites-screen/favorites-screen';
-import { FeedbackScreen } from '../screens/feedback-screen/feedback-screen';
 import { MenuScreen } from '../screens/menu-screen/menu-screen';
-import { QrCodeScreen } from '../screens/qr-code-screen/qr-code-screen';
-import { ReceiptScreen } from '../screens/receipt-screen/receipt-screen';
+import { MenuItemScreen } from '../screens/menu-item-screen/menu-item-screen';
+import { FavoritesScreen } from '../screens/favorites-screen/favorites-screen';
 import { ShoppingCartScreen } from '../screens/shopping-cart-screen/shopping-cart-screen';
 import { ShoppingCartItemScreen } from '../screens/shopping-cart-item-screen/shopping-cart-item-screen';
-import { SupportScreen } from '../screens/support-screen/support-screen';
-import { ViewPaymentScreen } from '../screens/view-payment-screen/view-payment-screen';
-import { WalletScreen } from '../screens/wallet-screen/wallet-screen';
+import { ReceiptScreen } from '../screens/receipt-screen/receipt-screen';
 import { ReceiptItemScreen } from '../screens/receipt-item-screen/receipt-item-screen';
+import { WalletScreen } from '../screens/wallet-screen/wallet-screen';
+import { AddPaymentMethodScreen } from '../screens/add-payment-method-screen/add-payment-method-screen';
+import { ViewPaymentScreen } from '../screens/view-payment-screen/view-payment-screen';
+import { AccountScreen } from '../screens/account-screen/account-screen';
+import { AboutUsScreen } from '../screens/about-us-screen/about-us-screen';
+import { FeedbackScreen } from '../screens/feedback-screen/feedback-screen';
+import { SupportScreen } from '../screens/support-screen/support-screen';
+import { QrCodeScreen } from '../screens/qr-code-screen/qr-code-screen';
 import type { RootStackParamList } from '../types/RootStackParamList';
 import theme from '@ikigai/theme';
 
@@ -39,19 +39,19 @@ const AppNavigator = () => {
       backgroundColor: theme.colors.black,
     },
     headerTintColor: theme.colors.yellow,
-    contentStyle: {
-      backgroundColor: theme.colors.black,
-    },
   };
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        {/* Splash Screen */}
         <Stack.Screen
           name="splashScreen"
           component={SplashScreen}
           options={{ headerShown: false }}
         />
+
+        {/* Authentication Screens */}
         <Stack.Screen
           name="loginOrSignUpScreen"
           component={LoginOrSignUpScreen}
@@ -67,40 +67,12 @@ const AppNavigator = () => {
           component={SignUpScreen}
           options={{ ...optionsForAuth, headerTitle: 'Sign Up' }}
         />
+
+        {/* Main Features */}
         <Stack.Screen
           name="homeScreen"
           component={HomeScreen}
           options={{ headerShown: false, headerTitle: 'Home' }}
-        />
-        <Stack.Screen
-          name="menuItemScreen"
-          component={MenuItemScreen}
-          options={{ ...options }}
-        />
-        <Stack.Screen
-          name="aboutUsScreen"
-          component={AboutUsScreen}
-          options={{ ...options, headerTitle: 'About Us' }}
-        />
-        <Stack.Screen
-          name="accountScreen"
-          component={AccountScreen}
-          options={{ headerShown: false, headerTitle: 'Account' }}
-        />
-        <Stack.Screen
-          name="addPaymentMethodScreen"
-          component={AddPaymentMethodScreen}
-          options={{ headerTitle: 'Add Payment Method' }}
-        />
-        <Stack.Screen
-          name="favoritesScreen"
-          component={FavoritesScreen}
-          options={{ ...options, headerTitle: 'Favorites' }}
-        />
-        <Stack.Screen
-          name="feedbackScreen"
-          component={FeedbackScreen}
-          options={{ ...options, headerTitle: 'Leave A Review' }}
         />
         <Stack.Screen
           name="menuScreen"
@@ -108,19 +80,14 @@ const AppNavigator = () => {
           options={{ headerShown: false, headerTitle: 'Menu' }}
         />
         <Stack.Screen
-          name="qrCodeScreen"
-          component={QrCodeScreen}
-          options={{ headerTitle: 'QR Code' }}
+          name="menuItemScreen"
+          component={MenuItemScreen}
+          options={{ ...options }}
         />
         <Stack.Screen
-          name="receiptScreen"
-          component={ReceiptScreen}
-          options={{ headerShown: false, headerTitle: 'Receipts' }}
-        />
-        <Stack.Screen
-          name="receiptItemScreen"
-          component={ReceiptItemScreen}
-          options={{ ...options, headerTitle: 'Receipt Details' }}
+          name="favoritesScreen"
+          component={FavoritesScreen}
+          options={{ ...options, headerTitle: 'Favorites' }}
         />
         <Stack.Screen
           name="shoppingCartScreen"
@@ -133,19 +100,60 @@ const AppNavigator = () => {
           options={{ headerTitle: 'Cart Item' }}
         />
         <Stack.Screen
+          name="receiptScreen"
+          component={ReceiptScreen}
+          options={{ headerShown: false, headerTitle: 'Receipts' }}
+        />
+        <Stack.Screen
+          name="receiptItemScreen"
+          component={ReceiptItemScreen}
+          options={{ ...options, headerTitle: 'Receipt Details' }}
+        />
+
+        {/* Payment Screens */}
+        <Stack.Screen
+          name="walletScreen"
+          component={WalletScreen}
+          options={{ ...options, headerTitle: 'Wallet' }}
+        />
+        <Stack.Screen
+          name="addPaymentMethodScreen"
+          component={AddPaymentMethodScreen}
+          options={{ headerTitle: 'Add Payment Method' }}
+        />
+        <Stack.Screen
+          name="viewPaymentScreen"
+          component={ViewPaymentScreen}
+          options={{ ...options, headerTitle: 'View Payment' }}
+        />
+
+        {/* Account and Support */}
+        <Stack.Screen
+          name="accountScreen"
+          component={AccountScreen}
+          options={{ headerShown: false, headerTitle: 'Account' }}
+        />
+        <Stack.Screen
+          name="feedbackScreen"
+          component={FeedbackScreen}
+          options={{ ...options, headerTitle: 'Leave A Review' }}
+        />
+        <Stack.Screen
           name="supportScreen"
           component={SupportScreen}
           options={{ ...options, headerTitle: 'Support' }}
         />
         <Stack.Screen
-          name="viewPaymentScreen"
-          component={ViewPaymentScreen}
-          options={{ headerTitle: 'View Payment' }}
+          name="aboutUsScreen"
+          component={AboutUsScreen}
+          options={{ ...options, headerTitle: 'About Us' }}
         />
+
+        {/* QR Code */}
         <Stack.Screen
-          name="walletScreen"
-          component={WalletScreen}
-          options={{ headerTitle: 'Wallet' }}
+          name="qrCodeScreen"
+          component={QrCodeScreen}
+          options={{ headerTitle: 'QR Code' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
