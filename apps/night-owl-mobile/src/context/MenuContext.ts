@@ -1,5 +1,5 @@
 import { createContext, SetStateAction } from 'react';
-import { useMenu } from '../hooks/use-app-menu';
+import { useMenu } from '../hooks/use-menu';
 
 type MenuContextType = ReturnType<typeof useMenu>;
 
