@@ -13,6 +13,7 @@ import PorageImage from '../../assets/porridge.jpg'; // Import the Porage image
 import theme from '@ikigai/theme';
 import { MenuItem } from '../../mock-data/menu';
 import { RootStackParamList } from '../../types/RootStackParamList';
+import { ImageHeader } from '@ikigai/ui-components-native';
 
 export const FavoritesScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -37,11 +38,11 @@ export const FavoritesScreen = () => {
     <LayoutWrapper showTopNavBar={false} useScrollView={false}>
       <View style={styles.container}>
         {/* Header Section */}
-        <View style={styles.header}>
-          <Image source={PorageImage} style={styles.headerImage} />
-          <View style={styles.overlay} />
-          <Text style={styles.headerText}>Favorites</Text>
-        </View>
+        <ImageHeader
+          imageSource={PorageImage}
+          title="Favorites"
+          titleStyle={styles.headerText}
+        />
 
         {/* Favorites List */}
         <FlatList
@@ -75,24 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  header: {
-    position: 'relative',
-  },
-  headerImage: {
-    width: '100%',
-    height: 150,
-    resizeMode: 'cover',
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject, // Fills the entire parent
-    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black overlay with 60% opacity
-  },
   headerText: {
-    position: 'absolute',
-    bottom: 10,
-    alignSelf: 'center', // Horizontally centers the text
-    fontSize: theme.fontSizes.xxl, // Use the h2 font size
-    fontFamily: 'Lavishly Yours', // Use Lavishly Yours font
     color: theme.colors.yellow, // Gold color for the text
   },
   listContainer: {

@@ -3,8 +3,10 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../types/RootStackParamList';
 import { LayoutWrapper } from '../../components/layout-wrapper';
-import ShareIcon from '../../assets/share.svg'; // Replace with your actual share icon asset
+import ShareIcon from '../../assets/share.svg';
+import OwlImage from '../../assets/owl.jpg';
 import theme from '@ikigai/theme';
+import { ImageHeader } from '@ikigai/ui-components-native';
 
 export interface AccountScreenProps {}
 
@@ -30,15 +32,11 @@ export function AccountScreen(props: AccountScreenProps) {
     <LayoutWrapper>
       <View style={styles.container}>
         {/* Header Section */}
-        <View style={styles.header}>
-          <Image
-            source={{
-              uri: 'https://via.placeholder.com/500x150?text=Night+Owl+Header',
-            }}
-            style={styles.headerImage}
-          />
-          <Text style={styles.logoText}>Night Owl</Text>
-        </View>
+        <ImageHeader
+          imageSource={OwlImage}
+          title="Night Owl"
+          titleStyle={styles.headerText}
+        />
         <View style={styles.innerContainer}>
           {/* Profile Section */}
           <View style={styles.profileContainer}>
@@ -93,25 +91,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
-  header: {
-    width: '100%',
-    height: 150, // Matches the headerImage height
-    marginBottom: 16,
-    position: 'relative',
-  },
-  headerImage: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-  },
-  logoText: {
-    fontFamily: theme.fontFamilies.header,
-    position: 'absolute',
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: theme.colors.yellow, // Gold color for text
-    bottom: 8,
-    alignSelf: 'center',
+  headerText: {
+    color: theme.colors.yellow,
   },
   profileContainer: {
     flexDirection: 'row',
@@ -138,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: theme.colors.yellow, // Gold color for button text
+    color: theme.colors.yellow,
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -154,8 +135,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  shareIcon: {
-    color: theme.colors.yellow, // Gold color for share icon
   },
 });
