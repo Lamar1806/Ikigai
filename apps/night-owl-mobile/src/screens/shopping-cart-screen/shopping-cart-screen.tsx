@@ -19,6 +19,10 @@ export const ShoppingCartScreen = () => {
     getTotalItems,
   } = useContext(CartContext);
 
+  const handleCheckout = () => {
+    // Handle checkout logic here
+  };
+
   return (
     <LayoutWrapper
       showTopNavBar={false}
@@ -78,7 +82,10 @@ export const ShoppingCartScreen = () => {
             contentContainerStyle={styles.listContainer}
           />
         </View>
-        <TouchableOpacity style={styles.checkoutButton}>
+        <TouchableOpacity
+          style={styles.checkoutButton}
+          onPress={handleCheckout}
+        >
           <Text style={styles.checkoutButtonText}>Proceed to Checkout</Text>
         </TouchableOpacity>
       </View>
@@ -89,7 +96,7 @@ export const ShoppingCartScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'white',
     paddingTop: 16,
   },
   innerContainer: {
@@ -147,6 +154,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 4,
+    marginLeft: 12,
   },
   removeButtonText: {
     color: '#fff',
@@ -163,6 +171,7 @@ const styles = StyleSheet.create({
   totalText: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 4,
   },
   totalPrice: {
     fontSize: 18,

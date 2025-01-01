@@ -36,7 +36,8 @@ export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
         navigation.navigate('menuScreen');
         break;
       case 'Promotions':
-        navigation.navigate('favoritesScreen');
+        //todo navigate to promotions screen
+        // navigation.navigate('favoritesScreen');
         break;
       case 'Leave A Review':
         navigation.navigate('feedbackScreen');
@@ -57,7 +58,7 @@ export const NavMenuModal: React.FC<MenuProps> = ({ visible, onClose }) => {
     'Drinks',
     'Sides',
     'Add-Ons',
-    'Promotions',
+    // 'Promotions',
     'Leave A Review',
     'About Us',
     'Support',
