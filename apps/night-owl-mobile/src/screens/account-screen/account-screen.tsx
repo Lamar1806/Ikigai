@@ -29,7 +29,7 @@ export function AccountScreen(props: AccountScreenProps) {
   };
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper showTopNavBar={false}>
       <View style={styles.container}>
         {/* Header Section */}
         <ImageHeader
