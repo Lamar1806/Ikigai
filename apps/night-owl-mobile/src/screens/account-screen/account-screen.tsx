@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { LayoutWrapper } from '../../components/layout-wrapper';
 import ShareIcon from '../../assets/share.svg'; // Replace with your actual share icon asset
 import theme from '@ikigai/theme';
@@ -7,16 +9,17 @@ import theme from '@ikigai/theme';
 export interface AccountScreenProps {}
 
 export function AccountScreen(props: AccountScreenProps) {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const handleFavoritesPress = () => {
-    console.log('Favorites pressed');
+    navigation.navigate('favoritesScreen');
   };
 
   const handleWalletPress = () => {
-    console.log('Wallet pressed');
+    navigation.navigate('walletScreen');
   };
 
   const handleOrdersPress = () => {
-    console.log('Orders pressed');
+    navigation.navigate('receiptScreen');
   };
 
   const handleSharePress = () => {

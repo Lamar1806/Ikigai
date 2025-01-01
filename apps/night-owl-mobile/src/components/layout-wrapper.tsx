@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   scrollContent: {
-    flexGrow: 1, // Ensures the ScrollView fills available space
-    minHeight: Dimensions.get('window').height, // Minimum height of the ScrollView is the device height
+    flexGrow: 1, // Ensure ScrollView content stretches only as much as needed
     backgroundColor: 'white',
   },
   contentContainer: {

@@ -85,7 +85,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="accountScreen"
           component={AccountScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, headerTitle: 'Account' }}
         />
         <Stack.Screen
           name="addPaymentMethodScreen"
@@ -95,7 +95,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="favoritesScreen"
           component={FavoritesScreen}
-          options={{ headerTitle: 'Favorites' }}
+          options={{ ...options, headerTitle: 'Favorites' }}
         />
         <Stack.Screen
           name="feedbackScreen"
