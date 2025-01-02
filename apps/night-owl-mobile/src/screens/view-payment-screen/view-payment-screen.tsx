@@ -13,7 +13,7 @@ export const ViewPaymentMethodScreen = () => {
   const toggleDefault = () => setIsDefault((prevState) => !prevState);
 
   const handleEdit = () => {
-    navigation.navigate('editPaymentMethodScreen');
+    navigation.navigate('editPaymentMethodScreen', { state: 'edit' });
     console.log('Edit button pressed');
   };
 

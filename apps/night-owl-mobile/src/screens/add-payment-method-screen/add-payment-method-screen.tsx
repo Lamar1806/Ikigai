@@ -21,7 +21,6 @@ export const AddPaymentMethodScreen = () => {
   const handleMethodPress = (methodName: string) => {
     if (methodName === 'Credit or Debit Card') {
       navigation.navigate('editPaymentMethodScreen', { state: 'add' });
-      console.log(`Selected payment method: ${methodName}`);
     }
     console.log(`Selected payment method: ${methodName}`);
   };
