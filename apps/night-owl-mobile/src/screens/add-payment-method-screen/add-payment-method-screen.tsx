@@ -1,21 +1,16 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { LayoutWrapper } from '../../components/layout-wrapper';
-import CardIcon from '../../assets/card.svg'; // Replace with your actual SVG path
-import PayPalIcon from '../../assets/paypal.svg'; // Replace with your actual SVG path
-import VenmoIcon from '../../assets/venmo.svg'; // Replace with your actual SVG path
-import CashAppIcon from '../../assets/cashapp.svg'; // Replace with your actual SVG path
-import ChevronRight from '../../assets/chevron-right.svg'; // Replace with your actual SVG path
-import theme from '@ikigai/theme';
+import CardIcon from '../../assets/card.svg';
+import PayPalIcon from '../../assets/paypal.svg';
+import VenmoIcon from '../../assets/venmo.svg';
+import CashAppIcon from '../../assets/cashapp.svg';
+import ChevronRight from '../../assets/chevron-right.svg';
 
 export const AddPaymentMethodScreen = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const paymentMethods = [
     { id: '1', name: 'Credit or Debit Card', icon: CardIcon },
     { id: '2', name: 'PayPal', icon: PayPalIcon },
@@ -24,6 +19,10 @@ export const AddPaymentMethodScreen = () => {
   ];
 
   const handleMethodPress = (methodName: string) => {
+    if (methodName === 'Credit or Debit Card') {
+      navigation.navigate('editPaymentMethodScreen', { state: 'add' });
+      console.log(`Selected payment method: ${methodName}`);
+    }
     console.log(`Selected payment method: ${methodName}`);
   };
 
