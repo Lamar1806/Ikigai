@@ -22,7 +22,7 @@ export type RootStackParamList = {
   // Payment Screens
   walletScreen: undefined;
   addPaymentMethodScreen: undefined;
-  viewPaymentScreen: undefined;
+  viewPaymentMethodScreen: undefined;
   editPaymentMethodScreen: undefined;
 
   // Account and Support

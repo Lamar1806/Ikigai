@@ -15,7 +15,7 @@ import { ReceiptScreen } from '../screens/receipt-screen/receipt-screen';
 import { ReceiptItemScreen } from '../screens/receipt-item-screen/receipt-item-screen';
 import { WalletScreen } from '../screens/wallet-screen/wallet-screen';
 import { AddPaymentMethodScreen } from '../screens/add-payment-method-screen/add-payment-method-screen';
-import { ViewPaymentScreen } from '../screens/view-payment-screen/view-payment-screen';
+import { ViewPaymentMethodScreen } from '../screens/view-payment-screen/view-payment-screen';
 import { AccountScreen } from '../screens/account-screen/account-screen';
 import { AboutUsScreen } from '../screens/about-us-screen/about-us-screen';
 import { FeedbackScreen } from '../screens/feedback-screen/feedback-screen';
@@ -122,8 +122,8 @@ const AppNavigator = () => {
           options={{ ...options, headerTitle: 'Add Payment Method' }}
         />
         <Stack.Screen
-          name="viewPaymentScreen"
-          component={ViewPaymentScreen}
+          name="viewPaymentMethodScreen"
+          component={ViewPaymentMethodScreen}
           options={{ ...options, headerTitle: 'View Payment' }}
         />
 

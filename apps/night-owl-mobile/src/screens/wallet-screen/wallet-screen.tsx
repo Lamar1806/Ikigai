@@ -25,7 +25,7 @@ export const WalletScreen = () => {
 
   const handlePaymentMethodPress = (id: string) => {
     console.log('Payment Method Pressed:', id);
-    navigation.navigate('viewPaymentScreen');
+    navigation.navigate('viewPaymentMethodScreen');
   };
 
   const handleAddPaymentMethod = () => {
