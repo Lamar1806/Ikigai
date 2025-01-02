@@ -130,7 +130,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="viewPaymentMethodScreen"
           component={ViewPaymentMethodScreen}
-          options={{ ...options, headerTitle: 'View Payment' }}
+          options={{ ...options, headerTitle: 'Payment Details' }}
         />
 
         {/* Account and Support */}
