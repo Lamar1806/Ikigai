@@ -43,8 +43,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "night-owl-server:build",
-        "runBuildTargetDependencies": false,
-        "fileToRun": "apps/night-owl-server/src/main.js"
+        "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
