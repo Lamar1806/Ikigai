@@ -23,6 +23,7 @@ import { SupportScreen } from '../screens/support-screen/support-screen';
 import { QrCodeScreen } from '../screens/qr-code-screen/qr-code-screen';
 import type { RootStackParamList } from '../types/RootStackParamList';
 import theme from '@ikigai/theme';
+import { EditPaymentMethodScreen } from '../screens/edit-payment-method-screen/edit-payment-method-screen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -119,6 +120,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="addPaymentMethodScreen"
           component={AddPaymentMethodScreen}
+          options={{ ...options, headerTitle: 'Add Payment Method' }}
+        />
+        <Stack.Screen
+          name="editPaymentMethodScreen"
+          component={EditPaymentMethodScreen}
           options={{ ...options, headerTitle: 'Add Payment Method' }}
         />
         <Stack.Screen

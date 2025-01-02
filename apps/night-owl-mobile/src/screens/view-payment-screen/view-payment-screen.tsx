@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import EditIcon from '../../assets/edit.svg'; // Replace with your actual Edit icon path
 import RemoveIcon from '../../assets/cancel.svg'; // Replace with your actual Remove icon path
 import CardIcon from '../../assets/card.svg'; // Replace with your actual toggle switch icon path
 
 export const ViewPaymentMethodScreen = () => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [isDefault, setIsDefault] = useState(false);
 
   const toggleDefault = () => setIsDefault((prevState) => !prevState);
 
   const handleEdit = () => {
+    navigation.navigate('editPaymentMethodScreen');
     console.log('Edit button pressed');
   };
 
