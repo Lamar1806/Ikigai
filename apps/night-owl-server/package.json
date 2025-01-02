@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "nx build night-owl-server --configuration=production",
+    "build:dev": "nx build night-owl-server --configuration=development",
+    "serve": "node dist/apps/night-owl-server/main.js",
+    "serve:dev": "npm run build:dev && npm run serve",
+    "start": "npm run build && npm run serve",
+    "watch": "nodemon --watch apps/night-owl-server/src --ext ts --exec \"nx build night-owl-server --configuration=development && npm run serve\""
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "keywords": [
+    "dist/apps/night-owl-server/main.js",
+    "dist/apps/night-owl-server/apps/night-owl-server/src/main.js"
+  ]
 }
