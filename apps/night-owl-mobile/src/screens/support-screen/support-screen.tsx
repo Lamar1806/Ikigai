@@ -11,6 +11,10 @@ import {
 import AddSvg from '../../assets/add.svg';
 import MicSvg from '../../assets/mic.svg';
 
+//todo add AI to answer basic questions like food allergens and hours of operation and other basic questions.
+//todo if the AI can not answer ping management.
+//todo this feature will not be in our first iteration.
+
 export const SupportScreen = () => {
   const [messages, setMessages] = useState([
     {

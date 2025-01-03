@@ -10,6 +10,7 @@ import { ImageHeader } from '@ikigai/ui-components-native';
 
 export interface AccountScreenProps {}
 
+// todo change profile image to a nice looking image they dont actually need an image
 export function AccountScreen(props: AccountScreenProps) {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const handleFavoritesPress = () => {
@@ -27,7 +28,6 @@ export function AccountScreen(props: AccountScreenProps) {
   const handleSharePress = () => {
     console.log('Share button pressed');
   };
-
   return (
     <LayoutWrapper showTopNavBar={false}>
       <View style={styles.container}>
@@ -40,7 +40,11 @@ export function AccountScreen(props: AccountScreenProps) {
         <View style={styles.innerContainer}>
           {/* Profile Section */}
           <View style={styles.profileContainer}>
-            <Text style={styles.profileName}>Aaron Langford</Text>
+            <View>
+              <Text style={styles.profileName}>Welcome</Text>
+              <Text style={styles.profileName}>Aaron Langford</Text>
+            </View>
+
             <Image
               source={{
                 uri: 'https://via.placeholder.com/100x100?text=Profile',

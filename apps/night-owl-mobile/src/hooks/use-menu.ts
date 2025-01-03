@@ -9,6 +9,7 @@ export const useMenu = () => {
   const [activeFilter, setActiveFilter] = useState<ActiveFilter | null>(null);
   const [filteredData, setFilteredData] = useState(flattenedMenu);
 
+  // todo - addons will be sauces
   // Categories mapping for active filters
   const filterCategories: Record<ActiveFilter, string[]> = {
     Drinks: ['coffee', 'tea', 'otherDrinks', 'milk'],
