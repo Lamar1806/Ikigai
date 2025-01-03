@@ -71,12 +71,16 @@ export const ShoppingCartScreen = () => {
             )}
             ListFooterComponent={
               <View style={styles.footer}>
-                <Text style={styles.totalText}>Total Items:</Text>
-                <Text style={styles.totalText}>{getTotalItems()}</Text>
-                <Text style={styles.totalText}>Total Price:</Text>
-                <Text style={styles.totalPrice}>
-                  ${calculateTotal().toFixed(2)}
-                </Text>
+                <View style={{ alignItems: 'center' }}>
+                  <Text style={styles.totalText}>Total Items</Text>
+                  <Text style={styles.totalText}>{getTotalItems()}</Text>
+                </View>
+                <View style={{ alignItems: 'center' }}>
+                  <Text style={styles.totalText}>Total Price</Text>
+                  <Text style={styles.totalPrice}>
+                    ${calculateTotal().toFixed(2)}
+                  </Text>
+                </View>
               </View>
             }
             contentContainerStyle={styles.listContainer}
@@ -166,15 +170,17 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#ccc',
     marginTop: 16,
-    alignItems: 'center',
+    // alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   totalText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 4,
   },
   totalPrice: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
   },

@@ -10,6 +10,7 @@ import {
 import AboutImage from '../../assets/owl.jpg';
 import ShareIcon from '../../assets/share.svg';
 
+//todo add raw information about life for myself and remember to ask Aaron what he wants to say.
 export const AboutUsScreen = () => {
   const handleShare = () => {
     // Implement share functionality

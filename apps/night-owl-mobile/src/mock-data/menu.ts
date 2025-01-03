@@ -9,6 +9,8 @@ export type MenuItem = {
   image?: string; // Optional if you don't have images for all items
 };
 
+//todo addons changes to sauces
+//todo what is in add ons right now will be moved to sides.
 export type MenuCategory = {
   coffee: MenuItem[];
   milk: MenuItem[];

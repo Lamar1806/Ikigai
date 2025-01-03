@@ -16,6 +16,7 @@ const receiptData = [
   // Add more receipt items here
 ];
 
+//todo limit recite items to just the last 3 orders.
 export const ReceiptScreen = () => {
   const navigation = useNavigation();
 
