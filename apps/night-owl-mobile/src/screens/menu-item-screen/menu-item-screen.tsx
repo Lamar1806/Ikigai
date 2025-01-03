@@ -107,7 +107,7 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
             </TouchableOpacity>
           </View>
         </View>
-
+        {/* todo make this a drop down section  */}
         {/* Extras Section */}
         <View style={styles.section}>
           <Text style={styles.subTitle}>Extras</Text>
@@ -121,7 +121,7 @@ export function MenuItemScreen(props: MenuItemScreenProps) {
             </View>
           ))}
         </View>
-
+        {/* todo make this a drop down section  */}
         {/* Condiments Section */}
         <View style={styles.section}>
           <Text style={styles.subTitle}>Condiments</Text>
